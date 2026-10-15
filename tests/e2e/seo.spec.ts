@@ -62,3 +62,10 @@ test('links to locale homes resolve without a redirect', async ({ page, request 
     expect(res.status(), h).toBe(200);
   }
 });
+
+test('og:locale uses language_TERRITORY values', async ({ page }) => {
+  for (const [path, value] of [['/', 'en_US'], ['/zh', 'zh_CN'], ['/pt/products', 'pt_BR'], ['/ar/about', 'ar_AR']]) {
+    await page.goto(path);
+    await expect(page.locator('meta[property="og:locale"]'), path).toHaveAttribute('content', value);
+  }
+});

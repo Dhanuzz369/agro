@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { locales, isRtl, isLocale, gtToCore } from '../../src/i18n/config';
+import { locales, isRtl, isLocale, gtToCore, ogLocale } from '../../src/i18n/config';
 import { allLanguages, nativeName } from '../../src/i18n/languages';
 import { localizePath, stripLocale, alternates } from '../../src/i18n/paths';
 
@@ -11,6 +11,9 @@ describe('config', () => {
     expect(locales.filter(isRtl)).toEqual(['ar']);
   });
   it('maps Google Translate zh-CN to core zh', () => expect(gtToCore['zh-CN']).toBe('zh'));
+  it('maps every locale to a valid og:locale', () => {
+    expect(ogLocale).toEqual({ en: 'en_US', ar: 'ar_AR', fr: 'fr_FR', es: 'es_ES', pt: 'pt_BR', ru: 'ru_RU', zh: 'zh_CN', id: 'id_ID', de: 'de_DE' });
+  });
   it('isLocale guards', () => { expect(isLocale('fr')).toBe(true); expect(isLocale('it')).toBe(false); });
 });
 
