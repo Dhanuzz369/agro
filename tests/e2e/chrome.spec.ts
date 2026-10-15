@@ -1,12 +1,13 @@
 import { test, expect } from '@playwright/test';
 
-test('english home has header, footer, quote CTA and WhatsApp', async ({ page }) => {
+test('english home has header, footer and quote CTA; no dead WhatsApp button while the number is a placeholder', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('html')).toHaveAttribute('lang', 'en');
   await expect(page.getByRole('banner')).toBeVisible();
   await expect(page.getByRole('contentinfo')).toBeVisible();
   await expect(page.getByRole('link', { name: 'Request a quote' }).first()).toBeVisible();
-  await expect(page.locator('[data-whatsapp]')).toHaveCount(1);
+  await expect(page.locator('[data-whatsapp]')).toHaveCount(0); // site.yaml whatsapp is still REPLACE:
+  await expect(page.locator('a[href^="#contact-whatsapp"]')).toHaveCount(0);
 });
 
 test('arabic home is rtl', async ({ page }) => {
