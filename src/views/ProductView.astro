@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import HsnChip from '../components/HsnChip.astro';
 import StockLabel from '../components/StockLabel.astro';
+import ProductObject from '../components/ProductObject.astro';
 import SpecTable from '../components/SpecTable.astro';
 import HarvestCalendar from '../components/HarvestCalendar.astro';
 import SouthIndiaMap from '../components/SouthIndiaMap.astro';
@@ -50,8 +51,10 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
       <Breadcrumbs locale={locale} items={crumbs} />
       <div class="pv__heroGrid">
         <div class="pv__object">
-          <Image src={p.data.heroImage.src} alt={p.text.name} widths={[480, 720, 960]} sizes="(max-width: 860px) 100vw, 50vw" loading="eager" fetchpriority="high" data-object-poster />
-          <StockLabel locale={locale} show={p.data.heroImage.isStock} />
+          <ProductObject model={p.data.model} locale={locale}>
+            <Image src={p.data.heroImage.src} alt={p.text.name} widths={[480, 720, 960]} sizes="(max-width: 860px) 100vw, 50vw" loading="eager" fetchpriority="high" data-object-poster />
+            <StockLabel locale={locale} show={p.data.heroImage.isStock} />
+          </ProductObject>
         </div>
         <div class="pv__intro">
           <h1>{p.text.name}</h1>

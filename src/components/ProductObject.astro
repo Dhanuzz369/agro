@@ -1,0 +1,36 @@
+---
+import { createT } from '../i18n/t';
+import type { Locale } from '../i18n/config';
+import type { ProductData } from '../lib/schemas';
+interface Props { model: ProductData['model']; locale: Locale }
+const { model, locale } = Astro.props;
+const t = createT(locale);
+---
+<div class="po">
+  <slot />
+  <canvas data-object-canvas data-state="idle" data-model={JSON.stringify(model)} aria-hidden="true" class="po__canvas"></canvas>
+  <span class="po__hint">{t('product.drag')}</span>
+</div>
+<script>
+  import { canRun3D, currentEnv, whenNear } from '../scripts/lazy';
+  document.querySelectorAll<HTMLCanvasElement>('[data-object-canvas]').forEach((canvas) => {
+    if (!canRun3D(currentEnv())) { canvas.dataset.state = 'off'; return; }
+    whenNear(canvas, async () => {
+      try {
+        const { mountProductObject } = await import('../scripts/product-object/scene');
+        await mountProductObject(canvas, JSON.parse(canvas.dataset.model!), { autoRotate: true });
+        canvas.dataset.state = 'on';
+      } catch {
+        canvas.dataset.state = 'off';
+      }
+    }, '200px');
+  });
+</script>
+<style>
+  .po { position: absolute; inset: 0; }
+  .po__canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0; transition: opacity var(--dur-2) var(--ease); cursor: grab; touch-action: pan-y; }
+  .po__canvas[data-state='on'] { opacity: 1; }
+  .po:has(.po__canvas[data-state='on']) :global([data-object-poster]) { opacity: 0; transition: opacity var(--dur-2) var(--ease); }
+  .po__hint { position: absolute; inset-block-end: var(--space-2); inset-inline-end: var(--space-2); font-size: 0.7rem; color: var(--ink-2); opacity: 0; }
+  .po:has(.po__canvas[data-state='on']) .po__hint { opacity: 1; }
+</style>
