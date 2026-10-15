@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { createT } from '../i18n/t';
+import { getSite } from '../lib/catalog';
+import { whatsappHref, mailtoHref, isPlaceholder } from '../lib/site';
+import type { Locale } from '../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const site = await getSite();
+const wa = whatsappHref(site.whatsapp);
+const mail = mailtoHref(site.email);
+const addr = site.address;
+const street = isPlaceholder(addr.street) ? '' : addr.street;
+const postal = isPlaceholder(addr.postalCode) ? '' : addr.postalCode;
+---
+<Base locale={locale} title={t('meta.contactTitle')} description={t('meta.contactDescription')} path="/contact" ogImage="/og/contact.png">
+  <div class="container cv">
+    <Breadcrumbs locale={locale} items={[{ name: t('nav.home'), path: '/' }, { name: t('nav.contact'), path: '/contact' }]} />
+    <div class="cv__grid">
+      <div class="cv__form">
+        <p class="eyebrow">{t('contact.eyebrow')}</p>
+        <h1>{t('contact.title')}</h1>
+        <p>{t('contact.lede')}</p>
+        <QuoteForm locale={locale} />
+      </div>
+      <aside class="cv__aside">
+        <h2>{t('contact.direct')}</h2>
+        {wa && <a class="btn btn--secondary" href={wa} target="_blank" rel="noopener">{t('cta.whatsapp')}</a>}
+        {mail && <a href={mail}>{site.email}</a>}
+        {!isPlaceholder(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr">{site.phone}</a>}
+        <h3>{t('contact.office')}</h3>
+        <address>{street && <>{street}<br /></>}{addr.city}, {addr.region} {postal}<br />India</address>
+      </aside>
+    </div>
+  </div>
+</Base>
+<style>
+  .cv { padding-block: 7.5rem var(--space-8); display: grid; gap: var(--space-6); }
+  .cv__grid { display: grid; gap: var(--space-8); grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .cv__form { display: grid; gap: var(--space-5); }
+  .cv__aside { display: grid; gap: var(--space-4); align-content: start; border-inline-start: 1px solid var(--rule); padding-inline-start: var(--space-6); }
+  address { font-style: normal; }
+  @media (max-width: 860px) { .cv__grid { grid-template-columns: 1fr; } .cv__aside { border: 0; padding: 0; } }
+</style>

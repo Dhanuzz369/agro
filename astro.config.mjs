@@ -13,7 +13,7 @@ export default defineConfig({
     mdx(),
     sitemap({
       i18n: { defaultLocale: 'en', locales: Object.fromEntries(locales.map((l) => [l, l])) },
-      filter: (page) => !page.includes('/og/') && !page.includes('/spec-sheets/'),
+      filter: (page) => !page.includes('/og/') && !page.includes('/spec-sheets/') && !page.endsWith('/thanks/'),
     }),
   ],
   image: { responsiveStyles: true },
