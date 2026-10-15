@@ -8,25 +8,25 @@ Format: file | photographer | source page | licence | exact or generic
 - src/assets/products/turmeric/alleppey-finger.jpg | Marek Piwnicki | https://unsplash.com/photos/zALm5VkUBWw | Unsplash License | generic
 - src/assets/products/turmeric/dried-finger.jpg | abhi31 | https://www.pexels.com/photo/12122270/ | Pexels License | exact
 - src/assets/products/turmeric/fresh.jpg | gilmerdiaz-27097318 | https://www.pexels.com/photo/27097318/ | Pexels License | exact
-- src/assets/products/turmeric/powder.jpg | Mockup Graphics | https://unsplash.com/photos/4kwng1w5Lwg | Unsplash License | exact
+- src/assets/products/turmeric/powder.jpg | Mockup Graphics | https://unsplash.com/photos/4kwng1w5Lwg | Unsplash License | generic (a spice powder; not verifiably turmeric)
 - src/assets/products/turmeric/salem-bulb.jpg | Dyah Miller | https://unsplash.com/photos/qSG84aqI6bs | Unsplash License | generic
 - src/assets/products/ginger/hero.jpg | ian-panelo | https://www.pexels.com/photo/20234970/ | Pexels License | exact
 - src/assets/products/ginger/fresh.jpg | enginakyurt | https://www.pexels.com/photo/10899474/ | Pexels License | exact
 - src/assets/products/ginger/dried-bleached.jpg | Chang Duong | https://unsplash.com/photos/GAqVrFAH4UM | Unsplash License | generic
 - src/assets/products/ginger/dried-unbleached.jpg | matthew-jesus-468170389 | https://www.pexels.com/photo/39220558/ | Pexels License | generic
 - src/assets/products/ginger/whole-other.jpg | engin akyurt | https://unsplash.com/photos/Pj8qDxCuMTs | Unsplash License | generic
-- src/assets/products/arecanut/hero.jpg | hartonosbg | https://www.pexels.com/photo/37636717/ | Pexels License | exact
+- src/assets/products/arecanut/hero.jpg | hartonosbg | https://www.pexels.com/photo/37636717/ | Pexels License | generic (fresh fruit on the palm floor, not the dried trade nut)
 - src/assets/products/arecanut/red-kempu.jpg | longkg2000 | https://www.pexels.com/photo/1648034/ | Pexels License | generic
 - src/assets/products/arecanut/sliced.jpg | rachel-claire-7263993 | https://www.pexels.com/photo/7263993/ | Pexels License | exact
 - src/assets/products/arecanut/split.jpg | mike-kiapinjr-1146650705 | https://www.pexels.com/photo/35506648/ | Pexels License | generic
-- src/assets/products/arecanut/whole-chali.jpg | ayomide-isaac-66354580 | https://www.pexels.com/photo/12392906/ | Pexels License | exact
-- src/assets/products/coconut-copra/hero.jpg | afdhika-ingga-80194905 | https://www.pexels.com/photo/13478129/ | Pexels License | generic
+- src/assets/products/arecanut/whole-chali.jpg | ayomide-isaac-66354580 | https://www.pexels.com/photo/12392906/ | Pexels License | generic (dried whole nuts in the husk, not dehusked chali)
+- src/assets/products/coconut-copra/hero.jpg | polina-kovaleva-7248416 | https://www.pexels.com/photo/7248416/ | Pexels License | generic (square crop of the same photo as edible-cups.jpg: halved coconut showing the kernel)
 - src/assets/products/coconut-copra/edible-cups.jpg | polina-kovaleva-7248416 | https://www.pexels.com/photo/7248416/ | Pexels License | generic
 - src/assets/products/coconut-copra/milling-copra.jpg | mo-eid-1268975 | https://www.pexels.com/photo/12309585/ | Pexels License | generic
-- src/assets/products/coconut-copra/semi-husked.jpg | cottonbro | https://www.pexels.com/photo/5608059/ | Pexels License | exact
+- src/assets/products/coconut-copra/semi-husked.jpg | cottonbro | https://www.pexels.com/photo/5608059/ | Pexels License | generic (dehusked nuts, some sprouting)
 - src/assets/products/coconut-copra/tiptur-ball-copra.jpg | cottonbro | https://www.pexels.com/photo/5608054/ | Pexels License | generic
 - src/assets/products/jaggery/hero.jpg | noemiji | https://www.pexels.com/photo/37863445/ | Pexels License | exact
-- src/assets/products/jaggery/block.jpg | jefferson-lucena-1229262 | https://www.pexels.com/photo/29748150/ | Pexels License | exact
+- src/assets/products/jaggery/block.jpg | jefferson-lucena-1229262 | https://www.pexels.com/photo/29748150/ | Pexels License | generic (blocks setting on factory trays)
 - src/assets/products/jaggery/cube.jpg | Ashwini Chaudhary (Monty) | https://unsplash.com/photos/uTMRZExOjbs | Unsplash License | generic
 - src/assets/products/jaggery/organic.jpg | quang-nguyen-vinh-222549 | https://www.pexels.com/photo/13746814/ | Pexels License | generic
 - src/assets/products/jaggery/palm-karupatti.jpg | gio shravan | https://unsplash.com/photos/eFGg8lJbRzQ | Unsplash License | generic
