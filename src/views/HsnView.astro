@@ -19,7 +19,8 @@ const varieties = product.data.varieties.filter((v) => entry.varietyIds.includes
 const path = `/hsn/${code}`;
 const abs = (x: string) => new URL(localizePath(x, locale), Astro.site).href;
 const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }, { name: `HSN ${formatHsn(code)}`, path }];
-const answer = `${entry.text.description} (HSN ${code})`;
+// the answer must carry the raw code; only append it when the description does not already state it
+const answer = entry.text.description.includes(code) ? entry.text.description : `${entry.text.description} (HSN ${code})`;
 ---
 <Base locale={locale} title={t('meta.hsnTitle', { code: formatHsn(code), title: entry.text.title })} description={entry.text.description} path={path} ogImage={`/og/hsn/${code}.png`}
   jsonLd={[faqLd(entry.text.faq), breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) })))]}>
