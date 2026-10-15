@@ -148,10 +148,11 @@ test('script-specific fonts apply on zh, ar and ru pages', async ({ page }) => {
   expect(await h1Font('/')).not.toContain('Noto Sans SC');
 });
 
-test('zh pages load only the 400 Noto Sans SC stylesheet', async ({ page }) => {
+test('zh pages load only the 400 Noto Sans SC stylesheet, after the load event', async ({ page }) => {
   await page.goto('/zh');
-  const sheets = await page.locator('link[rel="stylesheet"][href^="/fonts/sc/"]').evaluateAll((ls) => ls.map((l) => l.getAttribute('href')));
-  expect(sheets).toEqual(['/fonts/sc/400.css']);
+  const sheets = () => page.locator('link[rel="stylesheet"][href^="/fonts/sc/"]').evaluateAll((ls) => ls.map((l) => l.getAttribute('href')));
+  await expect.poll(sheets).toEqual(['/fonts/sc/400.css']);
+  await expect.poll(() => page.evaluate(() => [...document.fonts].some((f) => f.family.replace(/"/g, '') === 'Noto Sans SC' && f.status === 'loaded'))).toBe(true);
 });
 
 test('on phones the suggestion banner hides the floating language button instead of stacking over the hero', async ({ browser }) => {

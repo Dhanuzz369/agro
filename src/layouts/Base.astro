@@ -31,7 +31,10 @@ const onVercel = Boolean(process.env.VERCEL);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1F3D2B" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    {locale === 'zh' && <link rel="stylesheet" href="/fonts/sc/400.css" />}
+    {/* Noto Sans SC is ~700 KB of unicode-range slices for a zh page: fetch it after load so text paints at once in the
+         system CJK font and swaps in, instead of every slice competing with the LCP. */}
+    {locale === 'zh' && <script is:inline>addEventListener('load', () => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '/fonts/sc/400.css'; document.head.append(l); });</script>}
+    {locale === 'zh' && <noscript><link rel="stylesheet" href="/fonts/sc/400.css" /></noscript>}
     <SeoHead locale={locale} jsonLd={ld} {...seo} />
     <slot name="head" />
     {onVercel && <script is:inline defer src="/_vercel/insights/script.js"></script>}
