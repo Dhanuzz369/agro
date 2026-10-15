@@ -14,6 +14,15 @@ async function loadPixels(url: string, size = 220) {
   c.height = ratio >= 1 ? Math.round(size / ratio) : size;
   const ctx = c.getContext('2d', { willReadFrequently: true })!;
   ctx.drawImage(img, 0, 0, c.width, c.height);
+  // photos have no alpha: dissolve the edges so each shape becomes an organic cloud
+  const r = Math.hypot(c.width, c.height) / 2;
+  const g = ctx.createRadialGradient(c.width / 2, c.height / 2, r * 0.55, c.width / 2, c.height / 2, r);
+  g.addColorStop(0, 'rgba(0,0,0,1)');
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.globalCompositeOperation = 'destination-in';
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, c.width, c.height);
+  ctx.globalCompositeOperation = 'source-over';
   return ctx.getImageData(0, 0, c.width, c.height);
 }
 
@@ -43,21 +52,23 @@ const fragment = /* glsl */ `
   }`;
 
 export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]): Promise<() => void> {
+  // load shapes first so a failed image load never leaks a WebGL context
+  const shapes = [];
+  for (const [i, url] of imageUrls.entries()) shapes.push(sampleImage(await loadPixels(url), COUNT, { seed: i + 1, spread: 6.5 }));
+  if (!shapes.length) throw new Error('no hero images');
+
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: true, powerPreference: 'low-power' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(40, 1, 0.1, 100);
   camera.position.z = 9;
 
-  const shapes = [];
-  for (const [i, url] of imageUrls.entries()) shapes.push(sampleImage(await loadPixels(url), COUNT, { seed: i + 1, spread: 6.5 }));
-
   const geo = new THREE.BufferGeometry();
   geo.setAttribute('position', new THREE.BufferAttribute(shapes[0].positions.slice(), 3));
-  geo.setAttribute('aFrom', new THREE.BufferAttribute(shapes[0].positions, 3));
-  geo.setAttribute('aTo', new THREE.BufferAttribute(shapes[Math.min(1, shapes.length - 1)].positions, 3));
-  geo.setAttribute('cFrom', new THREE.BufferAttribute(shapes[0].colors, 3));
-  geo.setAttribute('cTo', new THREE.BufferAttribute(shapes[Math.min(1, shapes.length - 1)].colors, 3));
+  geo.setAttribute('aFrom', new THREE.BufferAttribute(shapes[0].positions.slice(), 3));
+  geo.setAttribute('aTo', new THREE.BufferAttribute(shapes[Math.min(1, shapes.length - 1)].positions.slice(), 3));
+  geo.setAttribute('cFrom', new THREE.BufferAttribute(shapes[0].colors.slice(), 3));
+  geo.setAttribute('cTo', new THREE.BufferAttribute(shapes[Math.min(1, shapes.length - 1)].colors.slice(), 3));
 
   const uniforms = { uMix: { value: 0 }, uTime: { value: 0 }, uPointer: { value: new THREE.Vector2() }, uSize: { value: 28 * renderer.getPixelRatio() } };
   const mat = new THREE.ShaderMaterial({ vertexShader: vertex, fragmentShader: fragment, uniforms, transparent: true, depthWrite: false });
@@ -69,7 +80,8 @@ export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]):
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
-    points.position.x = w > 860 ? 1.8 : 0;
+    const dir = getComputedStyle(canvas).direction === 'rtl' ? -1 : 1;
+    points.position.x = w > 860 ? 1.8 * dir : 0;
   }
   resize();
   const ro = new ResizeObserver(resize);
@@ -83,7 +95,7 @@ export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]):
   const section = canvas.closest('section')!;
   let stage = 0;
   function setStage(next: number) {
-    if (next === stage || next >= shapes.length - 1 && stage === shapes.length - 2) return;
+    if (next === stage || (next >= shapes.length - 1 && stage === shapes.length - 2)) return;
     const from = shapes[Math.max(0, Math.min(next, shapes.length - 2))];
     const to = shapes[Math.max(1, Math.min(next + 1, shapes.length - 1))];
     (geo.getAttribute('aFrom') as THREE.BufferAttribute).set(from.positions); geo.getAttribute('aFrom').needsUpdate = true;

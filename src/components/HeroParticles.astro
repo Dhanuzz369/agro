@@ -29,7 +29,7 @@ const { images, poster, alt } = Astro.props;
 </script>
 <style>
   .hp { position: absolute; inset: 0; overflow: hidden; }
-  .hp__poster { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; opacity: 0.55; transition: opacity var(--dur-2) var(--ease); }
+  .hp__poster { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; opacity: 0.35; transition: opacity var(--dur-2) var(--ease); }
   .hp__canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0; transition: opacity var(--dur-2) var(--ease); }
   .hp__canvas[data-state='on'] { opacity: 1; }
   .hp:has(.hp__canvas[data-state='on']) .hp__poster { opacity: 0.12; }
