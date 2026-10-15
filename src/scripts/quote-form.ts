@@ -37,6 +37,12 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     return { product: p?.name ?? i.product, variety: p?.varieties.find((v) => v.id === i.variety)?.name ?? '' };
   };
 
+  // Move focus to the outcome heading so keyboard and screen-reader users land on the result.
+  const setState = (state: 'success' | 'error') => {
+    form.dataset.formState = state;
+    form.querySelector<HTMLElement>(`[data-show="${state}"] [data-status-heading]`)?.focus();
+  };
+
   const showErrors = (errors: Partial<Record<string, string>>) => {
     form.querySelectorAll<HTMLElement>('.qf__err').forEach((el) => { el.textContent = ''; });
     form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
@@ -66,7 +72,7 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     const input = read();
     const result = validateQuote(input, Date.now());
     if (!result.ok) {
-      if (result.spam) { form.dataset.formState = 'success'; return; } // silently drop bots
+      if (result.spam) { setState('success'); return; } // silently drop bots
       showErrors(result.errors);
       return;
     }
@@ -83,12 +89,12 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     busy = false;
     button.textContent = msgs.submit;
     button.removeAttribute('aria-busy');
-    if (status === 'ok') { form.dataset.formState = 'success'; return; }
+    if (status === 'ok') { setState('success'); return; }
     const text = summarizeQuote(input, labels);
     const wa = form.querySelector<HTMLAnchorElement>('[data-fallback="whatsapp"]');
     if (wa && form.dataset.wa) wa.href = `${form.dataset.wa}?text=${encodeURIComponent(text)}`;
     const mail = form.querySelector<HTMLAnchorElement>('[data-fallback="email"]');
     if (mail && form.dataset.mail) mail.href = `${form.dataset.mail}?subject=${encodeURIComponent(`Quote request: ${labels.product}`)}&body=${encodeURIComponent(text)}`;
-    form.dataset.formState = 'error';
+    setState('error');
   });
 }

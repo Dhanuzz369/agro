@@ -45,26 +45,40 @@ export function summarizeQuote(i: QuoteInput, labels: { product: string; variety
   ].filter(Boolean).join('\n');
 }
 
+export const SUBMIT_TIMEOUT_MS = 15_000;
+
 export async function submitQuote(fetchFn: typeof fetch, accessKey: string, input: QuoteInput, labels: { product: string; variety: string }): Promise<'ok' | 'error'> {
   const { botcheck: _b, startedAt: _s, ...fields } = input;
+  // A hung request must not leave the buyer staring at "Sending…": abort after 15 s and show the fallbacks.
+  const ctrl = new AbortController();
+  let timer: ReturnType<typeof setTimeout> | undefined;
+  const timedOut = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => { ctrl.abort(); reject(new Error('timeout')); }, SUBMIT_TIMEOUT_MS);
+  });
   try {
-    const res = await fetchFn('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: `Quote request: ${labels.product}${labels.variety ? ` — ${labels.variety}` : ''} (${input.country})`,
-        from_name: 'GoodBiz Agri website',
-        ...fields,
-        product: labels.product,
-        variety: labels.variety,
-        summary: summarizeQuote(input, labels),
-      }),
-    });
-    if (!res.ok) return 'error';
-    const data = (await res.json()) as { success?: boolean };
-    return data.success ? 'ok' : 'error';
+    const send = async () => {
+      const res = await fetchFn('https://api.web3forms.com/submit', {
+        method: 'POST',
+        signal: ctrl.signal,
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: accessKey,
+          subject: `Quote request: ${labels.product}${labels.variety ? ` — ${labels.variety}` : ''} (${input.country})`,
+          from_name: 'GoodBiz Agri website',
+          ...fields,
+          product: labels.product,
+          variety: labels.variety,
+          summary: summarizeQuote(input, labels),
+        }),
+      });
+      if (!res.ok) return 'error' as const;
+      const data = (await res.json()) as { success?: boolean };
+      return data.success ? ('ok' as const) : ('error' as const);
+    };
+    return await Promise.race([send(), timedOut]);
   } catch {
     return 'error';
+  } finally {
+    clearTimeout(timer);
   }
 }

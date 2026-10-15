@@ -77,10 +77,10 @@ const mailBase = mailtoHref(site.email) ?? '';
   <button class="btn btn--primary" type="submit">{t('form.submit')}</button>
 
   <div class="qf__status qf__status--success" role="status" data-show="success">
-    <h3>{t('form.success.title')}</h3><p>{t('form.success.body')}</p>
+    <h3 tabindex="-1" data-status-heading>{t('form.success.title')}</h3><p>{t('form.success.body')}</p>
   </div>
   <div class="qf__status qf__status--error" role="alert" data-show="error">
-    <h3>{t('form.error.title')}</h3><p>{t('form.error.body')}</p>
+    <h3 tabindex="-1" data-status-heading>{t('form.error.title')}</h3><p>{t('form.error.body')}</p>
     <div class="qf__fallbacks">
       {waBase && <a class="btn btn--secondary" data-fallback="whatsapp" href={waBase} target="_blank" rel="noopener">{t('form.error.whatsapp')}</a>}
       {mailBase && <a class="btn btn--ghost" data-fallback="email" href={mailBase}>{t('form.error.email')}</a>}

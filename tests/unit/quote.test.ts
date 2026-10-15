@@ -72,3 +72,24 @@ describe('submitQuote', () => {
     expect(await submitQuote(f as any, 'key', base, labels)).toBe('error');
   });
 });
+
+describe('submitQuote timeout', () => {
+  const labels = { product: 'Turmeric', variety: 'Turmeric powder' };
+  it('gives up after 15 s on a request that never settles and aborts it', async () => {
+    vi.useFakeTimers();
+    try {
+      let signal: AbortSignal | undefined;
+      const never = vi.fn((_url: string, init: RequestInit) => { signal = init.signal ?? undefined; return new Promise<Response>(() => {}); });
+      let settled: string | undefined;
+      const p = submitQuote(never as any, 'key', base, labels).then((s) => (settled = s));
+      await vi.advanceTimersByTimeAsync(14_999);
+      expect(settled).toBeUndefined();
+      await vi.advanceTimersByTimeAsync(1);
+      await p;
+      expect(settled).toBe('error');
+      expect(signal?.aborted).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+});

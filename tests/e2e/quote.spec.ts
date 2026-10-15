@@ -37,6 +37,7 @@ test('double click sends exactly one request and shows success', async ({ page }
   const btn = page.getByRole('button', { name: 'Send quote request' });
   await btn.dblclick();
   await expect(page.locator('[data-form-state="success"]')).toBeVisible();
+  await expect(page.locator('[data-show="success"] h3')).toBeFocused();
   expect(calls).toBe(1);
 });
 
@@ -45,6 +46,7 @@ test('service failure shows the error state (no dead fallback links while contac
   await fill(page);
   await page.getByRole('button', { name: 'Send quote request' }).click();
   await expect(page.locator('[data-form-state="error"]')).toBeVisible();
+  await expect(page.locator('[data-show="error"] h3')).toBeFocused();
   await expect(page.locator('[data-fallback="email"]')).toHaveCount(0); // site.yaml email is a placeholder
   await expect(page.locator('a[href="#"]')).toHaveCount(0);
 });
