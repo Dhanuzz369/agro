@@ -95,16 +95,18 @@ export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]):
     if (w > 860) {
       // side-by-side: the cloud sits in the inline-end third, clear of the headline column
       const visibleW = 2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.aspect;
-      points.position.x = visibleW * 0.28 * dir;
-      points.scale.setScalar(0.8);
+      // laptops (861–1279px) have a wider headline relative to the stage, so the cloud shrinks and moves out further
+      const laptop = w < 1280;
+      points.position.set(visibleW * (laptop ? 0.31 : 0.28) * dir, 0, 0);
+      points.scale.setScalar(laptop ? 0.62 : 0.8);
       uniforms.uFade.value.set(0.45, 0.65);
       uniforms.uFloor.value = 0.15;
     } else {
-      // stacked: the copy covers the whole width, so the cloud stays behind it at low strength
-      points.position.x = 0;
+      // stacked: the copy covers the whole width, so the cloud sits high (behind the headline) at low strength
+      points.position.set(0, 0.9, 0);
       points.scale.setScalar(0.9);
       uniforms.uFade.value.set(2, 3);
-      uniforms.uFloor.value = 0.4;
+      uniforms.uFloor.value = 0.28;
     }
   }
   resize();
