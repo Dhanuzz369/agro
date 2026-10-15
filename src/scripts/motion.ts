@@ -16,8 +16,17 @@ async function init() {
   const lenis = new Lenis({ lerp: 0.1, autoRaf: true });
   document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
-      const target = document.querySelector<HTMLElement>(a.getAttribute('href')!);
-      if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80 }); }
+      const href = a.getAttribute('href') ?? '';
+      if (href.length < 2 || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      let id: string;
+      try { id = decodeURIComponent(href.slice(1)); } catch { return; }
+      const target = document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      lenis.scrollTo(target, { offset: -80 });
+      history.pushState(null, '', href);
+      if (!target.hasAttribute('tabindex') && !target.matches('a[href],button,input,select,textarea,[contenteditable]')) target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
     });
   });
 
@@ -65,13 +74,21 @@ async function init() {
   if (window.matchMedia('(min-width: 1024px)').matches) {
     document.querySelectorAll<HTMLElement>('[data-pin]').forEach((track) => {
       const steps = [...track.querySelectorAll<HTMLElement>('[data-pin-step]')];
-      steps.forEach((s, i) => { s.style.opacity = i === 0 ? '1' : '0.2'; });
-      scroll((progress: number) => {
-        const active = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+      let lastActive = -1;
+      const apply = (active: number, instant: boolean) => {
         steps.forEach((s, i) => {
-          const target = i === active ? 1 : i < active ? 0.35 : 0.2;
-          if (s.style.opacity !== String(target)) animate(s, { opacity: target, y: i === active ? 0 : i < active ? -6 : 6 }, { duration: 0.6, ease: EASE });
+          const opacity = i === active ? 1 : i < active ? 0.35 : 0.2;
+          const y = i === active ? 0 : i < active ? -6 : 6;
+          animate(s, { opacity, y }, { duration: instant ? 0 : 0.6, ease: EASE });
         });
+      };
+      apply(0, true);
+      lastActive = 0;
+      scroll((progress: number) => {
+        const active = Math.min(steps.length - 1, Math.max(0, Math.floor(progress * steps.length)));
+        if (active === lastActive) return;
+        lastActive = active;
+        apply(active, false);
       }, { target: track, offset: ['start start', 'end end'] });
     });
   }
