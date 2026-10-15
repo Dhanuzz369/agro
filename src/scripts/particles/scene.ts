@@ -102,11 +102,11 @@ export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]):
       uniforms.uFade.value.set(0.45, 0.65);
       uniforms.uFloor.value = 0.15;
     } else {
-      // stacked: the copy covers the whole width, so the cloud sits high (behind the headline) at low strength
+      // stacked: the copy covers the whole width, so the cloud sits high and faint enough for the 12px eyebrow to read over it
       points.position.set(0, 0.9, 0);
       points.scale.setScalar(0.9);
       uniforms.uFade.value.set(2, 3);
-      uniforms.uFloor.value = 0.28;
+      uniforms.uFloor.value = 0.16;
     }
   }
   resize();
