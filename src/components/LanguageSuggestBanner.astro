@@ -13,7 +13,10 @@ const strings = Object.fromEntries(available.map((l) => {
   <p data-text></p>
   {/* real href until the script points it at the suggested language: crawlable, never a dead "#" */}
   <a class="btn btn--secondary" data-yes href={localizePath(path, locale)}></a>
-  <button type="button" class="btn btn--ghost" data-dismiss></button>
+  <button type="button" class="btn btn--ghost lsb__no" data-dismiss>
+    <span data-no-text></span>
+    <svg class="lsb__x" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
+  </button>
 </div>
 <script>
   import { suggestLocale, safeStorage } from '../lib/lang-switch';
@@ -33,7 +36,7 @@ const strings = Object.fromEntries(available.map((l) => {
       yes.href = localizePath(stripLocale(location.pathname).path, target);
       yes.addEventListener('click', () => safeStorage.set('gb.lang', target));
       const no = el.querySelector<HTMLButtonElement>('[data-dismiss]')!;
-      no.textContent = s.no;
+      no.querySelector('[data-no-text]')!.textContent = s.no;
       no.addEventListener('click', () => { safeStorage.set('gb.suggest.dismissed', '1'); el.hidden = true; });
       el.hidden = false;
     }
@@ -46,4 +49,17 @@ const strings = Object.fromEntries(available.map((l) => {
     box-shadow: var(--shadow-2); border-radius: var(--radius-card); }
   .lsb[hidden] { display: none; }
   .lsb p { flex: 1 1 12rem; font-weight: 500; }
+  .lsb__x { display: none; }
+  /* phones: one compact row docked at the very bottom, so it stays clear of the hero CTAs
+     (hero keeps 72px below them); the floating language and WhatsApp buttons lift above it while it shows */
+  @media (max-width: 480px) {
+    .lsb { inset-block-end: 0; inset-inline: 0; max-inline-size: none; flex-wrap: nowrap; gap: var(--space-2);
+      padding: var(--space-2) var(--space-2) calc(var(--space-2) + env(safe-area-inset-bottom)) var(--space-4); border-radius: var(--radius-card) var(--radius-card) 0 0; }
+    .lsb p { flex: 1 1 auto; min-inline-size: 0; font-size: var(--step--1); line-height: 1.3; }
+    .lsb .btn { inline-size: auto; min-block-size: 44px; padding-inline: var(--space-4); font-size: var(--step--1); white-space: nowrap; }
+    .lsb .lsb__no { inline-size: 44px; padding: 0; border-color: transparent; }
+    .lsb__no [data-no-text] { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .lsb__x { display: block; }
+    :global(body:has(.lsb:not([hidden])) .wa), :global(body:has(.lsb:not([hidden])) .ls__pill) { inset-block-end: calc(4.25rem + env(safe-area-inset-bottom)); }
+  }
 </style>
