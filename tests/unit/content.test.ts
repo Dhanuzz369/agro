@@ -3,7 +3,7 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname, resolve } from 'node:path';
 import { parse } from 'yaml';
 import { z } from 'astro/zod';
-import { productSchema, siteSchema } from '../../src/lib/schemas';
+import { productSchema, siteSchema, productTextSchema, hsnTextSchema } from '../../src/lib/schemas';
 
 const dir = 'src/content/products';
 const slugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric'];
@@ -47,5 +47,19 @@ describe('products', () => {
 describe('site', () => {
   it('matches schema', () => {
     expect(() => siteSchema.parse(parse(readFileSync('src/content/site.yaml', 'utf8')))).not.toThrow();
+  });
+});
+
+describe('english text', () => {
+  for (const slug of slugs) {
+    it(`products-i18n/en/${slug} names every variety`, () => {
+      const text = productTextSchema.parse(parse(readFileSync(`src/content/products-i18n/en/${slug}.yaml`, 'utf8')));
+      const data = productSchema(imageStub).parse(parse(readFileSync(join(dir, `${slug}.yaml`), 'utf8')));
+      expect(Object.keys(text.varieties).sort()).toEqual(data.varieties.map((v) => v.id).sort());
+    });
+  }
+  it('has an hsn-i18n/en file per HSN code', () => {
+    const codes = ['09101110','09101120','09101130','09101190','09103010','09103020','09103030','100640','1006','10063099','120242','1701','80280','8011220'];
+    for (const c of codes) hsnTextSchema.parse(parse(readFileSync(`src/content/hsn-i18n/en/${c}.yaml`, 'utf8')));
   });
 });

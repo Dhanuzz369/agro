@@ -1,0 +1,7 @@
+reviewStatus: reviewed
+title: Non-basmati rice, other (semi or wholly milled)
+description: HSN 10063099 covers semi-milled or wholly milled non-basmati rice not specified elsewhere.
+notes: Commonly used for IR64, Swarna and IR36 in white and parboiled forms.
+faq:
+  - { q: "Which products use 10063099?", a: "Bulk non-basmati grades such as IR64, Swarna and IR36." }
+  - { q: "Does parboiled rice use this code?", a: "Parboiled rice has its own sub-heading in some tariff schedules; confirm with your broker." }

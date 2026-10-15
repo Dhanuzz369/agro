@@ -1,0 +1,14 @@
+reviewStatus: reviewed
+name: Coconut and Copra
+summary: GoodBiz Agri exports semi-husked coconuts and copra (kobre) — Tiptur ball copra, milling copra and edible cups — sourced from Tiptur and Tumakuru in Karnataka and Pollachi in Tamil Nadu.
+originLine: Tiptur, Tumakuru and Pollachi
+sourcingStory: Tiptur in Tumakuru district is famous for ball copra — whole kernels dried slowly inside the shell for a sweet, white result. We buy it there, milling copra from Tumakuru traders and fresh semi-husked coconuts from Pollachi's year-round market.
+varieties:
+  semi-husked: { name: "Semi-husked coconut", description: "Mature nuts with partial husk, packed in mesh bags." }
+  tiptur-ball-copra: { name: "Tiptur ball copra", description: "Whole, slow-dried edible copra with a sweet white kernel." }
+  milling-copra: { name: "Milling copra", description: "Cup copra for oil extraction." }
+  edible-cups: { name: "Edible copra cups", description: "Half cups for food use." }
+faq:
+  - { q: "What is the HSN code for copra?", a: "Coconut and copra fall under HSN heading 0801. We are confirming the exact 8-digit line for each product." }
+  - { q: "What is Tiptur ball copra?", a: "Copra dried whole inside the shell for up to a year, giving a sweet, white kernel prized in the Gulf and South Asia." }
+  - { q: "Are coconuts available year-round?", a: "Yes. Pollachi supplies semi-husked coconuts throughout the year." }

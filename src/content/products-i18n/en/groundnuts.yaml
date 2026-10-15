@@ -1,0 +1,13 @@
+reviewStatus: reviewed
+name: Groundnuts
+summary: GoodBiz Agri exports shelled groundnuts (peanuts) — bold runner, Java and blanched in counts from 38/42 to 80/90 — sourced from Chitradurga in Karnataka, Anantapur in Andhra Pradesh and Tiruvannamalai in Tamil Nadu.
+originLine: Chitradurga, Anantapur and Tiruvannamalai
+sourcingStory: The dry Deccan plateau around Anantapur and Chitradurga is one of India's largest groundnut regions. We buy kernels after harvest, sort them by count and test for aflatoxin before packing.
+varieties:
+  bold-runner: { name: "Bold (runner)", description: "Large, elongated kernels for roasting and snacks." }
+  java: { name: "Java (Spanish)", description: "Round, high-oil kernels for confectionery and crushing." }
+  blanched: { name: "Blanched", description: "Skin removed, whole or split, low aflatoxin." }
+faq:
+  - { q: "What is the HSN code for groundnut kernels?", a: "Shelled groundnuts are classified under HSN 1202 42. We are confirming the 8-digit line." }
+  - { q: "Can you meet EU aflatoxin limits?", a: "Yes, with sorted lots and third-party testing to ≤ 4 ppb total aflatoxin on request." }
+  - { q: "What counts are available?", a: "38/42 to 80/90 kernels per ounce, depending on variety." }

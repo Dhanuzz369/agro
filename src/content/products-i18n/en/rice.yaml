@@ -1,0 +1,17 @@
+reviewStatus: reviewed
+name: South Indian Rice
+summary: GoodBiz Agri exports South Indian specialty rice under HSN 1006 — Sona Masoori (raw and steam), Ponni, Kerala Matta, Seeraga Samba and idli rice — milled in Raichur, Mandya, Thanjavur and Palakkad.
+originLine: Raichur, Mandya, Thanjavur and Palakkad mills
+sourcingStory: South India's rice is lighter and more varied than the long-grain types most buyers know. We buy Sona Masoori from the Tungabhadra command area around Raichur, Ponni and Seeraga Samba from the Kaveri delta mills of Thanjavur, and Matta from Palakkad, matching each lot to the dish and market it is for.
+varieties:
+  sona-masoori-raw: { name: "Sona Masoori (raw)", description: "Light, medium-grain rice, the everyday staple of South Indian kitchens." }
+  sona-masoori-steam: { name: "Sona Masoori (steam)", description: "Steamed before milling for firmer grains and longer shelf life." }
+  ponni: { name: "Ponni", description: "Soft, medium-grain Tamil Nadu rice preferred across Southeast Asia and the Gulf." }
+  kerala-matta: { name: "Kerala Matta", description: "Red-bran parboiled rice from Palakkad with a nutty taste." }
+  seeraga-samba: { name: "Seeraga Samba", description: "Small, aromatic grain used for biryani in Tamil Nadu." }
+  idli-rice: { name: "Idli rice", description: "Short, bold parboiled rice for idli and dosa batter." }
+faq:
+  - { q: "What is the HSN code for Sona Masoori rice?", a: "Rice falls under HSN 1006; milled non-basmati rice such as Sona Masoori is typically declared under 10063090 sub-headings. Confirm the 8-digit line with your broker." }
+  - { q: "What is the difference between raw and steam Sona Masoori?", a: "Steam rice is lightly steamed before milling, giving firmer cooked grains and longer storage life." }
+  - { q: "Can you supply private-label retail bags?", a: "Yes, in 5, 10 and 25 kg BOPP or jute bags with your branding." }
+  - { q: "What is the minimum order?", a: "One 20 ft container, about 25–26 tonnes." }

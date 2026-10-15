@@ -1,0 +1,15 @@
+reviewStatus: reviewed
+name: Ginger
+summary: GoodBiz Agri exports fresh ginger (HSN 09101110), dried unbleached ginger (09101120), dried bleached ginger (09101130) and other whole ginger (09101190) from Wayanad in Kerala and Kodagu and Hassan in Karnataka.
+originLine: Wayanad, Kodagu and Hassan — the Western Ghats ginger belt
+sourcingStory: Ginger grown on the slopes of the Western Ghats is known for its pungency and oil content. We buy fresh ginger from Wayanad growers during harvest and dried ginger through Kochi's spice trade, where the "Cochin ginger" grade has been traded for centuries.
+varieties:
+  fresh: { name: "Fresh ginger", description: "Washed and air-dried hands, packed in cartons or mesh bags for reefer shipment." }
+  dried-unbleached: { name: "Dried unbleached ginger", description: "Peeled, sun-dried ginger with natural colour." }
+  dried-bleached: { name: "Dried bleached ginger", description: "Lime-bleached for a pale, uniform appearance." }
+  whole-other: { name: "Whole dried ginger (other)", description: "Whole ginger neither crushed nor ground, to buyer grade." }
+faq:
+  - { q: "What is the HSN code for dried ginger?", a: "Dried unbleached ginger is HSN 09101120 and dried bleached ginger is 09101130. Fresh ginger is 09101110." }
+  - { q: "How is fresh ginger shipped?", a: "In 40 ft reefer containers at about 12–13 °C, holding around 26 tonnes." }
+  - { q: "When is the ginger harvest?", a: "December to March. Dried ginger is available year-round from stock." }
+  - { q: "What is the minimum order?", a: "One 20 ft container for dried ginger, or one 40 ft reefer for fresh ginger." }

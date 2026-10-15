@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: Groundnuts, shelled
+description: HSN 1202 42 covers groundnuts (peanuts), shelled, whether or not broken, not roasted or otherwise cooked.
+notes: The code is shown as supplied and is under verification for the 8-digit line.
+faq:
+  - { q: "Does this cover blanched kernels?", a: "Blanched kernels that are not roasted are generally included; confirm with your broker." }
+  - { q: "Which varieties do you supply?", a: "Bold (runner), Java (Spanish) and blanched kernels." }

@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: Coconuts and copra
+description: Coconuts and copra are classified under HSN heading 0801 (coconuts) and related lines for dried kernel.
+notes: The code is shown as supplied and is under verification. Copra may be classified under a separate heading in some schedules.
+faq:
+  - { q: "Which coconut products do you export?", a: "Semi-husked coconuts, Tiptur ball copra, milling copra and edible copra cups." }
+  - { q: "Why is the code under verification?", a: "Classification differs between fresh coconut and dried copra; we are confirming each line." }

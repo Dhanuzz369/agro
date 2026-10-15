@@ -1,0 +1,13 @@
+reviewStatus: reviewed
+name: Broken Rice
+summary: GoodBiz Agri exports 100% broken rice under HSN 100640 — white, parboiled and sortexed — from mills in the Godavari delta, Nellore and Raichur.
+originLine: Godavari delta, Nellore and Raichur mills
+sourcingStory: Broken rice is a staple in Senegal, the Gambia and much of West Africa, and a key input for brewing and feed. We buy it from the same mills that supply our whole-grain rice, so moisture and cleanliness meet the same standard.
+varieties:
+  white-100: { name: "100% white broken", description: "Clean white brokens for food markets." }
+  parboiled: { name: "Parboiled broken", description: "Parboiled brokens with a firmer texture." }
+  sortexed: { name: "Sortexed broken", description: "Colour-sorted for uniform appearance and fewer damaged grains." }
+faq:
+  - { q: "What is the HSN code for broken rice?", a: "Broken rice is classified under HSN 100640." }
+  - { q: "Who buys broken rice?", a: "Food importers in West Africa and Asia, breweries and animal-feed producers." }
+  - { q: "What is the minimum order?", a: "Five 20 ft containers." }
