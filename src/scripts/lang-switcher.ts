@@ -17,18 +17,23 @@ if (root) {
     for (const o of options) o.closest('li')!.hidden = !!q && !o.dataset.search!.includes(q);
   });
 
-  let inFlight = false;
-  function machineTranslate(code: string) {
-    if (inFlight) return;
-    inFlight = true;
+  let inFlight = false; // true only while element.js is loading
+  let loaded = false; // Translate element initialised on this page
+  /** Returns true when the pick was acted on. */
+  function machineTranslate(code: string): boolean {
+    if (inFlight) return false;
     document.cookie = googTransCookie(code, document.documentElement.lang.split('-')[0]);
-    const fallback = () => { location.href = machineFallbackUrl(code, location.href); };
+    if (loaded) { location.reload(); return true; }
+    inFlight = true;
+    const fallback = () => { inFlight = false; location.href = machineFallbackUrl(code, location.href); };
     const timer = setTimeout(fallback, 4000);
     (window as unknown as Record<string, unknown>).gbTranslateInit = () => {
       clearTimeout(timer);
       const g = (window as unknown as { google?: { translate?: { TranslateElement?: new (o: object, id: string) => unknown } } }).google;
       if (!g?.translate?.TranslateElement) return fallback();
       new g.translate.TranslateElement({ pageLanguage: document.documentElement.lang.split('-')[0], autoDisplay: false }, 'google_translate_element');
+      loaded = true;
+      inFlight = false;
       dialog.close();
     };
     const s = document.createElement('script');
@@ -36,18 +41,19 @@ if (root) {
     s.async = true;
     s.onerror = () => { clearTimeout(timer); fallback(); };
     document.head.append(s);
+    return true;
   }
 
   for (const o of options) {
     o.addEventListener('click', () => {
       const code = o.dataset.code!;
-      safeStorage.set('gb.lang', code);
       const target = resolveTarget(code, location.pathname, available);
       if (target.type === 'core') {
+        safeStorage.set('gb.lang', code);
         document.cookie = 'googtrans=; path=/; max-age=0';
         location.href = target.href + location.search;
       } else {
-        machineTranslate(target.gtCode);
+        if (machineTranslate(target.gtCode)) safeStorage.set('gb.lang', code);
       }
     });
   }

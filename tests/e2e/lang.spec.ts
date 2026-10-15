@@ -70,6 +70,28 @@ test('core pages with no machine choice never load element.js', async ({ page })
   expect(loaded).toBe(false);
 });
 
+test('re-picking a machine language reloads with the new language, one element.js per load', async ({ page, context }) => {
+  await page.unroute('**/translate_a/element.js*');
+  let requests = 0;
+  await page.route('**/translate_a/element.js*', (r) => {
+    requests++;
+    return r.fulfill({ contentType: 'text/javascript', body: 'window.google={translate:{TranslateElement:function(){}}}; window.gbTranslateInit && window.gbTranslateInit();' });
+  });
+  const cookie = async () => (await context.cookies()).find((c) => c.name === 'googtrans')?.value ?? '';
+  await page.goto('/about');
+  await page.locator('[data-lang-open]').click();
+  await page.locator('[data-lang-option][data-code="tr"]').click();
+  await expect(page.getByRole('dialog')).toBeHidden();
+  expect(await cookie()).toMatch(/\/tr$/);
+  expect(requests).toBe(1);
+  await page.locator('[data-lang-open]').click();
+  const reloaded = page.waitForEvent('load');
+  await page.locator('[data-lang-option][data-code="sw"]').click();
+  await reloaded;
+  expect(await cookie()).toMatch(/\/sw$/);
+  await expect.poll(() => requests).toBe(2); // one per page load
+});
+
 test('switcher works when storage is blocked', async ({ browser }) => {
   const ctx = await browser.newContext();
   const page = await ctx.newPage();
