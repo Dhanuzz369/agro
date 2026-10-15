@@ -30,6 +30,6 @@ export function machineFallbackUrl(gtCode: string, pageUrl: string): string {
   return `https://translate.google.com/translate?sl=auto&tl=${encodeURIComponent(gtCode)}&u=${encodeURIComponent(pageUrl)}`;
 }
 
-export function googTransCookie(gtCode: string): string {
-  return `googtrans=/en/${gtCode}; path=/; SameSite=Lax`;
+export function googTransCookie(gtCode: string, source = 'en'): string {
+  return `googtrans=/${source}/${gtCode}; path=/; SameSite=Lax`;
 }

@@ -53,6 +53,23 @@ test('blocked translate script falls back to translate.google.com', async ({ pag
   await expect.poll(() => fallbackUrl, { timeout: 8000 }).toContain('tl=tr');
 });
 
+test('a saved machine language is re-applied on page load', async ({ context, page, baseURL }) => {
+  await context.addCookies([{ name: 'googtrans', value: '/en/tr', url: baseURL! }]);
+  let fallbackUrl = '';
+  await page.route('https://translate.google.com/translate?**', (r) => { fallbackUrl = r.request().url(); return r.fulfill({ body: 'ok' }); });
+  await page.goto('/about');
+  await expect.poll(() => fallbackUrl, { timeout: 8000 }).toContain('tl=tr');
+});
+
+test('core pages with no machine choice never load element.js', async ({ page }) => {
+  let loaded = false;
+  await page.unroute('**/translate_a/element.js*');
+  await page.route('**/translate_a/element.js*', (r) => { loaded = true; return r.abort(); });
+  await page.goto('/about');
+  await page.waitForTimeout(500);
+  expect(loaded).toBe(false);
+});
+
 test('switcher works when storage is blocked', async ({ browser }) => {
   const ctx = await browser.newContext();
   const page = await ctx.newPage();

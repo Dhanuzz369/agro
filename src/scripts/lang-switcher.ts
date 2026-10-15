@@ -17,8 +17,11 @@ if (root) {
     for (const o of options) o.closest('li')!.hidden = !!q && !o.dataset.search!.includes(q);
   });
 
+  let inFlight = false;
   function machineTranslate(code: string) {
-    document.cookie = googTransCookie(code);
+    if (inFlight) return;
+    inFlight = true;
+    document.cookie = googTransCookie(code, document.documentElement.lang.split('-')[0]);
     const fallback = () => { location.href = machineFallbackUrl(code, location.href); };
     const timer = setTimeout(fallback, 4000);
     (window as unknown as Record<string, unknown>).gbTranslateInit = () => {
@@ -48,4 +51,10 @@ if (root) {
       }
     });
   }
+
+  // Re-apply a previously chosen machine language on page load (no dialog interaction).
+  const cookieCode = document.cookie.match(/(?:^|;\s*)googtrans=\/[^/]*\/([^;]+)/)?.[1];
+  const saved = safeStorage.get('gb.lang');
+  const persisted = [cookieCode, saved].find((c) => c && c !== 'en' && resolveTarget(c!, location.pathname, available).type === 'machine');
+  if (persisted) machineTranslate(persisted);
 }

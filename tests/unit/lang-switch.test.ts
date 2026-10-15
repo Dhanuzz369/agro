@@ -40,4 +40,5 @@ describe('machine translation helpers', () => {
   it('builds fallback url', () =>
     expect(machineFallbackUrl('tr', 'https://goodbizagri.com/about')).toBe('https://translate.google.com/translate?sl=auto&tl=tr&u=https%3A%2F%2Fgoodbizagri.com%2Fabout'));
   it('builds googtrans cookie', () => expect(googTransCookie('tr')).toBe('googtrans=/en/tr; path=/; SameSite=Lax'));
+  it('builds googtrans cookie with a custom source', () => expect(googTransCookie('tr', 'fr')).toBe('googtrans=/fr/tr; path=/; SameSite=Lax'));
 });
