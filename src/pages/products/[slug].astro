@@ -1,0 +1,8 @@
+---
+import { getCollection } from 'astro:content';
+import ProductView from '../../views/ProductView.astro';
+export async function getStaticPaths() {
+  return (await getCollection('products')).map((p) => ({ params: { slug: p.id } }));
+}
+---
+<ProductView locale="en" slug={Astro.params.slug!} />

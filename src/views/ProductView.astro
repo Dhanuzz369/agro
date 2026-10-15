@@ -1,0 +1,192 @@
+---
+import { Image, getImage } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import HsnChip from '../components/HsnChip.astro';
+import StockLabel from '../components/StockLabel.astro';
+import SpecTable from '../components/SpecTable.astro';
+import HarvestCalendar from '../components/HarvestCalendar.astro';
+import SouthIndiaMap from '../components/SouthIndiaMap.astro';
+import ProductCard from '../components/ProductCard.astro';
+import Faq from '../components/Faq.astro';
+import { createT } from '../i18n/t';
+import { localizePath } from '../i18n/paths';
+import { htmlLang, type Locale } from '../i18n/config';
+import { getLocalizedProduct, getLocalizedProducts, getSite } from '../lib/catalog';
+import { productLd, faqLd, breadcrumbLd } from '../lib/jsonld';
+import { seasonRange } from '../lib/months';
+import { whatsappHref } from '../lib/site';
+import { formatHsn } from '../lib/hsn';
+import { places } from '../data/places';
+interface Props { locale: Locale; slug: string }
+const { locale, slug } = Astro.props;
+const t = createT(locale);
+const p = await getLocalizedProduct(locale, slug);
+const all = await getLocalizedProducts(locale);
+const related = p.data.related.map((s) => all.find((x) => x.slug === s)!).filter(Boolean);
+const site = await getSite();
+const path = `/products/${slug}`;
+const abs = (x: string) => new URL(localizePath(x, locale), Astro.site).href;
+const states = [...new Set(p.data.regions.map((r) => places[r].state))].join(', ');
+const portNames = p.data.ports.map((id) => places[id].name).join(', ');
+const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }, { name: p.text.name, path }];
+const hero = await getImage({ src: p.data.heroImage.src, width: 1200, format: 'jpg' });
+const wa = whatsappHref(site.whatsapp, `${p.text.name} — ${abs(path)}`);
+const quoteHref = (variety?: string) => `${localizePath('/contact', locale)}?product=${slug}${variety ? `&variety=${variety}` : ''}`;
+const ld = [
+  productLd({
+    name: p.text.name, description: p.text.summary, url: abs(path), image: new URL(hero.src, Astro.site).href,
+    hsn: p.data.hsn.map((h) => h.code), brand: 'GoodBiz Agri',
+    varieties: p.data.varieties.map((v) => ({ name: p.text.varieties[v.id]?.name ?? v.id, hsn: v.hsn })),
+  }),
+  faqLd(p.text.faq),
+  breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
+];
+const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.hsn[0].code) });
+---
+<Base locale={locale} title={title} description={p.text.summary} path={path} ogImage={`/og/products/${slug}.png`} jsonLd={ld}>
+  <article class="pv">
+    <section class="pv__hero container">
+      <Breadcrumbs locale={locale} items={crumbs} />
+      <div class="pv__heroGrid">
+        <div class="pv__object">
+          <Image src={p.data.heroImage.src} alt={p.text.name} widths={[480, 720, 960]} sizes="(max-width: 860px) 100vw, 50vw" loading="eager" fetchpriority="high" data-object-poster />
+          <StockLabel locale={locale} show={p.data.heroImage.isStock} />
+        </div>
+        <div class="pv__intro">
+          <h1>{p.text.name}</h1>
+          <div class="pv__chips">{p.data.hsn.map((h) => <HsnChip code={h.code} verified={h.verified} locale={locale} href={localizePath(`/hsn/${h.code}`, locale)} />)}</div>
+          <p class="pv__summary">{p.text.summary}</p>
+          <div class="pv__ctas">
+            <a class="btn btn--primary" href={quoteHref()}>{t('cta.quote')}</a>
+            {wa && <a class="btn btn--ghost" href={wa} target="_blank" rel="noopener">{t('cta.whatsapp')}</a>}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container pv__facts" aria-labelledby="facts">
+      <h2 id="facts" class="sr-only">{t('product.quickFacts')}</h2>
+      <dl>
+        <div><dt>{t('fact.hsn')}</dt><dd dir="ltr">{p.data.hsn.map((h) => formatHsn(h.code)).join(' · ')}</dd></div>
+        <div><dt>{t('fact.states')}</dt><dd>{states}</dd></div>
+        <div><dt>{t('fact.season')}</dt><dd>{seasonRange(p.data.harvestMonths, htmlLang[locale])}</dd></div>
+        <div><dt>{t('fact.moq')}</dt><dd>{p.data.moq}</dd></div>
+        <div><dt>{t('fact.ports')}</dt><dd>{portNames}</dd></div>
+        <div><dt>{t('fact.shelfLife')}</dt><dd>{p.data.shelfLife}</dd></div>
+      </dl>
+    </section>
+
+    <section class="section container" aria-labelledby="varieties">
+      <h2 id="varieties" data-reveal>{t('product.varieties')}</h2>
+      <div class="pv__varieties">
+        {p.data.varieties.map((v) => {
+          const vt = p.text.varieties[v.id];
+          return (
+            <article class="var" data-variety={v.id} data-reveal>
+              <div class="var__media">
+                <Image src={v.image.src} alt={vt?.name ?? v.id} widths={[360, 540]} sizes="(max-width: 700px) 100vw, 33vw" loading="lazy" />
+                <StockLabel locale={locale} show={v.image.isStock} />
+              </div>
+              <div class="var__body">
+                <h3>{vt?.name ?? v.id}</h3>
+                <HsnChip code={v.hsn} verified={p.data.hsn.find((h) => h.code === v.hsn)!.verified} locale={locale} />
+                <p>{vt?.description}</p>
+                <p class="var__where"><span>{t('product.region')}:</span> {places[v.region].name}, {places[v.region].state} · <span>{t('product.market')}:</span> {v.market}</p>
+                <SpecTable locale={locale} specs={v.specs} caption={`${t('product.specs')} — ${vt?.name ?? v.id}`} />
+                <p class="var__pack"><span>{t('product.packing')}:</span> {v.packing.join(' · ')}</p>
+                <div class="var__ctas">
+                  <a class="btn btn--secondary" href={quoteHref(v.id)}>{t('cta.quoteVariety')}</a>
+                  <a href={`/spec-sheets/${slug}/${v.id}.pdf`} download>{t('cta.specSheet')}</a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="section pv__where" aria-labelledby="where">
+      <div class="container pv__whereGrid">
+        <div data-reveal>
+          <h2 id="where">{t('product.where')}</h2>
+          <p class="pv__origin">{p.text.originLine}</p>
+          <p>{p.text.sourcingStory}</p>
+          <ul class="pv__markets">{p.data.markets.map((m) => <li>{m}</li>)}</ul>
+          <h3>{t('product.calendar')}</h3>
+          <HarvestCalendar locale={locale} months={p.data.harvestMonths} label={t('product.calendar')} />
+        </div>
+        <SouthIndiaMap active={p.data.regions} label={`${t('product.where')}: ${p.text.name}`} />
+      </div>
+    </section>
+
+    <section class="section container pv__two">
+      <div data-reveal>
+        <h2>{t('product.quality')}</h2>
+        <p>{t('product.quality.body')}</p>
+        <h3>{t('product.documents')}</h3>
+        <ul class="pv__docs">
+          {(['doc.coo', 'doc.phyto', 'doc.fumigation', 'doc.fssai', 'doc.rcmc', 'doc.coa'] as const).map((k) => <li>{t(k)}</li>)}
+        </ul>
+      </div>
+      <div data-reveal>
+        <h2>{t('product.shipping')}</h2>
+        <dl class="pv__ship">
+          <div><dt>{t('fact.packing')}</dt><dd>{p.data.packing.join(' · ')}</dd></div>
+          <div><dt>{t('product.container20')}</dt><dd>{p.data.containerLoad.ft20}</dd></div>
+          <div><dt>{t('product.container40')}</dt><dd>{p.data.containerLoad.ft40}</dd></div>
+          <div><dt>{t('product.incoterms')}</dt><dd dir="ltr">FOB · CFR · CIF</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section container" aria-labelledby="pfaq">
+      <h2 id="pfaq">{t('product.faq', { name: p.text.name })}</h2>
+      <Faq items={p.text.faq} />
+    </section>
+
+    {related.length > 0 && (
+      <section class="section container" aria-labelledby="related">
+        <h2 id="related">{t('product.related')}</h2>
+        <div class="pv__related">{related.map((r) => <ProductCard locale={locale} product={r} />)}</div>
+      </section>
+    )}
+
+    <section class="container pv__cta">
+      <h2>{t('home.cta.title')}</h2>
+      <a class="btn btn--primary" href={quoteHref()}>{t('cta.quote')}</a>
+    </section>
+  </article>
+</Base>
+<style>
+  .pv__hero { padding-block: 7.5rem var(--space-7); display: grid; gap: var(--space-5); }
+  .pv__heroGrid { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: center; }
+  .pv__object { position: relative; aspect-ratio: 1; border-radius: var(--radius-media); overflow: hidden; background: var(--paper-2); }
+  .pv__object :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .pv__intro { display: grid; gap: var(--space-5); }
+  .pv__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); color: var(--forest); }
+  .pv__summary { font-size: var(--step-1); line-height: 1.45; }
+  .pv__ctas, .var__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+  .pv__facts dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--space-4); margin: 0; border-block: 1px solid var(--ink); padding-block: var(--space-5); }
+  dt { font-size: var(--step--1); color: var(--ink-2); }
+  dd { margin: 0; font-weight: 500; }
+  .pv__varieties { display: grid; gap: var(--space-8); margin-block-start: var(--space-7); }
+  .var { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: start; }
+  .var__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-media); background: var(--paper-2); }
+  .var__media :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }
+  .var__body { display: grid; gap: var(--space-3); justify-items: start; }
+  .var__where, .var__pack { font-size: var(--step--1); color: var(--ink-2); }
+  .var__where span, .var__pack span { color: var(--ink); font-weight: 500; }
+  .pv__where { background: var(--paper-2); }
+  .pv__whereGrid { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: center; }
+  .pv__whereGrid > div { display: grid; gap: var(--space-4); }
+  .pv__origin { font-family: var(--font-display); font-size: var(--step-1); color: var(--clay); }
+  .pv__markets { margin: 0; padding-inline-start: 1.2em; }
+  .pv__two { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+  .pv__two > div { display: grid; gap: var(--space-4); align-content: start; }
+  .pv__docs { margin: 0; padding-inline-start: 1.2em; }
+  .pv__ship { display: grid; gap: var(--space-3); margin: 0; }
+  .pv__related { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); margin-block-start: var(--space-6); }
+  .pv__cta { display: grid; gap: var(--space-5); justify-items: start; padding-block: var(--space-8); border-block-start: 1px solid var(--ink); }
+  section > h2 + :global(.faq) { margin-block-start: var(--space-6); }
+</style>

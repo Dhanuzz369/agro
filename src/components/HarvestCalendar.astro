@@ -1,0 +1,19 @@
+---
+import { monthLabels } from '../lib/months';
+import type { Locale } from '../i18n/config';
+import { htmlLang } from '../i18n/config';
+interface Props { locale: Locale; months: number[]; label: string }
+const { locale, months, label } = Astro.props;
+const labels = monthLabels(htmlLang[locale]);
+const on = new Set(months);
+---
+<ol class="cal" aria-label={label}>
+  {labels.map((m, i) => <li data-on={String(on.has(i + 1))}><span>{m}</span></li>)}
+</ol>
+<style>
+  .cal { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(12, 1fr); gap: 2px; }
+  li { display: grid; gap: var(--space-1); font-size: 0.7rem; text-align: center; color: var(--ink-2); }
+  li::before { content: ''; block-size: 10px; background: var(--rule); border-radius: 2px; }
+  li[data-on='true']::before { background: var(--turmeric); }
+  @media (max-width: 480px) { li span { writing-mode: vertical-rl; transform: rotate(180deg); margin-inline: auto; } }
+</style>
