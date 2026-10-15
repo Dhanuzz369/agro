@@ -10,7 +10,7 @@ test('english home has header, footer, quote CTA and WhatsApp', async ({ page })
 });
 
 test('arabic home is rtl', async ({ page }) => {
-  await page.goto('/ar/');
+  await page.goto('/ar');
   await expect(page.locator('html')).toHaveAttribute('dir', 'rtl');
   await expect(page.locator('html')).toHaveAttribute('lang', 'ar');
 });

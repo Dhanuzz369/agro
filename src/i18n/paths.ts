@@ -8,7 +8,7 @@ function clean(path: string): string {
 export function localizePath(path: string, locale: Locale): string {
   const p = clean(path);
   if (locale === defaultLocale) return p;
-  return p === '/' ? `/${locale}/` : `/${locale}${p}`;
+  return p === '/' ? `/${locale}` : `/${locale}${p}`;
 }
 
 export function stripLocale(pathname: string): { locale: Locale; path: string } {

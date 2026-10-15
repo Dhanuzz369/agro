@@ -37,3 +37,28 @@ test('every page has exactly one h1, a description and a canonical', async ({ pa
     await expect(page.locator('link[rel="canonical"]'), path).toHaveCount(1);
   }
 });
+
+test('sitemap <loc> values equal each page canonical (no trailing slash)', async ({ page, request }) => {
+  const map = await (await request.get('/sitemap-0.xml')).text();
+  const locs = [...map.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
+  for (const l of locs) if (new URL(l).pathname !== '/') expect(l.endsWith('/'), l).toBe(false);
+  const wanted = ['/', '/ar', '/zh', '/fr', '/products', '/products/turmeric', '/zh/products/turmeric', '/hsn/1701', '/blog', '/about', '/contact', '/de/contact'];
+  const sample = wanted.map((p) => locs.find((l) => new URL(l).pathname === p));
+  expect(sample.every(Boolean), JSON.stringify(sample)).toBe(true);
+  for (const loc of sample as string[]) {
+    await page.goto(new URL(loc).pathname);
+    await expect(page.locator('link[rel="canonical"]'), loc).toHaveAttribute('href', loc);
+  }
+});
+
+test('links to locale homes resolve without a redirect', async ({ page, request }) => {
+  await page.goto('/ar/products/turmeric');
+  const hrefs = await page.locator('a[href]').evaluateAll((as) => as.map((a) => a.getAttribute('href')!));
+  const homes = [...new Set(hrefs.filter((h) => /^\/(ar|fr|es|pt|ru|zh|id|de)\/?$/.test(h)))];
+  expect(homes).toContain('/ar');
+  for (const h of homes) {
+    expect(h.endsWith('/'), h).toBe(false);
+    const res = await request.get(h, { maxRedirects: 0 });
+    expect(res.status(), h).toBe(200);
+  }
+});

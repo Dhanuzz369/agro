@@ -32,7 +32,7 @@ describe('languages', () => {
 describe('paths', () => {
   it('localizes', () => {
     expect(localizePath('/', 'en')).toBe('/');
-    expect(localizePath('/', 'ar')).toBe('/ar/');
+    expect(localizePath('/', 'ar')).toBe('/ar');
     expect(localizePath('/products/turmeric', 'fr')).toBe('/fr/products/turmeric');
   });
   it('strips locale prefix', () => {
@@ -50,6 +50,6 @@ describe('paths', () => {
     ]);
   });
   it('uses zh-Hans for Chinese hreflang', () => {
-    expect(alternates('/', ['zh']).find((x) => x.path === '/zh/')?.hreflang).toBe('zh-Hans');
+    expect(alternates('/', ['zh']).find((x) => x.path === '/zh')?.hreflang).toBe('zh-Hans');
   });
 });

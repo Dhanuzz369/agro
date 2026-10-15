@@ -7,13 +7,13 @@ const locales = ['en', 'ar', 'fr', 'es', 'pt', 'ru', 'zh', 'id', 'de'];
 export default defineConfig({
   site: process.env.SITE_URL ?? 'https://goodbizagri.com',
   output: 'static',
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
   build: { format: 'directory', inlineStylesheets: 'always' },
   integrations: [
     mdx(),
     sitemap({
-      i18n: { defaultLocale: 'en', locales: Object.fromEntries(locales.map((l) => [l, l])) },
-      filter: (page) => !page.includes('/og/') && !page.includes('/spec-sheets/') && !page.endsWith('/thanks/'),
+      i18n: { defaultLocale: 'en', locales: Object.fromEntries(locales.map((l) => [l, l === 'zh' ? 'zh-Hans' : l])) },
+      filter: (page) => !page.includes('/og/') && !page.includes('/spec-sheets/') && !/\/thanks\/?$/.test(page) && !/\/404\/?$/.test(page),
     }),
   ],
   image: { responsiveStyles: true },

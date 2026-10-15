@@ -130,7 +130,7 @@ test('suggestion banner appears for a French browser without redirecting, and di
   await expect(page).toHaveURL(/\/$/);
   const banner = page.locator('[data-lang-suggest]');
   await expect(banner).toBeVisible();
-  await expect(banner.locator('[data-yes]')).toHaveAttribute('href', '/fr/');
+  await expect(banner.locator('[data-yes]')).toHaveAttribute('href', '/fr');
   await banner.locator('[data-dismiss]').click();
   await page.reload();
   await expect(banner).toBeHidden();
