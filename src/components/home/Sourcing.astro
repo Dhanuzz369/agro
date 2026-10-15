@@ -9,7 +9,8 @@ const { locale } = Astro.props;
 const t = createT(locale);
 const products = await getLocalizedProducts(locale);
 const first = products.find((p) => p.slug === 'turmeric')!;
-const regionsBySlug = Object.fromEntries(products.map((p) => [p.slug, p.data.regions]));
+// districts and loading ports per product: both are highlighted and labelled on the map
+const regionsBySlug = Object.fromEntries(products.map((p) => [p.slug, [...p.data.regions, ...p.data.ports]]));
 ---
 <section id="sourcing" class="section">
   <div class="container src">
@@ -22,7 +23,7 @@ const regionsBySlug = Object.fromEntries(products.map((p) => [p.slug, p.data.reg
       </div>
     </div>
     <div class="src__map" data-regions={JSON.stringify(regionsBySlug)}>
-      <SouthIndiaMap active={first.data.regions} label={t('home.sourcing.title')} interactiveId="home" />
+      <SouthIndiaMap active={[...first.data.regions, ...first.data.ports]} label={t('home.sourcing.title')} interactiveId="home" />
     </div>
   </div>
 </section>
@@ -33,7 +34,10 @@ const regionsBySlug = Object.fromEntries(products.map((p) => [p.slug, p.data.reg
     btn.addEventListener('click', () => {
       const active = new Set(regions[btn.dataset.slug!] ?? []);
       document.querySelectorAll('#sourcing button[data-slug]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
-      wrap?.querySelectorAll<SVGGElement>('[data-place]').forEach((g) => g.setAttribute('data-active', String(active.has(g.dataset.place!))));
+      wrap?.querySelectorAll<HTMLElement | SVGGElement>('[data-place], [data-legend]').forEach((el) => {
+        const id = el.dataset.place ?? el.dataset.legend!;
+        el.setAttribute('data-active', String(active.has(id)));
+      });
     });
   });
 </script>

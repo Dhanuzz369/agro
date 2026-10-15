@@ -119,7 +119,7 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
           <h3>{t('product.calendar')}</h3>
           <HarvestCalendar locale={locale} months={p.data.harvestMonths} label={t('product.calendar')} />
         </div>
-        <SouthIndiaMap active={p.data.regions} label={`${t('product.where')}: ${p.text.name}`} />
+        <SouthIndiaMap active={[...p.data.regions, ...p.data.ports]} label={`${t('product.where')}: ${p.text.name}`} />
       </div>
     </section>
 
@@ -162,7 +162,7 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
   </article>
 </Base>
 <style>
-  .pv__hero { padding-block: 7.5rem var(--space-7); display: grid; gap: var(--space-5); }
+  .pv__hero { padding-block: var(--header-offset) var(--space-7); display: grid; gap: var(--space-5); }
   .pv__heroGrid { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: center; }
   .pv__object { position: relative; aspect-ratio: 1; border-radius: var(--radius-media); overflow: hidden; background: var(--paper-2); }
   .pv__object :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }

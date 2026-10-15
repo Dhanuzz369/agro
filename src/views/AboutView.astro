@@ -22,7 +22,7 @@ const allRegions = [...new Set(products.flatMap((p) => p.data.regions))];
     </header>
     <section class="av__two">
       <div data-reveal><h2>{t('about.story.title')}</h2><p>{t('about.story.body')}</p></div>
-      <div><h2>{t('about.network.title')}</h2><SouthIndiaMap active={allRegions} label={t('about.network.title')} /></div>
+      <div><h2>{t('about.network.title')}</h2><SouthIndiaMap active={allRegions} label={t('about.network.title')} labels="hubs" /></div>
     </section>
     <section>
       <h2>{t('about.quality.title')}</h2>
@@ -34,7 +34,7 @@ const allRegions = [...new Set(products.flatMap((p) => p.data.regions))];
   <CertStrip locale={locale} />
 </Base>
 <style>
-  .av { padding-block: 7.5rem var(--space-8); display: grid; gap: var(--space-8); }
+  .av { padding-block: var(--header-offset) var(--space-8); display: grid; gap: var(--space-8); }
   .av__head { display: grid; gap: var(--space-4); }
   .av__lede { font-size: var(--step-1); line-height: 1.45; }
   .av__two { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: start; }
