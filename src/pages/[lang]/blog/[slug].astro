@@ -1,0 +1,12 @@
+---
+import { getCollection } from 'astro:content';
+import BlogPostView from '../../../views/BlogPostView.astro';
+import { postSlug, postLocale } from '../../../lib/blog-pure';
+import { isLocale, type Locale } from '../../../i18n/config';
+export async function getStaticPaths() {
+  return (await getCollection('blog'))
+    .filter((p) => postLocale(p.id) !== 'en' && isLocale(postLocale(p.id)))
+    .map((entry) => ({ params: { lang: postLocale(entry.id), slug: postSlug(entry.id) }, props: { entry } }));
+}
+---
+<BlogPostView locale={Astro.params.lang as Locale} slug={Astro.params.slug!} entry={Astro.props.entry} />

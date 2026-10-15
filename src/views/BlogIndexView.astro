@@ -1,0 +1,54 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { createT, type UiKey } from '../i18n/t';
+import { localizePath } from '../i18n/paths';
+import { htmlLang, type Locale } from '../i18n/config';
+import { postsFor } from '../lib/blog';
+import { readingTime } from '../lib/blog-pure';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const posts = await postsFor(locale);
+const cats = ['market-updates', 'buyer-guides', 'product-knowledge', 'export-process'] as const;
+const date = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'medium', timeZone: 'UTC' });
+---
+<Base locale={locale} title={t('meta.blogTitle')} description={t('meta.blogDescription')} path="/blog" ogImage="/og/blog.png">
+  <div class="container bi">
+    <Breadcrumbs locale={locale} items={[{ name: t('nav.home'), path: '/' }, { name: t('nav.blog'), path: '/blog' }]} />
+    <header><p class="eyebrow">{t('blog.eyebrow')}</p><h1>{t('blog.title')}</h1></header>
+    <div class="bi__filters" role="group" aria-label={t('blog.title')}>
+      <button type="button" data-cat="" aria-pressed="true">{t('blog.all')}</button>
+      {cats.map((c) => <button type="button" data-cat={c} aria-pressed="false">{t(`blog.cat.${c}` as UiKey)}</button>)}
+    </div>
+    <ul class="bi__list">
+      {posts.map((p) => (
+        <li data-post data-category={p.entry.data.category}>
+          <a href={localizePath(`/blog/${p.slug}`, p.fallback ? 'en' : locale)}>
+            <p class="bi__meta"><span>{t(`blog.cat.${p.entry.data.category}` as UiKey)}</span> · <time datetime={p.entry.data.date.toISOString()}>{date.format(p.entry.data.date)}</time> · {t('blog.readingTime', { n: readingTime(p.entry.body ?? '') })}{p.fallback && <> · <span data-fallback>{t('blog.inEnglish')}</span></>}</p>
+            <h2 lang={p.fallback ? 'en' : undefined}>{p.entry.data.title}</h2>
+            <p lang={p.fallback ? 'en' : undefined}>{p.entry.data.description}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Base>
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.bi__filters button');
+  buttons.forEach((b) => b.addEventListener('click', () => {
+    buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll<HTMLElement>('[data-post]').forEach((li) => { li.hidden = !!b.dataset.cat && li.dataset.category !== b.dataset.cat; });
+  }));
+</script>
+<style>
+  .bi { padding-block: 7.5rem var(--space-8); display: grid; gap: var(--space-6); }
+  .bi__filters { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .bi__filters button { min-block-size: 44px; padding-inline: var(--space-4); border: 1px solid var(--rule); background: transparent; border-radius: 999px; font: inherit; font-size: var(--step--1); cursor: pointer; }
+  .bi__filters button[aria-pressed='true'] { background: var(--forest); color: var(--paper); }
+  .bi__list { list-style: none; padding: 0; margin: 0; display: grid; }
+  .bi__list li { border-block-start: 1px solid var(--rule); }
+  .bi__list a { display: grid; gap: var(--space-2); padding-block: var(--space-6); text-decoration: none; }
+  .bi__list h2 { font-size: var(--step-2); }
+  .bi__meta { font-size: var(--step--1); color: var(--ink-2); }
+</style>

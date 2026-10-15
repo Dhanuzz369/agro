@@ -1,0 +1,7 @@
+---
+import BlogIndexView from '../../../views/BlogIndexView.astro';
+import { localeStaticPaths } from '../../../lib/routes';
+import type { Locale } from '../../../i18n/config';
+export const getStaticPaths = localeStaticPaths;
+---
+<BlogIndexView locale={Astro.params.lang as Locale} />
