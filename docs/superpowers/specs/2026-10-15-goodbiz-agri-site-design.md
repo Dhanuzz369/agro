@@ -21,7 +21,9 @@ A multilingual B2B website where international buyers discover GoodBiz Agri, tru
 | Photography | Stock imagery now, labelled "Representative image"; owner swaps in real photos later by replacing files of the same name |
 | Primary CTA | Request-a-quote form; persistent WhatsApp button as secondary |
 | Certifications | Text badges for APEDA, FSSAI, Spices Board India, IEC (DGFT), Coconut Development Board, each with a registration-number slot. Owner supplies official logo files and lists only registrations actually held |
-| Stack | Astro 5 static site on Node.js, TypeScript, Three.js, GSAP + ScrollTrigger, Lenis; deployed to Vercel |
+| Stack | Astro 5 static site on Node.js, TypeScript, Three.js, Motion (vanilla build of Framer Motion) for scroll effects, Lenis for smooth scrolling; deployed to Vercel |
+| Design reference | Oura DESIGN.md from VoltAgent/awesome-design-md, adapted to GoodBiz colours and content (see §5); captured in the project's own `DESIGN.md` |
+| Devices | Desktop (≥ 1280), laptop (1024–1279), tablet (768–1023), mobile (≤ 767) — every page designed and tested at all four |
 | 3D | Hero image-to-particles scene; 3D product objects on product pages; scroll animations elsewhere |
 | World map | Animated SVG (not WebGL) for the 70+ countries section |
 | Languages | Hybrid: 9 core languages as real indexed pages + 104-language switcher using live machine translation for the rest |
@@ -99,24 +101,38 @@ Categories: Market Updates, Buyer Guides, Product Knowledge, Export Process. Pos
 
 About: company story, Bangalore base, sourcing network map, quality process, certifications. Contact: full quote form, WhatsApp, email, office address with static map image.
 
-## 5. Visual system — Harvest editorial
+## 5. Visual system — Harvest editorial, built on Oura's DESIGN.md
+
+The layout, type scale, spacing, radii, elevation and responsive rules follow the Oura DESIGN.md (VoltAgent/awesome-design-md). Oura's brand itself — name, logo, proprietary fonts, action blue — is not used. The project keeps its own `DESIGN.md` at the repo root describing the adapted system; it is the reference every UI task reads.
+
+**Three surface worlds** (Oura pattern): cream world `--paper #F7F1E8` for editorial content; forest world `--forest #1F3D2B` for the hero stage, world-map band and footer (replaces Oura's black band); white `--surface #FFFFFF` for elevated cards and inputs only.
 
 **Colour tokens**
 
-| Token | Hex | Use |
+| Token | Hex | Role |
 |---|---|---|
-| `--paper` | `#F6F1E7` | Page background |
-| `--forest` | `#1F3D2B` | Hero stage, primary text accents, borders on chips |
-| `--turmeric` | `#D99A1E` | Primary CTA fill, highlights (used sparingly) |
-| `--clay` | `#8A4B2A` | Secondary accent, map highlights |
-| `--ink` | `#1A1A17` | Body text |
-| `--gold-soft` | `#E9C46A` | Small accents on forest |
+| `--paper` | `#F7F1E8` | Default background (never white) |
+| `--surface` | `#FFFFFF` | Elevated cards, inputs |
+| `--forest` | `#1F3D2B` | Dark world: hero, world band, footer |
+| `--turmeric` | `#D99A1E` | The single action colour — primary CTA pill only, one per view, ink text |
+| `--stone` | `#4A4741` | Workhorse neutral: secondary pills, outlines, links, wordmark |
+| `--clay` | `#6B443D` | Accent bands, map highlights, eyebrows |
+| `--gold` | `#AF751B` / `--gold-soft #DDAA61` | Illustration, data-viz, accents on forest (never buttons) |
+| `--olive` | `#5C6F5D` / `--sage-pale #CED4B8` | Calm accent bands, secondary data-viz |
+| `--ink` | `#1C1B1A` | Body and headings |
+| `--ash` | `#838280` | Meta text |
+| `--hairline` | `#E1DCD3` | 1px dividers on cream |
+| `--error` | `#B3361F` | Form errors (AA on cream) |
 
-All text/background pairs must meet WCAG AA. Turmeric CTA uses ink text.
+All text pairs meet WCAG AA. Earth accents never appear on buttons.
 
-**Type:** Fraunces (display), Manrope (body/UI), JetBrains Mono (HSN codes, specs). Per-locale substitutes loaded only on that locale: IBM Plex Sans Arabic (ar), Noto Serif + Manrope Cyrillic (ru), Noto Sans SC (zh). Fonts self-hosted and subset.
+**Type:** Fraunces at weight 300 for display and section headings (substitute for Oura's Editorial New), Manrope for body and UI (substitute for AkkuratLL; covers Cyrillic), JetBrains Mono for HSN codes and specs. Scale: display 110 → 48 px (mobile), h1 68, h2 40, title 32, lead 24 (Fraunces 300), body 18, body-sm 16, ui 14, caption 13, eyebrow 12 / 700 / uppercase / 1px tracking. Serif for feeling, sans for facts; scale (not weight) creates hierarchy. Per-locale substitutes loaded only on that locale: IBM Plex Sans Arabic (ar), Noto Serif + Manrope Cyrillic (ru), Noto Sans SC (zh). Fonts self-hosted.
 
-**Motion rules:** one easing curve and two durations site-wide; Lenis smooth scroll; GSAP reveals (line-by-line headings, image mask reveals, pinned farm-to-port, counters, route drawing). 3D product objects rotate once on entry then are drag-to-rotate; no infinite spin. `prefers-reduced-motion` disables Lenis, particles, and reveals (content shown immediately).
+**Shape and space:** 8 px base unit. Buttons and tabs are full pills (`999px`); cards 24 px; large product imagery 40 px; inputs 12 px; full-bleed imagery and bands 0. Elevation is soft and warm — separation comes from surface-world shifts and hairlines. Long vertical silences between sections.
+
+**Responsive:** breakpoints 1280 / 1024 / 768. Grids collapse 4-up → 2-up (tablet) → 1-up (mobile); horizontal nav collapses to a menu below 860 px; display type scales fluidly; touch targets ≥ 44 px; product imagery keeps its rounded frame at every size; nothing scrolls horizontally at 320 px.
+
+**Motion rules:** Lenis smooth scroll; Motion (`motion` package — the framework-free build of Framer Motion) for scroll-linked and in-view effects: line-by-line heading reveals, image reveals, hero copy fading as it scrolls away, a sticky farm-to-port story driven by scroll progress, subtle image parallax, counters, and map routes drawing in. One easing curve `cubic-bezier(0.22, 1, 0.36, 1)` and two durations (0.6 s, 1.1 s). 3D product objects rotate once on entry then are drag-to-rotate; no infinite spin. `prefers-reduced-motion` disables Lenis, particles, parallax and reveals (content shown immediately).
 
 **Trust details:** HSN/spec blocks styled like trade documents (hairline rules, monospace). Stock images carry a small "Representative image" label, driven by an `isStock` flag in image data. Market names shown as place tags.
 
@@ -132,7 +148,7 @@ All text/background pairs must meet WCAG AA. Turmeric CTA uses ink text.
 
 ## 7. Architecture
 
-**Stack:** Astro 5 (`output: 'static'`), TypeScript, plain CSS with design tokens, Three.js, GSAP + ScrollTrigger, Lenis, `@astrojs/sitemap`, `@astrojs/mdx`, `@astrojs/rss`, Vercel adapter-free static deploy, Vercel Analytics + Speed Insights.
+**Stack:** Astro 5 (`output: 'static'`), TypeScript, plain CSS with design tokens, Three.js, Motion, Lenis, `@astrojs/sitemap`, `@astrojs/mdx`, `@astrojs/rss`, Vercel adapter-free static deploy, Vercel Analytics + Speed Insights.
 
 **Content model**
 
@@ -158,7 +174,7 @@ Zod schemas validate every collection. Build fails on malformed HSN (digits only
 - `JsonLd/*` — Organization, Product, FAQPage, Article, BreadcrumbList builders from content data
 - `HeroParticles` — Three.js scene; inputs: list of product image URLs; outputs nothing; self-disables on no-WebGL/reduced-motion/low `deviceMemory`
 - `ProductObject` — loads GLB or procedural instanced mesh (`kind: 'grains' | 'glb'`); poster fallback
-- `ScrollReveal`, `PinnedStory`, `Counter` — GSAP wrappers
+- `scripts/motion.ts` — Motion + Lenis wiring driven by `data-reveal`, `data-parallax`, `data-pin`, `data-counter`, `data-draw` attributes
 - `WorldMap`, `SouthIndiaMap` — SVG components fed by data
 - `LanguageSwitcher`, `LanguageSuggestBanner`
 - `QuoteForm` — accepts prefill from query string
@@ -195,7 +211,8 @@ Zod schemas validate every collection. Build fails on malformed HSN (digits only
 - **Playwright smoke tests** (en, ar, zh): every page type renders; hreflang tags present; Arabic is RTL; quote form validation, prefill, and fallback; language switcher navigation; reduced-motion shows content without animation.
 - **Lighthouse CI** on landing, one product, one HSN, one blog page: fail below Performance 90 / SEO 100 / Accessibility 95.
 - **Link checker** and JSON-LD validation.
-- **Visual review:** screenshot-and-fix loop with taste and impeccable skills at 375, 768, 1440 px.
+- **Responsive:** Playwright checks no horizontal overflow at 320, 375, 768, 1024 and 1440 px on every page type.
+- **Visual review:** screenshot-and-fix loop with the taste and impeccable skills at 375, 768, 1024 and 1440 px, checked against `DESIGN.md`.
 
 ## 11. Owner-supplied before launch
 

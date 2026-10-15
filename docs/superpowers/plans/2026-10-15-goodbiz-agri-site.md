@@ -4,11 +4,13 @@
 
 **Goal:** Build a fast, multilingual (9 core languages + 104-language switcher), SEO/GEO/AEO-optimised B2B export website for GoodBiz Agri with a 3D hero, 3D product objects, product/HSN/blog pages, and a quote form, deployed statically to Vercel.
 
-**Architecture:** Astro 5 static site. Language-neutral product facts live in YAML content collections; per-language text lives in parallel YAML/JSON files. Each page type is one "view" component rendered by two thin route files (English at `/`, other core languages at `/[lang]/`). Three.js, GSAP and Lenis are client-side islands loaded lazily; every 3D/animated element has a static fallback. Pure logic (HSN, i18n paths, quote validation, language switching, particle sampling, JSON-LD) lives in `src/lib` / `src/scripts/*` modules with Vitest unit tests; pages are covered by Playwright.
+**Architecture:** Astro 5 static site. Language-neutral product facts live in YAML content collections; per-language text lives in parallel YAML/JSON files. Each page type is one "view" component rendered by two thin route files (English at `/`, other core languages at `/[lang]/`). Three.js, Motion (framework-free Framer Motion) and Lenis are client-side scripts loaded lazily; every 3D/animated element has a static fallback. Pure logic (HSN, i18n paths, quote validation, language switching, particle sampling, JSON-LD) lives in `src/lib` / `src/scripts/*` modules with Vitest unit tests; pages are covered by Playwright.
 
-**Tech Stack:** Node 20+, Astro 5, TypeScript, plain CSS tokens, Three.js, GSAP + ScrollTrigger, Lenis, @astrojs/mdx, @astrojs/sitemap, @astrojs/rss, d3-geo + topojson-client + world-atlas (build-time maps), satori + @resvg/resvg-js (OG images), pdf-lib (spec sheets), @fontsource fonts, Vitest, Playwright, @lhci/cli, linkinator. Deploy: Vercel (static).
+**Tech Stack:** Node 20+, Astro 5, TypeScript, plain CSS tokens, Three.js, Motion (`motion` package), Lenis, @astrojs/mdx, @astrojs/sitemap, @astrojs/rss, d3-geo + topojson-client + world-atlas (build-time maps), satori + @resvg/resvg-js (OG images), pdf-lib (spec sheets), @fontsource fonts, Vitest, Playwright, @lhci/cli, linkinator. Deploy: Vercel (static).
 
 **Spec:** `docs/superpowers/specs/2026-10-15-goodbiz-agri-site-design.md`
+
+**Design reference:** `DESIGN.md` at the repo root (created in Task 1), adapted from Oura's DESIGN.md in VoltAgent/awesome-design-md. Every UI task reads it before writing markup or CSS.
 
 ## Global Constraints
 
@@ -16,9 +18,13 @@
 - Language switcher lists 104 languages; non-core choices use live machine translation; never auto-redirect by browser language.
 - Product slugs, exactly: `rice`, `non-basmati-rice`, `broken-rice`, `jaggery`, `arecanut`, `groundnuts`, `coconut-copra`, `ginger`, `turmeric`.
 - HSN codes are displayed exactly as stored (digits only, 4–8 chars). Codes with `verified: false`: arecanut `80280`, groundnuts `120242`, coconut `8011220`.
-- Colour tokens: `--paper #F6F1E7`, `--forest #1F3D2B`, `--turmeric #D99A1E`, `--clay #8A4B2A`, `--ink #1A1A17`, `--gold-soft #E9C46A`. Turmeric CTA uses ink text. All text pairs WCAG AA.
-- Fonts: Fraunces (display), Manrope (body/UI), JetBrains Mono (HSN/specs); IBM Plex Sans Arabic (ar), Noto Serif for Cyrillic headings (ru), Noto Sans SC (zh). Self-hosted via @fontsource.
-- Motion: one easing `cubic-bezier(0.22, 1, 0.36, 1)` (`--ease`), two durations `--dur-1: 0.6s`, `--dur-2: 1.1s`. No infinite spin. `prefers-reduced-motion: reduce` disables Lenis, particles, 3D auto-rotation and reveals.
+- Colour tokens: `--paper #F7F1E8`, `--surface #FFFFFF`, `--forest #1F3D2B`, `--turmeric #D99A1E`, `--stone #4A4741`, `--clay #6B443D`, `--gold #AF751B`, `--gold-soft #DDAA61`, `--olive #5C6F5D`, `--sage-pale #CED4B8`, `--ink #1C1B1A`, `--ash #838280`, `--hairline #E1DCD3`, `--error #B3361F`. Turmeric is the single action colour (primary CTA pill, ink text, one per view); secondary actions are stone pills or outlines; earth accents never on buttons. Backgrounds default to paper, never white. All text pairs WCAG AA.
+- Shape: buttons/tabs `border-radius: 999px`; cards `--radius-card: 24px`; product imagery `--radius-media: 40px` (28px below 768px); inputs `--radius-input: 12px`; bands and full-bleed images 0. Shadows soft and warm only.
+- Type scale: display `clamp(3rem, 1.2rem + 6.2vw, 6.875rem)` (48→110px) Fraunces 300; h1 68px, h2 40px Fraunces 300; title 32px, body 18px, body-sm 16px, ui 14px, caption 13px Manrope; eyebrow 12px / 700 / uppercase / 1px tracking.
+- Devices: desktop ≥1280, laptop 1024–1279, tablet 768–1023, mobile ≤767. Grids 4→2→1; nav collapses below 860px; touch targets ≥44px; no horizontal scroll at 320px.
+- Fonts: Fraunces 300/400 (display), Manrope (body/UI), JetBrains Mono (HSN/specs); IBM Plex Sans Arabic (ar), Noto Serif for Cyrillic headings (ru), Noto Sans SC (zh). Self-hosted via @fontsource.
+- Motion: Lenis for smooth scrolling; Motion (`import { animate, scroll, inView, stagger } from 'motion'`) for all scroll/in-view effects — no GSAP, no React. One easing `cubic-bezier(0.22, 1, 0.36, 1)` (`--ease`, Motion `[0.22, 1, 0.36, 1]`), two durations `--dur-1: 0.6s`, `--dur-2: 1.1s`. No infinite spin. `prefers-reduced-motion: reduce` disables Lenis, particles, parallax, 3D auto-rotation and reveals.
+- Skills: UI implementers follow `DESIGN.md`; Task 19 runs the `taste-skill:taste-skill` and `impeccable:impeccable` review loops.
 - Budgets: initial JS ≤ 60 KB gzip per page; Three.js chunk lazy; GLB ≤ 300 KB; mobile Lighthouse Performance ≥ 90, SEO = 100, Accessibility ≥ 95; LCP < 2.5 s.
 - Stock images carry a visible "Representative image" label (driven by `isStock: true`).
 - Primary CTA "Request a quote" + persistent WhatsApp button on every page.
@@ -31,7 +37,7 @@
 
 ## Review Focus
 
-1. **Arabic at phone width** — a buyer on a 375 px phone in Arabic must see no horizontal scroll and mirrored layout. Test: Task 9 `tests/e2e/layout.spec.ts` "no horizontal overflow at 375px" for `/ar/` and `/ar/products/turmeric`.
+1. **Arabic and every page at phone, tablet and laptop widths** — no horizontal scroll and a mirrored layout in Arabic. Test: Task 9 `tests/e2e/layout.spec.ts` checks 320/375/768/1024/1440 px across all page types including `/ar/` and `/ar/products/turmeric`.
 2. **Hostile or stale quote prefill params** — `?product=<script>` or `?product=mango` must be ignored, never echoed as HTML. Test: Task 13 `parsePrefill` unit tests + e2e.
 3. **No WebGL / 3D load failure** — poster image stays, page has no console errors. Test: Task 8 and Task 11 e2e with WebGL disabled and the GLB route aborted.
 4. **Blocked storage or blocked Google Translate script** — switcher still works (core links navigate; machine languages fall back to translate.google.com). Test: Task 16 unit tests for `safeStorage` and `machineFallbackUrl`, e2e with the script route aborted.
@@ -42,6 +48,7 @@
 ## File Structure
 
 ```
+DESIGN.md                         adapted design system (Oura structure, GoodBiz tokens)
 package.json, astro.config.mjs, tsconfig.json, vitest.config.ts, playwright.config.ts,
 lighthouserc.json, vercel.json, .gitignore
 public/robots.txt, public/favicon.svg, public/models/            (optional .glb files)
@@ -85,7 +92,7 @@ src/
                                   og/[...slug].png.ts, spec-sheets/[product]/[variety].pdf.ts
   pages/[lang]/                   same route files for non-default locales + rss.xml.ts
   scripts/lazy.ts                 whenNear, canRun3D
-  scripts/motion.ts               Lenis + GSAP reveals/counters/pin/route-draw
+  scripts/motion.ts               Lenis + Motion reveals/parallax/counters/sticky story/route-draw
   scripts/particles/sample.ts     pure image → point cloud sampler
   scripts/particles/scene.ts      Three.js hero scene
   scripts/product-object/grains.ts  pure grain specs + deterministic pile
@@ -101,10 +108,10 @@ tests/e2e/*.spec.ts
 ### Task 1: Scaffold the project, tooling and design tokens
 
 **Files:**
-- Create: `package.json`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `playwright.config.ts`, `.gitignore`, `src/styles/tokens.css`, `src/styles/global.css`, `src/styles/fonts.css`, `src/pages/index.astro` (temporary), `public/favicon.svg`, `tests/unit/smoke.test.ts`, `tests/e2e/smoke.spec.ts`
+- Create: `DESIGN.md`, `package.json`, `astro.config.mjs`, `tsconfig.json`, `vitest.config.ts`, `playwright.config.ts`, `.gitignore`, `src/styles/tokens.css`, `src/styles/global.css`, `src/styles/fonts.css`, `src/pages/index.astro` (temporary), `public/favicon.svg`, `tests/unit/smoke.test.ts`, `tests/e2e/smoke.spec.ts`
 
 **Interfaces:**
-- Produces: npm scripts `dev`, `build`, `preview`, `test`, `test:e2e`, `lhci`, `linkcheck`; CSS custom properties listed in Global Constraints plus `--space-*`, `--radius`, `--measure`, `--font-display`, `--font-body`, `--font-mono`.
+- Produces: `DESIGN.md`; npm scripts `dev`, `build`, `preview`, `test`, `test:e2e`, `lhci`, `linkcheck`; CSS custom properties listed in Global Constraints plus `--space-*`, `--radius-input`, `--radius-card`, `--radius-media`, `--measure`, `--font-display`, `--font-body`, `--font-mono`, `--shadow-1`, `--shadow-2`; button classes `.btn--primary` (turmeric pill), `.btn--secondary` (stone pill), `.btn--ghost` (outline pill), `.btn--on-dark` (paper pill).
 
 - [ ] **Step 1: Create `package.json`**
 
@@ -131,7 +138,7 @@ tests/e2e/*.spec.ts
 
 Run:
 ```bash
-npm i astro@^5 @astrojs/mdx @astrojs/sitemap @astrojs/rss three gsap lenis yaml d3-geo topojson-client world-atlas satori @resvg/resvg-js pdf-lib @fontsource/fraunces @fontsource/manrope @fontsource/jetbrains-mono @fontsource/ibm-plex-sans-arabic @fontsource/noto-serif @fontsource/noto-sans-sc
+npm i astro@^5 @astrojs/mdx @astrojs/sitemap @astrojs/rss three motion lenis yaml d3-geo topojson-client world-atlas satori @resvg/resvg-js pdf-lib @fontsource/fraunces @fontsource/manrope @fontsource/jetbrains-mono @fontsource/ibm-plex-sans-arabic @fontsource/noto-serif @fontsource/noto-sans-sc
 npm i -D typescript @types/three @types/d3-geo @types/topojson-client vitest @playwright/test @lhci/cli linkinator
 npx playwright install chromium
 ```
@@ -204,43 +211,147 @@ playwright-report
 public/fonts/sc
 ```
 
-- [ ] **Step 5: Create `src/styles/tokens.css`**
+- [ ] **Step 5: Create `DESIGN.md` and `src/styles/tokens.css`**
+
+`DESIGN.md` (repo root) — the design reference every UI task reads:
+
+```markdown
+---
+name: GoodBiz Agri
+description: Warm-paper editorial system for a South Indian agro exporter. Structure adapted from Oura's DESIGN.md (VoltAgent/awesome-design-md); colours, type substitutes and content are GoodBiz's own.
+colors:
+  paper: "#F7F1E8"      # default background — never white
+  surface: "#FFFFFF"    # elevated cards and inputs only
+  forest: "#1F3D2B"     # dark world: hero stage, world band, footer
+  turmeric: "#D99A1E"   # the single action colour — primary CTA only, ink text
+  stone: "#4A4741"      # workhorse neutral: secondary pills, outlines, links, wordmark
+  clay: "#6B443D"       # accent bands, eyebrows, map highlights
+  gold: "#AF751B"
+  gold-soft: "#DDAA61"  # accents on forest, data-viz
+  olive: "#5C6F5D"
+  sage-pale: "#CED4B8"
+  ink: "#1C1B1A"
+  ash: "#838280"
+  hairline: "#E1DCD3"
+  error: "#B3361F"
+typography:
+  display: { family: Fraunces, size: "48→110px", weight: 300, lineHeight: 1.05 }
+  h1: { family: Fraunces, size: 68px, weight: 300, lineHeight: 1.1 }
+  h2: { family: Fraunces, size: 40px, weight: 300, lineHeight: 1.15 }
+  title: { family: Manrope, size: 32px, weight: 400, lineHeight: 1.25 }
+  lead: { family: Fraunces, size: 24px, weight: 300, lineHeight: 1.3 }
+  body: { family: Manrope, size: 18px, weight: 400, lineHeight: 1.55 }
+  body-sm: { family: Manrope, size: 16px, weight: 400, lineHeight: 1.5 }
+  ui: { family: Manrope, size: 14px, weight: 500, lineHeight: 1.4 }
+  caption: { family: Manrope, size: 13px, weight: 400, lineHeight: 1.4 }
+  eyebrow: { family: Manrope, size: 12px, weight: 700, letterSpacing: 1px, transform: uppercase }
+  data: { family: JetBrains Mono, size: 14px, weight: 400 }
+rounded: { none: 0, input: 12px, card: 24px, media: 40px, full: 999px }
+spacing: { base: 8px, xs: 8px, sm: 12px, md: 16px, lg: 24px, xl: 32px, section: "112px desktop / 72px mobile" }
+breakpoints: { desktop: 1280px, laptop: 1024px, tablet: 768px, nav: 860px }
+---
+
+## Atmosphere
+A printed field journal for a commodity trader: warm paper, thin high-contrast serif headlines, a calm sans for facts, and produce photography doing the emotional work. Restraint over decoration — flat fills, hairline rules, long vertical silences between sections.
+
+## Surface worlds
+- Cream world (`paper`) — home for editorial content, product pages, forms.
+- Forest world (`forest`) — hero stage with the particle scene, the 70+ countries band, the footer. Text `paper`, accents `gold-soft`.
+- White (`surface`) — only for elevated cards and inputs sitting on paper.
+
+## Colour rules
+- One `turmeric` primary CTA per view ("Request a quote"). Everything else is a `stone` pill, an outline pill, or a text link in `stone`.
+- `clay`, `gold`, `olive`, `sage-pale` are for bands, eyebrows, map highlights and data — never buttons.
+- Never default a background to white.
+
+## Typography rules
+- Serif for feeling, sans for facts. Fraunces 300 only at 24px and above; never body copy.
+- Scale, not weight, creates hierarchy. Eyebrows set section context in small uppercase tracked sans.
+- HSN codes, specs and numbers in JetBrains Mono so they read like trade documents.
+
+## Components
+- Buttons: pills, min-height 48px, 16px/600 label, padding 0 24px. Primary `turmeric`/ink; secondary `stone`/white; ghost 1px `stone` outline on paper or 1px `paper` outline on forest; on-dark `paper`/`stone`.
+- Cards: `surface` or `paper`, 24px radius, 24px padding, `hairline` border or soft shadow; product imagery 40px radius (28px on mobile).
+- Inputs: `surface` fill, 1px `hairline` border, 12px radius, 48px min-height, 16px text; focus ring `turmeric`; error border/text `error`.
+- Pill tabs/filters: full radius, 1px `hairline` border; selected = `forest` fill, `paper` text.
+- Eyebrow label: 12px/700 uppercase, `clay` on paper, `gold-soft` on forest.
+- Stat: large Fraunces number in `forest` over a caption in `ash`.
+- Footer: `forest` world, paper text, gold-soft headings, HSN quick reference in mono.
+
+## Layout
+- Content max-width 1216px, gutters clamp(16px, 4vw, 48px); full-bleed photography may break out.
+- Section rhythm 112px desktop / 72px mobile. Card grids 4-up (≥1280) → 3-up (≥1024) → 2-up (≥768) → 1-up.
+
+## Elevation
+Level 0 flat (default). Level 1 `0 1px 2px rgb(28 27 26 / .06), 0 8px 24px rgb(28 27 26 / .06)` for resting cards. Level 2 `0 16px 48px rgb(28 27 26 / .12)` for dialogs and floating controls. Never hard shadows.
+
+## Motion
+Lenis smooth scroll; Motion for reveals, parallax, sticky story, counters and route drawing. Ease `cubic-bezier(0.22, 1, 0.36, 1)`; durations 0.6s / 1.1s. Nothing loops forever. Reduced motion shows final states immediately.
+
+## Responsive
+Nav collapses to a full-screen forest menu below 860px. Display type scales 110→48px. Touch targets ≥44px. Product imagery keeps rounded frames at every size. No horizontal scroll at 320px. Tablet (768–1023) gets two-column grids and side-by-side hero only when both columns are ≥ 320px wide.
+
+## Do / Don't
+- Do let empty cream structure the page. Don't crowd sections.
+- Do keep one primary CTA per view. Don't colour links turmeric.
+- Do use mono for codes and specs. Don't set body copy in the serif.
+- Don't use gradients, glassmorphism, neon or hard shadows.
+```
+
+`src/styles/tokens.css`:
 
 ```css
 :root {
-  --paper: #F6F1E7;
+  --paper: #F7F1E8;
   --paper-2: #EFE7D8;
+  --surface: #FFFFFF;
   --forest: #1F3D2B;
   --forest-2: #2B5139;
   --turmeric: #D99A1E;
-  --clay: #8A4B2A;
-  --ink: #1A1A17;
-  --ink-2: #4A4740;
-  --gold-soft: #E9C46A;
-  --rule: rgb(26 26 23 / 0.14);
+  --turmeric-hover: #E4AC3C;
+  --stone: #4A4741;
+  --clay: #6B443D;
+  --gold: #AF751B;
+  --gold-soft: #DDAA61;
+  --olive: #5C6F5D;
+  --sage-pale: #CED4B8;
+  --ink: #1C1B1A;
+  --ink-2: #4A4741;
+  --ash: #838280;
+  --hairline: #E1DCD3;
+  --rule: var(--hairline);
+  --error: #B3361F;
 
   --font-display: 'Fraunces', 'Noto Serif', Georgia, serif;
   --font-body: 'Manrope', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  --step--1: clamp(0.83rem, 0.8rem + 0.15vw, 0.9rem);
-  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-  --step-1: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
-  --step-2: clamp(1.6rem, 1.4rem + 1vw, 2.2rem);
-  --step-3: clamp(2.1rem, 1.7rem + 2vw, 3.4rem);
-  --step-4: clamp(2.6rem, 1.9rem + 3.6vw, 5.2rem);
+  --step--2: 0.75rem;                                   /* eyebrow 12 */
+  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem); /* caption/ui 13–14 */
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);    /* body 16–18 */
+  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);     /* lead 20–24 */
+  --step-2: clamp(1.6rem, 1.3rem + 1.2vw, 2rem);        /* title 26–32 */
+  --step-3: clamp(2rem, 1.4rem + 2.4vw, 2.5rem);        /* h2 32–40 */
+  --step-4: clamp(2.5rem, 1.4rem + 4.4vw, 4.25rem);     /* h1 40–68 */
+  --step-5: clamp(3rem, 1.2rem + 6.2vw, 6.875rem);      /* display 48–110 */
 
   --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
   --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem; --space-9: 7rem;
   --gutter: clamp(1rem, 4vw, 3rem);
   --max: 76rem;
   --measure: 62ch;
-  --radius: 6px;
+  --radius: 12px;
+  --radius-input: 12px;
+  --radius-card: 24px;
+  --radius-media: 40px;
+  --shadow-1: 0 1px 2px rgb(28 27 26 / 0.06), 0 8px 24px rgb(28 27 26 / 0.06);
+  --shadow-2: 0 16px 48px rgb(28 27 26 / 0.12);
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dur-1: 0.6s;
   --dur-2: 1.1s;
 }
+@media (max-width: 767px) { :root { --radius-media: 28px; --space-9: 4.5rem; } }
 :root[lang='ar'] { --font-display: 'IBM Plex Sans Arabic', sans-serif; --font-body: 'IBM Plex Sans Arabic', sans-serif; }
 :root[lang='ru'] { --font-display: 'Noto Serif', Georgia, serif; }
 :root[lang='zh'] { --font-display: 'Noto Sans SC', sans-serif; --font-body: 'Noto Sans SC', 'Manrope', sans-serif; }
@@ -250,8 +361,8 @@ public/fonts/sc
 
 ```css
 /* fonts.css — @fontsource uses unicode-range, so browsers fetch only the subsets a page uses */
+@import '@fontsource/fraunces/300.css';
 @import '@fontsource/fraunces/400.css';
-@import '@fontsource/fraunces/500.css';
 @import '@fontsource/manrope/400.css';
 @import '@fontsource/manrope/500.css';
 @import '@fontsource/manrope/700.css';
@@ -272,23 +383,31 @@ body {
   overflow-x: clip;
 }
 img, svg, video, canvas { display: block; max-width: 100%; height: auto; }
-h1, h2, h3 { font-family: var(--font-display); font-weight: 500; line-height: 1.08; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
-h1 { font-size: var(--step-4); } h2 { font-size: var(--step-3); } h3 { font-size: var(--step-1); }
+h1, h2 { font-family: var(--font-display); font-weight: 300; line-height: 1.08; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }
+h3 { font-family: var(--font-body); font-weight: 600; font-size: var(--step-1); line-height: 1.3; margin: 0; }
+h1 { font-size: var(--step-4); } h2 { font-size: var(--step-3); }
+.display { font-size: var(--step-5); line-height: 1.05; }
+.lead { font-family: var(--font-display); font-weight: 300; font-size: var(--step-1); line-height: 1.3; }
 p { margin: 0; max-width: var(--measure); text-wrap: pretty; }
 a { color: inherit; text-underline-offset: 0.2em; }
 :focus-visible { outline: 2px solid var(--turmeric); outline-offset: 3px; }
 .container { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
 .section { padding-block: var(--space-9); }
-.eyebrow { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--clay); }
+.eyebrow { font-family: var(--font-body); font-size: var(--step--2); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--clay); }
 .btn {
-  display: inline-flex; align-items: center; gap: var(--space-2); min-height: 48px;
-  padding: 0 var(--space-5); border-radius: var(--radius); font-weight: 700; text-decoration: none;
-  transition: transform var(--dur-1) var(--ease), background-color var(--dur-1) var(--ease);
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 48px;
+  padding: 0 var(--space-5); border-radius: 999px; border: 1px solid transparent; font-weight: 600; font-size: 1rem; line-height: 1;
+  text-decoration: none; cursor: pointer;
+  transition: transform var(--dur-1) var(--ease), background-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease);
 }
-.btn:active { transform: scale(0.98); }
+.btn:active { transform: scale(0.97); }
 .btn--primary { background: var(--turmeric); color: var(--ink); }
-.btn--primary:hover { background: var(--gold-soft); }
-.btn--ghost { border: 1px solid currentColor; }
+.btn--primary:hover { background: var(--turmeric-hover); }
+.btn--secondary { background: var(--stone); color: var(--surface); }
+.btn--secondary:hover { background: var(--ink); }
+.btn--ghost { border-color: currentColor; background: transparent; }
+.btn--on-dark { background: var(--paper); color: var(--stone); }
+@media (max-width: 480px) { .btn { inline-size: 100%; } }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: absolute; inset-inline-start: var(--space-4); top: -100px; z-index: 100; background: var(--ink); color: var(--paper); padding: var(--space-3); }
 .skip:focus { top: var(--space-4); }
@@ -2794,7 +2913,7 @@ const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
   .hdr__nav ul { display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
   .hdr__nav a:not(.btn) { text-decoration: none; }
   .hdr__nav a[aria-current='page'] { text-decoration: underline; }
-  .hdr__toggle { display: none; min-block-size: 44px; background: none; border: 1px solid currentColor; color: inherit; border-radius: var(--radius); padding-inline: var(--space-4); font: inherit; }
+  .hdr__toggle { display: none; min-block-size: 44px; background: none; border: 1px solid currentColor; color: inherit; border-radius: 999px; padding-inline: var(--space-4); font: inherit; }
   @media (max-width: 860px) {
     .hdr__toggle { display: inline-flex; align-items: center; }
     .hdr__nav { position: fixed; inset: 0; background: var(--forest); color: var(--paper); flex-direction: column; justify-content: center; gap: var(--space-6);
@@ -2918,7 +3037,7 @@ git commit -m "feat: site chrome, shared components and localized route pattern"
 
 ---
 
-### Task 7: Motion system (Lenis, GSAP reveals, counters, pinned story, route drawing)
+### Task 7: Motion system (Lenis smooth scroll + Motion reveals, parallax, sticky story, counters, route drawing)
 
 **Files:**
 - Create: `src/scripts/lazy.ts`, `src/scripts/motion.ts` (replace stub)
@@ -2931,7 +3050,8 @@ git commit -m "feat: site chrome, shared components and localized route pattern"
   - `hasWebGL(): boolean`
   - `whenNear(el: Element, cb: () => void, rootMargin = '400px'): void` (calls once; falls back to immediate call without IntersectionObserver)
   - `onIdle(cb: () => void): void`
-  - Data attributes consumed by `motion.ts`: `data-reveal` (fade/translate in), `data-reveal="lines"` (split by `<span class="line">`), `data-counter="70"` (+ optional `data-suffix="+"`), `data-pin` (container) with `data-pin-step` children, `data-draw` (SVG paths: stroke draw on enter).
+  - Data attributes consumed by `motion.ts`: `data-reveal` (fade/translate in), `data-reveal="lines"` (split by `<span class="line">`), `data-counter="70"` (+ optional `data-suffix="+"`), `data-pin` (tall track element containing a sticky child; desktop only) with `data-pin-step` children, `data-draw` (SVG paths: stroke draw on enter), `data-parallax` (image drifts ±30px across its scroll range), `data-hero-copy` (fades and lifts as the hero scrolls away).
+  - CSS contract for `data-pin`: below 1024px or with reduced motion the track has `height: auto` and the inner block is static; at ≥1024px the track is `height: calc(100svh + <steps> * 60svh)` and its first child is `position: sticky; top: 0; height: 100svh`.
 
 - [ ] **Step 1: Write failing tests**
 
@@ -3027,7 +3147,7 @@ export function onIdle(cb: () => void): void {
 ```ts
 import { prefersReducedMotion, onIdle } from './lazy';
 
-const EASE = 'expo.out';
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 function setFinalCounters() {
   document.querySelectorAll<HTMLElement>('[data-counter]').forEach((el) => {
@@ -3038,63 +3158,88 @@ function setFinalCounters() {
 async function init() {
   if (prefersReducedMotion()) { setFinalCounters(); return; }
 
-  const [{ gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([
-    import('gsap'), import('gsap/ScrollTrigger'), import('lenis'),
-  ]);
-  gsap.registerPlugin(ScrollTrigger);
+  const [{ animate, scroll, inView, stagger }, { default: Lenis }] = await Promise.all([import('motion'), import('lenis')]);
 
-  const lenis = new Lenis({ lerp: 0.1 });
-  lenis.on('scroll', ScrollTrigger.update);
-  gsap.ticker.add((t) => lenis.raf(t * 1000));
-  gsap.ticker.lagSmoothing(0);
+  const lenis = new Lenis({ lerp: 0.1, autoRaf: true });
+  document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const target = document.querySelector<HTMLElement>(a.getAttribute('href')!);
+      if (target) { e.preventDefault(); lenis.scrollTo(target, { offset: -80 }); }
+    });
+  });
 
   const vh = window.innerHeight;
   const belowFold = (el: Element) => el.getBoundingClientRect().top > vh * 0.9;
 
+  // Reveals — never hide what is already on screen (protects LCP)
   document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => {
-    if (!belowFold(el)) return; // never hide what is already on screen (protects LCP)
-    const targets = el.dataset.reveal === 'lines' ? el.querySelectorAll('.line') : [el];
-    gsap.from(targets, {
-      y: 28, opacity: 0, duration: 1.1, ease: EASE, stagger: 0.08,
-      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-    });
+    if (!belowFold(el)) return;
+    const targets = el.dataset.reveal === 'lines' ? [...el.querySelectorAll<HTMLElement>('.line')] : [el];
+    animate(targets, { opacity: 0, y: 28 }, { duration: 0 });
+    let done = false;
+    inView(el, () => {
+      if (done) return;
+      done = true;
+      animate(targets, { opacity: 1, y: 0 }, { duration: 1.1, ease: EASE, delay: stagger(0.08) });
+    }, { margin: '0px 0px -15% 0px' });
   });
 
+  // Hero copy fades and lifts as the hero scrolls away
+  document.querySelectorAll<HTMLElement>('[data-hero-copy]').forEach((el) => {
+    const section = el.closest('section') ?? el;
+    scroll(animate(el, { opacity: [1, 0], y: [0, -80] }, { ease: 'linear' }), { target: section, offset: ['start start', 'end start'] });
+  });
+
+  // Gentle image parallax
+  document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((el) => {
+    scroll(animate(el, { y: [-30, 30] }, { ease: 'linear' }), { target: el, offset: ['start end', 'end start'] });
+  });
+
+  // Counters
   document.querySelectorAll<HTMLElement>('[data-counter]').forEach((el) => {
     const end = Number(el.dataset.counter);
     const suffix = el.dataset.suffix ?? '';
-    const obj = { v: 0 };
     el.textContent = `0${suffix}`;
-    gsap.to(obj, {
-      v: end, duration: 1.6, ease: 'power2.out',
-      onUpdate: () => { el.textContent = `${Math.round(obj.v)}${suffix}`; },
-      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
+    let done = false;
+    inView(el, () => {
+      if (done) return;
+      done = true;
+      animate(0, end, { duration: 1.6, ease: EASE, onUpdate: (v) => { el.textContent = `${Math.round(v)}${suffix}`; } });
     });
   });
 
-  document.querySelectorAll<HTMLElement>('[data-pin]').forEach((wrap) => {
-    if (window.matchMedia('(max-width: 860px)').matches) return; // stack on mobile
-    const steps = wrap.querySelectorAll<HTMLElement>('[data-pin-step]');
-    const tl = gsap.timeline({ scrollTrigger: { trigger: wrap, start: 'top top', end: `+=${steps.length * 70}%`, scrub: 0.6, pin: true } });
-    steps.forEach((s, i) => {
-      if (i === 0) return;
-      tl.from(s, { opacity: 0, y: 40, duration: 1, ease: 'none' }).to(steps[i - 1], { opacity: 0.25, duration: 1, ease: 'none' }, '<');
+  // Sticky farm-to-port story (desktop only; CSS makes the track tall and the inner block sticky)
+  if (window.matchMedia('(min-width: 1024px)').matches) {
+    document.querySelectorAll<HTMLElement>('[data-pin]').forEach((track) => {
+      const steps = [...track.querySelectorAll<HTMLElement>('[data-pin-step]')];
+      steps.forEach((s, i) => { s.style.opacity = i === 0 ? '1' : '0.2'; });
+      scroll((progress: number) => {
+        const active = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+        steps.forEach((s, i) => {
+          const target = i === active ? 1 : i < active ? 0.35 : 0.2;
+          if (s.style.opacity !== String(target)) animate(s, { opacity: target, y: i === active ? 0 : i < active ? -6 : 6 }, { duration: 0.6, ease: EASE });
+        });
+      }, { target: track, offset: ['start start', 'end end'] });
     });
-  });
+  }
 
-  document.querySelectorAll<SVGPathElement>('[data-draw]').forEach((p, i) => {
-    const len = p.getTotalLength();
-    gsap.fromTo(p, { strokeDasharray: len, strokeDashoffset: len }, {
-      strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut', delay: (i % 12) * 0.08,
-      scrollTrigger: { trigger: p.ownerSVGElement ?? p, start: 'top 75%', once: true },
-    });
+  // Map routes draw in
+  document.querySelectorAll<SVGSVGElement>('svg:has([data-draw])').forEach((svg) => {
+    const paths = [...svg.querySelectorAll<SVGPathElement>('[data-draw]')];
+    paths.forEach((p) => { const len = p.getTotalLength(); p.style.strokeDasharray = `${len}`; p.style.strokeDashoffset = `${len}`; });
+    let done = false;
+    inView(svg, () => {
+      if (done) return;
+      done = true;
+      paths.forEach((p, i) => animate(p, { strokeDashoffset: 0 }, { duration: 1.4, delay: (i % 12) * 0.08, ease: EASE }));
+    }, { amount: 0.3 });
   });
 }
 
 onIdle(() => { void init(); });
 ```
 
-GSAP and Lenis are dynamically imported after idle, so they are not part of the initial JS budget.
+Motion and Lenis are dynamically imported after idle, so they are not part of the initial JS budget. If the installed `motion` version does not export `scroll(callback, options)` with a progress number, use `scroll((info) => …info.y.progress…)` per its docs — check `node_modules/motion/package.json` version and the `scroll` type signature before writing this file.
 
 - [ ] **Step 5: Run unit test**
 
@@ -3105,7 +3250,7 @@ Expected: PASS.
 
 ```bash
 git add -A
-git commit -m "feat: motion system with reduced-motion and lazy GSAP/Lenis"
+git commit -m "feat: Motion + Lenis scroll effects with reduced-motion support"
 ```
 
 ---
@@ -3435,9 +3580,9 @@ const title = t('hero.title');
 ---
 <section class="hero">
   <HeroParticles images={small.map((s) => s.src)} poster={picks[0].data.heroImage.src} alt="" />
-  <div class="container hero__copy">
+  <div class="container hero__copy" data-hero-copy>
     <p class="eyebrow">{t('hero.eyebrow')}</p>
-    <h1>{title}</h1>
+    <h1 class="display">{title}</h1>
     <p class="hero__lede">{t('hero.lede')}</p>
     <div class="hero__ctas">
       <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('cta.quote')}</a>
@@ -3576,9 +3721,11 @@ test('sourcing map highlights districts for the chosen product', async ({ page }
 // tests/e2e/layout.spec.ts
 import { test, expect } from '@playwright/test';
 
-for (const path of ['/', '/ar/', '/ar/products/turmeric', '/zh/', '/products/turmeric']) {
-  test(`no horizontal overflow at 375px: ${path}`, async ({ browser }) => {
-    const ctx = await browser.newContext({ viewport: { width: 375, height: 812 } });
+const widths = [320, 375, 768, 1024, 1440];
+const paths = ['/', '/ar/', '/ar/products/turmeric', '/zh/', '/products/turmeric', '/products', '/hsn/09103030', '/blog', '/contact', '/about'];
+for (const width of widths) for (const path of paths) {
+  test(`no horizontal overflow at ${width}px: ${path}`, async ({ browser }) => {
+    const ctx = await browser.newContext({ viewport: { width, height: 900 } });
     const page = await ctx.newPage();
     const res = await page.goto(path);
     test.skip(res?.status() === 404, 'page not built yet');
@@ -3721,7 +3868,7 @@ const href = localizePath(`/products/${product.slug}`, locale);
 <style>
   .pc { display: grid; gap: var(--space-3); }
   .pc__link { display: grid; gap: var(--space-3); text-decoration: none; }
-  .pc__media { position: relative; overflow: hidden; border-radius: var(--radius); aspect-ratio: 4 / 3; background: var(--paper-2); }
+  .pc__media { position: relative; overflow: hidden; border-radius: var(--radius-media); aspect-ratio: 4 / 3; background: var(--paper-2); }
   .pc__media :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform var(--dur-2) var(--ease); }
   .pc__link:hover .pc__media :global(img) { transform: scale(1.04); }
   .pc__title { font-size: var(--step-2); }
@@ -3772,7 +3919,8 @@ const t = createT(locale);
 const steps = [1, 2, 3, 4] as const;
 ---
 <section id="journey" class="journey">
-  <div class="container journey__inner" data-pin>
+  <div class="journey__track" data-pin style={`--steps: ${steps.length}`}>
+  <div class="container journey__inner">
     <header>
       <p class="eyebrow">{t('home.journey.eyebrow')}</p>
       <h2>{t('home.journey.title')}</h2>
@@ -3787,10 +3935,15 @@ const steps = [1, 2, 3, 4] as const;
       ))}
     </ol>
   </div>
+  </div>
 </section>
 <style>
   .journey { background: var(--paper-2); }
-  .journey__inner { min-block-size: 100svh; display: grid; gap: var(--space-7); align-content: center; padding-block: var(--space-8); }
+  .journey__inner { display: grid; gap: var(--space-7); align-content: center; padding-block: var(--space-8); }
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .journey__track { block-size: calc(100svh + var(--steps) * 60svh); }
+    .journey__inner { position: sticky; inset-block-start: 0; block-size: 100svh; }
+  }
   .journey .eyebrow { margin-block-end: var(--space-3); }
   ol { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
   li { display: grid; gap: var(--space-3); border-block-start: 1px solid var(--ink); padding-block-start: var(--space-4); }
@@ -4514,7 +4667,7 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
 <style>
   .pv__hero { padding-block: 7.5rem var(--space-7); display: grid; gap: var(--space-5); }
   .pv__heroGrid { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: center; }
-  .pv__object { position: relative; aspect-ratio: 1; border-radius: var(--radius); overflow: hidden; background: var(--paper-2); }
+  .pv__object { position: relative; aspect-ratio: 1; border-radius: var(--radius-media); overflow: hidden; background: var(--paper-2); }
   .pv__object :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }
   .pv__intro { display: grid; gap: var(--space-5); }
   .pv__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); color: var(--forest); }
@@ -4525,7 +4678,7 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
   dd { margin: 0; font-weight: 500; }
   .pv__varieties { display: grid; gap: var(--space-8); margin-block-start: var(--space-7); }
   .var { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); align-items: start; }
-  .var__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius); background: var(--paper-2); }
+  .var__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-media); background: var(--paper-2); }
   .var__media :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }
   .var__body { display: grid; gap: var(--space-3); justify-items: start; }
   .var__where, .var__pack { font-size: var(--step--1); color: var(--ink-2); }
@@ -5421,12 +5574,12 @@ const mailBase = mailtoHref(site.email) ?? '';
   .qf { display: grid; gap: var(--space-6); }
   .qf__grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
   label { display: grid; gap: var(--space-2); font-size: var(--step--1); font-weight: 500; }
-  input, select, textarea { font: inherit; font-size: 16px; min-block-size: 48px; padding: var(--space-2) var(--space-3); border: 1px solid var(--rule); border-radius: var(--radius); background: #fff; color: var(--ink); }
+  input, select, textarea { font: inherit; font-size: 16px; min-block-size: 48px; padding: var(--space-2) var(--space-3); border: 1px solid var(--hairline); border-radius: var(--radius-input); background: var(--surface); color: var(--ink); }
   input:focus, select:focus, textarea:focus { outline: 2px solid var(--turmeric); outline-offset: 1px; }
-  [aria-invalid='true'] { border-color: #A23B1E; }
+  [aria-invalid='true'] { border-color: var(--error); }
   .qf__wide { grid-column: 1 / -1; }
-  .qf__err { color: #A23B1E; font-weight: 400; min-block-size: 1.2em; }
-  .qf__status { display: none; gap: var(--space-3); padding: var(--space-5); border-radius: var(--radius); }
+  .qf__err { color: var(--error); font-weight: 400; min-block-size: 1.2em; }
+  .qf__status { display: none; gap: var(--space-3); padding: var(--space-5); border-radius: var(--radius-card); }
   .qf[data-form-state='success'] .qf__status--success { display: grid; background: #E6EFE3; }
   .qf[data-form-state='error'] .qf__status--error { display: grid; background: #F6E3D9; }
   .qf__fallbacks { display: flex; flex-wrap: wrap; gap: var(--space-3); }
@@ -6398,7 +6551,7 @@ const current = Object.entries(gtToCore).find(([, v]) => v === locale)?.[0] ?? '
   .ls__pill { position: fixed; inset-block-end: var(--space-5); inset-inline-start: var(--space-5); z-index: 40; display: inline-flex; align-items: center; gap: var(--space-2);
     min-block-size: 44px; padding-inline: var(--space-4); border-radius: 999px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font: inherit; font-weight: 700; font-size: var(--step--1);
     box-shadow: 0 6px 20px rgb(26 26 23 / 0.15); cursor: pointer; }
-  .ls__dialog { inline-size: min(100% - 2rem, 34rem); max-block-size: min(80svh, 44rem); padding: 0; border: 0; border-radius: 10px; background: var(--paper); color: var(--ink); }
+  .ls__dialog { inline-size: min(100% - 2rem, 34rem); max-block-size: min(80svh, 44rem); padding: 0; border: 0; border-radius: var(--radius-card); box-shadow: var(--shadow-2); background: var(--paper); color: var(--ink); }
   .ls__dialog::backdrop { background: rgb(26 26 23 / 0.5); }
   .ls__head { display: flex; justify-content: space-between; align-items: center; padding: var(--space-5) var(--space-5) var(--space-3); }
   .ls__head h2 { font-size: var(--step-1); }
@@ -6520,7 +6673,7 @@ const strings = Object.fromEntries(available.map((l) => {
 <style>
   .lsb { position: fixed; inset-block-start: var(--space-4); inset-inline: var(--space-4); z-index: 50; margin-inline: auto; max-inline-size: 36rem;
     display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: 10px; background: var(--paper); color: var(--ink);
-    box-shadow: 0 10px 30px rgb(26 26 23 / 0.2); }
+    box-shadow: var(--shadow-2); border-radius: var(--radius-card); }
   .lsb[hidden] { display: none; }
   .lsb p { flex: 1 1 12rem; font-weight: 500; }
 </style>
@@ -7028,7 +7181,7 @@ for (const path of ['/', '/products/turmeric', '/hsn/1701', '/blog']) {
       sizes.push(len);
     });
     await page.goto(path, { waitUntil: 'load' });
-    // scripts requested after idle (GSAP, Lenis, Three.js) are excluded by stopping here
+    // scripts requested after idle (Motion, Lenis, Three.js) are excluded by stopping here
     const total = sizes.reduce((a, b) => a + b, 0);
     expect(total / 1024).toBeLessThanOrEqual(60 * 3.2); // uncompressed bytes; ≈ 60 KB gzip at ~3.2× ratio
   });
@@ -7106,7 +7259,7 @@ Add Vercel Analytics and Speed Insights by inserting into `Base.astro` `<head>`:
 
 - [ ] **Step 5: Visual review loop**
 
-Invoke the `taste-skill:taste-skill` skill, then `impeccable:impeccable` (audit/polish mode), on the running preview (`npm run preview`). Review at 375, 768 and 1440 px for `/`, `/products/turmeric`, `/hsn/09103030`, `/blog`, `/contact`, `/ar/` and `/zh/`. For each issue: fix in the component's CSS, rebuild, re-screenshot. Re-run `npm run test:e2e` and `npm run lhci` after the loop. Commit fixes in small commits, e.g. `style: tighten product hero spacing on mobile`.
+Invoke the `taste-skill:taste-skill` skill, then `impeccable:impeccable` (audit/polish mode), on the running preview (`npm run preview`). Review against `DESIGN.md` at 375, 768, 1024 and 1440 px for `/`, `/products/turmeric`, `/hsn/09103030`, `/blog`, `/contact`, `/ar/` and `/zh/`. For each issue: fix in the component's CSS, rebuild, re-screenshot. Re-run `npm run test:e2e` and `npm run lhci` after the loop. Commit fixes in small commits, e.g. `style: tighten product hero spacing on mobile`.
 
 - [ ] **Step 6: Write `README.md`**
 
