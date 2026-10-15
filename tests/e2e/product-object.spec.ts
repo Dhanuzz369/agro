@@ -16,6 +16,18 @@ test('missing GLB keeps the poster and logs no page errors', async ({ page }) =>
   expect(errors).toEqual([]);
 });
 
+test('absent GLB is never requested and logs no console errors', async ({ page }) => {
+  const errors: string[] = [];
+  const modelRequests: string[] = [];
+  page.on('console', (m) => m.type() === 'error' && errors.push(m.text()));
+  page.on('request', (r) => r.url().includes('/models/') && modelRequests.push(r.url()));
+  await page.goto('/products/ginger');
+  await page.locator('[data-object-canvas]').scrollIntoViewIfNeeded();
+  await expect(page.locator('[data-object-canvas]')).toHaveAttribute('data-state', /on|off/, { timeout: 8000 });
+  expect(modelRequests).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
 test('reduced motion: no 3D, poster only', async ({ browser }) => {
   const ctx = await browser.newContext({ reducedMotion: 'reduce' });
   const page = await ctx.newPage();

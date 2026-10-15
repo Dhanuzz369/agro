@@ -1,7 +1,8 @@
 import * as THREE from 'three';
 import { grainSpec, scatterPile, type GrainKind } from './grains';
 
-type Model = { kind: 'grains'; grain: GrainKind } | { kind: 'glb'; src: string; fallbackGrain: GrainKind };
+/** `present` is decided at build time (file exists in public/), so missing models cause no request at all. */
+type Model = { kind: 'grains'; grain: GrainKind } | { kind: 'glb'; src: string; fallbackGrain: GrainKind; present?: boolean };
 
 function geometryFor(shape: ReturnType<typeof grainSpec>['shape']) {
   switch (shape) {
@@ -54,23 +55,11 @@ async function loadGlb(src: string): Promise<THREE.Object3D> {
   return obj;
 }
 
-/** True only for a real binary glTF response (static servers may answer 200 + HTML for missing files). */
-async function glbExists(src: string): Promise<boolean> {
-  try {
-    const head = await fetch(src, { method: 'HEAD' });
-    if (!head.ok) return false;
-    const type = (head.headers.get('content-type') ?? '').toLowerCase();
-    return type.includes('model/gltf-binary') || type.includes('application/octet-stream');
-  } catch {
-    return false;
-  }
-}
-
 export async function mountProductObject(canvas: HTMLCanvasElement, model: Model, opts: { autoRotate: boolean }): Promise<() => void> {
   // Build the object first so a failure never leaks a WebGL context.
   let object: THREE.Object3D;
   if (model.kind === 'glb') {
-    object = (await glbExists(model.src))
+    object = model.present
       ? await loadGlb(model.src).catch(() => buildPile(model.fallbackGrain))
       : buildPile(model.fallbackGrain);
   } else {

@@ -1,10 +1,14 @@
 ---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
 import { createT } from '../i18n/t';
 import type { Locale } from '../i18n/config';
 import type { ProductData } from '../lib/schemas';
 interface Props { model: ProductData['model']; locale: Locale }
-const { model, locale } = Astro.props;
+const { model: base, locale } = Astro.props;
 const t = createT(locale);
+// Owner-supplied GLBs are optional: check at build time so the browser never requests a missing file.
+const model = base.kind === 'glb' ? { ...base, present: existsSync(join(process.cwd(), 'public', base.src)) } : base;
 ---
 <div class="po">
   <slot />
@@ -31,6 +35,8 @@ const t = createT(locale);
   .po__canvas { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; opacity: 0; transition: opacity var(--dur-2) var(--ease); cursor: grab; touch-action: pan-y; }
   .po__canvas[data-state='on'] { opacity: 1; }
   .po:has(.po__canvas[data-state='on']) :global([data-object-poster]) { opacity: 0; transition: opacity var(--dur-2) var(--ease); }
-  .po__hint { position: absolute; inset-block-end: var(--space-2); inset-inline-end: var(--space-2); font-size: 0.7rem; color: var(--ink-2); opacity: 0; }
+  .po__hint { position: absolute; inset-block-end: var(--space-2); inset-inline-end: var(--space-2); font-size: var(--step--1); color: var(--ink-2); opacity: 0; }
   .po:has(.po__canvas[data-state='on']) .po__hint { opacity: 1; }
+  /* the 'Representative image' label describes the poster photo, which is hidden while the 3D object shows */
+  .po:has(.po__canvas[data-state='on']) :global(.stock) { opacity: 0; }
 </style>
