@@ -19,13 +19,15 @@ test('shows inline errors on empty submit', async ({ page }) => {
   await expect(page.locator('#err-product')).toHaveText('Choose a product');
 });
 
-async function fill(page: import('@playwright/test').Page) {
+// site.yaml ships a placeholder Web3Forms key (form then goes straight to the fallback state), so tests inject a test key.
+async function fill(page: import('@playwright/test').Page, wait = true) {
   await page.goto('/contact?product=turmeric&variety=powder');
+  await page.evaluate(() => { document.querySelector<HTMLElement>('[data-quote-form]')!.dataset.key = 'test-key'; });
   await page.fill('input[name="quantity"]', '20');
   await page.fill('input[name="country"]', 'UAE');
   await page.fill('input[name="name"]', 'Amal');
   await page.fill('input[name="email"]', 'amal@gulf.ae');
-  await page.waitForTimeout(3100);
+  if (wait) await page.waitForTimeout(3100);
 }
 
 test('double click sends exactly one request and shows success', async ({ page }) => {
@@ -38,10 +40,34 @@ test('double click sends exactly one request and shows success', async ({ page }
   expect(calls).toBe(1);
 });
 
-test('service failure shows WhatsApp and email fallbacks', async ({ page }) => {
+test('service failure shows the error state (no dead fallback links while contact values are placeholders)', async ({ page }) => {
   await page.route('https://api.web3forms.com/submit', (r) => r.fulfill({ status: 500, body: 'err' }));
   await fill(page);
   await page.getByRole('button', { name: 'Send quote request' }).click();
   await expect(page.locator('[data-form-state="error"]')).toBeVisible();
-  await expect(page.locator('[data-fallback="email"]')).toBeVisible();
+  await expect(page.locator('[data-fallback="email"]')).toHaveCount(0); // site.yaml email is a placeholder
+  await expect(page.locator('a[href="#"]')).toHaveCount(0);
+});
+
+test('a valid quote submitted immediately is delayed, not dropped', async ({ page }) => {
+  let calls = 0;
+  await page.route('https://api.web3forms.com/submit', async (r) => { calls++; await r.fulfill({ json: { success: true } }); });
+  await fill(page, false);
+  await page.getByRole('button', { name: 'Send quote request' }).click();
+  await expect(page.locator('[data-form-state="success"]')).toBeVisible({ timeout: 8000 });
+  expect(calls).toBe(1);
+});
+
+test('placeholder key skips the network and shows the error state', async ({ page }) => {
+  let calls = 0;
+  await page.route('https://api.web3forms.com/submit', async (r) => { calls++; await r.abort(); });
+  await page.goto('/contact?product=turmeric');
+  await expect(page.locator('input[name="access_key"]')).toHaveCount(0);
+  await page.fill('input[name="quantity"]', '20');
+  await page.fill('input[name="country"]', 'UAE');
+  await page.fill('input[name="name"]', 'Amal');
+  await page.fill('input[name="email"]', 'amal@gulf.ae');
+  await page.getByRole('button', { name: 'Send quote request' }).click();
+  await expect(page.locator('[data-form-state="error"]')).toBeVisible();
+  expect(calls).toBe(0);
 });

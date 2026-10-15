@@ -74,7 +74,12 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     button.textContent = msgs.sending;
     button.setAttribute('aria-busy', 'true');
     const labels = labelsFor(input);
-    const status = await submitQuote(fetch, form.dataset.key!, input, labels);
+    const key = form.dataset.key ?? '';
+    let status: 'ok' | 'error' = 'error';
+    if (key) {
+      if (result.waitMs > 0) await new Promise((r) => setTimeout(r, result.waitMs));
+      status = await submitQuote(fetch, key, input, labels);
+    }
     busy = false;
     button.textContent = msgs.submit;
     button.removeAttribute('aria-busy');

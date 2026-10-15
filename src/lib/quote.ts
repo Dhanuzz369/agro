@@ -5,7 +5,7 @@ export type QuoteInput = {
   whatsapp: string; message: string; botcheck: string; startedAt: number;
 };
 type ErrorCode = 'required' | 'email' | 'quantity' | 'product';
-export type QuoteResult = { ok: true } | { ok: false; errors: Partial<Record<keyof QuoteInput, ErrorCode>>; spam?: boolean };
+export type QuoteResult = { ok: true; waitMs: number } | { ok: false; errors: Partial<Record<keyof QuoteInput, ErrorCode>>; spam?: boolean };
 
 export function parsePrefill(search: string, catalog: Catalog): { product?: string; variety?: string } {
   const q = new URLSearchParams(search);
@@ -25,10 +25,9 @@ export function validateQuote(input: QuoteInput, now: number): QuoteResult {
   if (!input.name.trim()) errors.name = 'required';
   if (!input.email.trim()) errors.email = 'required';
   else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.email.trim())) errors.email = 'email';
-  // Field errors win over the timing check so a quick but incomplete submit still gets inline feedback.
+  // Field errors win; a valid but fast submit is never dropped, the caller waits waitMs before sending.
   if (Object.keys(errors).length) return { ok: false, errors };
-  if (now - input.startedAt < 3000) return { ok: false, errors: {}, spam: true };
-  return { ok: true };
+  return { ok: true, waitMs: Math.max(0, 3000 - (now - input.startedAt)) };
 }
 
 export function summarizeQuote(i: QuoteInput, labels: { product: string; variety: string }): string {

@@ -3,7 +3,7 @@ import { createT } from '../i18n/t';
 import { localizePath } from '../i18n/paths';
 import type { Locale } from '../i18n/config';
 import { getLocalizedProducts, getSite } from '../lib/catalog';
-import { whatsappHref, mailtoHref } from '../lib/site';
+import { whatsappHref, mailtoHref, isPlaceholder } from '../lib/site';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
@@ -19,13 +19,15 @@ const msgs = {
   sending: t('form.sending'), submit: t('form.submit'), any: t('form.anyVariety'),
 };
 const waBase = whatsappHref(site.whatsapp) ?? '';
+const hasKey = !isPlaceholder(site.web3formsKey);
+const formKey = hasKey ? site.web3formsKey : '';
 const mailBase = mailtoHref(site.email) ?? '';
 ---
 <form class="qf" method="POST" action="https://api.web3forms.com/submit" novalidate
-  data-quote-form data-key={site.web3formsKey} data-catalog={JSON.stringify(catalog)} data-msgs={JSON.stringify(msgs)}
+  data-quote-form data-key={formKey} data-catalog={JSON.stringify(catalog)} data-msgs={JSON.stringify(msgs)}
   data-wa={waBase} data-mail={mailBase} data-form-state="idle">
-  <input type="hidden" name="access_key" value={site.web3formsKey} />
-  <input type="hidden" name="redirect" value={thanks} />
+  {hasKey && <input type="hidden" name="access_key" value={formKey} />}
+  {hasKey && <input type="hidden" name="redirect" value={thanks} />}
   <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
   <div class="qf__grid">
@@ -81,7 +83,7 @@ const mailBase = mailtoHref(site.email) ?? '';
     <h3>{t('form.error.title')}</h3><p>{t('form.error.body')}</p>
     <div class="qf__fallbacks">
       {waBase && <a class="btn btn--secondary" data-fallback="whatsapp" href={waBase} target="_blank" rel="noopener">{t('form.error.whatsapp')}</a>}
-      <a class="btn btn--ghost" data-fallback="email" href={mailBase || '#'}>{t('form.error.email')}</a>
+      {mailBase && <a class="btn btn--ghost" data-fallback="email" href={mailBase}>{t('form.error.email')}</a>}
     </div>
   </div>
 </form>

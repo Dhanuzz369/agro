@@ -16,7 +16,7 @@ describe('parsePrefill', () => {
 });
 
 describe('validateQuote', () => {
-  it('accepts a complete request', () => expect(validateQuote(base, 10_000)).toEqual({ ok: true }));
+  it('accepts a complete request', () => expect(validateQuote(base, 10_000)).toEqual({ ok: true, waitMs: 0 }));
   it('requires product, quantity, country, name, email', () => {
     const r = validateQuote({ ...base, product: '', quantity: '', country: '', name: '', email: '' }, 10_000);
     expect(r.ok).toBe(false);
@@ -36,9 +36,13 @@ describe('validateQuote', () => {
     const r = validateQuote({ ...base, botcheck: 'x' }, 10_000);
     expect(r.ok === false && r.spam).toBe(true);
   });
-  it('flags submissions faster than 3 s as spam', () => {
-    const r = validateQuote({ ...base, startedAt: 9_000 }, 10_000);
-    expect(r.ok === false && r.spam).toBe(true);
+  it('never drops a valid fast submission; asks the caller to wait out the 3 s minimum', () => {
+    expect(validateQuote({ ...base, startedAt: 9_000 }, 10_000)).toEqual({ ok: true, waitMs: 2000 });
+  });
+  it('field errors win over the timing check', () => {
+    const r = validateQuote({ ...base, email: '', startedAt: 9_900 }, 10_000);
+    expect(r.ok === false && r.errors.email).toBe('required');
+    expect(r.ok === false && r.spam).toBeUndefined();
   });
 });
 
