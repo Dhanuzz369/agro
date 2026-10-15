@@ -1,0 +1,16 @@
+reviewStatus: pending
+name: "黑糖（jaggery）"
+summary: "GoodBiz Agri 出口黑糖（jaggery，印度传统非离心甘蔗糖），HSN 1701——块状、方块、粉状、有机黑糖和棕榈黑糖（karupatti，卡鲁帕提）——产自卡纳塔克邦的曼迪亚和贝尔高姆，以及泰米尔纳德邦的图图库迪。"
+originLine: "曼迪亚、贝尔高姆和图图库迪"
+sourcingStory: "曼迪亚的甘蔗产带世代以敞口锅熬煮新鲜甘蔗汁制作黑糖。我们在当地采购块状和有机黑糖，从贝尔高姆的加工商处采购方块和粉状黑糖，从图图库迪的棕榈割汁工处采购棕榈黑糖。"
+varieties:
+  block: { name: "块状黑糖", description: "传统模压糖块，颜色从金黄到深褐。" }
+  cube: { name: "方块黑糖", description: "小方块，适用于零售和餐饮。" }
+  powder: { name: "粉状黑糖", description: "流动性好的颗粒，适用于烘焙和饮品。" }
+  organic: { name: "有机黑糖", description: "不使用化学澄清剂制成。" }
+  palm-karupatti: { name: "棕榈黑糖（karupatti）", description: "由泰米尔纳德邦南部的糖棕树汁制成。" }
+faq:
+  - { q: "黑糖的 HSN 编码是什么？", a: "黑糖归入 HSN 品目 1701。" }
+  - { q: "黑糖能保存多久？", a: "在阴凉干燥处约12个月；粉状和真空包装的糖块保存效果最好。" }
+  - { q: "最小起订量是多少？", a: "一个20英尺集装箱，约18至20吨。" }
+  - { q: "可以供应贴牌产品吗？", a: "可以，提供500克至5公斤包装，印制您的品牌。" }

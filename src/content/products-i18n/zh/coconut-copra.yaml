@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "椰子与椰干"
+summary: "GoodBiz Agri 出口半去壳椰子和椰干（kobre，科布雷）——Tiptur（蒂普图尔）球形椰干、榨油用椰干和食用椰干杯——产自卡纳塔克邦的蒂普图尔和图姆库鲁，以及泰米尔纳德邦的波拉奇。"
+originLine: "蒂普图尔、图姆库鲁和波拉奇"
+sourcingStory: "图姆库鲁县的蒂普图尔以球形椰干闻名——整颗椰肉在壳内缓慢晒干，成品味甜色白。我们在当地采购球形椰干，从图姆库鲁贸易商处采购榨油用椰干，并从全年开市的波拉奇市场采购新鲜半去壳椰子。"
+varieties:
+  semi-husked: { name: "半去壳椰子", description: "成熟椰子，保留部分外壳，网袋包装。" }
+  tiptur-ball-copra: { name: "Tiptur 球形椰干", description: "整颗缓慢晒干的食用椰干，椰肉味甜色白。" }
+  milling-copra: { name: "榨油用椰干", description: "用于榨油的椰干杯。" }
+  edible-cups: { name: "食用椰干杯", description: "食品用半杯椰干。" }
+faq:
+  - { q: "椰干的 HSN 编码是什么？", a: "椰子和椰干归入 HSN 品目 0801。我们正在核实每种产品的具体8位税号。" }
+  - { q: "什么是 Tiptur 球形椰干？", a: "在壳内整颗晒干长达一年的椰干，椰肉味甜色白，深受海湾和南亚市场青睐。" }
+  - { q: "椰子全年有货吗？", a: "有。波拉奇全年供应半去壳椰子。" }

@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "槟榔"
+summary: "GoodBiz Agri 出口槟榔（又称蒌叶果）——整颗白色 chali（查利）、对半切 split、红色 kempu（肯普；api 和 bette 等级）以及切片——产自卡纳塔克邦的希莫加和南卡纳拉，以及喀拉拉邦的卡萨拉戈德。"
+originLine: "希莫加、南卡纳拉和卡萨拉戈德"
+sourcingStory: "卡纳塔克邦出产印度大部分槟榔。沿海的南卡纳拉和卡萨拉戈德以日晒白色 chali 闻名，通过普图尔合作社市场交易；希莫加的马尔纳德地区则专营煮制红色等级。"
+varieties:
+  whole-chali: { name: "整颗白槟榔（chali）", description: "日晒整颗槟榔，内里呈白色。" }
+  split: { name: "对半切槟榔", description: "对半切开的槟榔，供加工商使用。" }
+  red-kempu: { name: "红槟榔（kempu）——api 和 bette", description: "产自希莫加的煮制晒干红褐色等级。" }
+  sliced: { name: "槟榔切片", description: "厚薄均匀的切片，面向直接食用市场。" }
+faq:
+  - { q: "槟榔的 HSN 编码是什么？", a: "槟榔归入 HSN 品目 0802 80。我们正在核实每个等级的具体8位税号；进口单证所用编码请向我们索取。" }
+  - { q: "chali 和 kempu 有什么区别？", a: "Chali 是产自卡纳塔克沿海的日晒整颗槟榔；kempu 经煮制后晒干，呈红色。" }
+  - { q: "槟榔何时收获？", a: "11月至次年3月，新货到港高峰在1月。" }
