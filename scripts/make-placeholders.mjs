@@ -1,9 +1,7 @@
-// Generates labelled placeholder JPGs for every image referenced in product YAML.
-// Run once; real stock photos replace these files later (same names).
-// The label sits top-left and faint: cover-cropped heroes cut it off, and it never meets the
-// bottom-corner "Representative image" label.
+// Generates plain tinted placeholder JPGs (no text: they are public until replaced) for every image
+// referenced in product YAML. Run once; real photos replace these files later (same names).
 import { readFileSync, readdirSync, mkdirSync, existsSync } from 'node:fs';
-import { dirname, resolve, join, basename } from 'node:path';
+import { dirname, resolve, join } from 'node:path';
 import { parse } from 'yaml';
 import sharp from 'sharp';
 
@@ -18,8 +16,7 @@ for (const f of readdirSync(dir)) {
     const out = resolve(dirname(file), rel);
     if (existsSync(out)) continue;
     mkdirSync(dirname(out), { recursive: true });
-    const label = `${f.replace('.yaml', '')} / ${basename(out, '.jpg')}`;
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200"><rect width="100%" height="100%" fill="${tints[i++ % tints.length]}"/><text x="80" y="76" font-family="sans-serif" font-size="56" fill="#1A1A17" fill-opacity="0.45">${label}</text></svg>`;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200"><rect width="100%" height="100%" fill="${tints[i++ % tints.length]}"/></svg>`;
     await sharp(Buffer.from(svg)).jpeg({ quality: 80 }).toFile(out);
   }
 }
