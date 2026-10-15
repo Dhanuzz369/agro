@@ -1,0 +1,36 @@
+---
+import { getImage } from 'astro:assets';
+import HeroParticles from '../HeroParticles.astro';
+import { createT } from '../../i18n/t';
+import { localizePath } from '../../i18n/paths';
+import { getLocalizedProducts } from '../../lib/catalog';
+import type { Locale } from '../../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const products = await getLocalizedProducts(locale);
+const order = ['rice', 'turmeric', 'arecanut'];
+const picks = order.map((s) => products.find((p) => p.slug === s)!);
+const small = await Promise.all(picks.map((p) => getImage({ src: p.data.heroImage.src, width: 320, format: 'webp' })));
+const title = t('hero.title');
+---
+<section class="hero">
+  <HeroParticles images={small.map((s) => s.src)} poster={picks[0].data.heroImage.src} alt="" />
+  <div class="container hero__copy" data-hero-copy>
+    <p class="eyebrow">{t('hero.eyebrow')}</p>
+    <h1 class="display">{title}</h1>
+    <p class="hero__lede">{t('hero.lede')}</p>
+    <div class="hero__ctas">
+      <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('cta.quote')}</a>
+      <a class="btn btn--ghost" href={localizePath('/products', locale)}>{t('cta.viewProducts')}</a>
+    </div>
+  </div>
+</section>
+<style>
+  .hero { position: relative; min-block-size: 100svh; display: grid; align-items: end; background: var(--forest); color: var(--paper); padding-block: 9rem var(--space-8); isolation: isolate; }
+  .hero__copy { position: relative; z-index: 1; display: grid; gap: var(--space-5); }
+  .hero .eyebrow { color: var(--gold-soft); }
+  .hero h1 { max-inline-size: 14ch; }
+  .hero__lede { font-size: var(--step-1); line-height: 1.45; opacity: 0.9; max-inline-size: 46ch; }
+  .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+</style>
