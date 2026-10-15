@@ -6,6 +6,18 @@ const muted = rgb(0x4a / 255, 0x47 / 255, 0x40 / 255);
 // StandardFonts are WinAnsi-only; normalise characters they cannot encode.
 const safe = (s: string) => s.replace(/≤/g, '<=').replace(/≥/g, '>=').replace(/[–—]/g, '-').replace(/×/g, 'x').replace(/·/g, '|').replace(/[^\x20-\x7E\xA0-\xFF]/g, '');
 
+/** Greedy word wrap so each line measures at most maxWidth (a single over-long word keeps its own line). */
+export function wrapLines(text: string, measure: (t: string) => number, maxWidth: number): string[] {
+  const lines: string[] = [];
+  let line = '';
+  for (const word of text.split(/\s+/).filter(Boolean)) {
+    const next = line ? `${line} ${word}` : word;
+    if (line && measure(next) > maxWidth) { lines.push(line); line = word; } else line = next;
+  }
+  if (line) lines.push(line);
+  return lines.length ? lines : [''];
+}
+
 export async function buildSpecSheet(a: {
   productName: string; varietyName: string; hsn: string; region: string; market: string;
   specs: { label: string; value: string }[]; packing: string[]; moq: string; ports: string; contact: string; url: string;
@@ -30,10 +42,14 @@ export async function buildSpecSheet(a: {
   page.drawText(safe(a.varietyName), { x, y: (y -= 28), size: 24, font: serif, color: ink });
   page.drawText(`HSN ${a.hsn}`, { x, y: (y -= 22), size: 11, font: mono, color: forest });
 
+  const lineHeight = 13;
   const row = (label: string, value: string) => {
     y -= 22;
     page.drawText(safe(label), { x, y, size: 10, font: sans, color: muted });
-    page.drawText(safe(value), { x: 220, y, size: 10, font: mono, color: ink, maxWidth: 320 });
+    const lines = wrapLines(safe(value), (t) => mono.widthOfTextAtSize(t, 10), 319);
+    lines.forEach((l, i) => page.drawText(l, { x: 220, y: y - i * lineHeight, size: 10, font: mono, color: ink }));
+    // advance past the wrapped lines so the hairline sits under the last one
+    y -= (lines.length - 1) * lineHeight;
     page.drawLine({ start: { x, y: y - 7 }, end: { x: 539, y: y - 7 }, thickness: 0.4, color: rgb(0.85, 0.83, 0.78) });
   };
 
