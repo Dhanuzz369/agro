@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "Pinang"
+summary: "GoodBiz Agri mengekspor pinang — chali putih utuh, belah, kempu merah (mutu api dan bette), dan irisan — yang bersumber dari Shivamogga dan Dakshina Kannada di Karnataka serta Kasaragod di Kerala."
+originLine: "Shivamogga, Dakshina Kannada, dan Kasaragod"
+sourcingStory: "Karnataka menghasilkan sebagian besar pinang India. Dakshina Kannada dan Kasaragod di pesisir dikenal dengan chali putih yang dijemur, diperdagangkan melalui pasar koperasi Puttur, sedangkan kawasan Malnad di Shivamogga mengkhususkan diri pada mutu merah yang direbus."
+varieties:
+  whole-chali: { name: "Putih utuh (chali)", description: "Biji utuh yang dijemur dengan bagian dalam berwarna putih." }
+  split: { name: "Pinang belah", description: "Biji dibelah dua untuk industri pengolahan." }
+  red-kempu: { name: "Merah (kempu) — api dan bette", description: "Mutu merah kecokelatan yang direbus dan dikeringkan dari Shivamogga." }
+  sliced: { name: "Pinang iris", description: "Irisan seragam untuk pasar konsumsi langsung." }
+faq:
+  - { q: "Apa kode HSN untuk pinang?", a: "Pinang termasuk dalam pos HSN 0802 80. Kami sedang memastikan baris 8 digit yang tepat untuk setiap mutu; hubungi kami untuk kode yang digunakan pada dokumen impor Anda." }
+  - { q: "Apa perbedaan antara chali dan kempu?", a: "Chali adalah biji utuh yang dijemur dari pesisir Karnataka; kempu direbus lalu dikeringkan sehingga berwarna merah." }
+  - { q: "Kapan pinang dipanen?", a: "November hingga Maret, dengan kedatangan panen baru memuncak pada Januari." }

@@ -1,6 +1,6 @@
 reviewStatus: pending
 title: "Autre gingembre, ni broyé ni moulu"
-description: "Le code SH 09101190 couvre le gingembre non dénommé ailleurs, ni broyé ni moulu."
+description: "Le code HSN 09101190 couvre le gingembre non dénommé ailleurs, ni broyé ni moulu."
 notes: "Utilisé pour les formes de gingembre entier en dehors des lignes frais et séché."
 faq:
   - { q: "Quand ce code est-il utilisé ?", a: "Pour le gingembre entier qui n'est classé ni comme frais ni comme séché blanchi ou non blanchi." }

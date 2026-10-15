@@ -2,8 +2,8 @@
   "meta.siteName": "GoodBiz Agri",
   "meta.homeTitle": "GoodBiz Agri — Arroz, especias y exportaciones agrícolas del sur de la India",
   "meta.homeDescription": "Exportador con sede en Bangalore de arroz, cúrcuma, jengibre, nuez de areca, jaggery, maní y copra, adquiridos en los mercados productores del sur de la India y enviados a más de 70 países.",
-  "meta.productsTitle": "Productos agrícolas de exportación y códigos SA",
-  "meta.productsDescription": "Arroz, arroz no basmati y partido, jaggery, nuez de areca, maní, coco y copra, jengibre y cúrcuma: variedades, especificaciones y códigos SA.",
+  "meta.productsTitle": "Productos agrícolas de exportación y códigos HSN (SA)",
+  "meta.productsDescription": "Arroz, arroz no basmati y partido, jaggery, nuez de areca, maní, coco y copra, jengibre y cúrcuma: variedades, especificaciones y códigos HSN (SA).",
   "meta.blogTitle": "Perspectivas sobre exportación agrícola",
   "meta.blogDescription": "Novedades del mercado, guías para compradores y conocimientos de exportación sobre arroz, especias y productos agrícolas del sur de la India.",
   "meta.aboutTitle": "Acerca de GoodBiz Agri",
@@ -40,7 +40,7 @@
 
   "home.range.eyebrow": "Gama de productos",
   "home.range.title": "Nueve productos básicos, un solo proveedor responsable",
-  "home.range.lede": "Cada página de producto detalla variedades, especificaciones, códigos SA y los mercados exactos donde compramos.",
+  "home.range.lede": "Cada página de producto detalla variedades, especificaciones, códigos HSN (SA) y los mercados exactos donde compramos.",
 
   "home.journey.eyebrow": "De la finca al puerto",
   "home.journey.title": "Cómo llega un lote a su contenedor",
@@ -89,12 +89,12 @@
   "home.cta.body": "Recibirá especificaciones, opciones de embalaje y una cotización FOB, CFR o CIF.",
 
   "footer.tagline": "Productos agrícolas de los mercados productores del sur de la India.",
-  "footer.hsnRef": "Referencia rápida de códigos SA",
+  "footer.hsnRef": "Referencia rápida de códigos HSN (SA)",
   "footer.contact": "Contacto",
   "footer.rights": "© {year} GoodBiz Agri. Todos los derechos reservados.",
 
   "product.quickFacts": "Datos clave",
-  "fact.hsn": "Códigos SA",
+  "fact.hsn": "Códigos HSN (SA)",
   "fact.states": "Origen",
   "fact.season": "Temporada de cosecha",
   "fact.moq": "Pedido mínimo",
@@ -151,13 +151,13 @@
   "spec.mesh": "Malla / textura",
   "spec.sulphur": "Residuo de azufre",
 
-  "hsn.eyebrow": "Referencia SA",
+  "hsn.eyebrow": "Referencia HSN (SA)",
   "hsn.covers": "Lo que suministramos con este código",
   "hsn.notes": "Notas de clasificación",
   "hsn.documents": "Documentos de exportación habituales",
   "hsn.dutyNote": "Los aranceles y normas de importación varían según el destino y cambian con frecuencia. Confirme la tarifa vigente con su agente de aduanas antes de hacer el pedido.",
-  "hsn.tableTitle": "Códigos SA que exportamos",
-  "hsn.code": "Código SA",
+  "hsn.tableTitle": "Códigos HSN (SA) que exportamos",
+  "hsn.code": "Código HSN (SA)",
   "hsn.description": "Descripción",
   "hsn.product": "Producto",
 

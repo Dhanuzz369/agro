@@ -1,0 +1,13 @@
+reviewStatus: pending
+name: "Bruchreis"
+summary: "GoodBiz Agri exportiert 100 % Bruchreis unter HSN 100640 — weiß, parboiled und sortexiert — aus Mühlen im Godavari-Delta, in Nellore und Raichur."
+originLine: "Mühlen im Godavari-Delta, in Nellore und Raichur"
+sourcingStory: "Bruchreis ist ein Grundnahrungsmittel im Senegal, in Gambia und in weiten Teilen Westafrikas sowie ein wichtiger Rohstoff für das Brauwesen und für Futtermittel. Wir beziehen ihn aus denselben Mühlen, die auch unseren Vollkornreis liefern, sodass Feuchtigkeit und Sauberkeit denselben Standard erfüllen."
+varieties:
+  white-100: { name: "100 % weißer Bruch", description: "Sauberer weißer Bruch für Lebensmittelmärkte." }
+  parboiled: { name: "Parboiled-Bruch", description: "Parboiled-Bruch mit festerer Konsistenz." }
+  sortexed: { name: "Sortexierter Bruch", description: "Farbsortiert für ein gleichmäßiges Erscheinungsbild und weniger beschädigte Körner." }
+faq:
+  - { q: "Wie lautet der HSN-Code für Bruchreis?", a: "Bruchreis wird unter HSN 100640 eingereiht." }
+  - { q: "Wer kauft Bruchreis?", a: "Lebensmittelimporteure in Westafrika und Asien, Brauereien und Futtermittelhersteller." }
+  - { q: "Wie hoch ist die Mindestbestellmenge?", a: "Fünf 20-Fuß-Container." }

@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "Kokosnüsse und Kopra"
+summary: "GoodBiz Agri exportiert halb enthülste Kokosnüsse und Kopra (Kobre) — Tiptur-Ballkopra, Mahlkopra und essbare Koprahälften — aus Tiptur und Tumakuru in Karnataka sowie Pollachi in Tamil Nadu."
+originLine: "Tiptur, Tumakuru und Pollachi"
+sourcingStory: "Tiptur im Distrikt Tumakuru ist berühmt für Ballkopra — ganze Kerne, die langsam in der Schale getrocknet werden und so süß und weiß werden. Wir kaufen sie dort ein, Mahlkopra bei Händlern in Tumakuru und frische halb enthülste Kokosnüsse auf dem ganzjährig geöffneten Markt von Pollachi."
+varieties:
+  semi-husked: { name: "Halb enthülste Kokosnuss", description: "Reife Nüsse mit teilweiser Faserhülle, in Netzsäcken verpackt." }
+  tiptur-ball-copra: { name: "Tiptur-Ballkopra", description: "Ganze, langsam getrocknete essbare Kopra mit süßem weißem Kern." }
+  milling-copra: { name: "Mahlkopra", description: "Koprahälften zur Ölgewinnung." }
+  edible-cups: { name: "Essbare Koprahälften", description: "Halbe Schalen für die Lebensmittelverwendung." }
+faq:
+  - { q: "Wie lautet der HSN-Code für Kopra?", a: "Kokosnüsse und Kopra fallen unter die HSN-Position 0801. Wir bestätigen derzeit die genaue achtstellige Zeile für jedes Produkt." }
+  - { q: "Was ist Tiptur-Ballkopra?", a: "Kopra, die bis zu ein Jahr ganz in der Schale getrocknet wird und einen süßen, weißen Kern ergibt, der am Golf und in Südasien geschätzt wird." }
+  - { q: "Sind Kokosnüsse ganzjährig erhältlich?", a: "Ja. Pollachi liefert das ganze Jahr über halb enthülste Kokosnüsse." }

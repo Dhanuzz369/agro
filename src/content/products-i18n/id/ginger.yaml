@@ -1,0 +1,15 @@
+reviewStatus: pending
+name: "Jahe"
+summary: "GoodBiz Agri mengekspor jahe segar (HSN 09101110), jahe kering tanpa pemutih (09101120), jahe kering diputihkan (09101130), dan jahe utuh lainnya (09101190) dari Wayanad di Kerala serta Kodagu dan Hassan di Karnataka."
+originLine: "Wayanad, Kodagu, dan Hassan — sabuk jahe Ghats Barat"
+sourcingStory: "Jahe yang tumbuh di lereng Ghats Barat dikenal karena rasa pedas dan kandungan minyaknya. Kami membeli jahe segar dari petani Wayanad pada musim panen dan jahe kering melalui perdagangan rempah Kochi, tempat mutu \"Cochin ginger\" telah diperdagangkan selama berabad-abad."
+varieties:
+  fresh: { name: "Jahe segar", description: "Rimpang dicuci dan dikeringanginkan, dikemas dalam karton atau karung jaring untuk pengiriman reefer." }
+  dried-unbleached: { name: "Jahe kering tanpa pemutih", description: "Jahe dikupas dan dijemur dengan warna alami." }
+  dried-bleached: { name: "Jahe kering diputihkan", description: "Diputihkan dengan kapur agar tampak pucat dan seragam." }
+  whole-other: { name: "Jahe kering utuh (lainnya)", description: "Jahe utuh yang tidak dihancurkan maupun digiling, sesuai mutu pembeli." }
+faq:
+  - { q: "Apa kode HSN untuk jahe kering?", a: "Jahe kering tanpa pemutih adalah HSN 09101120 dan jahe kering diputihkan adalah 09101130. Jahe segar adalah 09101110." }
+  - { q: "Bagaimana jahe segar dikirim?", a: "Dalam kontainer reefer 40 kaki pada suhu sekitar 12–13 °C, dengan muatan sekitar 26 ton." }
+  - { q: "Kapan musim panen jahe?", a: "Desember hingga Maret. Jahe kering tersedia sepanjang tahun dari stok." }
+  - { q: "Berapa pesanan minimumnya?", a: "Satu kontainer 20 kaki untuk jahe kering, atau satu reefer 40 kaki untuk jahe segar." }

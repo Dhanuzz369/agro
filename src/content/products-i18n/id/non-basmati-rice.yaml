@@ -1,0 +1,15 @@
+reviewStatus: pending
+name: "Beras Non-Basmati"
+summary: "GoodBiz Agri mengekspor beras non-basmati curah di bawah HSN 10063099 — IR64 mentah dan parboiled, Swarna, dan IR36 dengan mutu patah 5% dan 25% — dari penggilingan di delta Godavari, Nellore, dan Raichur."
+originLine: "Penggilingan di delta Godavari, Nellore, dan Raichur"
+sourcingStory: "Delta Godavari dan distrik Nellore di Andhra Pradesh termasuk lumbung padi terbesar di India. Kami bekerja sama dengan penggilingan berperalatan sortex di sana untuk memperoleh IR64 dan Swarna yang konsisten pada mutu patah yang ditetapkan importir Afrika dan Asia."
+varieties:
+  ir64-raw: { name: "IR64 mentah", description: "Beras putih butir panjang dengan mutu patah 5% dan 25%." }
+  ir64-parboiled: { name: "IR64 parboiled", description: "Parboiled untuk rendemen lebih tinggi dan butir lebih padat, populer di Afrika Barat." }
+  swarna: { name: "Swarna", description: "Beras butir sedang dari Andhra Pradesh, banyak digunakan di Bangladesh dan Afrika." }
+  ir36: { name: "IR36", description: "Beras putih butir panjang untuk pasar yang sensitif harga." }
+faq:
+  - { q: "Apa itu HSN 10063099?", a: "Kode ini mencakup beras non-basmati setengah giling atau giling penuh yang tidak disebutkan di tempat lain." }
+  - { q: "Persentase patah berapa yang Anda pasok?", a: "Patah 5% dan 25% sebagai standar; 10% dan 15% atas permintaan." }
+  - { q: "Berapa pesanan minimumnya?", a: "Lima kontainer 20 kaki untuk mutu curah." }
+  - { q: "Apakah ada bea ekspor untuk beras non-basmati?", a: "Kebijakan ekspor beras India berubah secara berkala. Kami memastikan posisi DGFT terkini sebelum setiap kontrak." }

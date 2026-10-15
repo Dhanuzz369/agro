@@ -1,0 +1,13 @@
+reviewStatus: pending
+name: "Kacang Tanah"
+summary: "GoodBiz Agri mengekspor kacang tanah kupas — bold runner, Java, dan blanched dengan ukuran 38/42 hingga 80/90 — yang bersumber dari Chitradurga di Karnataka, Anantapur di Andhra Pradesh, dan Tiruvannamalai di Tamil Nadu."
+originLine: "Chitradurga, Anantapur, dan Tiruvannamalai"
+sourcingStory: "Dataran tinggi Deccan yang kering di sekitar Anantapur dan Chitradurga adalah salah satu wilayah kacang tanah terbesar di India. Kami membeli biji setelah panen, menyortirnya menurut ukuran, dan menguji aflatoksin sebelum dikemas."
+varieties:
+  bold-runner: { name: "Bold (runner)", description: "Biji besar dan memanjang untuk sangrai dan camilan." }
+  java: { name: "Java (Spanish)", description: "Biji bulat berkadar minyak tinggi untuk kembang gula dan pengepresan." }
+  blanched: { name: "Blanched", description: "Kulit ari dihilangkan, utuh atau belah, aflatoksin rendah." }
+faq:
+  - { q: "Apa kode HSN untuk biji kacang tanah?", a: "Kacang tanah kupas diklasifikasikan di bawah HSN 1202 42. Kami sedang memastikan baris 8 digitnya." }
+  - { q: "Apakah Anda dapat memenuhi batas aflatoksin Uni Eropa?", a: "Ya, dengan lot yang disortir dan pengujian pihak ketiga hingga total aflatoksin ≤ 4 ppb atas permintaan." }
+  - { q: "Ukuran apa saja yang tersedia?", a: "38/42 hingga 80/90 biji per ons, tergantung varietas." }

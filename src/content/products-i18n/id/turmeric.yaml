@@ -1,0 +1,17 @@
+reviewStatus: pending
+name: "Kunyit"
+summary: "GoodBiz Agri mengekspor kunyit segar (HSN 09103010), jari dan umbi kunyit kering (HSN 09103020), serta bubuk kunyit (HSN 09103030) yang bersumber dari Erode dan Salem di Tamil Nadu serta Alappuzha di Kerala, dengan kurkumin 2% hingga 5% dan kadar air di bawah 10%."
+originLine: "Erode, Salem, dan Alleppey — jantung kunyit India"
+sourcingStory: "Pasar resmi Erode menentukan harga sebagian besar kunyit dunia. Kami membeli jari dan umbi yang sudah dipoles di sana dan di Salem setiap panen, serta jari Alleppey berkurkumin tinggi dari pedagang Kerala untuk pembeli yang membutuhkan kekuatan warna. Bubuk digiling sesuai pesanan agar kurkumin dan mesh sesuai spesifikasi Anda."
+varieties:
+  fresh: { name: "Kunyit segar", description: "Rimpang dicuci dan dikeringanginkan, dikirim dalam karton berventilasi dengan reefer." }
+  dried-finger: { name: "Jari kering Erode", description: "Jari yang direbus, dijemur, dan dipoles dengan kurkumin 2,5–3,5%." }
+  alleppey-finger: { name: "Jari Alleppey", description: "Kunyit Kerala berkurkumin tinggi yang diminati untuk ekstraksi dan pewarna." }
+  salem-bulb: { name: "Umbi Salem", description: "Umbi bulat dari Salem, populer untuk digiling." }
+  powder: { name: "Bubuk kunyit", description: "Digiling sesuai pesanan, 60–80 mesh, kurkumin bermutu 2–5%." }
+faq:
+  - { q: "Apa kode HSN untuk bubuk kunyit?", a: "Bubuk kunyit diklasifikasikan di bawah HSN 09103030. Kunyit kering utuh adalah 09103020 dan kunyit segar adalah 09103010." }
+  - { q: "Berapa kadar kurkumin yang dapat Anda pasok?", a: "Kunyit Erode dan Salem biasanya teruji 2,5–4% kurkumin; jari Alleppey 4,5–5%. Bubuk dapat dicampur sesuai kadar kurkumin yang ditentukan." }
+  - { q: "Berapa pesanan minimum untuk kunyit?", a: "Satu kontainer 20 kaki, yang memuat sekitar 18–19 ton kunyit kering atau 20 ton bubuk." }
+  - { q: "Kapan kunyit dipanen?", a: "Panen utama berlangsung dari Januari hingga April, dengan kedatangan kunyit segar di Erode mulai Februari." }
+  - { q: "Bisakah Anda memenuhi batas pestisida Uni Eropa?", a: "Ya. Kami membeli dan menguji lot terhadap MRL Uni Eropa dan dapat menyediakan analisis pihak ketiga sebelum pengiriman." }

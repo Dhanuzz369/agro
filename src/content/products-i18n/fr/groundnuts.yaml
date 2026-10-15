@@ -8,6 +8,6 @@ varieties:
   java: { name: "Java (Spanish)", description: "Amandes rondes riches en huile pour la confiserie et la trituration." }
   blanched: { name: "Blanchies", description: "Sans peau, entières ou fendues, à faible teneur en aflatoxine." }
 faq:
-  - { q: "Quel est le code SH des amandes d'arachide ?", a: "Les arachides décortiquées sont classées sous le code SH 1202 42. Nous confirmons la ligne à 8 chiffres." }
+  - { q: "Quel est le code HSN des amandes d'arachide ?", a: "Les arachides décortiquées sont classées sous le code HSN 1202 42. Nous confirmons la ligne à 8 chiffres." }
   - { q: "Pouvez-vous respecter les limites européennes d'aflatoxine ?", a: "Oui, avec des lots triés et des analyses par un tiers jusqu'à ≤ 4 ppb d'aflatoxines totales sur demande." }
   - { q: "Quels calibres sont disponibles ?", a: "De 38/42 à 80/90 amandes par once, selon la variété." }

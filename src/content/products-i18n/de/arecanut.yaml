@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "Arekanuss"
+summary: "GoodBiz Agri exportiert Arekanüsse (Betelnüsse) — ganze weiße Chali, gespalten, rote Kempu (Güten Api und Bette) und in Scheiben — aus Shivamogga und Dakshina Kannada in Karnataka sowie Kasaragod in Kerala."
+originLine: "Shivamogga, Dakshina Kannada und Kasaragod"
+sourcingStory: "Karnataka erzeugt den Großteil der indischen Arekanüsse. Das küstennahe Dakshina Kannada und Kasaragod sind für sonnengetrocknete weiße Chali bekannt, die über den Genossenschaftsmarkt von Puttur gehandelt wird, während die Malnad-Region um Shivamogga auf gekochte rote Güten spezialisiert ist."
+varieties:
+  whole-chali: { name: "Ganz, weiß (Chali)", description: "Sonnengetrocknete ganze Nüsse mit weißem Inneren." }
+  split: { name: "Gespaltene Arekanüsse", description: "Halbierte Nüsse für Verarbeiter." }
+  red-kempu: { name: "Rot (Kempu) — Api und Bette", description: "Gekochte und getrocknete rotbraune Güten aus Shivamogga." }
+  sliced: { name: "Arekanüsse in Scheiben", description: "Gleichmäßige Scheiben für Märkte mit direktem Verzehr." }
+faq:
+  - { q: "Wie lautet der HSN-Code für Arekanüsse?", a: "Arekanüsse fallen unter die HSN-Position 0802 80. Wir bestätigen derzeit die genaue achtstellige Zeile für jede Güte; fragen Sie uns nach dem Code für Ihre Einfuhrdokumente." }
+  - { q: "Was ist der Unterschied zwischen Chali und Kempu?", a: "Chali ist die sonnengetrocknete ganze Nuss von der Küste Karnatakas; Kempu wird gekocht und getrocknet, wodurch sie rot wird." }
+  - { q: "Wann werden Arekanüsse geerntet?", a: "November bis März, wobei die Lieferungen der neuen Ernte im Januar ihren Höhepunkt erreichen." }

@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: "Beras non-basmati, lainnya (setengah atau giling penuh)"
+description: "HSN 10063099 mencakup beras non-basmati setengah giling atau giling penuh yang tidak disebutkan di tempat lain."
+notes: "Lazim digunakan untuk IR64, Swarna, dan IR36 dalam bentuk putih dan parboiled."
+faq:
+  - { q: "Produk mana yang menggunakan 10063099?", a: "Mutu non-basmati curah seperti IR64, Swarna, dan IR36." }
+  - { q: "Apakah beras parboiled menggunakan kode ini?", a: "Beras parboiled memiliki sub-pos sendiri di beberapa skedul tarif; konfirmasikan dengan agen Anda." }

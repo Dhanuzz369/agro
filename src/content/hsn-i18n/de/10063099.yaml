@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: "Nicht-Basmati-Reis, sonstiger (teilweise oder vollständig geschliffen)"
+description: "HSN 10063099 umfasst teilweise oder vollständig geschliffenen Nicht-Basmati-Reis, anderweitig nicht genannt."
+notes: "Wird üblicherweise für IR64, Swarna und IR36 in weißer und parboiled Form verwendet."
+faq:
+  - { q: "Welche Produkte verwenden 10063099?", a: "Nicht-Basmati-Güten in Großmengen wie IR64, Swarna und IR36." }
+  - { q: "Verwendet Parboiled-Reis diesen Code?", a: "Parboiled-Reis hat in manchen Zolltarifen eine eigene Unterposition; bestätigen Sie dies mit Ihrem Zollagenten." }

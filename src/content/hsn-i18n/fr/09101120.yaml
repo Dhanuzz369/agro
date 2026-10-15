@@ -1,6 +1,6 @@
 reviewStatus: pending
 title: "Gingembre séché, non blanchi"
-description: "Le code SH 09101120 couvre le gingembre séché non blanchi, ni broyé ni moulu."
+description: "Le code HSN 09101120 couvre le gingembre séché non blanchi, ni broyé ni moulu."
 notes: "Comprend le gingembre séché au soleil, pelé ou non, y compris les qualités Cochin."
 faq:
   - { q: "Quelle humidité est typique ?", a: "12 % ou moins." }

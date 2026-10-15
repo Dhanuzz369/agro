@@ -1,0 +1,13 @@
+reviewStatus: pending
+name: "Erdnüsse"
+summary: "GoodBiz Agri exportiert geschälte Erdnüsse — Bold Runner, Java und blanchiert in Kalibern von 38/42 bis 80/90 — aus Chitradurga in Karnataka, Anantapur in Andhra Pradesh und Tiruvannamalai in Tamil Nadu."
+originLine: "Chitradurga, Anantapur und Tiruvannamalai"
+sourcingStory: "Das trockene Dekkan-Plateau um Anantapur und Chitradurga ist eine der größten Erdnussregionen Indiens. Wir kaufen die Kerne nach der Ernte, sortieren sie nach Kaliber und prüfen vor der Verpackung auf Aflatoxin."
+varieties:
+  bold-runner: { name: "Bold (Runner)", description: "Große, längliche Kerne zum Rösten und für Snacks." }
+  java: { name: "Java (Spanish)", description: "Runde, ölreiche Kerne für Süßwaren und zum Pressen." }
+  blanched: { name: "Blanchiert", description: "Ohne Haut, ganz oder gespalten, niedriger Aflatoxingehalt." }
+faq:
+  - { q: "Wie lautet der HSN-Code für Erdnusskerne?", a: "Geschälte Erdnüsse werden unter HSN 1202 42 eingereiht. Wir bestätigen derzeit die achtstellige Zeile." }
+  - { q: "Können Sie die EU-Aflatoxin-Grenzwerte einhalten?", a: "Ja, mit sortierten Partien und Prüfung durch Dritte auf ≤ 4 ppb Gesamtaflatoxin auf Anfrage." }
+  - { q: "Welche Kaliber sind erhältlich?", a: "38/42 bis 80/90 Kerne pro Unze, je nach Sorte." }

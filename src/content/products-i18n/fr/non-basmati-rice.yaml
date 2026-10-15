@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Riz non basmati"
-summary: "GoodBiz Agri exporte du riz non basmati en vrac sous le code SH 10063099 — IR64 cru et étuvé, Swarna et IR36 en qualités à 5 % et 25 % de brisures — issu de rizeries du delta de la Godavari, de Nellore et de Raichur."
+summary: "GoodBiz Agri exporte du riz non basmati en vrac sous le code HSN 10063099 — IR64 cru et étuvé, Swarna et IR36 en qualités à 5 % et 25 % de brisures — issu de rizeries du delta de la Godavari, de Nellore et de Raichur."
 originLine: "Rizeries du delta de la Godavari, de Nellore et de Raichur"
 sourcingStory: "Le delta de la Godavari et le district de Nellore, en Andhra Pradesh, comptent parmi les plus grandes rizières de l'Inde. Nous contractons avec des rizeries équipées de trieuses optiques (sortex) pour obtenir un IR64 et un Swarna réguliers, dans les taux de brisures que spécifient les importateurs africains et asiatiques."
 varieties:
@@ -9,7 +9,7 @@ varieties:
   swarna: { name: "Swarna", description: "Riz à grain moyen d'Andhra Pradesh, très utilisé au Bangladesh et en Afrique." }
   ir36: { name: "IR36", description: "Riz blanc à grain long pour les marchés sensibles au prix." }
 faq:
-  - { q: "Que couvre le code SH 10063099 ?", a: "Il couvre le riz non basmati semi-blanchi ou blanchi, non dénommé ailleurs." }
+  - { q: "Que couvre le code HSN 10063099 ?", a: "Il couvre le riz non basmati semi-blanchi ou blanchi, non dénommé ailleurs." }
   - { q: "Quels taux de brisures fournissez-vous ?", a: "5 % et 25 % de brisures en standard ; 10 % et 15 % sur demande." }
   - { q: "Quelle est la commande minimale ?", a: "Cinq conteneurs de 20 pieds pour les qualités en vrac." }
   - { q: "Existe-t-il une taxe à l'exportation sur le riz non basmati ?", a: "La politique indienne d'exportation du riz change périodiquement. Nous confirmons la position actuelle de la DGFT avant chaque contrat." }

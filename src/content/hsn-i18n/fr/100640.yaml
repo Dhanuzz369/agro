@@ -1,6 +1,6 @@
 reviewStatus: pending
 title: "Riz brisé"
-description: "Le code SH 100640 couvre le riz brisé — fragments de riz blanchi."
+description: "Le code HSN 100640 couvre le riz brisé — fragments de riz blanchi."
 notes: "Comprend les brisures blanches à 100 %, étuvées et triées au sortex pour l'alimentation, la brasserie et l'alimentation animale."
 faq:
   - { q: "Qu'appelle-t-on riz brisé ?", a: "Des fragments de grain inférieurs aux trois quarts de la longueur du grain entier." }

@@ -1,0 +1,17 @@
+reviewStatus: pending
+name: "Beras India Selatan"
+summary: "GoodBiz Agri mengekspor beras khas India Selatan di bawah HSN 1006 — Sona Masoori (mentah dan steam), Ponni, Kerala Matta, Seeraga Samba, dan beras idli — yang digiling di Raichur, Mandya, Thanjavur, dan Palakkad."
+originLine: "Penggilingan di Raichur, Mandya, Thanjavur, dan Palakkad"
+sourcingStory: "Beras India Selatan lebih ringan dan lebih beragam daripada jenis butir panjang yang dikenal kebanyakan pembeli. Kami membeli Sona Masoori dari kawasan irigasi Tungabhadra di sekitar Raichur, Ponni dan Seeraga Samba dari penggilingan delta Kaveri di Thanjavur, dan Matta dari Palakkad, dengan mencocokkan setiap lot dengan hidangan dan pasar tujuannya."
+varieties:
+  sona-masoori-raw: { name: "Sona Masoori (mentah)", description: "Beras butir sedang yang ringan, makanan pokok sehari-hari dapur India Selatan." }
+  sona-masoori-steam: { name: "Sona Masoori (steam)", description: "Dikukus sebelum digiling untuk butir lebih padat dan masa simpan lebih lama." }
+  ponni: { name: "Ponni", description: "Beras butir sedang yang lembut dari Tamil Nadu, digemari di Asia Tenggara dan kawasan Teluk." }
+  kerala-matta: { name: "Kerala Matta", description: "Beras parboiled berdedak merah dari Palakkad dengan rasa gurih seperti kacang." }
+  seeraga-samba: { name: "Seeraga Samba", description: "Butir kecil beraroma yang digunakan untuk biryani di Tamil Nadu." }
+  idli-rice: { name: "Beras idli", description: "Beras parboiled butir pendek dan bulat untuk adonan idli dan dosa." }
+faq:
+  - { q: "Apa kode HSN untuk beras Sona Masoori?", a: "Beras termasuk dalam HSN 1006; beras non-basmati giling seperti Sona Masoori biasanya dideklarasikan di bawah sub-pos 10063090. Konfirmasikan baris 8 digit dengan agen Anda." }
+  - { q: "Apa perbedaan Sona Masoori mentah dan steam?", a: "Beras steam dikukus ringan sebelum digiling, menghasilkan nasi yang lebih padat dan masa simpan lebih lama." }
+  - { q: "Bisakah Anda memasok kemasan ritel private label?", a: "Ya, dalam karung BOPP atau goni 5, 10, dan 25 kg dengan merek Anda." }
+  - { q: "Berapa pesanan minimumnya?", a: "Satu kontainer 20 kaki, sekitar 25–26 ton." }

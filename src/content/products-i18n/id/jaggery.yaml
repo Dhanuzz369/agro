@@ -1,0 +1,16 @@
+reviewStatus: pending
+name: "Jaggery"
+summary: "GoodBiz Agri mengekspor jaggery di bawah HSN 1701 — balok, kubus, bubuk, jaggery organik, dan jaggery aren (karupatti) — dari Mandya dan Belagavi di Karnataka serta Thoothukudi di Tamil Nadu."
+originLine: "Mandya, Belagavi, dan Thoothukudi"
+sourcingStory: "Sabuk tebu Mandya telah membuat jaggery selama beberapa generasi dengan memasak air tebu segar di wajan terbuka. Kami membeli balok dan jaggery organik di sana, kubus dan bubuk dari pengolah di Belagavi, serta jaggery aren dari penyadap palmira di Thoothukudi."
+varieties:
+  block: { name: "Balok jaggery", description: "Balok cetak tradisional, berwarna keemasan hingga cokelat tua." }
+  cube: { name: "Kubus jaggery", description: "Kubus kecil untuk ritel dan jasa boga." }
+  powder: { name: "Bubuk jaggery", description: "Butiran mudah tuang untuk toko roti dan minuman." }
+  organic: { name: "Jaggery organik", description: "Dibuat tanpa penjernih kimia." }
+  palm-karupatti: { name: "Jaggery aren (karupatti)", description: "Dibuat dari nira palem palmira di Tamil Nadu bagian selatan." }
+faq:
+  - { q: "Apa kode HSN untuk jaggery?", a: "Jaggery diklasifikasikan di bawah pos HSN 1701." }
+  - { q: "Berapa lama jaggery tahan disimpan?", a: "Sekitar 12 bulan dalam penyimpanan sejuk dan kering; bubuk dan balok kemasan vakum paling awet." }
+  - { q: "Berapa pesanan minimumnya?", a: "Satu kontainer 20 kaki, sekitar 18–20 ton." }
+  - { q: "Bisakah Anda memasok private label?", a: "Ya, dalam kemasan 500 g hingga 5 kg dengan merek Anda." }
