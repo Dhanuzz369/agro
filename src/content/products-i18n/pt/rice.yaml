@@ -1,0 +1,17 @@
+reviewStatus: pending
+name: "Arroz do sul da Índia"
+summary: "A GoodBiz Agri exporta arrozes especiais do sul da Índia sob o HSN 1006 — Sona Masoori (cru e a vapor), Ponni, Kerala Matta, Seeraga Samba e arroz para idli — beneficiados em Raichur, Mandya, Thanjavur e Palakkad."
+originLine: "Usinas de Raichur, Mandya, Thanjavur e Palakkad"
+sourcingStory: "O arroz do sul da Índia é mais leve e mais variado do que os tipos de grão longo que a maioria dos compradores conhece. Compramos Sona Masoori na área irrigada do Tungabhadra, em torno de Raichur; Ponni e Seeraga Samba nas usinas do delta do Kaveri, em Thanjavur; e Matta em Palakkad, adequando cada lote ao prato e ao mercado a que se destina."
+varieties:
+  sona-masoori-raw: { name: "Sona Masoori (cru)", description: "Arroz leve de grão médio, o alimento básico do dia a dia nas cozinhas do sul da Índia." }
+  sona-masoori-steam: { name: "Sona Masoori (a vapor)", description: "Tratado a vapor antes do beneficiamento, para grãos mais firmes e maior validade." }
+  ponni: { name: "Ponni", description: "Arroz macio de grão médio de Tamil Nadu, preferido no Sudeste Asiático e no Golfo." }
+  kerala-matta: { name: "Kerala Matta", description: "Arroz parboilizado de farelo vermelho de Palakkad, com sabor de nozes." }
+  seeraga-samba: { name: "Seeraga Samba", description: "Grão pequeno e aromático usado no biryani em Tamil Nadu." }
+  idli-rice: { name: "Arroz para idli", description: "Arroz parboilizado de grão curto e encorpado para a massa de idli e dosa." }
+faq:
+  - { q: "Qual é o código HSN do arroz Sona Masoori?", a: "O arroz se enquadra no HSN 1006; o arroz não basmati beneficiado, como o Sona Masoori, costuma ser declarado nas subposições 10063090. Confirme a linha de 8 dígitos com seu despachante." }
+  - { q: "Qual é a diferença entre Sona Masoori cru e a vapor?", a: "O arroz a vapor é levemente tratado a vapor antes do beneficiamento, resultando em grãos cozidos mais firmes e maior tempo de armazenamento." }
+  - { q: "Vocês fornecem sacos de varejo com marca própria?", a: "Sim, em sacos de BOPP ou juta de 5, 10 e 25 kg com a sua marca." }
+  - { q: "Qual é o pedido mínimo?", a: "Um contêiner de 20 pés, cerca de 25–26 toneladas." }

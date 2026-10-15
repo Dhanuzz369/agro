@@ -1,0 +1,16 @@
+reviewStatus: pending
+name: "Jaggery"
+summary: "A GoodBiz Agri exporta jaggery sob o HSN 1701 — blocos, cubos, pó, jaggery orgânico e jaggery de palma (karupatti) — de Mandya e Belagavi, em Karnataka, e Thoothukudi, em Tamil Nadu."
+originLine: "Mandya, Belagavi e Thoothukudi"
+sourcingStory: "O cinturão canavieiro de Mandya faz jaggery há gerações, fervendo caldo de cana fresco em tachos abertos. Compramos lá blocos e jaggery orgânico, cubos e pó dos processadores de Belagavi, e jaggery de palma dos extratores de seiva de palmira de Thoothukudi."
+varieties:
+  block: { name: "Blocos de jaggery", description: "Blocos moldados tradicionais, de dourado a marrom-escuro." }
+  cube: { name: "Cubos de jaggery", description: "Cubos pequenos para varejo e food service." }
+  powder: { name: "Jaggery em pó", description: "Grânulos soltos para padarias e bebidas." }
+  organic: { name: "Jaggery orgânico", description: "Produzido sem clarificação química." }
+  palm-karupatti: { name: "Jaggery de palma (karupatti)", description: "Feito com seiva da palmeira palmira no sul de Tamil Nadu." }
+faq:
+  - { q: "Qual é o código HSN do jaggery?", a: "O jaggery é classificado sob a posição HSN 1701." }
+  - { q: "Quanto tempo o jaggery dura?", a: "Cerca de 12 meses em local fresco e seco; o pó e os blocos embalados a vácuo se conservam melhor." }
+  - { q: "Qual é o pedido mínimo?", a: "Um contêiner de 20 pés, cerca de 18–20 toneladas." }
+  - { q: "Vocês fornecem marca própria?", a: "Sim, em embalagens de 500 g a 5 kg com a sua marca." }

@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "Nuez de areca"
+summary: "GoodBiz Agri exporta nuez de areca (betel) — chali blanca entera, partida, kempu roja (calidades api y bette) y en rodajas — procedente de Shivamogga y Dakshina Kannada, en Karnataka, y de Kasaragod, en Kerala."
+originLine: "Shivamogga, Dakshina Kannada y Kasaragod"
+sourcingStory: "Karnataka produce la mayor parte de la nuez de areca de la India. La costera Dakshina Kannada y Kasaragod son conocidas por la chali blanca secada al sol, comercializada en el mercado cooperativo de Puttur, mientras que la región de Malnad, en Shivamogga, se especializa en calidades rojas hervidas."
+varieties:
+  whole-chali: { name: "Blanca entera (chali)", description: "Nueces enteras secadas al sol con interior blanco." }
+  split: { name: "Nuez de areca partida", description: "Nueces en mitades para procesadores." }
+  red-kempu: { name: "Roja (kempu) — api y bette", description: "Calidades rojo-marrón hervidas y secadas, de Shivamogga." }
+  sliced: { name: "Nuez de areca en rodajas", description: "Rodajas uniformes para mercados de consumo directo." }
+faq:
+  - { q: "¿Cuál es el código HSN de la nuez de areca?", a: "La nuez de areca se clasifica en la partida HSN 0802 80. Estamos confirmando la línea exacta de 8 dígitos para cada calidad; pídanos el código que debe usar en sus documentos de importación." }
+  - { q: "¿Cuál es la diferencia entre chali y kempu?", a: "La chali es nuez entera secada al sol de la costa de Karnataka; la kempu se hierve y se seca, lo que le da un color rojo." }
+  - { q: "¿Cuándo se cosecha la nuez de areca?", a: "De noviembre a marzo, con el pico de llegada de la nueva cosecha en enero." }

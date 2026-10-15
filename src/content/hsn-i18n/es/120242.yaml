@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: "Maní, pelado"
+description: "El HSN 1202 42 abarca el maní (cacahuate) pelado, partido o no, sin tostar ni cocinar de otro modo."
+notes: "El código se muestra tal como se nos proporcionó y está en verificación para la línea de 8 dígitos."
+faq:
+  - { q: "¿Incluye los granos blanqueados?", a: "Los granos blanqueados sin tostar suelen estar incluidos; confirme con su agente." }
+  - { q: "¿Qué variedades suministran?", a: "Bold (runner), Java (Spanish) y granos blanqueados." }

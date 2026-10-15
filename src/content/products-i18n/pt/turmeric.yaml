@@ -1,0 +1,17 @@
+reviewStatus: pending
+name: "Cúrcuma"
+summary: "A GoodBiz Agri exporta cúrcuma fresca (HSN 09103010), dedos e bulbos de cúrcuma seca (HSN 09103020) e cúrcuma em pó (HSN 09103030) originárias de Erode e Salem, em Tamil Nadu, e de Alappuzha, em Kerala, com curcumina de 2% a 5% e umidade abaixo de 10%."
+originLine: "Erode, Salem e Alleppey — o coração da cúrcuma da Índia"
+sourcingStory: "O mercado regulado de Erode define o preço de grande parte da cúrcuma do mundo. Lá e em Salem compramos dedos e bulbos polidos a cada colheita, e adquirimos de comerciantes de Kerala o dedo Alleppey, de alta curcumina, para compradores que precisam de intensidade de cor. O pó é moído sob encomenda para que curcumina e malha atendam à sua especificação."
+varieties:
+  fresh: { name: "Cúrcuma fresca", description: "Rizomas lavados e secos ao ar, embarcados em caixas ventiladas em contêiner refrigerado." }
+  dried-finger: { name: "Dedo seco de Erode", description: "Dedos cozidos, secos ao sol e polidos, com 2,5–3,5% de curcumina." }
+  alleppey-finger: { name: "Dedo Alleppey", description: "Cúrcuma de Kerala de alta curcumina, preferida para extração e cor." }
+  salem-bulb: { name: "Bulbo de Salem", description: "Bulbos redondos de Salem, populares para moagem." }
+  powder: { name: "Cúrcuma em pó", description: "Moída sob encomenda, malha 60–80, curcumina classificada de 2–5%." }
+faq:
+  - { q: "Qual é o código HSN da cúrcuma em pó?", a: "A cúrcuma em pó é classificada sob o HSN 09103030. A cúrcuma seca inteira é 09103020 e a cúrcuma fresca é 09103010." }
+  - { q: "Que níveis de curcumina vocês fornecem?", a: "A cúrcuma de Erode e Salem costuma apresentar 2,5–4% de curcumina; o dedo Alleppey, 4,5–5%. O pó pode ser misturado para um nível de curcumina especificado." }
+  - { q: "Qual é o pedido mínimo de cúrcuma?", a: "Um contêiner de 20 pés, que comporta cerca de 18–19 toneladas de cúrcuma seca ou 20 toneladas de pó." }
+  - { q: "Quando a cúrcuma é colhida?", a: "A colheita principal vai de janeiro a abril, com a cúrcuma fresca chegando a Erode a partir de fevereiro." }
+  - { q: "Vocês atendem aos limites de pesticidas da UE?", a: "Sim. Adquirimos e testamos os lotes conforme os LMR da UE e podemos fornecer análise de terceiros antes do embarque." }

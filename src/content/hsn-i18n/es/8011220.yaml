@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: "Cocos y copra"
+description: "Los cocos y la copra se clasifican en la partida HSN 0801 (cocos) y líneas afines para el endospermo seco."
+notes: "El código se muestra tal como se nos proporcionó y está en verificación. En algunos aranceles la copra puede clasificarse en una partida distinta."
+faq:
+  - { q: "¿Qué productos de coco exportan?", a: "Cocos semidescascarados, copra en bola de Tiptur, copra para molienda y copas de copra comestibles." }
+  - { q: "¿Por qué está el código en verificación?", a: "La clasificación difiere entre el coco fresco y la copra seca; estamos confirmando cada línea." }

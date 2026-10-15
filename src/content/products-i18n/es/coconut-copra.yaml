@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "Coco y copra"
+summary: "GoodBiz Agri exporta cocos semidescascarados y copra (kobre) — copra en bola de Tiptur, copra para molienda y copas comestibles — procedentes de Tiptur y Tumakuru, en Karnataka, y de Pollachi, en Tamil Nadu."
+originLine: "Tiptur, Tumakuru y Pollachi"
+sourcingStory: "Tiptur, en el distrito de Tumakuru, es famosa por la copra en bola: el endospermo entero secado lentamente dentro de la cáscara, con un resultado dulce y blanco. La compramos allí; la copra para molienda, a comerciantes de Tumakuru, y los cocos frescos semidescascarados, en el mercado de Pollachi, activo todo el año."
+varieties:
+  semi-husked: { name: "Coco semidescascarado", description: "Nueces maduras con parte de la cáscara, envasadas en sacos de malla." }
+  tiptur-ball-copra: { name: "Copra en bola de Tiptur", description: "Copra comestible entera, secada lentamente, con almendra blanca y dulce." }
+  milling-copra: { name: "Copra para molienda", description: "Copra en copas para extracción de aceite." }
+  edible-cups: { name: "Copas de copra comestibles", description: "Medias copas para uso alimentario." }
+faq:
+  - { q: "¿Cuál es el código HSN de la copra?", a: "El coco y la copra se clasifican en la partida HSN 0801. Estamos confirmando la línea exacta de 8 dígitos para cada producto." }
+  - { q: "¿Qué es la copra en bola de Tiptur?", a: "Copra secada entera dentro de la cáscara hasta por un año, que da una almendra dulce y blanca muy apreciada en el Golfo y el sur de Asia." }
+  - { q: "¿Hay cocos disponibles todo el año?", a: "Sí. Pollachi suministra cocos semidescascarados durante todo el año." }

@@ -1,0 +1,13 @@
+reviewStatus: pending
+name: "Arroz partido"
+summary: "GoodBiz Agri exporta arroz 100% partido bajo el HSN 100640 — blanco, parboiled y sortexed — de molinos del delta del Godavari, Nellore y Raichur."
+originLine: "Molinos del delta del Godavari, Nellore y Raichur"
+sourcingStory: "El arroz partido es un alimento básico en Senegal, Gambia y gran parte de África Occidental, y un insumo clave para la cervecería y el alimento balanceado. Lo compramos a los mismos molinos que nos suministran el arroz de grano entero, por lo que la humedad y la limpieza cumplen el mismo estándar."
+varieties:
+  white-100: { name: "100% partido blanco", description: "Partido blanco limpio para mercados de consumo humano." }
+  parboiled: { name: "Partido parboiled", description: "Partido parboiled de textura más firme." }
+  sortexed: { name: "Partido sortexed", description: "Seleccionado por color para un aspecto uniforme y menos granos dañados." }
+faq:
+  - { q: "¿Cuál es el código HSN del arroz partido?", a: "El arroz partido se clasifica bajo el HSN 100640." }
+  - { q: "¿Quién compra arroz partido?", a: "Importadores de alimentos de África Occidental y Asia, cervecerías y productores de alimento balanceado." }
+  - { q: "¿Cuál es el pedido mínimo?", a: "Cinco contenedores de 20 pies." }
