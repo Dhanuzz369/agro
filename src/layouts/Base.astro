@@ -1,0 +1,47 @@
+---
+import '../styles/fonts.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import SeoHead from '../components/SeoHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import LanguageSwitcher from '../components/LanguageSwitcher.astro';
+import LanguageSuggestBanner from '../components/LanguageSuggestBanner.astro';
+import { htmlLang, isRtl, type Locale } from '../i18n/config';
+import { createT } from '../i18n/t';
+import { organizationLd } from '../lib/jsonld';
+import { getSite } from '../lib/catalog';
+
+interface Props {
+  locale: Locale; title: string; description: string; path: string;
+  available?: readonly Locale[]; ogImage?: string; jsonLd?: object[]; noindex?: boolean; hero?: 'dark' | 'light';
+}
+const { locale, hero = 'light', jsonLd = [], ...seo } = Astro.props;
+const t = createT(locale);
+const site = await getSite();
+const ld = [organizationLd(site, Astro.site!.href), ...jsonLd];
+---
+<!doctype html>
+<html lang={htmlLang[locale]} dir={isRtl(locale) ? 'rtl' : 'ltr'} data-hero={hero}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1F3D2B" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {locale === 'zh' && <link rel="stylesheet" href="/fonts/sc/400.css" />}
+    {locale === 'zh' && <link rel="stylesheet" href="/fonts/sc/500.css" />}
+    <SeoHead locale={locale} jsonLd={ld} {...seo} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip" href="#main">{t('nav.skip')}</a>
+    <Header locale={locale} path={seo.path} hero={hero} />
+    <main id="main"><slot /></main>
+    <Footer locale={locale} />
+    <WhatsAppButton locale={locale} />
+    <LanguageSwitcher locale={locale} path={seo.path} available={seo.available} />
+    <LanguageSuggestBanner locale={locale} path={seo.path} available={seo.available} />
+    <script>import '../scripts/motion';</script>
+  </body>
+</html>

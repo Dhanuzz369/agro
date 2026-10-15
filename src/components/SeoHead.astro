@@ -1,0 +1,31 @@
+---
+import { alternates, localizePath } from '../i18n/paths';
+import { htmlLang, type Locale, locales } from '../i18n/config';
+
+interface Props {
+  locale: Locale; title: string; description: string; path: string;
+  available?: readonly Locale[]; ogImage?: string; jsonLd?: object[]; noindex?: boolean;
+}
+const { locale, title, description, path, available = locales, ogImage, jsonLd = [], noindex = false } = Astro.props;
+const site = Astro.site!;
+const canonical = new URL(localizePath(path, locale), site).href;
+const og = new URL(ogImage ?? '/og/home.png', site).href;
+const fullTitle = title.includes('GoodBiz') ? title : `${title} | GoodBiz Agri`;
+---
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex && <meta name="robots" content="noindex" />}
+{alternates(path, available).map((a) => <link rel="alternate" hreflang={a.hreflang} href={new URL(a.path, site).href} />)}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="GoodBiz Agri" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={og} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content={htmlLang[locale].replace('-', '_')} />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="alternate" type="application/rss+xml" title="GoodBiz Agri" href={localizePath('/rss.xml', locale)} />
+{jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
