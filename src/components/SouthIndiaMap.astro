@@ -24,7 +24,7 @@ const pts = (Object.keys(places) as PlaceId[]).map((id) => {
 const products = await getLocalizedProducts('en');
 const hubs: PlaceId[] = pts.filter((p) => p.kind !== 'district').map((p) => p.id);
 const groups = [hubs, ...products.map((p) => ['bengaluru', ...p.data.ports, ...p.data.regions])];
-const placed = placeLabels(pts, { width: W, height: H }, groups);
+const { placed } = placeLabels(pts, { width: W, height: H }, groups);
 const isActive = (id: PlaceId) => active.includes(id);
 ---
 <div class="simw" data-labels={labels}>

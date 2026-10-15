@@ -14,10 +14,27 @@ const overlap = (a: Box, b: Box) => Math.max(0, Math.min(a.x + a.w, b.x + b.w) -
 
 const products = readdirSync('src/content/products').map((f) => parse(readFileSync(`src/content/products/${f}`, 'utf8')) as { regions: PlaceId[]; ports: PlaceId[] });
 
-const groups = products.map((p) => ['bengaluru', ...p.ports, ...p.regions]);
-const placed = placeLabels(pts, { width: W, height: H }, groups);
+// the same label sets SouthIndiaMap.astro uses: HQ + ports (About's 'hubs' view), and one per product
+const hubs = pts.filter((p) => p.kind !== 'district').map((p) => p.id);
+const groups = [hubs, ...products.map((p) => ['bengaluru', ...p.ports, ...p.regions])];
+const { placed, usedFallback } = placeLabels(pts, { width: W, height: H }, groups);
 
 describe('placeLabels', () => {
+  it('finds a clean layout by search, without the greedy fallback', () => expect(usedFallback).toBe(false));
+  it('backtracks without a stale candidate blocking its own alternatives', () => {
+    // found by random search: solvable, but only after re-placing a label whose earlier side failed deeper
+    const tight = [
+      { id: 'p0', x: 20, y: 120, label: 'xxxxxx', kind: 'hq' as const },
+      { id: 'p1', x: 95, y: 99, label: 'xxxxxxx', kind: 'port' as const },
+      { id: 'p2', x: 71, y: 157, label: 'xxxx', kind: 'district' as const },
+      { id: 'p3', x: 84, y: 82, label: 'xxxxxxxxx', kind: 'district' as const },
+      { id: 'p4', x: 29, y: 93, label: 'xxxxxxxx', kind: 'district' as const },
+    ];
+    const r = placeLabels(tight, { width: 200, height: 200 });
+    expect(r.usedFallback).toBe(false);
+    const boxes = Object.values(r.placed).map((p) => p.box);
+    for (const a of boxes) for (const b of boxes) if (a !== b) expect(overlap(a, b)).toBe(0);
+  });
   it('sizes boxes for the largest label font used on the map', () => {
     expect(placed.bengaluru.box.h).toBe(LABEL_FONT);
   });
@@ -27,7 +44,7 @@ describe('placeLabels', () => {
       expect(box.y).toBeGreaterThanOrEqual(0); expect(box.y + box.h).toBeLessThanOrEqual(H);
     }
   });
-  it('never overlaps labels shown together for one product (HQ + its ports + its districts)', () => {
+  it('never overlaps labels shown together (About hubs view, and each product: HQ + its ports + its districts)', () => {
     for (const ids of groups) {
       for (const a of ids) for (const b of ids) {
         if (a < b) expect(overlap(placed[a].box, placed[b].box), `${a} × ${b}`).toBe(0);

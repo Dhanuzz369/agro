@@ -42,9 +42,11 @@ function candidates(p: Pt): Placement[] {
  * visible together overlap and every label stays inside the map; within that, sides that cover fewer
  * dots are tried first. `groups` lists the label sets visible at the same time (one per product);
  * without groups every label avoids every other. If no clean layout exists, the least-overlapping
- * side per label is used.
+ * side per label is used and `usedFallback` is true.
  */
-export function placeLabels(pts: Pt[], size: { width: number; height: number }, groups?: string[][]): Record<string, Placement> {
+export function placeLabels(
+  pts: Pt[], size: { width: number; height: number }, groups?: string[][],
+): { placed: Record<string, Placement>; usedFallback: boolean } {
   const ordered = [...pts].sort((a, b) => priority[a.kind] - priority[b.kind]);
   const dots: (Box & { id: string })[] = pts.map((p) => ({ id: p.id, x: p.x - 9, y: p.y - 9, w: 18, h: 18 }));
   const together = (a: string, b: string) => !groups || groups.some((g) => g.includes(a) && g.includes(b));
@@ -57,8 +59,9 @@ export function placeLabels(pts: Pt[], size: { width: number; height: number }, 
   );
   const chosen: Placement[] = [];
   let steps = 0;
+  // compare only with labels placed before i: chosen[i..] may still hold candidates from abandoned branches
   const fits = (i: number, c: Placement) =>
-    chosen.every((o, j) => !together(ordered[i].id, ordered[j].id) || overlap(c.box, o.box) < 0.5);
+    chosen.slice(0, i).every((o, j) => !together(ordered[i].id, ordered[j].id) || overlap(c.box, o.box) < 0.5);
   const search = (i: number): boolean => {
     if (i === ordered.length) return true;
     for (const c of options[i]) {
@@ -73,7 +76,7 @@ export function placeLabels(pts: Pt[], size: { width: number; height: number }, 
   const out: Record<string, Placement> = {};
   if (search(0)) {
     ordered.forEach((p, i) => { out[p.id] = chosen[i]; });
-    return out;
+    return { placed: out, usedFallback: false };
   }
   // fallback: greedy least overlap
   for (const [i, p] of ordered.entries()) {
@@ -86,5 +89,5 @@ export function placeLabels(pts: Pt[], size: { width: number; height: number }, 
     }
     out[p.id] = best;
   }
-  return out;
+  return { placed: out, usedFallback: true };
 }
