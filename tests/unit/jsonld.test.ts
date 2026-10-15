@@ -34,7 +34,8 @@ describe('jsonld', () => {
     expect(b.itemListElement.map((i: any) => i.position)).toEqual([1, 2]);
   });
   it('article dates are ISO', () => {
-    const a = articleLd({ title: 't', description: 'd', url: 'u', image: 'i', date: new Date('2026-10-01'), author: 'A', locale: 'en' }) as any;
+    const a = articleLd({ title: 't', description: 'd', url: 'u', image: 'i', date: new Date('2026-10-01'), locale: 'en' }) as any;
+    expect(a.author).toEqual({ '@type': 'Organization', name: 'GoodBiz Agri' });
     expect(a.datePublished).toBe('2026-10-01T00:00:00.000Z');
     expect(a.inLanguage).toBe('en');
   });

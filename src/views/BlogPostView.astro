@@ -23,7 +23,7 @@ const date = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'long', time
 ---
 <Base locale={locale} title={entry.data.title} description={entry.data.description} path={path} available={available} ogImage={`/og/blog/${slug}.png`}
   jsonLd={[
-    articleLd({ title: entry.data.title, description: entry.data.description, url: abs(path), image: new URL(`/og/blog/${slug}.png`, Astro.site).href, date: entry.data.date, author: entry.data.author, locale: htmlLang[locale] }),
+    articleLd({ title: entry.data.title, description: entry.data.description, url: abs(path), image: new URL(`/og/blog/${slug}.png`, Astro.site).href, date: entry.data.date, locale: htmlLang[locale] }),
     breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
   ]}>
   <article class="container bp">

@@ -62,7 +62,7 @@ export function breadcrumbLd(items: { name: string; url: string }[]) {
   };
 }
 
-export function articleLd(a: { title: string; description: string; url: string; image: string; date: Date; author: string; locale: string }) {
+export function articleLd(a: { title: string; description: string; url: string; image: string; date: Date; locale: string }) {
   return {
     '@context': ctx,
     '@type': 'Article',
@@ -71,7 +71,7 @@ export function articleLd(a: { title: string; description: string; url: string; 
     mainEntityOfPage: a.url,
     image: a.image,
     datePublished: a.date.toISOString(),
-    author: { '@type': 'Person', name: a.author },
+    author: { '@type': 'Organization', name: 'GoodBiz Agri' },
     publisher: { '@type': 'Organization', name: 'GoodBiz Agri' },
     inLanguage: a.locale,
   };
