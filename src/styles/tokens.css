@@ -52,6 +52,6 @@
   --dur-2: 1.1s;
 }
 @media (max-width: 767px) { :root { --radius-media: 28px; --space-9: 4.5rem; --header-offset: 6rem; } }
-:root[lang='ar'] { --font-display: 'IBM Plex Sans Arabic', sans-serif; --font-body: 'IBM Plex Sans Arabic', sans-serif; }
-:root[lang='ru'] { --font-display: 'Noto Serif', Georgia, serif; }
-:root[lang='zh'] { --font-display: 'Noto Sans SC', sans-serif; --font-body: 'Noto Sans SC', 'Manrope', sans-serif; }
+:root:lang(ar) { --font-display: 'IBM Plex Sans Arabic', sans-serif; --font-body: 'IBM Plex Sans Arabic', sans-serif; }
+:root:lang(ru) { --font-display: 'Noto Serif', Georgia, serif; }
+:root:lang(zh) { --font-display: 'Noto Sans SC', sans-serif; --font-body: 'Noto Sans SC', 'Manrope', sans-serif; }

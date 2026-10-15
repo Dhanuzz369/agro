@@ -136,3 +136,20 @@ test('suggestion banner appears for a French browser without redirecting, and di
   await expect(banner).toBeHidden();
   await ctx.close();
 });
+
+test('script-specific fonts apply on zh, ar and ru pages', async ({ page }) => {
+  const h1Font = async (path: string) => {
+    await page.goto(path);
+    return page.locator('h1').evaluate((el) => getComputedStyle(el).fontFamily);
+  };
+  expect(await h1Font('/zh')).toContain('Noto Sans SC');
+  expect(await h1Font('/ar')).toContain('IBM Plex Sans Arabic');
+  expect(await h1Font('/ru')).toContain('Noto Serif');
+  expect(await h1Font('/')).not.toContain('Noto Sans SC');
+});
+
+test('zh pages load only the 400 Noto Sans SC stylesheet', async ({ page }) => {
+  await page.goto('/zh');
+  const sheets = await page.locator('link[rel="stylesheet"][href^="/fonts/sc/"]').evaluateAll((ls) => ls.map((l) => l.getAttribute('href')));
+  expect(sheets).toEqual(['/fonts/sc/400.css']);
+});

@@ -2,7 +2,7 @@
   "ci": {
     "collect": {
       "staticDistDir": "./dist",
-      "url": ["/index.html", "/products/turmeric/index.html", "/hsn/1701/index.html", "/blog/turmeric-hsn-codes-explained/index.html", "/ar/index.html"],
+      "url": ["/index.html", "/products/turmeric/index.html", "/hsn/1701/index.html", "/blog/turmeric-hsn-codes-explained/index.html", "/ar/index.html", "/zh/index.html", "/contact/index.html"],
       "numberOfRuns": 2,
       "settings": { "formFactor": "mobile", "screenEmulation": { "mobile": true, "width": 412, "height": 823, "deviceScaleFactor": 1.75 } }
     },

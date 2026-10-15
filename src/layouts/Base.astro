@@ -32,7 +32,6 @@ const onVercel = Boolean(process.env.VERCEL);
     <meta name="theme-color" content="#1F3D2B" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     {locale === 'zh' && <link rel="stylesheet" href="/fonts/sc/400.css" />}
-    {locale === 'zh' && <link rel="stylesheet" href="/fonts/sc/500.css" />}
     <SeoHead locale={locale} jsonLd={ld} {...seo} />
     <slot name="head" />
     {onVercel && <script is:inline defer src="/_vercel/insights/script.js"></script>}
