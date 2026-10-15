@@ -11,7 +11,8 @@ colors:
   gold: "#AF751B"
   gold-soft: "#DDAA61"  # accents on forest, data-viz
   olive: "#5C6F5D"
-  sage-pale: "#CED4B8"
+  sage-pale: "#CED4B8"   # success notices
+  clay-pale: "#EEDDD5"   # clay tint: error notices on paper (ink text)
   ink: "#1C1B1A"
   ash: "#6E6B66"
   hairline: "#E1DCD3"
@@ -29,7 +30,7 @@ typography:
   eyebrow: { family: Manrope, size: 12px, weight: 700, letterSpacing: 1px, transform: uppercase }
   data: { family: JetBrains Mono, size: 14px, weight: 400 }
 rounded: { none: 0, input: 12px, card: 24px, media: 40px, full: 999px }
-spacing: { base: 8px, xs: 8px, sm: 12px, md: 16px, lg: 24px, xl: 32px, section: "112px desktop / 72px mobile" }
+spacing: { base: 8px, xs: 8px, sm: 12px, md: 16px, lg: 24px, xl: 32px, section: "112px desktop / 72px mobile", header-offset: "112px desktop / 96px mobile" }
 breakpoints: { desktop: 1280px, laptop: 1024px, tablet: 768px, nav: 860px }
 ---
 
@@ -62,7 +63,7 @@ A printed field journal for a commodity trader: warm paper, thin high-contrast s
 
 ## Layout
 - Content max-width 1216px, gutters clamp(16px, 4vw, 48px); full-bleed photography may break out.
-- Section rhythm 112px desktop / 72px mobile. Card grids 4-up (≥1280) → 3-up (≥1024) → 2-up (≥768) → 1-up.
+- Section rhythm 112px desktop / 72px mobile. Pages without a hero start below the overlaid header at `--header-offset`: 112px desktop, 96px mobile (the ~76px mobile header leaves no room for 72px). Card grids 4-up (≥1280) → 3-up (≥1024) → 2-up (≥768) → 1-up.
 
 ## Elevation
 Level 0 flat (default). Level 1 `0 1px 2px rgb(28 27 26 / .06), 0 8px 24px rgb(28 27 26 / .06)` for resting cards. Level 2 `0 16px 48px rgb(28 27 26 / .12)` for dialogs and floating controls. Never hard shadows.
