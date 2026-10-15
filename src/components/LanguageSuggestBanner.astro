@@ -38,7 +38,8 @@ const strings = Object.fromEntries(available.map((l) => {
   }
 </script>
 <style>
-  .lsb { position: fixed; inset-block-start: var(--space-4); inset-inline: var(--space-4); z-index: 50; margin-inline: auto; max-inline-size: 36rem;
+  /* sits above the floating language and WhatsApp buttons instead of covering the header navigation */
+  .lsb { position: fixed; inset-block-end: calc(var(--space-4) + 4.5rem); inset-inline: var(--space-4); z-index: 50; margin-inline: auto; max-inline-size: 36rem;
     display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--paper); color: var(--ink);
     box-shadow: var(--shadow-2); border-radius: var(--radius-card); }
   .lsb[hidden] { display: none; }
