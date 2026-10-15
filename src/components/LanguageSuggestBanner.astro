@@ -1,3 +1,46 @@
 ---
-const _ = Astro.props;
+import { createT } from '../i18n/t';
+import { locales, type Locale } from '../i18n/config';
+interface Props { locale: Locale; path: string; available?: readonly Locale[] }
+const { locale, available = locales } = Astro.props;
+const strings = Object.fromEntries(available.map((l) => {
+  const t = createT(l);
+  return [l, { text: t('lang.suggestion'), yes: t('lang.suggestYes'), no: t('lang.dismiss') }];
+}));
 ---
+<div class="lsb" data-lang-suggest hidden data-current={locale} data-available={JSON.stringify(available)} data-strings={JSON.stringify(strings)} role="region" aria-live="polite">
+  <p data-text></p>
+  <a class="btn btn--primary" data-yes href="#"></a>
+  <button type="button" class="btn btn--ghost" data-dismiss></button>
+</div>
+<script>
+  import { suggestLocale, safeStorage } from '../lib/lang-switch';
+  import { localizePath, stripLocale } from '../i18n/paths';
+  import type { Locale } from '../i18n/config';
+  const el = document.querySelector<HTMLElement>('[data-lang-suggest]');
+  if (el && !safeStorage.get('gb.suggest.dismissed') && !safeStorage.get('gb.lang')) {
+    const available: Locale[] = JSON.parse(el.dataset.available!);
+    const target = suggestLocale(navigator.languages ?? [navigator.language], el.dataset.current as Locale, available);
+    if (target) {
+      const s = JSON.parse(el.dataset.strings!)[target];
+      el.lang = target;
+      el.dir = target === 'ar' ? 'rtl' : 'ltr';
+      el.querySelector('[data-text]')!.textContent = s.text;
+      const yes = el.querySelector<HTMLAnchorElement>('[data-yes]')!;
+      yes.textContent = s.yes;
+      yes.href = localizePath(stripLocale(location.pathname).path, target);
+      yes.addEventListener('click', () => safeStorage.set('gb.lang', target));
+      const no = el.querySelector<HTMLButtonElement>('[data-dismiss]')!;
+      no.textContent = s.no;
+      no.addEventListener('click', () => { safeStorage.set('gb.suggest.dismissed', '1'); el.hidden = true; });
+      el.hidden = false;
+    }
+  }
+</script>
+<style>
+  .lsb { position: fixed; inset-block-start: var(--space-4); inset-inline: var(--space-4); z-index: 50; margin-inline: auto; max-inline-size: 36rem;
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--paper); color: var(--ink);
+    box-shadow: var(--shadow-2); border-radius: var(--radius-card); }
+  .lsb[hidden] { display: none; }
+  .lsb p { flex: 1 1 12rem; font-weight: 500; }
+</style>

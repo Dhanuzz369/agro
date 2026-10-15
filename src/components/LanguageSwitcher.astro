@@ -1,3 +1,56 @@
 ---
-const _ = Astro.props;
+import { allLanguages, nativeName } from '../i18n/languages';
+import { createT } from '../i18n/t';
+import { gtToCore, locales, pillCode, type Locale } from '../i18n/config';
+interface Props { locale: Locale; path: string; available?: readonly Locale[] }
+const { locale, available = locales } = Astro.props;
+const t = createT(locale);
+const options = allLanguages
+  .map((l) => ({ ...l, native: nativeName(l.code), core: !!gtToCore[l.code] && available.includes(gtToCore[l.code]) }))
+  .sort((a, b) => Number(b.core) - Number(a.core) || a.english.localeCompare(b.english));
+const current = Object.entries(gtToCore).find(([, v]) => v === locale)?.[0] ?? 'en';
 ---
+<div class="ls" data-lang-root data-available={JSON.stringify(available)}>
+  <button class="ls__pill" type="button" data-lang-open aria-haspopup="dialog" aria-label={t('lang.button')}>
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Zm-9 9h18M12 3c2.5 2.6 3.6 5.6 3.6 9s-1.1 6.4-3.6 9c-2.5-2.6-3.6-5.6-3.6-9S9.5 5.6 12 3Z"/></svg>
+    <span data-lang-current>{pillCode[locale]}</span>
+  </button>
+  <dialog class="ls__dialog" aria-labelledby="ls-title">
+    <div class="ls__head">
+      <h2 id="ls-title">{t('lang.title')}</h2>
+      <button type="button" data-lang-close aria-label={t('a11y.close')}>×</button>
+    </div>
+    <input type="search" placeholder={t('lang.search')} aria-label={t('lang.search')} data-lang-search />
+    <div class="ls__list">
+      <p class="eyebrow">{t('lang.core')}</p>
+      <ul>{options.filter((o) => o.core).map((o) => (
+        <li><button type="button" data-lang-option data-code={o.code} data-core="true" data-search={`${o.english} ${o.native} ${o.code}`.toLowerCase()} aria-current={o.code === current ? 'true' : undefined} lang={o.code}>{o.native}<small>{o.english}</small></button></li>
+      ))}</ul>
+      <p class="eyebrow">{t('lang.machine')}</p>
+      <ul>{options.filter((o) => !o.core).map((o) => (
+        <li><button type="button" data-lang-option data-code={o.code} data-core="false" data-search={`${o.english} ${o.native} ${o.code}`.toLowerCase()} lang={o.code}>{o.native}<small>{o.english}</small></button></li>
+      ))}</ul>
+    </div>
+  </dialog>
+  <div id="google_translate_element" hidden></div>
+</div>
+<script>import '../scripts/lang-switcher';</script>
+<style>
+  .ls__pill { position: fixed; inset-block-end: var(--space-5); inset-inline-start: var(--space-5); z-index: 40; display: inline-flex; align-items: center; gap: var(--space-2);
+    min-block-size: 44px; padding-inline: var(--space-4); border-radius: 999px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); font: inherit; font-weight: 700; font-size: var(--step--1);
+    box-shadow: 0 6px 20px rgb(26 26 23 / 0.15); cursor: pointer; }
+  .ls__dialog { inline-size: min(100% - 2rem, 34rem); max-block-size: min(80svh, 44rem); padding: 0; border: 0; border-radius: var(--radius-card); box-shadow: var(--shadow-2); background: var(--paper); color: var(--ink); }
+  .ls__dialog::backdrop { background: rgb(26 26 23 / 0.5); }
+  .ls__head { display: flex; justify-content: space-between; align-items: center; padding: var(--space-5) var(--space-5) var(--space-3); }
+  .ls__head h2 { font-size: var(--step-1); }
+  .ls__head button { inline-size: 44px; block-size: 44px; border: 0; background: none; font-size: 1.6rem; cursor: pointer; color: inherit; }
+  input[type='search'] { margin-inline: var(--space-5); inline-size: calc(100% - 2 * var(--space-5)); min-block-size: 44px; font: inherit; font-size: 16px; padding-inline: var(--space-3); border: 1px solid var(--rule); border-radius: var(--radius); }
+  .ls__list { overflow-y: auto; max-block-size: calc(min(80svh, 44rem) - 9rem); padding: var(--space-4) var(--space-5) var(--space-5); }
+  .ls__list .eyebrow { margin-block: var(--space-4) var(--space-2); }
+  .ls__list ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(10rem, 100%), 1fr)); gap: var(--space-1); }
+  .ls__list button { inline-size: 100%; min-block-size: 44px; display: grid; text-align: start; padding: var(--space-2); border: 0; border-radius: var(--radius); background: none; font: inherit; cursor: pointer; color: inherit; }
+  .ls__list button:hover, .ls__list button[aria-current='true'] { background: var(--paper-2); }
+  .ls__list small { font-size: 0.75rem; color: var(--ink-2); }
+  :global(body) { top: 0 !important; }
+  :global(.skiptranslate iframe), :global(#goog-gt-tt) { display: none !important; }
+</style>
