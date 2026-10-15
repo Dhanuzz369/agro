@@ -1,0 +1,54 @@
+:root {
+  --paper: #F7F1E8;
+  --paper-2: #EFE7D8;
+  --surface: #FFFFFF;
+  --forest: #1F3D2B;
+  --forest-2: #2B5139;
+  --turmeric: #D99A1E;
+  --turmeric-hover: #E4AC3C;
+  --stone: #4A4741;
+  --clay: #6B443D;
+  --gold: #AF751B;
+  --gold-soft: #DDAA61;
+  --olive: #5C6F5D;
+  --sage-pale: #CED4B8;
+  --ink: #1C1B1A;
+  --ink-2: #4A4741;
+  --ash: #838280;
+  --hairline: #E1DCD3;
+  --rule: var(--hairline);
+  --error: #B3361F;
+
+  --font-display: 'Fraunces', 'Noto Serif', Georgia, serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --step--2: 0.75rem;                                   /* eyebrow 12 */
+  --step--1: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem); /* caption/ui 13–14 */
+  --step-0: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);    /* body 16–18 */
+  --step-1: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);     /* lead 20–24 */
+  --step-2: clamp(1.6rem, 1.3rem + 1.2vw, 2rem);        /* title 26–32 */
+  --step-3: clamp(2rem, 1.4rem + 2.4vw, 2.5rem);        /* h2 32–40 */
+  --step-4: clamp(2.5rem, 1.4rem + 4.4vw, 4.25rem);     /* h1 40–68 */
+  --step-5: clamp(3rem, 1.2rem + 6.2vw, 6.875rem);      /* display 48–110 */
+
+  --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+  --space-5: 1.5rem; --space-6: 2rem; --space-7: 3rem; --space-8: 4.5rem; --space-9: 7rem;
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --max: 76rem;
+  --measure: 62ch;
+  --radius: 12px;
+  --radius-input: 12px;
+  --radius-card: 24px;
+  --radius-media: 40px;
+  --shadow-1: 0 1px 2px rgb(28 27 26 / 0.06), 0 8px 24px rgb(28 27 26 / 0.06);
+  --shadow-2: 0 16px 48px rgb(28 27 26 / 0.12);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-1: 0.6s;
+  --dur-2: 1.1s;
+}
+@media (max-width: 767px) { :root { --radius-media: 28px; --space-9: 4.5rem; } }
+:root[lang='ar'] { --font-display: 'IBM Plex Sans Arabic', sans-serif; --font-body: 'IBM Plex Sans Arabic', sans-serif; }
+:root[lang='ru'] { --font-display: 'Noto Serif', Georgia, serif; }
+:root[lang='zh'] { --font-display: 'Noto Sans SC', sans-serif; --font-body: 'Noto Sans SC', 'Manrope', sans-serif; }

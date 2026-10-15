@@ -1,0 +1,50 @@
+{
+  "name": "goodbiz-agri",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "prebuild": "node scripts/copy-fonts.mjs",
+    "build": "astro build && node scripts/content-report.mjs",
+    "preview": "astro preview --port 4321",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "lhci": "lhci autorun",
+    "linkcheck": "linkinator ./dist --recurse --skip \"^https?://(?!localhost)\""
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.64.1",
+    "@types/d3-geo": "^3.1.1",
+    "@types/three": "^0.186.0",
+    "@types/topojson-client": "^3.1.5",
+    "linkinator": "^8.1.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/fraunces": "^5.3.0",
+    "@fontsource/ibm-plex-sans-arabic": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/manrope": "^5.3.0",
+    "@fontsource/noto-sans-sc": "^5.3.1",
+    "@fontsource/noto-serif": "^5.3.0",
+    "@resvg/resvg-js": "^2.6.2",
+    "astro": "^5.18.2",
+    "d3-geo": "^3.1.1",
+    "lenis": "^1.3.27",
+    "motion": "^14.3.0",
+    "pdf-lib": "^1.17.1",
+    "satori": "^0.60.0",
+    "three": "^0.186.1",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "yaml": "^2.9.1"
+  }
+}

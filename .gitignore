@@ -1,1 +1,9 @@
 .superpowers/
+node_modules
+dist
+.astro
+.vercel
+test-results
+playwright-report
+.lighthouseci
+public/fonts/sc
