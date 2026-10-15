@@ -5,7 +5,7 @@ import { createT } from '../i18n/t';
 const t = createT('en');
 ---
 <Base locale="en" title={t('form.success.title')} description={t('form.success.body')} path="/thanks" available={['en']} noindex>
-  <div class="container" style="padding-block: 10rem var(--space-8); display: grid; gap: var(--space-4);">
+  <div class="container" style="padding-block: calc(var(--header-offset) + var(--space-7)) var(--space-8); display: grid; gap: var(--space-4);">
     <h1>{t('form.success.title')}</h1><p>{t('form.success.body')}</p>
     <a class="btn btn--primary" href="/products">{t('cta.viewProducts')}</a>
   </div>

@@ -42,7 +42,7 @@ const date = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'medium', ti
   }));
 </script>
 <style>
-  .bi { padding-block: 7.5rem var(--space-8); display: grid; gap: var(--space-6); }
+  .bi { padding-block: var(--header-offset) var(--space-8); display: grid; gap: var(--space-6); }
   .bi__filters { display: flex; flex-wrap: wrap; gap: var(--space-2); }
   .bi__filters button { min-block-size: 44px; padding-inline: var(--space-4); border: 1px solid var(--rule); background: transparent; border-radius: 999px; font: inherit; font-size: var(--step--1); cursor: pointer; }
   .bi__filters button[aria-pressed='true'] { background: var(--forest); color: var(--paper); }

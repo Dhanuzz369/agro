@@ -38,7 +38,7 @@ const postal = isPlaceholder(addr.postalCode) ? '' : addr.postalCode;
   </div>
 </Base>
 <style>
-  .cv { padding-block: 7.5rem var(--space-8); display: grid; gap: var(--space-6); }
+  .cv { padding-block: var(--header-offset) var(--space-8); display: grid; gap: var(--space-6); }
   .cv__grid { display: grid; gap: var(--space-8); grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
   .cv__form { display: grid; gap: var(--space-5); }
   .cv__aside { display: grid; gap: var(--space-4); align-content: start; border-inline-start: 1px solid var(--rule); padding-inline-start: var(--space-6); }
