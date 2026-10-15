@@ -1,3 +1,56 @@
 ---
-const _ = Astro.props;
+import { createT } from '../i18n/t';
+import { localizePath } from '../i18n/paths';
+import type { Locale } from '../i18n/config';
+interface Props { locale: Locale; path: string; hero?: 'dark' | 'light' }
+const { locale, path, hero = 'light' } = Astro.props;
+const t = createT(locale);
+const links = [
+  { href: '/products', label: t('nav.products') },
+  { href: '/about', label: t('nav.about') },
+  { href: '/blog', label: t('nav.blog') },
+  { href: '/contact', label: t('nav.contact') },
+];
+const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
 ---
+<header class="hdr" data-tone={hero}>
+  <div class="container hdr__row">
+    <a class="brand" href={localizePath('/', locale)}>GoodBiz <span>Agri</span></a>
+    <nav aria-label="Main" class="hdr__nav" id="main-nav">
+      <ul>
+        {links.map((l) => <li><a href={localizePath(l.href, locale)} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a></li>)}
+      </ul>
+      <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('cta.quote')}</a>
+    </nav>
+    <button class="hdr__toggle" aria-expanded="false" aria-controls="main-nav" data-open={t('nav.menu')} data-close={t('nav.close')}>{t('nav.menu')}</button>
+  </div>
+</header>
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.hdr__toggle');
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true';
+    btn.setAttribute('aria-expanded', String(open));
+    btn.textContent = open ? btn.dataset.close! : btn.dataset.open!;
+    document.documentElement.classList.toggle('nav-open', open);
+  });
+</script>
+<style>
+  .hdr { position: absolute; inset-inline: 0; inset-block-start: 0; z-index: 30; padding-block: var(--space-4); }
+  .hdr[data-tone='dark'] { color: var(--paper); }
+  .hdr__row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
+  .brand { font-family: var(--font-display); font-size: var(--step-1); text-decoration: none; }
+  .brand span { color: var(--turmeric); }
+  .hdr__nav { display: flex; align-items: center; gap: var(--space-6); }
+  .hdr__nav ul { display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
+  .hdr__nav a:not(.btn) { text-decoration: none; }
+  .hdr__nav a[aria-current='page'] { text-decoration: underline; }
+  .hdr__toggle { display: none; min-block-size: 44px; background: none; border: 1px solid currentColor; color: inherit; border-radius: 999px; padding-inline: var(--space-4); font: inherit; }
+  @media (max-width: 860px) {
+    .hdr__toggle { display: inline-flex; align-items: center; }
+    .hdr__nav { position: fixed; inset: 0; background: var(--forest); color: var(--paper); flex-direction: column; justify-content: center; gap: var(--space-6);
+      opacity: 0; pointer-events: none; transition: opacity var(--dur-1) var(--ease); }
+    .hdr__nav ul { flex-direction: column; align-items: center; font-family: var(--font-display); font-size: var(--step-2); }
+    :global(.nav-open) .hdr__nav { opacity: 1; pointer-events: auto; }
+    .hdr__toggle { position: relative; z-index: 2; }
+  }
+</style>

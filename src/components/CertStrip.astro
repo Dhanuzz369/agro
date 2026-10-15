@@ -1,0 +1,32 @@
+---
+import { createT } from '../i18n/t';
+import { getSite } from '../lib/catalog';
+import { isPlaceholder } from '../lib/site';
+import type { Locale } from '../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const site = await getSite();
+const regs = site.registrations.filter((r) => r.held);
+---
+<section class="certs" aria-labelledby="certs-title">
+  <div class="container certs__inner">
+    <h2 id="certs-title" class="eyebrow">{t('trust.title')}</h2>
+    <ul>
+      {regs.map((r) => (
+        <li>
+          {r.logo ? <img src={r.logo} alt={r.name} width="120" height="48" loading="lazy" /> : <strong>{r.name}</strong>}
+          <span dir="ltr">{t('trust.regNo')} {isPlaceholder(r.number) ? t('trust.onRequest') : r.number}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .certs { border-block: 1px solid var(--rule); padding-block: var(--space-6); }
+  .certs__inner { display: grid; gap: var(--space-4); }
+  ul { display: flex; flex-wrap: wrap; gap: var(--space-5) var(--space-7); list-style: none; margin: 0; padding: 0; }
+  li { display: grid; gap: var(--space-1); }
+  strong { font-family: var(--font-display); font-weight: 500; font-size: var(--step-1); }
+  span { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-2); }
+</style>

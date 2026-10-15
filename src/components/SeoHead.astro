@@ -28,4 +28,4 @@ const fullTitle = title.includes('GoodBiz') ? title : `${title} | GoodBiz Agri`;
 <meta property="og:locale" content={htmlLang[locale].replace('-', '_')} />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="alternate" type="application/rss+xml" title="GoodBiz Agri" href={localizePath('/rss.xml', locale)} />
-{jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+{jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}

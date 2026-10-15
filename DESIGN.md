@@ -13,7 +13,7 @@ colors:
   olive: "#5C6F5D"
   sage-pale: "#CED4B8"
   ink: "#1C1B1A"
-  ash: "#838280"
+  ash: "#6E6B66"
   hairline: "#E1DCD3"
   error: "#B3361F"
 typography:
