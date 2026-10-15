@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CertStrip from '../components/CertStrip.astro';
+import SouthIndiaMap from '../components/SouthIndiaMap.astro';
+import { createT, type UiKey } from '../i18n/t';
+import { getLocalizedProducts } from '../lib/catalog';
+import type { Locale } from '../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const products = await getLocalizedProducts(locale);
+const allRegions = [...new Set(products.flatMap((p) => p.data.regions))];
+---
+<Base locale={locale} title={t('meta.aboutTitle')} description={t('meta.aboutDescription')} path="/about" ogImage="/og/about.png">
+  <div class="container av">
+    <Breadcrumbs locale={locale} items={[{ name: t('nav.home'), path: '/' }, { name: t('nav.about'), path: '/about' }]} />
+    <header class="av__head">
+      <p class="eyebrow">{t('about.eyebrow')}</p>
+      <h1>{t('about.title')}</h1>
+      <p class="av__lede">{t('about.lede')}</p>
+    </header>
+    <section class="av__two">
+      <div data-reveal><h2>{t('about.story.title')}</h2><p>{t('about.story.body')}</p></div>
+      <div><h2>{t('about.network.title')}</h2><SouthIndiaMap active={allRegions} label={t('about.network.title')} /></div>
+    </section>
+    <section>
+      <h2>{t('about.quality.title')}</h2>
+      <ol class="av__steps">
+        {[1, 2, 3, 4, 5].map((n) => <li data-quality-step data-reveal><span dir="ltr">0{n}</span><p>{t(`about.quality.s${n}` as UiKey)}</p></li>)}
+      </ol>
+    </section>
+  </div>
+  <CertStrip locale={locale} />
+</Base>
+<style>
+  .av { padding-block: 7.5rem var(--space-8); display: grid; gap: var(--space-8); }
+  .av__head { display: grid; gap: var(--space-4); }
+  .av__lede { font-size: var(--step-1); line-height: 1.45; }
+  .av__two { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: start; }
+  .av__two > div { display: grid; gap: var(--space-4); }
+  .av__steps { list-style: none; margin: var(--space-6) 0 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); }
+  .av__steps li { border-block-start: 1px solid var(--ink); padding-block-start: var(--space-3); display: grid; gap: var(--space-2); }
+  .av__steps span { font-family: var(--font-mono); color: var(--clay); }
+</style>
