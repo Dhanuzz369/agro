@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 import { PDFDocument } from 'pdf-lib';
-import { buildSpecSheet, wrapLines } from '../../src/lib/specsheet';
+import { buildSpecSheet, wrapLines, hsnLine, contactFallback } from '../../src/lib/specsheet';
 
 describe('buildSpecSheet', () => {
   it('produces a one-page PDF with metadata', async () => {
     const bytes = await buildSpecSheet({
-      productName: 'Turmeric', varietyName: 'Turmeric powder', hsn: '09103030', region: 'Erode, Tamil Nadu', market: 'Erode Regulated Market',
+      productName: 'Turmeric', varietyName: 'Turmeric powder', hsn: '09103030', verified: true, region: 'Erode, Tamil Nadu', market: 'Erode Regulated Market',
       specs: [{ label: 'Curcumin', value: '2–5%' }, { label: 'Moisture', value: '≤ 10%' }], packing: ['25 kg paper bags'], moq: '1 × 20 ft FCL',
       ports: 'Chennai Port', contact: 'export@example.com', url: 'https://goodbizagri.com/products/turmeric',
     });
@@ -23,5 +23,17 @@ describe('wrapLines', () => {
     expect(lines.length).toBeGreaterThan(1);
     for (const l of lines) expect(measure(l)).toBeLessThanOrEqual(120);
     expect(lines.join(' ')).toBe('25 kg PP bags, 50 kg jute bags, 1 MT jumbo bags, private label on request for FCL orders');
+  });
+});
+
+describe('hsnLine', () => {
+  it('prints verified codes as stored', () => expect(hsnLine('09103030', true)).toBe('HSN 09103030'));
+  it('flags unverified codes', () => expect(hsnLine('8011220', false)).toBe('HSN 8011220 (code under verification)'));
+});
+
+describe('contactFallback', () => {
+  it('uses the real email when set', () => expect(contactFallback('sales@goodbiz.in', new URL('https://example.org'))).toBe('sales@goodbiz.in'));
+  it('falls back to the configured site host, not a hard-coded domain', () => {
+    expect(contactFallback('REPLACE: email', new URL('https://staging.example.org'))).toBe('staging.example.org/contact');
   });
 });

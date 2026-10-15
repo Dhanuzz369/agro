@@ -1,4 +1,5 @@
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
+import { isPlaceholder } from './site';
 
 const forest = rgb(0x1f / 255, 0x3d / 255, 0x2b / 255);
 const ink = rgb(0x1a / 255, 0x1a / 255, 0x17 / 255);
@@ -18,14 +19,24 @@ export function wrapLines(text: string, measure: (t: string) => number, maxWidth
   return lines.length ? lines : [''];
 }
 
+/** HSN as stored; unverified codes carry the same caveat as the website. */
+export const hsnLine = (hsn: string, verified: boolean) => `HSN ${hsn}${verified ? '' : ' (code under verification)'}`;
+
+/** Contact line: the owner's email, or the contact page on the configured site until the email is set. */
+export function contactFallback(email: string, site: URL): string {
+  if (!isPlaceholder(email)) return email;
+  const u = new URL('/contact', site);
+  return `${u.host}${u.pathname}`;
+}
+
 export async function buildSpecSheet(a: {
-  productName: string; varietyName: string; hsn: string; region: string; market: string;
+  productName: string; varietyName: string; hsn: string; verified: boolean; region: string; market: string;
   specs: { label: string; value: string }[]; packing: string[]; moq: string; ports: string; contact: string; url: string;
 }): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
   doc.setTitle(`${a.varietyName} — GoodBiz Agri spec sheet`);
   doc.setAuthor('GoodBiz Agri');
-  doc.setSubject(`${a.productName} specification, HSN ${a.hsn}`);
+  doc.setSubject(`${a.productName} specification, ${hsnLine(a.hsn, a.verified)}`);
   const page = doc.addPage([595.28, 841.89]);
   const serif = await doc.embedFont(StandardFonts.TimesRoman);
   const sans = await doc.embedFont(StandardFonts.Helvetica);
@@ -40,7 +51,7 @@ export async function buildSpecSheet(a: {
 
   page.drawText(safe(a.productName.toUpperCase()), { x, y: (y -= 20), size: 9, font: bold, color: muted });
   page.drawText(safe(a.varietyName), { x, y: (y -= 28), size: 24, font: serif, color: ink });
-  page.drawText(`HSN ${a.hsn}`, { x, y: (y -= 22), size: 11, font: mono, color: forest });
+  page.drawText(hsnLine(a.hsn, a.verified), { x, y: (y -= 22), size: 11, font: mono, color: forest });
 
   const lineHeight = 13;
   const row = (label: string, value: string) => {
