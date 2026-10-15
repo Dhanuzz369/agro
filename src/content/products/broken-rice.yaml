@@ -1,0 +1,45 @@
+order: 3
+hsn:
+  - { code: "100640", verified: true }
+heroImage: { src: ../../assets/products/broken-rice/hero.jpg, isStock: true }
+model: { kind: grains, grain: brokenRice }
+regions: [godavari, nellore, raichur]
+markets: ["Godavari delta mills", "Nellore mills"]
+harvestMonths: [3, 4, 10, 11, 12]
+ports: [chennai, tuticorin]
+moq: "5 × 20 ft FCL"
+shelfLife: "12 months"
+packing: ["50 kg PP bags", "Jumbo bags"]
+containerLoad: { ft20: "25–26 MT", ft40: "27 MT" }
+related: [non-basmati-rice, rice, groundnuts]
+varieties:
+  - id: white-100
+    hsn: "100640"
+    image: { src: ../../assets/products/broken-rice/white-100.jpg, isStock: true }
+    region: godavari
+    market: "Godavari delta mills"
+    specs:
+      - { key: broken, value: "100%" }
+      - { key: moisture, value: "≤ 14%" }
+      - { key: foreignMatter, value: "≤ 0.5%" }
+    packing: ["50 kg PP bags"]
+  - id: parboiled
+    hsn: "100640"
+    image: { src: ../../assets/products/broken-rice/parboiled.jpg, isStock: true }
+    region: nellore
+    market: "Nellore mills"
+    specs:
+      - { key: broken, value: "100%" }
+      - { key: moisture, value: "≤ 14%" }
+      - { key: colour, value: "Parboiled cream" }
+    packing: ["50 kg PP bags"]
+  - id: sortexed
+    hsn: "100640"
+    image: { src: ../../assets/products/broken-rice/sortexed.jpg, isStock: true }
+    region: raichur
+    market: "Raichur APMC"
+    specs:
+      - { key: broken, value: "100%, sortexed" }
+      - { key: damaged, value: "≤ 1%" }
+      - { key: moisture, value: "≤ 13.5%" }
+    packing: ["50 kg PP bags", "Jumbo bags"]

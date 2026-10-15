@@ -1,0 +1,46 @@
+order: 6
+hsn:
+  - { code: "120242", verified: false }
+heroImage: { src: ../../assets/products/groundnuts/hero.jpg, isStock: true }
+model: { kind: grains, grain: groundnut }
+regions: [chitradurga, anantapur, tiruvannamalai]
+markets: ["Chitradurga APMC", "Anantapur groundnut market", "Tiruvannamalai traders"]
+harvestMonths: [10, 11, 12, 3, 4]
+ports: [chennai, mangalore]
+moq: "1 × 20 ft FCL"
+shelfLife: "9–12 months (cool storage)"
+packing: ["25 kg / 50 kg PP or jute bags", "Vacuum bags"]
+containerLoad: { ft20: "18–19 MT", ft40: "26 MT" }
+related: [jaggery, rice, non-basmati-rice]
+varieties:
+  - id: bold-runner
+    hsn: "120242"
+    image: { src: ../../assets/products/groundnuts/bold-runner.jpg, isStock: true }
+    region: anantapur
+    market: "Anantapur groundnut market"
+    specs:
+      - { key: count, value: "38/42, 40/50, 50/60 per oz" }
+      - { key: moisture, value: "≤ 7%" }
+      - { key: aflatoxin, value: "≤ 10 ppb (EU grade on request)" }
+      - { key: admixture, value: "≤ 1%" }
+    packing: ["50 kg jute bags"]
+  - id: java
+    hsn: "120242"
+    image: { src: ../../assets/products/groundnuts/java.jpg, isStock: true }
+    region: chitradurga
+    market: "Chitradurga APMC"
+    specs:
+      - { key: count, value: "50/60, 60/70, 70/80, 80/90 per oz" }
+      - { key: moisture, value: "≤ 7%" }
+      - { key: oil, value: "45–48%" }
+    packing: ["50 kg jute bags"]
+  - id: blanched
+    hsn: "120242"
+    image: { src: ../../assets/products/groundnuts/blanched.jpg, isStock: true }
+    region: tiruvannamalai
+    market: "Tiruvannamalai traders"
+    specs:
+      - { key: count, value: "Whole / split" }
+      - { key: moisture, value: "≤ 6%" }
+      - { key: aflatoxin, value: "≤ 4 ppb" }
+    packing: ["25 kg vacuum bags in cartons"]

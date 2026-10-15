@@ -1,0 +1,52 @@
+order: 7
+hsn:
+  - { code: "8011220", verified: false }
+heroImage: { src: ../../assets/products/coconut-copra/hero.jpg, isStock: true }
+model: { kind: glb, src: /models/coconut.glb, fallbackGrain: copra }
+regions: [tiptur, tumakuru, pollachi]
+markets: ["Tiptur APMC (ball copra)", "Tumakuru traders", "Pollachi coconut market"]
+harvestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+ports: [mangalore, kochi, chennai]
+moq: "1 × 40 ft HC (coconut) · 1 × 20 ft FCL (copra)"
+shelfLife: "Coconut: 6–8 weeks · Copra: 6–12 months"
+packing: ["25–30 nut mesh bags (semi-husked)", "50 kg PP / jute bags (copra)"]
+containerLoad: { ft20: "Copra 13–14 MT", ft40: "Semi-husked ~28,000–30,000 nuts" }
+related: [arecanut, jaggery, groundnuts]
+varieties:
+  - id: semi-husked
+    hsn: "8011220"
+    image: { src: ../../assets/products/coconut-copra/semi-husked.jpg, isStock: true }
+    region: pollachi
+    market: "Pollachi coconut market"
+    specs:
+      - { key: size, value: "≥ 500 g per nut" }
+      - { key: damaged, value: "No cracks or germination" }
+    packing: ["25–30 nut mesh bags"]
+  - id: tiptur-ball-copra
+    hsn: "8011220"
+    image: { src: ../../assets/products/coconut-copra/tiptur-ball-copra.jpg, isStock: true }
+    region: tiptur
+    market: "Tiptur APMC (ball copra)"
+    specs:
+      - { key: moisture, value: "≤ 6%" }
+      - { key: oil, value: "≥ 68%" }
+      - { key: colour, value: "White, sweet kernel" }
+    packing: ["50 kg jute bags"]
+  - id: milling-copra
+    hsn: "8011220"
+    image: { src: ../../assets/products/coconut-copra/milling-copra.jpg, isStock: true }
+    region: tumakuru
+    market: "Tumakuru traders"
+    specs:
+      - { key: moisture, value: "≤ 6%" }
+      - { key: oil, value: "≥ 65%" }
+    packing: ["50 kg PP bags"]
+  - id: edible-cups
+    hsn: "8011220"
+    image: { src: ../../assets/products/coconut-copra/edible-cups.jpg, isStock: true }
+    region: tiptur
+    market: "Tiptur APMC (ball copra)"
+    specs:
+      - { key: moisture, value: "≤ 6%" }
+      - { key: size, value: "Half cups" }
+    packing: ["40 kg PP bags"]

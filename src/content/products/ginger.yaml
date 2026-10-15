@@ -1,0 +1,57 @@
+order: 8
+hsn:
+  - { code: "09101110", verified: true }
+  - { code: "09101120", verified: true }
+  - { code: "09101130", verified: true }
+  - { code: "09101190", verified: true }
+heroImage: { src: ../../assets/products/ginger/hero.jpg, isStock: true }
+model: { kind: glb, src: /models/ginger.glb, fallbackGrain: ginger }
+regions: [wayanad, kodagu, hassan]
+markets: ["Wayanad (Sulthan Bathery) ginger traders", "Kodagu growers", "Hassan APMC", "Kochi spice market"]
+harvestMonths: [12, 1, 2, 3]
+ports: [kochi, mangalore, chennai]
+moq: "1 × 20 ft FCL (dried) · 1 × 40 ft reefer (fresh)"
+shelfLife: "Dried: 24 months · Fresh: 8–12 weeks (reefer)"
+packing: ["13 kg / 20 kg cartons or mesh bags (fresh)", "25 kg / 50 kg PP or jute bags (dried)"]
+containerLoad: { ft20: "Dried 13–15 MT", ft40: "Fresh 26 MT (reefer)" }
+related: [turmeric, arecanut, coconut-copra]
+varieties:
+  - id: fresh
+    hsn: "09101110"
+    image: { src: ../../assets/products/ginger/fresh.jpg, isStock: true }
+    region: wayanad
+    market: "Wayanad (Sulthan Bathery) ginger traders"
+    specs:
+      - { key: size, value: "≥ 150 g per hand" }
+      - { key: colour, value: "Light skin, washed, air-dried" }
+      - { key: foreignMatter, value: "Soil-free" }
+    packing: ["13 kg / 20 kg cartons", "Mesh bags"]
+  - id: dried-unbleached
+    hsn: "09101120"
+    image: { src: ../../assets/products/ginger/dried-unbleached.jpg, isStock: true }
+    region: kodagu
+    market: "Kochi spice market"
+    specs:
+      - { key: moisture, value: "≤ 12%" }
+      - { key: volatileOil, value: "≥ 1.5 ml/100 g" }
+      - { key: fibre, value: "≤ 6%" }
+    packing: ["25 kg / 50 kg PP or jute bags"]
+  - id: dried-bleached
+    hsn: "09101130"
+    image: { src: ../../assets/products/ginger/dried-bleached.jpg, isStock: true }
+    region: hassan
+    market: "Hassan APMC"
+    specs:
+      - { key: moisture, value: "≤ 12%" }
+      - { key: colour, value: "Lime-bleached, pale cream" }
+      - { key: sulphur, value: "Per buyer limit" }
+    packing: ["25 kg / 50 kg PP bags"]
+  - id: whole-other
+    hsn: "09101190"
+    image: { src: ../../assets/products/ginger/whole-other.jpg, isStock: true }
+    region: wayanad
+    market: "Wayanad (Sulthan Bathery) ginger traders"
+    specs:
+      - { key: moisture, value: "≤ 12%" }
+      - { key: foreignMatter, value: "≤ 1%" }
+    packing: ["50 kg jute bags"]

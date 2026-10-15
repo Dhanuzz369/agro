@@ -1,0 +1,69 @@
+order: 9
+hsn:
+  - { code: "09103010", verified: true }
+  - { code: "09103020", verified: true }
+  - { code: "09103030", verified: true }
+heroImage: { src: ../../assets/products/turmeric/hero.jpg, isStock: true }
+model: { kind: grains, grain: turmeric }
+regions: [erode, salem, alleppey]
+markets: ["Erode Regulated Market", "Salem Turmeric Market", "Alappuzha spice traders"]
+harvestMonths: [1, 2, 3, 4]
+ports: [chennai, tuticorin, kochi]
+moq: "1 × 20 ft FCL"
+shelfLife: "Dried: 24 months · Powder: 18 months · Fresh: 3–4 weeks (reefer)"
+packing: ["25 kg / 50 kg PP or jute bags", "Paper bags with liner (powder)", "Private label on request"]
+containerLoad: { ft20: "Dried 18–19 MT · Powder 20 MT", ft40: "Dried 26 MT" }
+related: [ginger, jaggery, rice]
+varieties:
+  - id: fresh
+    hsn: "09103010"
+    image: { src: ../../assets/products/turmeric/fresh.jpg, isStock: true }
+    region: erode
+    market: "Erode Regulated Market"
+    specs:
+      - { key: size, value: "Fingers 4–7 cm" }
+      - { key: foreignMatter, value: "≤ 1%" }
+      - { key: colour, value: "Bright orange core" }
+    packing: ["10 kg ventilated cartons (reefer)"]
+  - id: dried-finger
+    hsn: "09103020"
+    image: { src: ../../assets/products/turmeric/dried-finger.jpg, isStock: true }
+    region: erode
+    market: "Erode Regulated Market"
+    specs:
+      - { key: curcumin, value: "2.5–3.5%" }
+      - { key: moisture, value: "≤ 10%" }
+      - { key: foreignMatter, value: "≤ 1%" }
+      - { key: size, value: "Polished fingers, double polished on request" }
+    packing: ["25 kg / 50 kg PP or jute bags"]
+  - id: alleppey-finger
+    hsn: "09103020"
+    image: { src: ../../assets/products/turmeric/alleppey-finger.jpg, isStock: true }
+    region: alleppey
+    market: "Alappuzha spice traders"
+    specs:
+      - { key: curcumin, value: "4.5–5%" }
+      - { key: moisture, value: "≤ 10%" }
+      - { key: volatileOil, value: "≥ 3.5 ml/100 g" }
+    packing: ["25 kg jute bags"]
+  - id: salem-bulb
+    hsn: "09103020"
+    image: { src: ../../assets/products/turmeric/salem-bulb.jpg, isStock: true }
+    region: salem
+    market: "Salem Turmeric Market"
+    specs:
+      - { key: curcumin, value: "3–4%" }
+      - { key: moisture, value: "≤ 10%" }
+      - { key: size, value: "Round bulbs" }
+    packing: ["50 kg jute bags"]
+  - id: powder
+    hsn: "09103030"
+    image: { src: ../../assets/products/turmeric/powder.jpg, isStock: true }
+    region: erode
+    market: "Erode Regulated Market"
+    specs:
+      - { key: curcumin, value: "2–5% (to order)" }
+      - { key: moisture, value: "≤ 10%" }
+      - { key: mesh, value: "60–80 mesh" }
+      - { key: ash, value: "≤ 7%" }
+    packing: ["25 kg paper bags with PE liner", "1 kg retail pouches (private label)"]

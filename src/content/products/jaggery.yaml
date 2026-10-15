@@ -1,0 +1,64 @@
+order: 4
+hsn:
+  - { code: "1701", verified: true }
+heroImage: { src: ../../assets/products/jaggery/hero.jpg, isStock: true }
+model: { kind: glb, src: /models/jaggery.glb, fallbackGrain: jaggery }
+regions: [mandya, belagavi, thoothukudi]
+markets: ["Mandya jaggery market", "Belagavi (Mudalgi) market", "Thoothukudi palm jaggery producers"]
+harvestMonths: [11, 12, 1, 2, 3, 4]
+ports: [chennai, mangalore, tuticorin]
+moq: "1 × 20 ft FCL"
+shelfLife: "12 months (cool, dry storage)"
+packing: ["1 kg / 5 kg / 30 kg cartons", "Vacuum-packed blocks", "Private label"]
+containerLoad: { ft20: "18–20 MT", ft40: "26 MT" }
+related: [rice, coconut-copra, groundnuts]
+varieties:
+  - id: block
+    hsn: "1701"
+    image: { src: ../../assets/products/jaggery/block.jpg, isStock: true }
+    region: mandya
+    market: "Mandya jaggery market"
+    specs:
+      - { key: sucrose, value: "65–75%" }
+      - { key: moisture, value: "≤ 8%" }
+      - { key: colour, value: "Golden to dark brown" }
+      - { key: insoluble, value: "≤ 2%" }
+    packing: ["30 kg cartons", "1 kg vacuum blocks"]
+  - id: cube
+    hsn: "1701"
+    image: { src: ../../assets/products/jaggery/cube.jpg, isStock: true }
+    region: belagavi
+    market: "Belagavi (Mudalgi) market"
+    specs:
+      - { key: sucrose, value: "65–75%" }
+      - { key: moisture, value: "≤ 6%" }
+      - { key: size, value: "10–20 g cubes" }
+    packing: ["500 g / 1 kg pouches", "10 kg cartons"]
+  - id: powder
+    hsn: "1701"
+    image: { src: ../../assets/products/jaggery/powder.jpg, isStock: true }
+    region: belagavi
+    market: "Belagavi (Mudalgi) market"
+    specs:
+      - { key: moisture, value: "≤ 3%" }
+      - { key: mesh, value: "Free-flowing granules" }
+      - { key: insoluble, value: "≤ 1.5%" }
+    packing: ["25 kg paper bags with liner", "1 kg pouches"]
+  - id: organic
+    hsn: "1701"
+    image: { src: ../../assets/products/jaggery/organic.jpg, isStock: true }
+    region: mandya
+    market: "Mandya jaggery market"
+    specs:
+      - { key: purity, value: "Chemical-free clarification" }
+      - { key: moisture, value: "≤ 6%" }
+    packing: ["1 kg / 5 kg packs"]
+  - id: palm-karupatti
+    hsn: "1701"
+    image: { src: ../../assets/products/jaggery/palm-karupatti.jpg, isStock: true }
+    region: thoothukudi
+    market: "Thoothukudi palm jaggery producers"
+    specs:
+      - { key: moisture, value: "≤ 8%" }
+      - { key: colour, value: "Dark brown, palm sap" }
+    packing: ["1 kg / 5 kg packs"]

@@ -1,0 +1,21 @@
+name: GoodBiz Agri
+legalName: "REPLACE: GoodBiz Agri (registered legal name)"
+foundingCity: Bengaluru
+address:
+  street: "REPLACE: Office street address"
+  city: Bengaluru
+  region: Karnataka
+  postalCode: "REPLACE: 5600xx"
+  country: IN
+email: "REPLACE: export@goodbizagri.com"
+phone: "REPLACE: +91 00000 00000"
+whatsapp: "REPLACE: 910000000000"
+web3formsKey: "REPLACE: web3forms-access-key"
+registrations:
+  - { id: apeda, name: "APEDA RCMC", number: "REPLACE: RCMC no.", held: true }
+  - { id: fssai, name: "FSSAI", number: "REPLACE: FSSAI licence no.", held: true }
+  - { id: spices-board, name: "Spices Board India", number: "REPLACE: CRES no.", held: true }
+  - { id: iec, name: "IEC (DGFT)", number: "REPLACE: IEC no.", held: true }
+  - { id: cdb, name: "Coconut Development Board", number: "REPLACE: CDB no.", held: true }
+stats: { countries: 70, products: 9, markets: 18, ports: 4 }
+social: []

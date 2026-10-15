@@ -1,0 +1,76 @@
+order: 1
+hsn:
+  - { code: "1006", verified: true }
+heroImage: { src: ../../assets/products/rice/hero.jpg, isStock: true }
+model: { kind: grains, grain: rice }
+regions: [raichur, mandya, thanjavur, palakkad]
+markets: ["Raichur APMC", "Mandya rice mills", "Thanjavur (Kaveri delta) mills", "Palakkad mills"]
+harvestMonths: [1, 2, 10, 11, 12]
+ports: [chennai, tuticorin, kochi]
+moq: "1 × 20 ft FCL"
+shelfLife: "12–18 months"
+packing: ["5 / 10 / 25 / 50 kg PP or BOPP bags", "Jute bags", "Private label"]
+containerLoad: { ft20: "25–26 MT", ft40: "27 MT" }
+related: [non-basmati-rice, broken-rice, jaggery]
+varieties:
+  - id: sona-masoori-raw
+    hsn: "1006"
+    image: { src: ../../assets/products/rice/sona-masoori-raw.jpg, isStock: true }
+    region: raichur
+    market: "Raichur APMC"
+    specs:
+      - { key: grainLength, value: "5.0–5.2 mm" }
+      - { key: broken, value: "≤ 5%" }
+      - { key: moisture, value: "≤ 14%" }
+      - { key: chalky, value: "≤ 2%" }
+    packing: ["25 kg BOPP bags", "10 kg retail bags"]
+  - id: sona-masoori-steam
+    hsn: "1006"
+    image: { src: ../../assets/products/rice/sona-masoori-steam.jpg, isStock: true }
+    region: raichur
+    market: "Raichur APMC"
+    specs:
+      - { key: grainLength, value: "5.0–5.2 mm" }
+      - { key: broken, value: "≤ 5%" }
+      - { key: moisture, value: "≤ 13%" }
+    packing: ["25 kg BOPP bags"]
+  - id: ponni
+    hsn: "1006"
+    image: { src: ../../assets/products/rice/ponni.jpg, isStock: true }
+    region: thanjavur
+    market: "Thanjavur (Kaveri delta) mills"
+    specs:
+      - { key: grainLength, value: "5.0 mm" }
+      - { key: broken, value: "≤ 5%" }
+      - { key: moisture, value: "≤ 14%" }
+    packing: ["25 kg / 50 kg PP bags"]
+  - id: kerala-matta
+    hsn: "1006"
+    image: { src: ../../assets/products/rice/kerala-matta.jpg, isStock: true }
+    region: palakkad
+    market: "Palakkad mills"
+    specs:
+      - { key: colour, value: "Red bran, parboiled" }
+      - { key: broken, value: "≤ 5%" }
+      - { key: moisture, value: "≤ 14%" }
+    packing: ["5 / 10 / 25 kg bags"]
+  - id: seeraga-samba
+    hsn: "1006"
+    image: { src: ../../assets/products/rice/seeraga-samba.jpg, isStock: true }
+    region: thanjavur
+    market: "Thanjavur (Kaveri delta) mills"
+    specs:
+      - { key: grainLength, value: "3.5–4 mm, aromatic" }
+      - { key: broken, value: "≤ 3%" }
+      - { key: moisture, value: "≤ 13%" }
+    packing: ["5 / 10 / 25 kg bags"]
+  - id: idli-rice
+    hsn: "1006"
+    image: { src: ../../assets/products/rice/idli-rice.jpg, isStock: true }
+    region: mandya
+    market: "Mandya rice mills"
+    specs:
+      - { key: colour, value: "Parboiled, short bold" }
+      - { key: broken, value: "≤ 5%" }
+      - { key: moisture, value: "≤ 14%" }
+    packing: ["25 kg PP bags"]

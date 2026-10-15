@@ -1,0 +1,52 @@
+order: 5
+hsn:
+  - { code: "80280", verified: false }
+heroImage: { src: ../../assets/products/arecanut/hero.jpg, isStock: true }
+model: { kind: grains, grain: arecanut }
+regions: [shivamogga, dakshinaKannada, kasaragod]
+markets: ["Shivamogga APMC", "Puttur (CAMPCO) market", "Kasaragod traders"]
+harvestMonths: [11, 12, 1, 2, 3]
+ports: [mangalore, chennai]
+moq: "1 × 20 ft FCL"
+shelfLife: "12 months"
+packing: ["50 kg / 70 kg PP or jute bags"]
+containerLoad: { ft20: "17–18 MT (whole)", ft40: "26 MT" }
+related: [coconut-copra, ginger, turmeric]
+varieties:
+  - id: whole-chali
+    hsn: "80280"
+    image: { src: ../../assets/products/arecanut/whole-chali.jpg, isStock: true }
+    region: dakshinaKannada
+    market: "Puttur (CAMPCO) market"
+    specs:
+      - { key: moisture, value: "≤ 7%" }
+      - { key: damaged, value: "≤ 3%" }
+      - { key: colour, value: "White interior, sun-dried" }
+    packing: ["70 kg jute bags"]
+  - id: split
+    hsn: "80280"
+    image: { src: ../../assets/products/arecanut/split.jpg, isStock: true }
+    region: dakshinaKannada
+    market: "Puttur (CAMPCO) market"
+    specs:
+      - { key: moisture, value: "≤ 7%" }
+      - { key: size, value: "Halves" }
+    packing: ["50 kg PP bags"]
+  - id: red-kempu
+    hsn: "80280"
+    image: { src: ../../assets/products/arecanut/red-kempu.jpg, isStock: true }
+    region: shivamogga
+    market: "Shivamogga APMC"
+    specs:
+      - { key: moisture, value: "≤ 8%" }
+      - { key: colour, value: "Boiled, red-brown (Api / Bette grades)" }
+    packing: ["50 kg PP bags"]
+  - id: sliced
+    hsn: "80280"
+    image: { src: ../../assets/products/arecanut/sliced.jpg, isStock: true }
+    region: shivamogga
+    market: "Shivamogga APMC"
+    specs:
+      - { key: moisture, value: "≤ 8%" }
+      - { key: size, value: "Uniform slices" }
+    packing: ["25 kg PP bags"]
