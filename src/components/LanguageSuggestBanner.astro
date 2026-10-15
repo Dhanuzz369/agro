@@ -1,8 +1,9 @@
 ---
 import { createT } from '../i18n/t';
+import { localizePath } from '../i18n/paths';
 import { locales, type Locale } from '../i18n/config';
 interface Props { locale: Locale; path: string; available?: readonly Locale[] }
-const { locale, available = locales } = Astro.props;
+const { locale, path, available = locales } = Astro.props;
 const strings = Object.fromEntries(available.map((l) => {
   const t = createT(l);
   return [l, { text: t('lang.suggestion'), yes: t('lang.suggestYes'), no: t('lang.dismiss') }];
@@ -10,7 +11,8 @@ const strings = Object.fromEntries(available.map((l) => {
 ---
 <div class="lsb" data-lang-suggest hidden data-current={locale} data-available={JSON.stringify(available)} data-strings={JSON.stringify(strings)} role="region" aria-live="polite">
   <p data-text></p>
-  <a class="btn btn--secondary" data-yes></a>
+  {/* real href until the script points it at the suggested language: crawlable, never a dead "#" */}
+  <a class="btn btn--secondary" data-yes href={localizePath(path, locale)}></a>
   <button type="button" class="btn btn--ghost" data-dismiss></button>
 </div>
 <script>
