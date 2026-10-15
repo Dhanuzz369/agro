@@ -36,3 +36,13 @@ test('localized product page links back with locale prefix', async ({ page }) =>
   await expect(page.locator('html')).toHaveAttribute('lang', 'fr');
   await expect(page.locator('[data-variety="powder"] a[href^="/fr/contact?product=turmeric"]')).toHaveCount(1);
 });
+
+test('product hero poster is preloaded with the exact srcset the img uses', async ({ page }) => {
+  await page.goto('/products/turmeric');
+  const preload = page.locator('head link[rel="preload"][as="image"]');
+  await expect(preload).toHaveCount(1);
+  const img = page.locator('img[data-object-poster]');
+  expect(await preload.getAttribute('imagesrcset')).toBe(await img.getAttribute('srcset'));
+  expect(await preload.getAttribute('imagesizes')).toBe(await img.getAttribute('sizes'));
+  await expect(preload).toHaveAttribute('fetchpriority', 'high');
+});

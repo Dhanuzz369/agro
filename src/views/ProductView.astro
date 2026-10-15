@@ -32,6 +32,9 @@ const states = [...new Set(p.data.regions.map((r) => places[r].state))].join(', 
 const portNames = p.data.ports.map((id) => places[id].name).join(', ');
 const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }, { name: p.text.name, path }];
 const hero = await getImage({ src: p.data.heroImage.src, width: 1200, format: 'jpg' });
+// The visible poster and its preload must share one option set so the browser reuses the preloaded file.
+const poster = { widths: [480, 640], sizes: '(max-width: 860px) 100vw, 50vw', quality: 65, format: 'webp' } as const;
+const posterPreload = await getImage({ src: p.data.heroImage.src, ...poster });
 const wa = whatsappHref(site.whatsapp, `${p.text.name} — ${abs(path)}`);
 const quoteHref = (variety?: string) => `${localizePath('/contact', locale)}?product=${slug}${variety ? `&variety=${variety}` : ''}`;
 const ld = [
@@ -46,13 +49,14 @@ const ld = [
 const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.hsn[0].code) });
 ---
 <Base locale={locale} title={title} description={p.text.summary} path={path} ogImage={`/og/products/${slug}.png`} jsonLd={ld}>
+  <link slot="head" rel="preload" as="image" imagesrcset={posterPreload.srcSet.attribute} imagesizes={poster.sizes} fetchpriority="high" />
   <article class="pv">
     <section class="pv__hero container">
       <Breadcrumbs locale={locale} items={crumbs} />
       <div class="pv__heroGrid">
         <div class="pv__object">
           <ProductObject model={p.data.model} locale={locale}>
-            <Image src={p.data.heroImage.src} alt={p.text.name} widths={[480, 640]} sizes="(max-width: 860px) 100vw, 50vw" quality={65} format="webp" loading="eager" fetchpriority="high" data-object-poster />
+            <Image src={p.data.heroImage.src} alt={p.text.name} {...poster} loading="eager" fetchpriority="high" data-object-poster />
             <StockLabel locale={locale} show={p.data.heroImage.isStock} />
           </ProductObject>
         </div>
