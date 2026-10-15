@@ -5,7 +5,6 @@
 @import '@fontsource/manrope/500.css';
 @import '@fontsource/manrope/700.css';
 @import '@fontsource/jetbrains-mono/400.css';
-@import '@fontsource/ibm-plex-sans-arabic/400.css';
-@import '@fontsource/ibm-plex-sans-arabic/500.css';
+@import '@fontsource/ibm-plex-sans-arabic/400.css'; /* 400 only: a second Arabic weight (~65 KB) pushed /ar/ LCP to the 2.5 s limit */
 @import '@fontsource/noto-serif/cyrillic-400.css';
 @import '@fontsource/noto-serif/cyrillic-500.css';
