@@ -82,6 +82,7 @@ export const blogSchema = (image: ImageFn) =>
     products: z.array(z.string()).default([]),
     cover: z.object({ src: image(), isStock: z.boolean() }).optional(),
     translationOf: z.string().optional(),
+    draft: z.boolean().default(false),
   });
 
 export const siteSchema = z.object({

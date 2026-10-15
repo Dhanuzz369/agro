@@ -32,7 +32,7 @@ for (const l of locales.slice(1)) {
 for (const l of locales) {
   const dir = `src/content/blog/${l}`;
   if (!existsSync(dir)) continue;
-  for (const f of readdirSync(dir)) if (readFileSync(join(dir, f), 'utf8').includes('Replace the notes')) out['Draft posts'].push(`${l}/${f}`);
+  for (const f of readdirSync(dir)) if (/^draft:\s*true\s*$/m.test(readFileSync(join(dir, f), 'utf8').split(/^---\s*$/m)[1] ?? '')) out['Draft posts'].push(`${l}/${f}`);
 }
 
 for (const [title, items] of Object.entries(out)) {

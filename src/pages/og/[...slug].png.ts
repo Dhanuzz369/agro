@@ -1,5 +1,5 @@
 import type { APIRoute, GetStaticPaths } from 'astro';
-import { getCollection } from 'astro:content';
+import { publishedPosts } from '../../lib/blog';
 import { renderOg } from '../../lib/og';
 import { getLocalizedProducts, getHsnEntries } from '../../lib/catalog';
 import { formatHsn } from '../../lib/hsn';
@@ -8,7 +8,7 @@ import { postSlug, postLocale } from '../../lib/blog-pure';
 export const getStaticPaths: GetStaticPaths = async () => {
   const products = await getLocalizedProducts('en');
   const hsn = await getHsnEntries('en');
-  const posts = (await getCollection('blog')).filter((p) => postLocale(p.id) === 'en');
+  const posts = (await publishedPosts()).filter((p) => postLocale(p.id) === 'en');
   const pages = [
     { slug: 'home', eyebrow: 'Agro exporters · Bengaluru, India', title: "South India's harvest, shipped to 70+ countries" },
     { slug: 'products', eyebrow: 'Product range', title: 'Rice, spices, arecanut, jaggery, groundnuts and copra' },

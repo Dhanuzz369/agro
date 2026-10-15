@@ -10,7 +10,8 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
 const posts = await postsFor(locale);
-const cats = ['market-updates', 'buyer-guides', 'product-knowledge', 'export-process'] as const;
+// Only offer filters for categories that have at least one published post.
+const cats = (['market-updates', 'buyer-guides', 'product-knowledge', 'export-process'] as const).filter((c) => posts.some((p) => p.entry.data.category === c));
 const date = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'medium', timeZone: 'UTC' });
 ---
 <Base locale={locale} title={t('meta.blogTitle')} description={t('meta.blogDescription')} path="/blog" ogImage="/og/blog.png">

@@ -1,10 +1,10 @@
 ---
-import { getCollection } from 'astro:content';
+import { publishedPosts } from '../../../lib/blog';
 import BlogPostView from '../../../views/BlogPostView.astro';
 import { postSlug, postLocale } from '../../../lib/blog-pure';
 import { isLocale, type Locale } from '../../../i18n/config';
 export async function getStaticPaths() {
-  return (await getCollection('blog'))
+  return (await publishedPosts())
     .filter((p) => postLocale(p.id) !== 'en' && isLocale(postLocale(p.id)))
     .map((entry) => ({ params: { lang: postLocale(entry.id), slug: postSlug(entry.id) }, props: { entry } }));
 }
