@@ -1,0 +1,19 @@
+---
+// src/components/home/HomeFaq.astro
+import Faq from '../Faq.astro';
+import { createT } from '../../i18n/t';
+import { homeFaq } from '../../i18n/home-faq';
+import type { Locale } from '../../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+---
+<section id="faq" class="section">
+  <div class="container faqwrap">
+    <header data-reveal><p class="eyebrow">{t('home.faq.eyebrow')}</p><h2>{t('home.faq.title')}</h2></header>
+    <Faq items={homeFaq(locale)} />
+  </div>
+</section>
+<style>
+  .faqwrap { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; }
+</style>

@@ -1,0 +1,29 @@
+---
+// src/components/WorldMap.astro
+import { servedCountries, routeHubs } from '../data/countries';
+import { worldPaths, worldArcs, projectWorld } from '../lib/geo';
+import { places } from '../data/places';
+interface Props { label: string }
+const { label } = Astro.props;
+const W = 1000, H = 520;
+const served = new Set(servedCountries.map((c) => c.id));
+const paths = worldPaths(W, H, served);
+const origin: [number, number] = [places.bengaluru.lon, places.bengaluru.lat];
+const arcs = worldArcs(W, H, origin, routeHubs.map((h) => [h.lon, h.lat]));
+const [ox, oy] = projectWorld(W, H, origin);
+const hubs = routeHubs.map((h) => ({ ...h, xy: projectWorld(W, H, [h.lon, h.lat]) }));
+---
+<svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label} class="wm">
+  {paths.map((p) => <path d={p.d} class:list={['wm__c', { 'wm__c--on': p.served }]} />)}
+  {arcs.map((d) => <path d={d} class="wm__arc" data-draw />)}
+  {hubs.map((h) => <circle cx={h.xy[0]} cy={h.xy[1]} r="3.5" class="wm__hub" />)}
+  <circle cx={ox} cy={oy} r="7" class="wm__origin" />
+</svg>
+<style>
+  .wm { inline-size: 100%; block-size: auto; }
+  .wm__c { fill: rgb(246 241 231 / 0.12); stroke: rgb(246 241 231 / 0.18); stroke-width: 0.4; }
+  .wm__c--on { fill: rgb(217 154 30 / 0.55); }
+  .wm__arc { fill: none; stroke: var(--gold-soft); stroke-width: 1.2; stroke-linecap: round; }
+  .wm__hub { fill: var(--gold-soft); }
+  .wm__origin { fill: var(--turmeric); stroke: var(--paper); stroke-width: 2; }
+</style>

@@ -1,0 +1,34 @@
+---
+// src/components/SouthIndiaMap.astro
+import { places, type PlaceId } from '../data/places';
+import { projectSouth, southIndiaOutline } from '../lib/geo';
+interface Props { active?: PlaceId[]; label: string; interactiveId?: string }
+const { active = [], label, interactiveId } = Astro.props;
+const W = 600, H = 700;
+const outline = southIndiaOutline(W, H);
+const pts = (Object.keys(places) as PlaceId[]).map((id) => {
+  const p = places[id];
+  const [x, y] = projectSouth(W, H, [p.lon, p.lat]);
+  return { id, x, y, ...p };
+});
+---
+<svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label} class="sim" data-map={interactiveId}>
+  <defs><clipPath id="sim-clip"><rect x="0" y="0" width={W} height={H} /></clipPath></defs>
+  <path d={outline} clip-path="url(#sim-clip)" class="sim__land" />
+  {pts.map((p) => (
+    <g data-place={p.id} data-kind={p.kind} data-active={String(active.includes(p.id))} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`}>
+      <circle r={p.kind === 'district' ? 6 : 5} />
+      <text x="10" y="4">{p.name}</text>
+    </g>
+  ))}
+</svg>
+<style>
+  .sim { inline-size: 100%; block-size: auto; }
+  .sim__land { fill: var(--paper-2); stroke: var(--ink); stroke-width: 0.8; }
+  g circle { fill: var(--paper); stroke: var(--ink-2); stroke-width: 1; transition: fill var(--dur-1) var(--ease), r var(--dur-1) var(--ease); }
+  g text { font-family: var(--font-body); font-size: 13px; fill: var(--ink-2); opacity: 0; transition: opacity var(--dur-1) var(--ease); direction: ltr; }
+  g[data-kind='district'][data-active='true'] circle { fill: var(--turmeric); stroke: var(--ink); r: 9; }
+  g[data-active='true'] text, g[data-kind='hq'] text, g[data-kind='port'] text { opacity: 1; }
+  g[data-kind='hq'] circle { fill: var(--forest); r: 8; }
+  g[data-kind='port'] circle { fill: var(--clay); stroke: none; }
+</style>

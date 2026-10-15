@@ -227,5 +227,17 @@
   "lang.dismiss": "No, thanks",
 
   "breadcrumb.label": "Breadcrumb",
-  "a11y.close": "Close"
+  "a11y.close": "Close",
+  "home.faq.q1": "What is your minimum order quantity?",
+  "home.faq.a1": "One 20 ft container for most products; five containers for bulk non-basmati and broken rice. Mixed containers are possible for some spices.",
+  "home.faq.q2": "Which Incoterms do you quote?",
+  "home.faq.a2": "FOB, CFR and CIF from Chennai, Kochi, Tuticorin or New Mangalore. Other terms on request.",
+  "home.faq.q3": "What payment terms do you accept?",
+  "home.faq.a3": "Irrevocable letter of credit at sight, or advance payment against documents for established buyers.",
+  "home.faq.q4": "Can I get samples before ordering?",
+  "home.faq.a4": "Yes. We send pre-shipment samples by courier; the courier cost is adjusted against your first order.",
+  "home.faq.q5": "How long from order to shipment?",
+  "home.faq.a5": "Usually 2–4 weeks after confirmation, depending on product, packing and vessel availability.",
+  "home.faq.q6": "Can you pack under our brand?",
+  "home.faq.a6": "Yes. We supply private-label retail and bulk packing with your design and language."
 }

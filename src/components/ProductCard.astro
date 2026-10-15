@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets';
+import HsnChip from './HsnChip.astro';
+import StockLabel from './StockLabel.astro';
+import { localizePath } from '../i18n/paths';
+import type { Locale } from '../i18n/config';
+import type { LocalizedProduct } from '../lib/catalog';
+interface Props { locale: Locale; product: LocalizedProduct; headingLevel?: 'h2' | 'h3' }
+const { locale, product, headingLevel = 'h3' } = Astro.props;
+const H = headingLevel;
+const href = localizePath(`/products/${product.slug}`, locale);
+---
+<article class="pc" data-reveal>
+  <a href={href} class="pc__link">
+    <div class="pc__media">
+      <Image src={product.data.heroImage.src} alt={product.text.name} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" loading="lazy" />
+      <StockLabel locale={locale} show={product.data.heroImage.isStock} />
+    </div>
+    <H class="pc__title">{product.text.name}</H>
+  </a>
+  <p class="pc__origin">{product.text.originLine}</p>
+  <div class="pc__hsn">{product.data.hsn.slice(0, 3).map((h) => <HsnChip code={h.code} verified={h.verified} locale={locale} />)}{product.data.hsn.length > 3 && <span>+{product.data.hsn.length - 3}</span>}</div>
+</article>
+<style>
+  .pc { display: grid; gap: var(--space-3); }
+  .pc__link { display: grid; gap: var(--space-3); text-decoration: none; }
+  .pc__media { position: relative; overflow: hidden; border-radius: var(--radius-media); aspect-ratio: 4 / 3; background: var(--paper-2); }
+  .pc__media :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform var(--dur-2) var(--ease); }
+  .pc__link:hover .pc__media :global(img) { transform: scale(1.04); }
+  .pc__title { font-size: var(--step-2); }
+  .pc__origin { color: var(--ink-2); font-size: var(--step--1); }
+  .pc__hsn { display: flex; flex-wrap: wrap; gap: var(--space-2); color: var(--forest); }
+</style>

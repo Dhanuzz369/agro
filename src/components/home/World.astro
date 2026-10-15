@@ -1,0 +1,38 @@
+---
+// src/components/home/World.astro
+import WorldMap from '../WorldMap.astro';
+import { createT, type UiKey } from '../../i18n/t';
+import { servedCountries, type Region } from '../../data/countries';
+import type { Locale } from '../../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const regions: Region[] = ['middle-east', 'africa', 'asia', 'europe', 'americas', 'oceania'];
+---
+<section id="world" class="world">
+  <div class="container world__inner">
+    <header data-reveal>
+      <p class="eyebrow">{t('home.world.eyebrow')}</p>
+      <h2>{t('home.world.title')}</h2>
+      <p>{t('home.world.lede')}</p>
+    </header>
+    <WorldMap label={t('home.world.title')} />
+    <div class="world__lists">
+      {regions.map((r) => (
+        <div>
+          <h3>{t(`region.${r}` as UiKey)}</h3>
+          <p>{servedCountries.filter((c) => c.region === r).map((c) => c.name).join(' · ')}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .world { background: var(--forest); color: var(--paper); padding-block: var(--space-9); }
+  .world .eyebrow { color: var(--gold-soft); }
+  .world__inner { display: grid; gap: var(--space-7); }
+  .world__inner header { display: grid; gap: var(--space-4); }
+  .world__lists { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); font-size: var(--step--1); }
+  .world__lists h3 { font-size: var(--step-0); font-family: var(--font-body); font-weight: 700; color: var(--gold-soft); margin-block-end: var(--space-2); }
+  .world__lists p { opacity: 0.85; }
+</style>

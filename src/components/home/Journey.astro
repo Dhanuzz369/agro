@@ -1,0 +1,40 @@
+---
+// src/components/home/Journey.astro
+import { createT } from '../../i18n/t';
+import type { Locale } from '../../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const steps = [1, 2, 3, 4] as const;
+---
+<section id="journey" class="journey">
+  <div class="journey__track" data-pin style={`--steps: ${steps.length}`}>
+  <div class="container journey__inner">
+    <header>
+      <p class="eyebrow">{t('home.journey.eyebrow')}</p>
+      <h2>{t('home.journey.title')}</h2>
+    </header>
+    <ol>
+      {steps.map((n) => (
+        <li data-pin-step>
+          <span class="num" dir="ltr">0{n}</span>
+          <h3>{t(`home.journey.s${n}.title`)}</h3>
+          <p>{t(`home.journey.s${n}.body`)}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+  </div>
+</section>
+<style>
+  .journey { background: var(--paper-2); }
+  .journey__inner { display: grid; gap: var(--space-7); align-content: center; padding-block: var(--space-8); }
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .journey__track { block-size: calc(100svh + var(--steps) * 60svh); }
+    .journey__inner { position: sticky; inset-block-start: 0; block-size: 100svh; }
+  }
+  .journey .eyebrow { margin-block-end: var(--space-3); }
+  ol { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+  li { display: grid; gap: var(--space-3); border-block-start: 1px solid var(--ink); padding-block-start: var(--space-4); }
+  .num { font-family: var(--font-mono); color: var(--clay); }
+</style>

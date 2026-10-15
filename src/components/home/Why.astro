@@ -1,0 +1,42 @@
+---
+// src/components/home/Why.astro
+import { createT } from '../../i18n/t';
+import { getSite } from '../../lib/catalog';
+import type { Locale } from '../../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const { stats } = await getSite();
+const points = [1, 2, 3, 4] as const;
+const statItems = [
+  { v: stats.countries, suffix: '+', label: t('home.why.stat.countries') },
+  { v: stats.products, suffix: '', label: t('home.why.stat.products') },
+  { v: stats.markets, suffix: '', label: t('home.why.stat.markets') },
+  { v: stats.ports, suffix: '', label: t('home.why.stat.ports') },
+];
+---
+<section id="why" class="section">
+  <div class="container why">
+    <header data-reveal>
+      <p class="eyebrow">{t('home.why.eyebrow')}</p>
+      <h2>{t('home.why.title')}</h2>
+    </header>
+    <dl class="stats">
+      {statItems.map((s) => (
+        <div><dt>{s.label}</dt><dd dir="ltr"><span data-counter={s.v} data-suffix={s.suffix}>{s.v}{s.suffix}</span></dd></div>
+      ))}
+    </dl>
+    <ul class="points">
+      {points.map((n) => <li data-reveal><h3>{t(`home.why.p${n}.title`)}</h3><p>{t(`home.why.p${n}.body`)}</p></li>)}
+    </ul>
+  </div>
+</section>
+<style>
+  .why { display: grid; gap: var(--space-7); }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--space-5); margin: 0; }
+  .stats div { border-block-start: 1px solid var(--rule); padding-block-start: var(--space-3); }
+  dt { font-size: var(--step--1); color: var(--ink-2); }
+  dd { margin: 0; font-family: var(--font-display); font-size: var(--step-4); color: var(--forest); line-height: 1; }
+  .points { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+  .points li { display: grid; gap: var(--space-2); }
+</style>

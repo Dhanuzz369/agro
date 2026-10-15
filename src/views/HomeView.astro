@@ -1,15 +1,30 @@
 ---
-// sections added in Tasks 8–9
 import Base from '../layouts/Base.astro';
 import Hero from '../components/home/Hero.astro';
 import CertStrip from '../components/CertStrip.astro';
+import Range from '../components/home/Range.astro';
+import Journey from '../components/home/Journey.astro';
+import Why from '../components/home/Why.astro';
+import Sourcing from '../components/home/Sourcing.astro';
+import HomeFaq from '../components/home/HomeFaq.astro';
+import World from '../components/home/World.astro';
+import FinalCta from '../components/home/FinalCta.astro';
 import { createT } from '../i18n/t';
+import { homeFaq } from '../i18n/home-faq';
+import { faqLd } from '../lib/jsonld';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
 ---
-<Base locale={locale} title={t('meta.homeTitle')} description={t('meta.homeDescription')} path="/" hero="dark">
+<Base locale={locale} title={t('meta.homeTitle')} description={t('meta.homeDescription')} path="/" hero="dark" ogImage="/og/home.png" jsonLd={[faqLd(homeFaq(locale))]}>
   <Hero locale={locale} />
   <CertStrip locale={locale} />
+  <Range locale={locale} />
+  <Journey locale={locale} />
+  <Why locale={locale} />
+  <Sourcing locale={locale} />
+  <HomeFaq locale={locale} />
+  <World locale={locale} />
+  <FinalCta locale={locale} />
 </Base>

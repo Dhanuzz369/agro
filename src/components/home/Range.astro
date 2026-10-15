@@ -1,0 +1,26 @@
+---
+// src/components/home/Range.astro
+import ProductCard from '../ProductCard.astro';
+import { createT } from '../../i18n/t';
+import { getLocalizedProducts } from '../../lib/catalog';
+import type { Locale } from '../../i18n/config';
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const t = createT(locale);
+const products = await getLocalizedProducts(locale);
+---
+<section id="range" class="section">
+  <div class="container">
+    <header class="sh" data-reveal>
+      <p class="eyebrow">{t('home.range.eyebrow')}</p>
+      <h2>{t('home.range.title')}</h2>
+      <p>{t('home.range.lede')}</p>
+    </header>
+    <div class="grid">{products.map((p) => <ProductCard locale={locale} product={p} />)}</div>
+  </div>
+</section>
+<style>
+  .sh { display: grid; gap: var(--space-4); margin-block-end: var(--space-7); }
+  .sh h2 { max-inline-size: 18ch; }
+  .grid { display: grid; gap: var(--space-7) var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
+</style>
