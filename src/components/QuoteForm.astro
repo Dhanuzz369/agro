@@ -98,8 +98,8 @@ const mailBase = mailtoHref(site.email) ?? '';
   .qf__wide { grid-column: 1 / -1; }
   .qf__err { color: var(--error); font-weight: 400; min-block-size: 1.2em; }
   .qf__status { display: none; gap: var(--space-3); padding: var(--space-5); border-radius: var(--radius-card); }
-  .qf[data-form-state='success'] .qf__status--success { display: grid; background: #E6EFE3; }
-  .qf[data-form-state='error'] .qf__status--error { display: grid; background: #F6E3D9; }
+  .qf[data-form-state='success'] .qf__status--success { display: grid; background: var(--sage-pale); }
+  .qf[data-form-state='error'] .qf__status--error { display: grid; background: var(--clay-pale); }
   .qf__fallbacks { display: flex; flex-wrap: wrap; gap: var(--space-3); }
   .qf[data-form-state='success'] .qf__grid, .qf[data-form-state='success'] > button { display: none; }
 </style>

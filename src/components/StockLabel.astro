@@ -6,6 +6,6 @@ const { locale, show } = Astro.props;
 ---
 {show && <span class="stock">{createT(locale)('product.representative')}</span>}
 <style>
-  .stock { position: absolute; inset-block-end: var(--space-2); inset-inline-start: var(--space-2); font-size: 0.7rem;
-    background: rgb(26 26 23 / 0.62); color: var(--paper); padding: 0.15em 0.5em; border-radius: 3px; }
+  .stock { position: absolute; inset-block-end: var(--space-2); inset-inline-start: var(--space-2); font-size: var(--step--2);
+    background: rgb(28 27 26 / 0.8); color: var(--paper); padding: 0.2em 0.6em; border-radius: 999px; transition: opacity var(--dur-1) var(--ease); }
 </style>
