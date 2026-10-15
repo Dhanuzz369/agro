@@ -32,4 +32,10 @@ describe('geo', () => {
     expect(Math.hypot(x2 - x1, y2 - y1)).toBeGreaterThan(60);
   });
   it('produces an India outline path', () => expect(southIndiaOutline(600, 700).length).toBeGreaterThan(100));
+  it('keeps inlined map markup small (short coordinates, outline clipped to the frame)', () => {
+    const world = worldPaths(1000, 520, new Set()).reduce((n, p) => n + p.d.length, 0);
+    expect(world).toBeLessThan(90_000);
+    expect(southIndiaOutline(600, 700).length).toBeLessThan(20_000);
+    expect(southIndiaOutline(600, 700)).not.toMatch(/\.\d{2}/);
+  });
 });

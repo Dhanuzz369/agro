@@ -16,8 +16,12 @@ export function projectWorld(width: number, height: number, lonlat: [number, num
   return worldProjection(width, height)(lonlat) as [number, number];
 }
 
+// Coordinates are inlined into the HTML, so keep them short: whole units for the 110m country
+// shapes (1000-unit viewBox, coarser than the atlas itself), 0.1 for arcs and the South India outline.
+const DIGITS = 1;
+
 export function worldPaths(width: number, height: number, highlight: Set<string>) {
-  const path = geoPath(worldProjection(width, height));
+  const path = geoPath(worldProjection(width, height)).digits(0);
   return countries110.features
     .filter((f) => f.id !== '010') // drop Antarctica
     .map((f) => ({ id: String(f.id), d: path(f) ?? '', served: highlight.has(String(f.id)) }))
@@ -25,7 +29,7 @@ export function worldPaths(width: number, height: number, highlight: Set<string>
 }
 
 export function worldArcs(width: number, height: number, from: [number, number], to: [number, number][]) {
-  const path = geoPath(worldProjection(width, height));
+  const path = geoPath(worldProjection(width, height)).digits(DIGITS);
   return to.map((dest) => {
     const interp = geoInterpolate(from, dest);
     const coords = Array.from({ length: 48 }, (_, i) => interp(i / 47));
@@ -45,6 +49,8 @@ export function projectSouth(width: number, height: number, lonlat: [number, num
 export function southIndiaOutline(width: number, height: number): string {
   const india = countries50.features.find((f) => f.id === '356')!;
   const lanka = countries50.features.find((f) => f.id === '144')!;
-  const path = geoPath(southProjection(width, height));
+  // Clip to a margin around the viewBox so northern India is not inlined only to be cropped.
+  const projection = southProjection(width, height).clipExtent([[-20, -20], [width + 20, height + 20]]);
+  const path = geoPath(projection).digits(DIGITS);
   return `${path(india) ?? ''}${path(lanka) ?? ''}`;
 }
