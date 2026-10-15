@@ -21,6 +21,8 @@ const { locale, hero = 'light', jsonLd = [], ...seo } = Astro.props;
 const t = createT(locale);
 const site = await getSite();
 const ld = [organizationLd(site, Astro.site!.href), ...jsonLd];
+// Vercel serves /_vercel/* only on its own deployments; locally those paths 404 and log console errors.
+const onVercel = Boolean(process.env.VERCEL);
 ---
 <!doctype html>
 <html lang={htmlLang[locale]} dir={isRtl(locale) ? 'rtl' : 'ltr'} data-hero={hero}>
@@ -33,6 +35,8 @@ const ld = [organizationLd(site, Astro.site!.href), ...jsonLd];
     {locale === 'zh' && <link rel="stylesheet" href="/fonts/sc/500.css" />}
     <SeoHead locale={locale} jsonLd={ld} {...seo} />
     <slot name="head" />
+    {onVercel && <script is:inline defer src="/_vercel/insights/script.js"></script>}
+    {onVercel && <script is:inline defer src="/_vercel/speed-insights/script.js"></script>}
   </head>
   <body>
     <a class="skip" href="#main">{t('nav.skip')}</a>

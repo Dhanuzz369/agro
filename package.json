@@ -13,7 +13,7 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "lhci": "lhci autorun",
-    "linkcheck": "linkinator ./dist --recurse --skip \"^https?://(?!localhost)\""
+    "linkcheck": "linkinator ./dist --recurse --skip \"^https?://(?!localhost|127\\.0\\.0\\.1)|/_vercel/\""
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
