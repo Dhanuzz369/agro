@@ -26,5 +26,10 @@ describe('geo', () => {
     expect(x).toBeGreaterThan(0); expect(x).toBeLessThan(600);
     expect(y).toBeGreaterThan(0); expect(y).toBeLessThan(700);
   });
+  it('does not collapse the South India projection', () => {
+    const [x1, y1] = projectSouth(600, 700, [77.72, 11.34]);
+    const [x2, y2] = projectSouth(600, 700, [80.29, 13.08]);
+    expect(Math.hypot(x2 - x1, y2 - y1)).toBeGreaterThan(60);
+  });
   it('produces an India outline path', () => expect(southIndiaOutline(600, 700).length).toBeGreaterThan(100));
 });

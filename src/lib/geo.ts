@@ -34,7 +34,7 @@ export function worldArcs(width: number, height: number, from: [number, number],
 }
 
 function southProjection(width: number, height: number) {
-  const frame: GeoJSON.Feature = { type: 'Feature', properties: {}, geometry: { type: 'Polygon', coordinates: [[[72.5, 7.8], [84.5, 7.8], [84.5, 18.5], [72.5, 18.5], [72.5, 7.8]]] } };
+  const frame: GeoJSON.MultiPoint = { type: 'MultiPoint', coordinates: [[72.5, 7.8], [84.5, 7.8], [84.5, 18.5], [72.5, 18.5]] };
   return geoMercator().fitExtent([[16, 16], [width - 16, height - 16]], frame);
 }
 

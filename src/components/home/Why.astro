@@ -34,8 +34,8 @@ const statItems = [
 <style>
   .why { display: grid; gap: var(--space-7); }
   .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr)); gap: var(--space-5); margin: 0; }
-  .stats div { border-block-start: 1px solid var(--rule); padding-block-start: var(--space-3); }
-  dt { font-size: var(--step--1); color: var(--ink-2); }
+  .stats div { display: flex; flex-direction: column-reverse; gap: var(--space-2); border-block-start: 1px solid var(--rule); padding-block-start: var(--space-3); }
+  dt { font-size: var(--step--1); color: var(--ash); }
   dd { margin: 0; font-family: var(--font-display); font-size: var(--step-4); color: var(--forest); line-height: 1; }
   .points { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
   .points li { display: grid; gap: var(--space-2); }
