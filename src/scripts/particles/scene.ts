@@ -14,9 +14,10 @@ async function loadPixels(url: string, size = 220) {
   c.height = ratio >= 1 ? Math.round(size / ratio) : size;
   const ctx = c.getContext('2d', { willReadFrequently: true })!;
   ctx.drawImage(img, 0, 0, c.width, c.height);
-  // photos have no alpha: dissolve the edges so each shape becomes an organic cloud
-  const r = Math.hypot(c.width, c.height) / 2;
-  const g = ctx.createRadialGradient(c.width / 2, c.height / 2, r * 0.55, c.width / 2, c.height / 2, r);
+  // photos have no alpha: dissolve the edges so each shape becomes an organic cloud.
+  // The radius follows the short side so every edge (not only the long-axis ends) dissolves.
+  const r = Math.min(c.width, c.height) / 2;
+  const g = ctx.createRadialGradient(c.width / 2, c.height / 2, r * 0.35, c.width / 2, c.height / 2, r);
   g.addColorStop(0, 'rgba(0,0,0,1)');
   g.addColorStop(1, 'rgba(0,0,0,0)');
   ctx.globalCompositeOperation = 'destination-in';
@@ -44,11 +45,16 @@ const vertex = /* glsl */ `
 
 const fragment = /* glsl */ `
   varying vec3 vColor;
+  uniform vec2 uRes; uniform vec2 uFade; uniform float uDir; uniform float uFloor;
   void main() {
     vec2 c = gl_PointCoord - 0.5;
     float d = length(c);
     if (d > 0.5) discard;
-    gl_FragColor = vec4(vColor, smoothstep(0.5, 0.2, d));
+    // keep points faint over the text column (inline-start side), full strength beyond it
+    float x = gl_FragCoord.x / uRes.x;
+    if (uDir < 0.0) x = 1.0 - x;
+    float k = mix(uFloor, 1.0, smoothstep(uFade.x, uFade.y, x));
+    gl_FragColor = vec4(vColor, smoothstep(0.5, 0.2, d) * k);
   }`;
 
 export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]): Promise<() => void> {
@@ -70,7 +76,10 @@ export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]):
   geo.setAttribute('cFrom', new THREE.BufferAttribute(shapes[0].colors.slice(), 3));
   geo.setAttribute('cTo', new THREE.BufferAttribute(shapes[Math.min(1, shapes.length - 1)].colors.slice(), 3));
 
-  const uniforms = { uMix: { value: 0 }, uTime: { value: 0 }, uPointer: { value: new THREE.Vector2() }, uSize: { value: 28 * renderer.getPixelRatio() } };
+  const uniforms = {
+    uMix: { value: 0 }, uTime: { value: 0 }, uPointer: { value: new THREE.Vector2() }, uSize: { value: 28 * renderer.getPixelRatio() },
+    uRes: { value: new THREE.Vector2(1, 1) }, uFade: { value: new THREE.Vector2(0.45, 0.65) }, uDir: { value: 1 }, uFloor: { value: 0.15 },
+  };
   const mat = new THREE.ShaderMaterial({ vertexShader: vertex, fragmentShader: fragment, uniforms, transparent: true, depthWrite: false });
   const points = new THREE.Points(geo, mat);
   scene.add(points);
@@ -80,8 +89,23 @@ export async function mountHero(canvas: HTMLCanvasElement, imageUrls: string[]):
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    renderer.getDrawingBufferSize(uniforms.uRes.value);
     const dir = getComputedStyle(canvas).direction === 'rtl' ? -1 : 1;
-    points.position.x = w > 860 ? 1.8 * dir : 0;
+    uniforms.uDir.value = dir;
+    if (w > 860) {
+      // side-by-side: the cloud sits in the inline-end third, clear of the headline column
+      const visibleW = 2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.aspect;
+      points.position.x = visibleW * 0.28 * dir;
+      points.scale.setScalar(0.8);
+      uniforms.uFade.value.set(0.45, 0.65);
+      uniforms.uFloor.value = 0.15;
+    } else {
+      // stacked: the copy covers the whole width, so the cloud stays behind it at low strength
+      points.position.x = 0;
+      points.scale.setScalar(0.9);
+      uniforms.uFade.value.set(2, 3);
+      uniforms.uFloor.value = 0.4;
+    }
   }
   resize();
   const ro = new ResizeObserver(resize);
