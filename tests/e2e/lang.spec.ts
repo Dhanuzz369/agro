@@ -153,3 +153,15 @@ test('zh pages load only the 400 Noto Sans SC stylesheet', async ({ page }) => {
   const sheets = await page.locator('link[rel="stylesheet"][href^="/fonts/sc/"]').evaluateAll((ls) => ls.map((l) => l.getAttribute('href')));
   expect(sheets).toEqual(['/fonts/sc/400.css']);
 });
+
+test('on phones the suggestion banner hides the floating language button instead of stacking over the hero', async ({ browser }) => {
+  const ctx = await browser.newContext({ locale: 'fr-FR', viewport: { width: 375, height: 740 } });
+  const page = await ctx.newPage();
+  await page.goto('/');
+  const banner = page.locator('[data-lang-suggest]');
+  await expect(banner).toBeVisible();
+  await expect(page.locator('.ls__pill')).toBeHidden();
+  await banner.locator('[data-dismiss]').click();
+  await expect(page.locator('.ls__pill')).toBeVisible();
+  await ctx.close();
+});
