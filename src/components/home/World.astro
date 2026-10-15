@@ -9,7 +9,7 @@ const { locale } = Astro.props;
 const t = createT(locale);
 const regions: Region[] = ['middle-east', 'africa', 'asia', 'europe', 'americas', 'oceania'];
 ---
-<section id="world" class="world">
+<section id="world" class="world" data-tone="dark">
   <div class="container world__inner">
     <header data-reveal>
       <p class="eyebrow">{t('home.world.eyebrow')}</p>

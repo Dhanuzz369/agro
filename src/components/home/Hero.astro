@@ -15,7 +15,7 @@ const small = await Promise.all(picks.map((p) => getImage({ src: p.data.heroImag
 const poster = await getImage({ src: picks[0].data.heroImage.src, width: 640, format: 'webp', quality: 50 });
 const title = t('hero.title');
 ---
-<section class="hero">
+<section class="hero" data-tone="dark">
   <HeroParticles images={small.map((s) => s.src)} poster={{ src: poster.src, width: poster.options.width as number, height: poster.options.height as number }} alt="" />
   <div class="container hero__copy" data-hero-copy>
     <p class="eyebrow">{t('hero.eyebrow')}</p>

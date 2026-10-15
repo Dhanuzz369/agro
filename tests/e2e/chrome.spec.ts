@@ -39,3 +39,18 @@ test('mobile menu opens with visible toggle and closes on Escape', async ({ page
   await page.keyboard.press('Escape');
   await expect(link).toBeHidden();
 });
+
+test('focus rings: ink on light surfaces, turmeric on forest, ink on form inputs', async ({ page }) => {
+  const INK = 'rgb(28, 27, 26)';
+  const TURMERIC = 'rgb(217, 154, 30)';
+  const ring = (sel: string) => page.locator(sel).first().evaluate((el) => { (el as HTMLElement).focus(); return getComputedStyle(el).outlineColor; });
+  await page.goto('/products');
+  await page.keyboard.press('Tab'); // keyboard modality so programmatic focus is :focus-visible
+  expect(await ring('main a')).toBe(INK);
+  expect(await ring('footer a')).toBe(TURMERIC);
+  await page.goto('/');
+  await page.keyboard.press('Tab');
+  expect(await ring('.hero a')).toBe(TURMERIC);
+  await page.goto('/contact');
+  expect(await ring('form input:not([type="hidden"]):not([name="botcheck"])')).toBe(INK);
+});
