@@ -1,0 +1,10 @@
+---
+import { getCollection } from 'astro:content';
+import HsnView from '../../../views/HsnView.astro';
+import { nonDefaultLocales, type Locale } from '../../../i18n/config';
+export async function getStaticPaths() {
+  const codes = (await getCollection('products')).flatMap((p) => p.data.hsn.map((h) => h.code));
+  return nonDefaultLocales.flatMap((lang) => codes.map((code) => ({ params: { lang, code } })));
+}
+---
+<HsnView locale={Astro.params.lang as Locale} code={Astro.params.code!} />

@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import HsnChip from '../components/HsnChip.astro';
+import SpecTable from '../components/SpecTable.astro';
+import Faq from '../components/Faq.astro';
+import { createT } from '../i18n/t';
+import { localizePath } from '../i18n/paths';
+import type { Locale } from '../i18n/config';
+import { getHsnEntries } from '../lib/catalog';
+import { faqLd, breadcrumbLd } from '../lib/jsonld';
+import { formatHsn } from '../lib/hsn';
+interface Props { locale: Locale; code: string }
+const { locale, code } = Astro.props;
+const t = createT(locale);
+const entry = (await getHsnEntries(locale)).find((e) => e.code === code)!;
+const { product } = entry;
+const varieties = product.data.varieties.filter((v) => entry.varietyIds.includes(v.id));
+const path = `/hsn/${code}`;
+const abs = (x: string) => new URL(localizePath(x, locale), Astro.site).href;
+const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }, { name: `HSN ${formatHsn(code)}`, path }];
+const answer = `${entry.text.description} (HSN ${code})`;
+---
+<Base locale={locale} title={t('meta.hsnTitle', { code: formatHsn(code), title: entry.text.title })} description={entry.text.description} path={path} ogImage={`/og/hsn/${code}.png`}
+  jsonLd={[faqLd(entry.text.faq), breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) })))]}>
+  <div class="container hv">
+    <Breadcrumbs locale={locale} items={crumbs} />
+    <header class="hv__head">
+      <p class="eyebrow">{t('hsn.eyebrow')}</p>
+      <h1><span dir="ltr">HSN {formatHsn(code)}</span> — {entry.text.title}</h1>
+      <p class="hv__answer" data-answer>{answer}</p>
+      {!entry.verified && <p class="hv__flag" data-unverified>{t('product.hsnUnverified')}. {entry.text.notes}</p>}
+    </header>
+
+    <section>
+      <h2>{t('hsn.covers')}</h2>
+      <p><a href={localizePath(`/products/${product.slug}`, locale)}>{product.text.name}</a> — {product.text.originLine}</p>
+      <div class="hv__vars">
+        {varieties.map((v) => (
+          <article>
+            <h3>{product.text.varieties[v.id]?.name ?? v.id}</h3>
+            <HsnChip code={v.hsn} verified={entry.verified} locale={locale} />
+            <SpecTable locale={locale} specs={v.specs} caption={product.text.varieties[v.id]?.name ?? v.id} />
+            <a class="btn btn--secondary" href={`${localizePath('/contact', locale)}?product=${product.slug}&variety=${v.id}`}>{t('cta.quoteVariety')}</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {entry.verified && <section><h2>{t('hsn.notes')}</h2><p>{entry.text.notes}</p></section>}
+
+    <section>
+      <h2>{t('hsn.documents')}</h2>
+      <ul>{(['doc.coo', 'doc.phyto', 'doc.fumigation', 'doc.fssai', 'doc.rcmc', 'doc.coa'] as const).map((k) => <li>{t(k)}</li>)}</ul>
+      <p class="hv__duty">{t('hsn.dutyNote')}</p>
+    </section>
+
+    <section><Faq items={entry.text.faq} /></section>
+  </div>
+</Base>
+<style>
+  .hv { padding-block: 7.5rem var(--space-8); display: grid; gap: var(--space-8); }
+  .hv__head { display: grid; gap: var(--space-4); }
+  .hv__answer { font-size: var(--step-1); line-height: 1.45; }
+  .hv__flag, .hv__duty { font-size: var(--step--1); color: var(--clay); border-inline-start: 3px solid var(--clay); padding-inline-start: var(--space-3); }
+  section { display: grid; gap: var(--space-4); }
+  .hv__vars { display: grid; gap: var(--space-6); grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+  .hv__vars article { display: grid; gap: var(--space-3); justify-items: start; border-block-start: 1px solid var(--ink); padding-block-start: var(--space-4); }
+  ul { margin: 0; padding-inline-start: 1.2em; }
+</style>
