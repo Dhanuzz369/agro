@@ -26,3 +26,16 @@ test('every ld+json block parses', async ({ page }) => {
   expect(blocks.length).toBeGreaterThan(0);
   for (const b of blocks) expect(() => JSON.parse(b)).not.toThrow();
 });
+
+test('mobile menu opens with visible toggle and closes on Escape', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/');
+  const toggle = page.locator('.hdr__toggle');
+  const link = page.locator('#main-nav ul a').first();
+  await expect(link).toBeHidden();
+  await toggle.click();
+  await expect(link).toBeVisible();
+  await expect(toggle).toHaveCSS('color', 'rgb(247, 241, 232)');
+  await page.keyboard.press('Escape');
+  await expect(link).toBeHidden();
+});

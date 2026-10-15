@@ -2,7 +2,7 @@
 import { createT } from '../i18n/t';
 import { localizePath } from '../i18n/paths';
 import { getSite, getHsnEntries } from '../lib/catalog';
-import { mailtoHref } from '../lib/site';
+import { mailtoHref, isPlaceholder } from '../lib/site';
 import { formatHsn } from '../lib/hsn';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
@@ -18,7 +18,7 @@ const mail = mailtoHref(site.email);
       <p class="ftr__brand">GoodBiz <span>Agri</span></p>
       <p>{t('footer.tagline')}</p>
       <address>
-        {site.address.street}<br />{site.address.city}, {site.address.region} {site.address.postalCode}<br />India
+        {!isPlaceholder(site.address.street) && <>{site.address.street}<br /></>}{site.address.city}, {site.address.region}{!isPlaceholder(site.address.postalCode) && ` ${site.address.postalCode}`}<br />India
       </address>
       {mail && <a href={mail}>{site.email}</a>}
     </div>
