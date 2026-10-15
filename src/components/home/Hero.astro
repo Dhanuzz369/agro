@@ -12,10 +12,11 @@ const products = await getLocalizedProducts(locale);
 const order = ['rice', 'turmeric', 'arecanut'];
 const picks = order.map((s) => products.find((p) => p.slug === s)!);
 const small = await Promise.all(picks.map((p) => getImage({ src: p.data.heroImage.src, width: 320, format: 'webp' })));
+const poster = await getImage({ src: picks[0].data.heroImage.src, width: 640, format: 'webp', quality: 50 });
 const title = t('hero.title');
 ---
 <section class="hero">
-  <HeroParticles images={small.map((s) => s.src)} poster={picks[0].data.heroImage.src} alt="" />
+  <HeroParticles images={small.map((s) => s.src)} poster={{ src: poster.src, width: poster.options.width as number, height: poster.options.height as number }} alt="" />
   <div class="container hero__copy" data-hero-copy>
     <p class="eyebrow">{t('hero.eyebrow')}</p>
     <h1 class="display">{title}</h1>

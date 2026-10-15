@@ -13,7 +13,7 @@ const href = localizePath(`/products/${product.slug}`, locale);
 <article class="pc" data-reveal>
   <a href={href} class="pc__link">
     <div class="pc__media">
-      <Image src={product.data.heroImage.src} alt={product.text.name} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" loading="lazy" />
+      <Image src={product.data.heroImage.src} alt={product.text.name} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
       <StockLabel locale={locale} show={product.data.heroImage.isStock} />
     </div>
     <H class="pc__title">{product.text.name}</H>

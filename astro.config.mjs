@@ -8,7 +8,7 @@ export default defineConfig({
   site: process.env.SITE_URL ?? 'https://goodbizagri.com',
   output: 'static',
   trailingSlash: 'ignore',
-  build: { format: 'directory' },
+  build: { format: 'directory', inlineStylesheets: 'always' },
   integrations: [
     mdx(),
     sitemap({
