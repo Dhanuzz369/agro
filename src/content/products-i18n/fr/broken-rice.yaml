@@ -1,0 +1,13 @@
+reviewStatus: pending
+name: "Riz brisé"
+summary: "GoodBiz Agri exporte du riz brisé à 100 % sous le code SH 100640 — blanc, étuvé et trié au sortex — issu de rizeries du delta de la Godavari, de Nellore et de Raichur."
+originLine: "Rizeries du delta de la Godavari, de Nellore et de Raichur"
+sourcingStory: "Le riz brisé est un aliment de base au Sénégal, en Gambie et dans une grande partie de l'Afrique de l'Ouest, ainsi qu'une matière première clé pour la brasserie et l'alimentation animale. Nous l'achetons dans les mêmes rizeries que celles qui fournissent notre riz en grains entiers, de sorte que l'humidité et la propreté répondent au même standard."
+varieties:
+  white-100: { name: "Brisures blanches à 100 %", description: "Brisures blanches propres pour les marchés alimentaires." }
+  parboiled: { name: "Brisures étuvées", description: "Brisures étuvées à la texture plus ferme." }
+  sortexed: { name: "Brisures triées au sortex", description: "Triées par couleur pour un aspect uniforme et moins de grains endommagés." }
+faq:
+  - { q: "Quel est le code SH du riz brisé ?", a: "Le riz brisé est classé sous le code SH 100640." }
+  - { q: "Qui achète du riz brisé ?", a: "Des importateurs alimentaires d'Afrique de l'Ouest et d'Asie, des brasseries et des fabricants d'aliments pour animaux." }
+  - { q: "Quelle est la commande minimale ?", a: "Cinq conteneurs de 20 pieds." }

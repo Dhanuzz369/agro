@@ -1,0 +1,14 @@
+reviewStatus: pending
+name: "Noix d'arec"
+summary: "GoodBiz Agri exporte de la noix d'arec (noix de bétel) — chali blanche entière, fendue, kempu rouge (qualités api et bette) et en tranches — d'origine Shivamogga et Dakshina Kannada au Karnataka et Kasaragod au Kerala."
+originLine: "Shivamogga, Dakshina Kannada et Kasaragod"
+sourcingStory: "Le Karnataka produit l'essentiel de la noix d'arec de l'Inde. Les régions côtières de Dakshina Kannada et de Kasaragod sont réputées pour la chali blanche séchée au soleil, négociée sur le marché coopératif de Puttur, tandis que la région de Malnad, à Shivamogga, se spécialise dans les qualités rouges bouillies."
+varieties:
+  whole-chali: { name: "Blanche entière (chali)", description: "Noix entières séchées au soleil, à l'intérieur blanc." }
+  split: { name: "Noix d'arec fendue", description: "Noix coupées en deux pour les transformateurs." }
+  red-kempu: { name: "Rouge (kempu) — api et bette", description: "Qualités rouge-brun bouillies et séchées de Shivamogga." }
+  sliced: { name: "Noix d'arec en tranches", description: "Tranches uniformes pour les marchés de consommation directe." }
+faq:
+  - { q: "Quel est le code SH de la noix d'arec ?", a: "La noix d'arec relève de la position SH 0802 80. Nous confirmons la ligne exacte à 8 chiffres pour chaque qualité ; demandez-nous le code à utiliser sur vos documents d'importation." }
+  - { q: "Quelle différence entre chali et kempu ?", a: "La chali est une noix entière séchée au soleil de la côte du Karnataka ; la kempu est bouillie puis séchée, ce qui lui donne sa couleur rouge." }
+  - { q: "Quand la noix d'arec est-elle récoltée ?", a: "De novembre à mars, avec un pic d'arrivages de la nouvelle récolte en janvier." }

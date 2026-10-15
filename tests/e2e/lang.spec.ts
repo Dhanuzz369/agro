@@ -109,8 +109,7 @@ test('switcher works when storage is blocked', async ({ browser }) => {
   await ctx.close();
 });
 
-// enabled in Task 17 (needs the French lang.suggestion string)
-test.fixme('suggestion banner offers French to a French browser and never redirects', async ({ browser }) => {
+test('suggestion banner offers French to a French browser and never redirects', async ({ browser }) => {
   const ctx = await browser.newContext({ locale: 'fr-FR' });
   const page = await ctx.newPage();
   await page.goto('/');

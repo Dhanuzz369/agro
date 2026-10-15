@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: "Arachides décortiquées"
+description: "Le code SH 1202 42 couvre les arachides décortiquées, même concassées, non grillées ni autrement cuites."
+notes: "Le code est indiqué tel que fourni et est en cours de vérification pour la ligne à 8 chiffres."
+faq:
+  - { q: "Cela couvre-t-il les amandes blanchies ?", a: "Les amandes blanchies non grillées y sont généralement incluses ; confirmez avec votre transitaire." }
+  - { q: "Quelles variétés fournissez-vous ?", a: "Bold (runner), Java (Spanish) et amandes blanchies." }

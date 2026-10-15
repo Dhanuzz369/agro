@@ -1,0 +1,7 @@
+reviewStatus: pending
+title: "Riz non basmati, autre (semi-blanchi ou blanchi)"
+description: "Le code SH 10063099 couvre le riz non basmati semi-blanchi ou blanchi, non dénommé ailleurs."
+notes: "Couramment utilisé pour l'IR64, le Swarna et l'IR36, blancs et étuvés."
+faq:
+  - { q: "Quels produits relèvent du code 10063099 ?", a: "Les qualités non basmati en vrac comme l'IR64, le Swarna et l'IR36." }
+  - { q: "Le riz étuvé relève-t-il de ce code ?", a: "Le riz étuvé a sa propre sous-position dans certains tarifs douaniers ; confirmez avec votre transitaire." }

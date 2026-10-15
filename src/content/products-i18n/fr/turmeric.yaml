@@ -1,0 +1,17 @@
+reviewStatus: pending
+name: "Curcuma"
+summary: "GoodBiz Agri exporte du curcuma frais (code SH 09103010), des doigts et bulbes de curcuma séchés (code SH 09103020) et de la poudre de curcuma (code SH 09103030) d'origine Erode et Salem au Tamil Nadu et Alappuzha au Kerala, avec une curcumine de 2 % à 5 % et une humidité inférieure à 10 %."
+originLine: "Erode, Salem et Alleppey — le cœur du curcuma indien"
+sourcingStory: "Le marché réglementé d'Erode fixe le prix d'une grande partie du curcuma mondial. Nous y achetons des doigts et des bulbes polis, ainsi qu'à Salem, à chaque récolte, et nous nous approvisionnons en doigts d'Alleppey riches en curcumine auprès de négociants du Kerala pour les acheteurs qui recherchent une forte intensité de couleur. La poudre est moulue à la commande afin que la curcumine et la granulométrie correspondent à votre cahier des charges."
+varieties:
+  fresh: { name: "Curcuma frais", description: "Rhizomes lavés et séchés à l'air, expédiés en cartons ventilés par conteneur réfrigéré." }
+  dried-finger: { name: "Doigts séchés d'Erode", description: "Doigts bouillis, séchés au soleil et polis, à 2,5–3,5 % de curcumine." }
+  alleppey-finger: { name: "Doigts d'Alleppey", description: "Curcuma du Kerala riche en curcumine, prisé pour l'extraction et la coloration." }
+  salem-bulb: { name: "Bulbes de Salem", description: "Bulbes ronds de Salem, populaires pour le broyage." }
+  powder: { name: "Poudre de curcuma", description: "Moulue à la commande, 60–80 mesh, curcumine calibrée de 2 à 5 %." }
+faq:
+  - { q: "Quel est le code SH de la poudre de curcuma ?", a: "La poudre de curcuma est classée sous le code SH 09103030. Le curcuma séché entier est le 09103020 et le curcuma frais le 09103010." }
+  - { q: "Quelles teneurs en curcumine pouvez-vous fournir ?", a: "Le curcuma d'Erode et de Salem titre généralement 2,5–4 % de curcumine ; les doigts d'Alleppey 4,5–5 %. La poudre peut être assemblée à une teneur en curcumine précise." }
+  - { q: "Quelle est la commande minimale pour le curcuma ?", a: "Un conteneur de 20 pieds, qui contient environ 18 à 19 tonnes de curcuma séché ou 20 tonnes de poudre." }
+  - { q: "Quand le curcuma est-il récolté ?", a: "La récolte principale s'étend de janvier à avril, avec des arrivages de curcuma frais à Erode dès février." }
+  - { q: "Pouvez-vous respecter les limites européennes de pesticides ?", a: "Oui. Nous sélectionnons et testons les lots selon les LMR de l'UE et pouvons fournir une analyse par un tiers avant l'expédition." }

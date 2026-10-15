@@ -1,0 +1,15 @@
+reviewStatus: pending
+name: "Gingembre"
+summary: "GoodBiz Agri exporte du gingembre frais (code SH 09101110), du gingembre séché non blanchi (09101120), du gingembre séché blanchi (09101130) et d'autre gingembre entier (09101190) de Wayanad au Kerala et de Kodagu et Hassan au Karnataka."
+originLine: "Wayanad, Kodagu et Hassan — la ceinture du gingembre des Ghâts occidentaux"
+sourcingStory: "Le gingembre cultivé sur les pentes des Ghâts occidentaux est réputé pour son piquant et sa teneur en huile. Nous achetons le gingembre frais auprès des producteurs de Wayanad pendant la récolte, et le gingembre séché via le commerce des épices de Kochi, où la qualité « Cochin ginger » se négocie depuis des siècles."
+varieties:
+  fresh: { name: "Gingembre frais", description: "Mains lavées et séchées à l'air, emballées en cartons ou sacs filet pour expédition en conteneur réfrigéré." }
+  dried-unbleached: { name: "Gingembre séché non blanchi", description: "Gingembre pelé et séché au soleil, de couleur naturelle." }
+  dried-bleached: { name: "Gingembre séché blanchi", description: "Blanchi à la chaux pour un aspect clair et uniforme." }
+  whole-other: { name: "Gingembre entier séché (autre)", description: "Gingembre entier, ni broyé ni moulu, selon la qualité de l'acheteur." }
+faq:
+  - { q: "Quel est le code SH du gingembre séché ?", a: "Le gingembre séché non blanchi relève du code SH 09101120 et le gingembre séché blanchi du 09101130. Le gingembre frais est le 09101110." }
+  - { q: "Comment le gingembre frais est-il expédié ?", a: "En conteneurs réfrigérés de 40 pieds à environ 12–13 °C, d'une capacité d'environ 26 tonnes." }
+  - { q: "Quand a lieu la récolte du gingembre ?", a: "De décembre à mars. Le gingembre séché est disponible toute l'année sur stock." }
+  - { q: "Quelle est la commande minimale ?", a: "Un conteneur de 20 pieds pour le gingembre séché, ou un conteneur réfrigéré de 40 pieds pour le gingembre frais." }

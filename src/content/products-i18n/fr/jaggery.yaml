@@ -1,0 +1,16 @@
+reviewStatus: pending
+name: "Jaggery"
+summary: "GoodBiz Agri exporte du jaggery sous le code SH 1701 — blocs, cubes, poudre, jaggery biologique et jaggery de palmier (karupatti) — de Mandya et Belagavi au Karnataka et de Thoothukudi au Tamil Nadu."
+originLine: "Mandya, Belagavi et Thoothukudi"
+sourcingStory: "La ceinture de canne à sucre de Mandya produit du jaggery depuis des générations, en faisant bouillir du jus de canne frais dans des bassines ouvertes. Nous y achetons les blocs et le jaggery biologique, les cubes et la poudre auprès des transformateurs de Belagavi, et le jaggery de palmier auprès des récolteurs de palmyre de Thoothukudi."
+varieties:
+  block: { name: "Blocs de jaggery", description: "Blocs moulés traditionnels, du doré au brun foncé." }
+  cube: { name: "Cubes de jaggery", description: "Petits cubes pour la vente au détail et la restauration." }
+  powder: { name: "Jaggery en poudre", description: "Granulés qui s'écoulent librement, pour la boulangerie et les boissons." }
+  organic: { name: "Jaggery biologique", description: "Fabriqué sans clarification chimique." }
+  palm-karupatti: { name: "Jaggery de palmier (karupatti)", description: "Fabriqué à partir de la sève du palmier palmyre dans le sud du Tamil Nadu." }
+faq:
+  - { q: "Quel est le code SH du jaggery ?", a: "Le jaggery est classé sous la position SH 1701." }
+  - { q: "Combien de temps le jaggery se conserve-t-il ?", a: "Environ 12 mois dans un endroit frais et sec ; la poudre et les blocs emballés sous vide se conservent le mieux." }
+  - { q: "Quelle est la commande minimale ?", a: "Un conteneur de 20 pieds, soit environ 18 à 20 tonnes." }
+  - { q: "Pouvez-vous fournir en marque blanche ?", a: "Oui, en emballages de 500 g à 5 kg à votre marque." }
