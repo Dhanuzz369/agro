@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { z } from 'astro/zod';
-import { readingTime, postSlug, postLocale, isPublished } from '../../src/lib/blog-pure';
+import { readingTime, postSlug, postLocale, isPublished, aboutProduct } from '../../src/lib/blog-pure';
 import { blogSchema } from '../../src/lib/schemas';
 
 describe('blog helpers', () => {
@@ -19,4 +19,13 @@ describe('drafts', () => {
     expect(isPublished({ data: { draft: true } })).toBe(false);
     expect(isPublished({ data: { draft: false } })).toBe(true);
   });
+});
+
+describe('aboutProduct', () => {
+  const ref = (slug: string, products: string[], fallback = false) => ({ slug, fallback, entry: { data: { products } } });
+  it('keeps posts tagged with the product, in order', () => {
+    const posts = [ref('a', ['turmeric']), ref('b', ['rice']), ref('c', ['rice', 'turmeric'], true)];
+    expect(aboutProduct(posts, 'turmeric').map((p) => p.slug)).toEqual(['a', 'c']);
+  });
+  it('returns nothing when no post mentions the product', () => expect(aboutProduct([ref('a', ['rice'])], 'jaggery')).toEqual([]));
 });

@@ -19,6 +19,8 @@ import { seasonRange } from '../lib/months';
 import { whatsappHref } from '../lib/site';
 import { formatHsn } from '../lib/hsn';
 import { places } from '../data/places';
+import { postsFor } from '../lib/blog';
+import { aboutProduct } from '../lib/blog-pure';
 interface Props { locale: Locale; slug: string }
 const { locale, slug } = Astro.props;
 const t = createT(locale);
@@ -26,6 +28,9 @@ const p = await getLocalizedProduct(locale, slug);
 const all = await getLocalizedProducts(locale);
 const related = p.data.related.map((s) => all.find((x) => x.slug === s)!).filter(Boolean);
 const site = await getSite();
+// Published posts in this locale, else the English original (postsFor already drops drafts).
+const insights = aboutProduct(await postsFor(locale), slug);
+const postDate = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'medium', timeZone: 'UTC' });
 const path = `/products/${slug}`;
 const abs = (x: string) => new URL(localizePath(x, locale), Astro.site).href;
 const states = [...new Set(p.data.regions.map((r) => places[r].state))].join(', ');
@@ -152,6 +157,22 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
       <Faq items={p.text.faq} />
     </section>
 
+    {insights.length > 0 && (
+      <section class="section container" aria-labelledby="insights" data-related-posts>
+        <h2 id="insights">{t('product.relatedPosts')}</h2>
+        <ul class="pv__posts">
+          {insights.map((ps) => (
+            <li>
+              <a href={localizePath(`/blog/${ps.slug}`, ps.fallback ? 'en' : locale)}>
+                <span class="pv__postMeta"><time datetime={ps.entry.data.date.toISOString()}>{postDate.format(ps.entry.data.date)}</time>{ps.fallback && <> · {t('blog.inEnglish')}</>}</span>
+                <span class="pv__postTitle" lang={ps.fallback ? 'en' : undefined}>{ps.entry.data.title}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
     {related.length > 0 && (
       <section class="section container" aria-labelledby="related">
         <h2 id="related">{t('product.related')}</h2>
@@ -194,6 +215,12 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
   .pv__docs { margin: 0; padding-inline-start: 1.2em; }
   .pv__ship { display: grid; gap: var(--space-3); margin: 0; }
   .pv__related { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); margin-block-start: var(--space-6); }
+  .pv__posts { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: grid; }
+  .pv__posts li { border-block-start: 1px solid var(--rule); }
+  .pv__posts a { display: grid; gap: var(--space-2); padding-block: var(--space-5); text-decoration: none; min-block-size: 44px; }
+  .pv__posts a:hover .pv__postTitle { text-decoration: underline; text-underline-offset: 0.15em; }
+  .pv__postMeta { font-size: var(--step--1); color: var(--ink-2); }
+  .pv__postTitle { font-family: var(--font-display); font-weight: 300; font-size: var(--step-2); line-height: 1.2; }
   .pv__cta { display: grid; gap: var(--space-5); justify-items: start; padding-block: var(--space-8); border-block-start: 1px solid var(--ink); }
   section > h2 + :global(.faq) { margin-block-start: var(--space-6); }
 </style>

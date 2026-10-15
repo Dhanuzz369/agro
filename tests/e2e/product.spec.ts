@@ -46,3 +46,15 @@ test('product hero poster is preloaded with the exact srcset the img uses', asyn
   expect(await preload.getAttribute('imagesizes')).toBe(await img.getAttribute('sizes'));
   await expect(preload).toHaveAttribute('fetchpriority', 'high');
 });
+
+test('related insights list published posts about the product', async ({ page }) => {
+  await page.goto('/products/turmeric');
+  const section = page.locator('[data-related-posts]');
+  await expect(section.getByRole('heading', { name: 'Related insights' })).toBeVisible();
+  await expect(section.locator('a[href="/blog/turmeric-hsn-codes-explained"]')).toBeVisible();
+  await expect(section.locator('a[href*="market-report"]')).toHaveCount(0); // draft
+  await page.goto('/fr/products/turmeric');
+  await expect(page.locator('[data-related-posts] a[href="/blog/turmeric-hsn-codes-explained"]')).toBeVisible(); // English fallback
+  await page.goto('/products/jaggery');
+  await expect(page.locator('[data-related-posts]')).toHaveCount(0);
+});
