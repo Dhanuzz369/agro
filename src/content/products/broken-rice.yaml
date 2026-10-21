@@ -2,7 +2,6 @@ order: 3
 hsn:
   - { code: "100640", verified: true }
 heroImage: { src: ../../assets/products/broken-rice/hero.jpg, isStock: true }
-model: { kind: grains, grain: brokenRice }
 regions: [godavari, nellore, raichur]
 markets: ["Godavari delta mills", "Nellore mills"]
 harvestMonths: [3, 4, 10, 11, 12]

@@ -2,7 +2,6 @@ order: 7
 hsn:
   - { code: "8011220", verified: false }
 heroImage: { src: ../../assets/products/coconut-copra/hero.jpg, isStock: true }
-model: { kind: glb, src: /models/coconut.glb, fallbackGrain: copra }
 regions: [tiptur, tumakuru, pollachi]
 markets: ["Tiptur APMC (ball copra)", "Tumakuru traders", "Pollachi coconut market"]
 harvestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]

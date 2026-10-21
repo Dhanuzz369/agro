@@ -2,7 +2,6 @@ order: 5
 hsn:
   - { code: "80280", verified: false }
 heroImage: { src: ../../assets/products/arecanut/hero.jpg, isStock: true }
-model: { kind: grains, grain: arecanut }
 regions: [shivamogga, dakshinaKannada, kasaragod]
 markets: ["Shivamogga APMC", "Puttur (CAMPCO) market", "Kasaragod traders"]
 harvestMonths: [11, 12, 1, 2, 3]

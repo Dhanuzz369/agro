@@ -2,7 +2,6 @@ order: 6
 hsn:
   - { code: "120242", verified: false }
 heroImage: { src: ../../assets/products/groundnuts/hero.jpg, isStock: true }
-model: { kind: grains, grain: groundnut }
 regions: [chitradurga, anantapur, tiruvannamalai]
 markets: ["Chitradurga APMC", "Anantapur groundnut market", "Tiruvannamalai traders"]
 harvestMonths: [10, 11, 12, 3, 4]

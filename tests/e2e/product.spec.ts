@@ -41,7 +41,7 @@ test('product hero poster is preloaded with the exact srcset the img uses', asyn
   await page.goto('/products/turmeric');
   const preload = page.locator('head link[rel="preload"][as="image"]');
   await expect(preload).toHaveCount(1);
-  const img = page.locator('img[data-object-poster]');
+  const img = page.locator('img[data-product-hero]');
   expect(await preload.getAttribute('imagesrcset')).toBe(await img.getAttribute('srcset'));
   expect(await preload.getAttribute('imagesizes')).toBe(await img.getAttribute('sizes'));
   await expect(preload).toHaveAttribute('fetchpriority', 'high');

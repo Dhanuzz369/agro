@@ -18,10 +18,6 @@ export const productSchema = (image: ImageFn) =>
       order: z.number().int(),
       hsn: z.array(z.object({ code: hsnCode, verified: z.boolean() })).min(1),
       heroImage: z.object({ src: image(), isStock: z.boolean() }),
-      model: z.discriminatedUnion('kind', [
-        z.object({ kind: z.literal('grains'), grain: z.enum(['rice', 'brokenRice', 'groundnut', 'arecanut', 'turmeric', 'ginger', 'jaggery', 'copra']) }),
-        z.object({ kind: z.literal('glb'), src: z.string().startsWith('/models/'), fallbackGrain: z.enum(['ginger', 'jaggery', 'copra']) }),
-      ]),
       regions: z.array(z.enum(placeIds)).min(1),
       markets: z.array(z.string()).min(1),
       harvestMonths: z.array(month).min(1),

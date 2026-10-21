@@ -2,7 +2,6 @@ order: 1
 hsn:
   - { code: "1006", verified: true }
 heroImage: { src: ../../assets/products/rice/hero.jpg, isStock: true }
-model: { kind: grains, grain: rice }
 regions: [raichur, mandya, thanjavur, palakkad]
 markets: ["Raichur APMC", "Mandya rice mills", "Thanjavur (Kaveri delta) mills", "Palakkad mills"]
 harvestMonths: [1, 2, 10, 11, 12]

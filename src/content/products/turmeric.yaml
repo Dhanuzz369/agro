@@ -4,7 +4,6 @@ hsn:
   - { code: "09103020", verified: true }
   - { code: "09103030", verified: true }
 heroImage: { src: ../../assets/products/turmeric/hero.jpg, isStock: true }
-model: { kind: grains, grain: turmeric }
 regions: [erode, salem, alleppey]
 markets: ["Erode Regulated Market", "Salem Turmeric Market", "Alappuzha spice traders"]
 harvestMonths: [1, 2, 3, 4]

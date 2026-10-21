@@ -5,7 +5,6 @@ hsn:
   - { code: "09101130", verified: true }
   - { code: "09101190", verified: true }
 heroImage: { src: ../../assets/products/ginger/hero.jpg, isStock: true }
-model: { kind: glb, src: /models/ginger.glb, fallbackGrain: ginger }
 regions: [wayanad, kodagu, hassan]
 markets: ["Wayanad (Sulthan Bathery) ginger traders", "Kodagu growers", "Hassan APMC", "Kochi spice market"]
 harvestMonths: [12, 1, 2, 3]

@@ -2,7 +2,6 @@ order: 4
 hsn:
   - { code: "1701", verified: true }
 heroImage: { src: ../../assets/products/jaggery/hero.jpg, isStock: true }
-model: { kind: glb, src: /models/jaggery.glb, fallbackGrain: jaggery }
 regions: [mandya, belagavi, thoothukudi]
 markets: ["Mandya jaggery market", "Belagavi (Mudalgi) market", "Thoothukudi palm jaggery producers"]
 harvestMonths: [11, 12, 1, 2, 3, 4]

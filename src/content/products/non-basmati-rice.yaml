@@ -2,7 +2,6 @@ order: 2
 hsn:
   - { code: "10063099", verified: true }
 heroImage: { src: ../../assets/products/non-basmati-rice/hero.jpg, isStock: true }
-model: { kind: grains, grain: rice }
 regions: [godavari, nellore, raichur, thanjavur]
 markets: ["Godavari delta mills", "Nellore mills", "Raichur APMC"]
 harvestMonths: [3, 4, 10, 11, 12]
