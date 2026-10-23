@@ -19,10 +19,12 @@ describe('jsonld', () => {
     expect(o.email).toBeUndefined();
     expect(o.telephone).toBeUndefined();
   });
-  it('product carries HSN as additionalProperty and offers no price', () => {
-    const p = productLd({ name: 'Turmeric', description: 'd', url: 'https://x.com/products/turmeric', image: 'https://x.com/i.jpg', hsn: ['09103020'], brand: 'GoodBiz Agri', varieties: [{ name: 'Erode', hsn: '09103020' }] }) as any;
+  it('product lists variants, carries no HSN code and offers no price', () => {
+    const p = productLd({ name: 'Turmeric', description: 'd', url: 'https://x.com/products/turmeric', image: 'https://x.com/i.jpg', brand: 'GoodBiz Agri', varieties: [{ name: 'Erode' }] }) as any;
     expect(p['@type']).toBe('Product');
-    expect(p.additionalProperty[0]).toEqual({ '@type': 'PropertyValue', name: 'HSN code', value: '09103020' });
+    expect(p.hasVariant).toEqual([{ '@type': 'Product', name: 'Erode' }]);
+    expect(p.additionalProperty).toBeUndefined();
+    expect(JSON.stringify(p)).not.toMatch(/HSN/);
     expect(p.offers).toBeUndefined();
   });
   it('faq', () => {

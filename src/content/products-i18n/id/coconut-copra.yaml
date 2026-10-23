@@ -9,6 +9,5 @@ varieties:
   milling-copra: { name: "Kopra giling", description: "Kopra cawan untuk ekstraksi minyak." }
   edible-cups: { name: "Cawan kopra konsumsi", description: "Setengah cawan untuk penggunaan pangan." }
 faq:
-  - { q: "Apa kode HSN untuk kopra?", a: "Kelapa dan kopra termasuk dalam pos HSN 0801. Kami sedang memastikan baris 8 digit yang tepat untuk setiap produk." }
   - { q: "Apa itu kopra bola Tiptur?", a: "Kopra yang dikeringkan utuh di dalam tempurung hingga satu tahun, menghasilkan daging buah putih yang manis dan digemari di kawasan Teluk dan Asia Selatan." }
   - { q: "Apakah kelapa tersedia sepanjang tahun?", a: "Ya. Pollachi memasok kelapa setengah sabut sepanjang tahun." }

@@ -21,7 +21,7 @@ const regs = site.registrations.filter((r) => r.held);
               : <strong class="certs__mark">{r.name}</strong>}
           </span>
           <span class="certs__name">{r.name}</span>
-          <span class="certs__no" dir="ltr">{t('trust.regNo')} {isPlaceholder(r.number) ? t('trust.onRequest') : r.number}</span>
+          {!isPlaceholder(r.number) && <span class="certs__no" dir="ltr">{t('trust.regNo')} {r.number}</span>}
         </li>
       ))}
     </ul>

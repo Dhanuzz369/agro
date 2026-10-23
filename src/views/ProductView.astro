@@ -2,10 +2,8 @@
 import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import HsnChip from '../components/HsnChip.astro';
 import StockLabel from '../components/StockLabel.astro';
 import SpecTable from '../components/SpecTable.astro';
-import HarvestCalendar from '../components/HarvestCalendar.astro';
 import ProductCard from '../components/ProductCard.astro';
 import Faq from '../components/Faq.astro';
 import { createT } from '../i18n/t';
@@ -13,9 +11,7 @@ import { localizePath } from '../i18n/paths';
 import { htmlLang, type Locale } from '../i18n/config';
 import { getLocalizedProduct, getLocalizedProducts, getSite } from '../lib/catalog';
 import { productLd, faqLd, breadcrumbLd } from '../lib/jsonld';
-import { seasonRange } from '../lib/months';
 import { whatsappHref } from '../lib/site';
-import { formatHsn } from '../lib/hsn';
 import { places } from '../data/places';
 import { postsFor } from '../lib/blog';
 import { aboutProduct } from '../lib/blog-pure';
@@ -43,13 +39,13 @@ const quoteHref = (variety?: string) => `${localizePath('/contact', locale)}?pro
 const ld = [
   productLd({
     name: p.text.name, description: p.text.summary, url: abs(path), image: new URL(hero.src, Astro.site).href,
-    hsn: p.data.hsn.map((h) => h.code), brand: 'GoodBiz Agri',
-    varieties: p.data.varieties.map((v) => ({ name: p.text.varieties[v.id]?.name ?? v.id, hsn: v.hsn })),
+    brand: 'GoodBiz Agri',
+    varieties: p.data.varieties.map((v) => ({ name: p.text.varieties[v.id]?.name ?? v.id })),
   }),
   faqLd(p.text.faq),
   breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
 ];
-const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.hsn[0].code) });
+const title = t('meta.productTitle', { name: p.text.name });
 ---
 <Base locale={locale} title={title} description={p.text.summary} path={path} ogImage={`/og/products/${slug}.png`} jsonLd={ld}>
   <link slot="head" rel="preload" as="image" imagesrcset={posterPreload.srcSet.attribute} imagesizes={poster.sizes} fetchpriority="high" />
@@ -63,7 +59,6 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
         </div>
         <div class="pv__intro">
           <h1>{p.text.name}</h1>
-          <div class="pv__chips">{p.data.hsn.map((h) => <HsnChip code={h.code} verified={h.verified} locale={locale} href={localizePath(`/hsn/${h.code}`, locale)} />)}</div>
           <p class="pv__summary">{p.text.summary}</p>
           <div class="pv__ctas">
             <a class="btn btn--primary" href={quoteHref()}>{t('cta.quote')}</a>
@@ -76,9 +71,7 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
     <section class="container pv__facts" aria-labelledby="facts">
       <h2 id="facts" class="sr-only">{t('product.quickFacts')}</h2>
       <dl>
-        <div><dt>{t('fact.hsn')}</dt><dd dir="ltr">{p.data.hsn.map((h) => formatHsn(h.code)).join(' · ')}</dd></div>
         <div><dt>{t('fact.states')}</dt><dd>{states}</dd></div>
-        <div><dt>{t('fact.season')}</dt><dd>{seasonRange(p.data.harvestMonths, htmlLang[locale])}</dd></div>
         <div><dt>{t('fact.ports')}</dt><dd>{portNames}</dd></div>
         <div><dt>{t('fact.shelfLife')}</dt><dd>{p.data.shelfLife}</dd></div>
       </dl>
@@ -97,7 +90,6 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
               </div>
               <div class="var__body">
                 <h3>{vt?.name ?? v.id}</h3>
-                <HsnChip code={v.hsn} verified={p.data.hsn.find((h) => h.code === v.hsn)!.verified} locale={locale} />
                 <p>{vt?.description}</p>
                 <p class="var__where"><span>{t('product.region')}:</span> {places[v.region].name}, {places[v.region].state} · <span>{t('product.market')}:</span> {v.market}</p>
                 <SpecTable locale={locale} specs={v.specs} caption={`${t('product.specs')} — ${vt?.name ?? v.id}`} />
@@ -120,8 +112,6 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
           <p class="pv__origin">{p.text.originLine}</p>
           <p>{p.text.sourcingStory}</p>
           <ul class="pv__markets">{p.data.markets.map((m) => <li>{m}</li>)}</ul>
-          <h3>{t('product.calendar')}</h3>
-          <HarvestCalendar locale={locale} months={p.data.harvestMonths} label={t('product.calendar')} />
         </div>
       </div>
     </section>
@@ -186,7 +176,6 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
   .pv__object { position: relative; aspect-ratio: 1; border-radius: var(--radius-media); overflow: hidden; background: var(--paper-2); }
   .pv__object :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }
   .pv__intro { display: grid; gap: var(--space-5); }
-  .pv__chips { display: flex; flex-wrap: wrap; gap: var(--space-2); color: var(--forest); }
   .pv__summary { font-size: var(--step-1); line-height: 1.45; }
   .pv__ctas, .var__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
   .pv__facts dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--space-4); margin: 0; border-block: 1px solid var(--ink); padding-block: var(--space-5); }

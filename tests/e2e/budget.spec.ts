@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-for (const path of ['/', '/products/turmeric', '/hsn/1701', '/blog']) {
+for (const path of ['/', '/products/turmeric', '/products/rice', '/blog']) {
   test(`initial JS ≤ 60 KB gzip before interaction: ${path}`, async ({ page }) => {
     const sizes: Promise<number>[] = [];
     page.on('response', (r) => {

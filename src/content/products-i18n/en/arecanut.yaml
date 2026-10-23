@@ -9,6 +9,4 @@ varieties:
   red-kempu: { name: "Red (kempu) — api and bette", description: "Boiled and dried red-brown grades from Shivamogga." }
   sliced: { name: "Sliced arecanut", description: "Uniform slices for direct consumption markets." }
 faq:
-  - { q: "What is the HSN code for arecanut?", a: "Arecanut falls under HSN heading 0802 80. We are confirming the exact 8-digit line for each grade; ask us for the code to use on your import documents." }
   - { q: "What is the difference between chali and kempu?", a: "Chali is sun-dried whole nut from coastal Karnataka; kempu is boiled and dried, giving a red colour." }
-  - { q: "When is arecanut harvested?", a: "November to March, with new-crop arrivals peaking in January." }

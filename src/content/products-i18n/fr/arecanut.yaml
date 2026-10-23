@@ -9,6 +9,4 @@ varieties:
   red-kempu: { name: "Rouge (kempu) — api et bette", description: "Qualités rouge-brun bouillies et séchées de Shivamogga." }
   sliced: { name: "Noix d'arec en tranches", description: "Tranches uniformes pour les marchés de consommation directe." }
 faq:
-  - { q: "Quel est le code HSN de la noix d'arec ?", a: "La noix d'arec relève de la position HSN 0802 80. Nous confirmons la ligne exacte à 8 chiffres pour chaque qualité ; demandez-nous le code à utiliser sur vos documents d'importation." }
   - { q: "Quelle différence entre chali et kempu ?", a: "La chali est une noix entière séchée au soleil de la côte du Karnataka ; la kempu est bouillie puis séchée, ce qui lui donne sa couleur rouge." }
-  - { q: "Quand la noix d'arec est-elle récoltée ?", a: "De novembre à mars, avec un pic d'arrivages de la nouvelle récolte en janvier." }

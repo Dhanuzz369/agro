@@ -1,7 +1,0 @@
-reviewStatus: pending
-title: "Kokosnüsse und Kopra"
-description: "Kokosnüsse und Kopra werden unter der HSN-Position 0801 (Kokosnüsse) und verwandten Zeilen für getrockneten Kern eingereiht."
-notes: "Der Code wird wie angegeben angezeigt und wird noch geprüft. Kopra kann in manchen Tarifen unter einer eigenen Position eingereiht sein."
-faq:
-  - { q: "Welche Kokosprodukte exportieren Sie?", a: "Halb enthülste Kokosnüsse, Tiptur-Ballkopra, Mahlkopra und essbare Koprahälften." }
-  - { q: "Warum wird der Code noch geprüft?", a: "Die Einreihung unterscheidet sich zwischen frischer Kokosnuss und getrockneter Kopra; wir bestätigen jede Zeile." }

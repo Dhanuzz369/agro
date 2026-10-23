@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Arroz não basmati"
-summary: "A GoodBiz Agri exporta arroz não basmati a granel sob o HSN 10063099 — IR64 cru e parboilizado, Swarna e IR36 em classes de 5% e 25% de quebrados — de usinas do delta do Godavari, Nellore e Raichur."
+summary: "A GoodBiz Agri exporta arroz não basmati a granel — IR64 cru e parboilizado, Swarna e IR36 em classes de 5% e 25% de quebrados — de usinas do delta do Godavari, Nellore e Raichur."
 originLine: "Usinas do delta do Godavari, Nellore e Raichur"
 sourcingStory: "O delta do Godavari e o distrito de Nellore, em Andhra Pradesh, estão entre os maiores celeiros de arroz da Índia. Contratamos usinas equipadas com sortex para obter IR64 e Swarna consistentes nas classes de quebrados que importadores africanos e asiáticos especificam."
 varieties:
@@ -9,6 +9,5 @@ varieties:
   swarna: { name: "Swarna", description: "Arroz de grão médio de Andhra Pradesh, muito usado em Bangladesh e na África." }
   ir36: { name: "IR36", description: "Arroz branco de grão longo para mercados sensíveis a preço." }
 faq:
-  - { q: "O que é o HSN 10063099?", a: "Abrange o arroz não basmati semibeneficiado ou beneficiado, não especificado em outra parte." }
   - { q: "Quais percentuais de quebrados vocês fornecem?", a: "5% e 25% de quebrados como padrão; 10% e 15% sob consulta." }
   - { q: "Há taxa de exportação sobre o arroz não basmati?", a: "A política indiana de exportação de arroz muda periodicamente. Confirmamos a posição atual da DGFT antes de cada contrato." }

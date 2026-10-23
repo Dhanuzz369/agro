@@ -56,15 +56,7 @@ export const productTextSchema = z.object({
   originLine: z.string(),
   sourcingStory: z.string(),
   varieties: z.record(z.string(), z.object({ name: z.string(), description: z.string() })),
-  faq: faqSchema.min(2),
-});
-
-export const hsnTextSchema = z.object({
-  reviewStatus: z.enum(['pending', 'reviewed']),
-  title: z.string(),
-  description: z.string(),
-  notes: z.string(),
-  faq: faqSchema.min(2),
+  faq: faqSchema.min(1),
 });
 
 export const blogSchema = (image: ImageFn) =>
@@ -102,5 +94,4 @@ export const siteSchema = z.object({
 
 export type ProductData = z.infer<ReturnType<typeof productSchema>>;
 export type ProductText = z.infer<typeof productTextSchema>;
-export type HsnText = z.infer<typeof hsnTextSchema>;
 export type SiteData = z.infer<typeof siteSchema>;

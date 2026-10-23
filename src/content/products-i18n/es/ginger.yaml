@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Jengibre"
-summary: "GoodBiz Agri exporta jengibre fresco (HSN 09101110), jengibre seco sin blanquear (09101120), jengibre seco blanqueado (09101130) y otro jengibre entero (09101190) de Wayanad, en Kerala, y de Kodagu y Hassan, en Karnataka."
+summary: "GoodBiz Agri exporta jengibre fresco, jengibre seco sin blanquear, jengibre seco blanqueado y otro jengibre entero de Wayanad, en Kerala, y de Kodagu y Hassan, en Karnataka."
 originLine: "Wayanad, Kodagu y Hassan — el cinturón del jengibre de los Ghats Occidentales"
 sourcingStory: "El jengibre cultivado en las laderas de los Ghats Occidentales es conocido por su pungencia y su contenido de aceite. Compramos jengibre fresco a los productores de Wayanad durante la cosecha y jengibre seco a través del comercio de especias de Kochi, donde la calidad «Cochin ginger» se comercializa desde hace siglos."
 varieties:
@@ -9,6 +9,4 @@ varieties:
   dried-bleached: { name: "Jengibre seco blanqueado", description: "Blanqueado con cal para un aspecto pálido y uniforme." }
   whole-other: { name: "Jengibre seco entero (otro)", description: "Jengibre entero, ni triturado ni molido, según la calidad del comprador." }
 faq:
-  - { q: "¿Cuál es el código HSN del jengibre seco?", a: "El jengibre seco sin blanquear es HSN 09101120 y el jengibre seco blanqueado es 09101130. El jengibre fresco es 09101110." }
   - { q: "¿Cómo se envía el jengibre fresco?", a: "En contenedores refrigerados de 40 pies a unos 12–13 °C, con una capacidad de unas 26 toneladas." }
-  - { q: "¿Cuándo es la cosecha de jengibre?", a: "De diciembre a marzo. El jengibre seco está disponible todo el año desde existencias." }

@@ -9,6 +9,4 @@ varieties:
   red-kempu: { name: "红槟榔（kempu）——api 和 bette", description: "产自希莫加的煮制晒干红褐色等级。" }
   sliced: { name: "槟榔切片", description: "厚薄均匀的切片，面向直接食用市场。" }
 faq:
-  - { q: "槟榔的 HSN 编码是什么？", a: "槟榔归入 HSN 品目 0802 80。我们正在核实每个等级的具体8位税号；进口单证所用编码请向我们索取。" }
   - { q: "chali 和 kempu 有什么区别？", a: "Chali 是产自卡纳塔克沿海的日晒整颗槟榔；kempu 经煮制后晒干，呈红色。" }
-  - { q: "槟榔何时收获？", a: "11月至次年3月，新货到港高峰在1月。" }

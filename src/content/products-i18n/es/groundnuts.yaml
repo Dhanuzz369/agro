@@ -8,6 +8,5 @@ varieties:
   java: { name: "Java (Spanish)", description: "Granos redondos y de alto contenido de aceite para confitería y molienda." }
   blanched: { name: "Blanqueado", description: "Sin piel, entero o partido, con bajo contenido de aflatoxina." }
 faq:
-  - { q: "¿Cuál es el código HSN de los granos de maní?", a: "El maní pelado se clasifica bajo el HSN 1202 42. Estamos confirmando la línea de 8 dígitos." }
   - { q: "¿Pueden cumplir los límites de aflatoxina de la UE?", a: "Sí, con lotes seleccionados y análisis de terceros hasta ≤ 4 ppb de aflatoxina total, a solicitud." }
   - { q: "¿Qué calibres hay disponibles?", a: "De 38/42 a 80/90 granos por onza, según la variedad." }

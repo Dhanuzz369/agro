@@ -1,22 +1,23 @@
 import { test, expect } from '@playwright/test';
 
-test('blog index lists the 2 published posts', async ({ page }) => {
+test('blog index lists the 1 published post', async ({ page }) => {
   await page.goto('/blog');
-  await expect(page.locator('[data-post]')).toHaveCount(2);
+  await expect(page.locator('[data-post]')).toHaveCount(1);
 });
 
 test('category filter narrows the list', async ({ page }) => {
   await page.goto('/blog');
   await expect(page.getByRole('button', { name: 'Market updates' })).toHaveCount(0);
-  await page.getByRole('button', { name: 'Buyer guides' }).click();
+  await expect(page.getByRole('button', { name: 'Buyer guides' })).toHaveCount(0);
+  await page.getByRole('button', { name: 'Product knowledge' }).click();
   await expect(page.locator('[data-post]:visible')).toHaveCount(1);
 });
 
 test('post has Article JSON-LD and related product link', async ({ page }) => {
-  await page.goto('/blog/turmeric-hsn-codes-explained');
+  await page.goto('/blog/arecanut-grades-chali-vs-kempu');
   const types = await page.locator('script[type="application/ld+json"]').evaluateAll((s) => s.map((x) => JSON.parse(x.textContent!)['@type']));
   expect(types).toContain('Article');
-  await expect(page.locator('a[href="/products/turmeric"]').first()).toBeVisible();
+  await expect(page.locator('main a[href="/products/arecanut"]').first()).toBeVisible();
 });
 
 test('english posts appear on the french index marked In English', async ({ page }) => {

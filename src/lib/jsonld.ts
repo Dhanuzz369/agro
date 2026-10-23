@@ -27,7 +27,7 @@ export function organizationLd(site: SiteData, siteUrl: string) {
   };
 }
 
-export function productLd(a: { name: string; description: string; url: string; image: string; hsn: string[]; brand: string; varieties: { name: string; hsn: string }[] }) {
+export function productLd(a: { name: string; description: string; url: string; image: string; brand: string; varieties: { name: string }[] }) {
   return {
     '@context': ctx,
     '@type': 'Product',
@@ -37,12 +37,7 @@ export function productLd(a: { name: string; description: string; url: string; i
     image: a.image,
     brand: { '@type': 'Brand', name: a.brand },
     countryOfOrigin: { '@type': 'Country', name: 'India' },
-    additionalProperty: a.hsn.map((h) => ({ '@type': 'PropertyValue', name: 'HSN code', value: h })),
-    hasVariant: a.varieties.map((v) => ({
-      '@type': 'Product',
-      name: v.name,
-      additionalProperty: [{ '@type': 'PropertyValue', name: 'HSN code', value: v.hsn }],
-    })),
+    hasVariant: a.varieties.map((v) => ({ '@type': 'Product', name: v.name })),
   };
 }
 

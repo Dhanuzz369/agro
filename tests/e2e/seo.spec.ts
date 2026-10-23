@@ -6,10 +6,10 @@ test('robots.txt allows AI crawlers and lists sitemap', async ({ request }) => {
   expect(body).toContain('Sitemap:');
 });
 
-test('llms.txt lists products and HSN codes', async ({ request }) => {
+test('llms.txt lists products without HSN codes', async ({ request }) => {
   const body = await (await request.get('/llms.txt')).text();
   expect(body).toContain('# GoodBiz Agri');
-  expect(body).toContain('09103030');
+  expect(body).not.toContain('09103030');
   expect(body).toContain('/products/turmeric');
 });
 
@@ -30,7 +30,7 @@ test('og image and spec sheet are served', async ({ request }) => {
 });
 
 test('every page has exactly one h1, a description and a canonical', async ({ page }) => {
-  for (const path of ['/', '/products', '/products/turmeric', '/hsn/1701', '/blog', '/about', '/contact', '/ar/products/rice']) {
+  for (const path of ['/', '/products', '/products/turmeric', '/products/rice', '/blog', '/about', '/contact', '/ar/products/rice']) {
     await page.goto(path);
     await expect(page.locator('h1'), path).toHaveCount(1);
     await expect(page.locator('meta[name="description"]'), path).toHaveCount(1);
@@ -42,7 +42,7 @@ test('sitemap <loc> values equal each page canonical (no trailing slash)', async
   const map = await (await request.get('/sitemap-0.xml')).text();
   const locs = [...map.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
   for (const l of locs) if (new URL(l).pathname !== '/') expect(l.endsWith('/'), l).toBe(false);
-  const wanted = ['/', '/ar', '/zh', '/fr', '/products', '/products/turmeric', '/zh/products/turmeric', '/hsn/1701', '/blog', '/about', '/contact', '/de/contact'];
+  const wanted = ['/', '/ar', '/zh', '/fr', '/products', '/products/turmeric', '/zh/products/turmeric', '/products/rice', '/blog', '/about', '/contact', '/de/contact'];
   const sample = wanted.map((p) => locs.find((l) => new URL(l).pathname === p));
   expect(sample.every(Boolean), JSON.stringify(sample)).toBe(true);
   for (const loc of sample as string[]) {
@@ -68,4 +68,11 @@ test('og:locale uses language_TERRITORY values', async ({ page }) => {
     await page.goto(path);
     await expect(page.locator('meta[property="og:locale"]'), path).toHaveAttribute('content', value);
   }
+});
+
+test('HSN reference pages and the HSN blog post are gone', async ({ request }) => {
+  for (const path of ['/hsn/1701', '/ar/hsn/1701', '/blog/turmeric-hsn-codes-explained', '/og/hsn/1701.png']) expect((await request.get(path)).status(), path).toBe(404);
+  const llms = await (await request.get('/llms.txt')).text();
+  expect(llms).not.toMatch(/HSN|\/hsn\//);
+  expect(await (await request.get('/sitemap-0.xml')).text()).not.toMatch(/\/hsn\/|hsn-codes/);
 });

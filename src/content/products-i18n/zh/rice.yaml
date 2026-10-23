@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "南印度大米"
-summary: "GoodBiz Agri 出口南印度特色大米，HSN 1006——Sona Masoori（索纳·马索里；生米与蒸谷米）、Ponni（波尼）、Kerala Matta（喀拉拉马塔）、Seeraga Samba（西拉加·桑巴）和 idli 米（用于蒸米糕的米）——产自赖丘尔、曼迪亚、坦贾武尔和帕拉卡德的碾米厂。"
+summary: "GoodBiz Agri 出口南印度特色大米——Sona Masoori（索纳·马索里；生米与蒸谷米）、Ponni（波尼）、Kerala Matta（喀拉拉马塔）、Seeraga Samba（西拉加·桑巴）和 idli 米（用于蒸米糕的米）——产自赖丘尔、曼迪亚、坦贾武尔和帕拉卡德的碾米厂。"
 originLine: "赖丘尔、曼迪亚、坦贾武尔和帕拉卡德的碾米厂"
 sourcingStory: "南印度大米比多数买家熟悉的长粒米更轻盈、品种更丰富。我们从赖丘尔周边的通加巴德拉河（Tungabhadra）灌区采购 Sona Masoori，从坦贾武尔的高韦里河三角洲碾米厂采购 Ponni 和 Seeraga Samba，从帕拉卡德采购 Matta，并按每批货的用途菜式和目标市场进行匹配。"
 varieties:
@@ -11,6 +11,5 @@ varieties:
   seeraga-samba: { name: "Seeraga Samba", description: "小粒香米，泰米尔纳德邦用来做印度香饭（biryani）。" }
   idli-rice: { name: "Idli 米", description: "短粒饱满的蒸谷米，用于制作 idli 和 dosa 米浆。" }
 faq:
-  - { q: "Sona Masoori 大米的 HSN 编码是什么？", a: "大米归入 HSN 1006；Sona Masoori 等碾磨非印度香米通常按 10063090 子目申报。请向您的报关行确认8位税号。" }
   - { q: "生米与蒸谷米版 Sona Masoori 有何区别？", a: "蒸谷米在碾磨前经过轻度蒸制，煮熟后米粒更紧实，储存期更长。" }
   - { q: "可以供应贴牌零售包装吗？", a: "可以，提供5公斤、10公斤和25公斤的 BOPP 袋或黄麻袋，印制您的品牌。" }

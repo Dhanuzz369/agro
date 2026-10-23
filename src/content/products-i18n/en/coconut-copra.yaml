@@ -9,6 +9,5 @@ varieties:
   milling-copra: { name: "Milling copra", description: "Cup copra for oil extraction." }
   edible-cups: { name: "Edible copra cups", description: "Half cups for food use." }
 faq:
-  - { q: "What is the HSN code for copra?", a: "Coconut and copra fall under HSN heading 0801. We are confirming the exact 8-digit line for each product." }
   - { q: "What is Tiptur ball copra?", a: "Copra dried whole inside the shell for up to a year, giving a sweet, white kernel prized in the Gulf and South Asia." }
   - { q: "Are coconuts available year-round?", a: "Yes. Pollachi supplies semi-husked coconuts throughout the year." }

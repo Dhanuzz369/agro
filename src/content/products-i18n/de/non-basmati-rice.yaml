@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Nicht-Basmati-Reis"
-summary: "GoodBiz Agri exportiert Nicht-Basmati-Reis in Großmengen unter HSN 10063099 — IR64 roh und parboiled, Swarna und IR36 mit 5 % und 25 % Bruchanteil — aus Mühlen im Godavari-Delta, in Nellore und Raichur."
+summary: "GoodBiz Agri exportiert Nicht-Basmati-Reis in Großmengen — IR64 roh und parboiled, Swarna und IR36 mit 5 % und 25 % Bruchanteil — aus Mühlen im Godavari-Delta, in Nellore und Raichur."
 originLine: "Mühlen im Godavari-Delta, in Nellore und Raichur"
 sourcingStory: "Das Godavari-Delta und der Distrikt Nellore in Andhra Pradesh gehören zu den größten Reisanbaugebieten Indiens. Wir arbeiten dort mit Mühlen zusammen, die über Sortex-Anlagen verfügen, um gleichbleibenden IR64 und Swarna in den Bruchklassen zu liefern, die afrikanische und asiatische Importeure vorgeben."
 varieties:
@@ -9,6 +9,5 @@ varieties:
   swarna: { name: "Swarna", description: "Mittelkornreis aus Andhra Pradesh, weit verbreitet in Bangladesch und Afrika." }
   ir36: { name: "IR36", description: "Weißer Langkornreis für preissensible Märkte." }
 faq:
-  - { q: "Was ist HSN 10063099?", a: "Er umfasst teilweise oder vollständig geschliffenen Nicht-Basmati-Reis, anderweitig nicht genannt." }
   - { q: "Welche Bruchanteile liefern Sie?", a: "Standardmäßig 5 % und 25 % Bruch; 10 % und 15 % auf Anfrage." }
   - { q: "Gibt es einen Ausfuhrzoll auf Nicht-Basmati-Reis?", a: "Die indische Exportpolitik für Reis ändert sich regelmäßig. Wir bestätigen vor jedem Vertrag den aktuellen Stand bei der DGFT." }

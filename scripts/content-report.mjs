@@ -3,12 +3,7 @@ import { join } from 'node:path';
 import { parse } from 'yaml';
 
 const locales = ['en', 'ar', 'fr', 'es', 'pt', 'ru', 'zh', 'id', 'de'];
-const out = { 'Unverified HSN': [], 'Placeholders (REPLACE:)': [], 'Missing translations': [], 'Pending review': [], 'Draft posts': [] };
-
-for (const f of readdirSync('src/content/products')) {
-  const p = parse(readFileSync(join('src/content/products', f), 'utf8'));
-  for (const h of p.hsn) if (!h.verified) out['Unverified HSN'].push(`${f.replace('.yaml', '')}: ${h.code}`);
-}
+const out = { 'Placeholders (REPLACE:)': [], 'Missing translations': [], 'Pending review': [], 'Draft posts': [] };
 
 const walk = (obj, path = '') =>
   Object.entries(obj).flatMap(([k, v]) => (v && typeof v === 'object' ? walk(v, `${path}${k}.`) : typeof v === 'string' && v.startsWith('REPLACE:') ? [`${path}${k}`] : []));
@@ -20,7 +15,7 @@ for (const l of locales.slice(1)) {
   const table = existsSync(file) ? JSON.parse(readFileSync(file, 'utf8')) : {};
   const missing = Object.keys(en).filter((k) => !table[k]);
   if (missing.length) out['Missing translations'].push(`ui/${l}: ${missing.length} keys`);
-  for (const dir of ['products-i18n', 'hsn-i18n']) {
+  for (const dir of ['products-i18n']) {
     for (const f of readdirSync(`src/content/${dir}/en`)) {
       const path = `src/content/${dir}/${l}/${f}`;
       if (!existsSync(path)) { out['Missing translations'].push(`${dir}/${l}/${f}`); continue; }

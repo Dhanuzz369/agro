@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Curcuma"
-summary: "GoodBiz Agri exporte du curcuma frais (code HSN 09103010), des doigts et bulbes de curcuma séchés (code HSN 09103020) et de la poudre de curcuma (code HSN 09103030) d'origine Erode et Salem au Tamil Nadu et Alappuzha au Kerala, avec une curcumine de 2 % à 5 % et une humidité inférieure à 10 %."
+summary: "GoodBiz Agri exporte du curcuma frais, des doigts et bulbes de curcuma séchés et de la poudre de curcuma d'origine Erode et Salem au Tamil Nadu et Alappuzha au Kerala, avec une curcumine de 2 % à 5 % et une humidité inférieure à 10 %."
 originLine: "Erode, Salem et Alleppey — le cœur du curcuma indien"
 sourcingStory: "Le marché réglementé d'Erode fixe le prix d'une grande partie du curcuma mondial. Nous y achetons des doigts et des bulbes polis, ainsi qu'à Salem, à chaque récolte, et nous nous approvisionnons en doigts d'Alleppey riches en curcumine auprès de négociants du Kerala pour les acheteurs qui recherchent une forte intensité de couleur. La poudre est moulue à la commande afin que la curcumine et la granulométrie correspondent à votre cahier des charges."
 varieties:
@@ -10,7 +10,5 @@ varieties:
   salem-bulb: { name: "Bulbes de Salem", description: "Bulbes ronds de Salem, populaires pour le broyage." }
   powder: { name: "Poudre de curcuma", description: "Moulue à la commande, 60–80 mesh, curcumine calibrée de 2 à 5 %." }
 faq:
-  - { q: "Quel est le code HSN de la poudre de curcuma ?", a: "La poudre de curcuma est classée sous le code HSN 09103030. Le curcuma séché entier est le 09103020 et le curcuma frais le 09103010." }
   - { q: "Quelles teneurs en curcumine pouvez-vous fournir ?", a: "Le curcuma d'Erode et de Salem titre généralement 2,5–4 % de curcumine ; les doigts d'Alleppey 4,5–5 %. La poudre peut être assemblée à une teneur en curcumine précise." }
-  - { q: "Quand le curcuma est-il récolté ?", a: "La récolte principale s'étend de janvier à avril, avec des arrivages de curcuma frais à Erode dès février." }
   - { q: "Pouvez-vous respecter les limites européennes de pesticides ?", a: "Oui. Nous sélectionnons et testons les lots selon les LMR de l'UE et pouvons fournir une analyse par un tiers avant l'expédition." }

@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Kurkuma"
-summary: "GoodBiz Agri exportiert frische Kurkuma (HSN 09103010), getrocknete Kurkumafinger und -knollen (HSN 09103020) sowie Kurkumapulver (HSN 09103030) aus Erode und Salem in Tamil Nadu sowie Alappuzha in Kerala, mit Curcumin von 2 % bis 5 % und einer Feuchtigkeit unter 10 %."
+summary: "GoodBiz Agri exportiert frische Kurkuma, getrocknete Kurkumafinger und -knollen sowie Kurkumapulver aus Erode und Salem in Tamil Nadu sowie Alappuzha in Kerala, mit Curcumin von 2 % bis 5 % und einer Feuchtigkeit unter 10 %."
 originLine: "Erode, Salem und Alleppey — Indiens Kurkuma-Kernland"
 sourcingStory: "Der regulierte Markt von Erode bestimmt den Preis für einen großen Teil der weltweiten Kurkuma. Polierte Finger und Knollen kaufen wir dort und in Salem bei jeder Ernte, und für Käufer, die Farbkraft benötigen, beziehen wir curcuminreiche Alleppey-Finger von Händlern in Kerala. Pulver wird auf Bestellung gemahlen, damit Curcumin und Mesh Ihrer Spezifikation entsprechen."
 varieties:
@@ -10,7 +10,5 @@ varieties:
   salem-bulb: { name: "Salem-Knollen", description: "Runde Knollen aus Salem, beliebt zum Mahlen." }
   powder: { name: "Kurkumapulver", description: "Auf Bestellung gemahlen, 60–80 Mesh, Curcumin in Güten von 2–5 %." }
 faq:
-  - { q: "Wie lautet der HSN-Code für Kurkumapulver?", a: "Kurkumapulver wird unter HSN 09103030 eingereiht. Getrocknete ganze Kurkuma hat 09103020, frische Kurkuma 09103010." }
   - { q: "Welche Curcumingehalte können Sie liefern?", a: "Kurkuma aus Erode und Salem weist typischerweise 2,5–4 % Curcumin auf; Alleppey-Finger 4,5–5 %. Pulver kann auf einen vorgegebenen Curcumingehalt gemischt werden." }
-  - { q: "Wann wird Kurkuma geerntet?", a: "Die Haupternte dauert von Januar bis April, mit frischen Lieferungen in Erode ab Februar." }
   - { q: "Können Sie die EU-Pestizidgrenzwerte einhalten?", a: "Ja. Wir beziehen und prüfen Partien gegen die EU-Rückstandshöchstgehalte und können vor der Verladung eine Analyse durch Dritte bereitstellen." }

@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Cúrcuma"
-summary: "GoodBiz Agri exporta cúrcuma fresca (HSN 09103010), dedos y bulbos de cúrcuma seca (HSN 09103020) y cúrcuma en polvo (HSN 09103030) procedentes de Erode y Salem, en Tamil Nadu, y de Alappuzha, en Kerala, con curcumina del 2% al 5% y humedad inferior al 10%."
+summary: "GoodBiz Agri exporta cúrcuma fresca, dedos y bulbos de cúrcuma seca y cúrcuma en polvo procedentes de Erode y Salem, en Tamil Nadu, y de Alappuzha, en Kerala, con curcumina del 2% al 5% y humedad inferior al 10%."
 originLine: "Erode, Salem y Alleppey — el corazón de la cúrcuma de la India"
 sourcingStory: "El mercado regulado de Erode fija el precio de gran parte de la cúrcuma del mundo. Allí y en Salem compramos dedos y bulbos pulidos en cada cosecha, y adquirimos de comerciantes de Kerala dedo Alleppey de alta curcumina para los compradores que necesitan intensidad de color. El polvo se muele por encargo para que la curcumina y la malla se ajusten a su especificación."
 varieties:
@@ -10,7 +10,5 @@ varieties:
   salem-bulb: { name: "Bulbo de Salem", description: "Bulbos redondos de Salem, populares para molienda." }
   powder: { name: "Cúrcuma en polvo", description: "Molida por encargo, malla 60–80, curcumina graduada del 2–5%." }
 faq:
-  - { q: "¿Cuál es el código HSN de la cúrcuma en polvo?", a: "La cúrcuma en polvo se clasifica bajo el HSN 09103030. La cúrcuma seca entera es 09103020 y la cúrcuma fresca es 09103010." }
   - { q: "¿Qué niveles de curcumina pueden suministrar?", a: "La cúrcuma de Erode y Salem suele dar entre 2,5 y 4% de curcumina; el dedo Alleppey, entre 4,5 y 5%. El polvo puede mezclarse hasta un nivel de curcumina especificado." }
-  - { q: "¿Cuándo se cosecha la cúrcuma?", a: "La cosecha principal va de enero a abril, y la cúrcuma fresca llega a Erode desde febrero." }
   - { q: "¿Pueden cumplir los límites de plaguicidas de la UE?", a: "Sí. Adquirimos y analizamos los lotes según los LMR de la UE y podemos facilitar análisis de terceros antes del embarque." }

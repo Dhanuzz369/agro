@@ -19,9 +19,6 @@ export function wrapLines(text: string, measure: (t: string) => number, maxWidth
   return lines.length ? lines : [''];
 }
 
-/** HSN as stored; unverified codes carry the same caveat as the website. */
-export const hsnLine = (hsn: string, verified: boolean) => `HSN ${hsn}${verified ? '' : ' (code under verification)'}`;
-
 /** Contact line: the owner's email, or the contact page on the configured site until the email is set. */
 export function contactFallback(email: string, site: URL): string {
   if (!isPlaceholder(email)) return email;
@@ -30,13 +27,13 @@ export function contactFallback(email: string, site: URL): string {
 }
 
 export async function buildSpecSheet(a: {
-  productName: string; varietyName: string; hsn: string; verified: boolean; region: string; market: string;
+  productName: string; varietyName: string; region: string; market: string;
   specs: { label: string; value: string }[]; packing: string[]; ports: string; contact: string; url: string;
 }): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
   doc.setTitle(`${a.varietyName} — GoodBiz Agri spec sheet`);
   doc.setAuthor('GoodBiz Agri');
-  doc.setSubject(`${a.productName} specification, ${hsnLine(a.hsn, a.verified)}`);
+  doc.setSubject(`${safe(a.productName)} specification`);
   const page = doc.addPage([595.28, 841.89]);
   const serif = await doc.embedFont(StandardFonts.TimesRoman);
   const sans = await doc.embedFont(StandardFonts.Helvetica);
@@ -51,7 +48,6 @@ export async function buildSpecSheet(a: {
 
   page.drawText(safe(a.productName.toUpperCase()), { x, y: (y -= 20), size: 9, font: bold, color: muted });
   page.drawText(safe(a.varietyName), { x, y: (y -= 28), size: 24, font: serif, color: ink });
-  page.drawText(hsnLine(a.hsn, a.verified), { x, y: (y -= 22), size: 11, font: mono, color: forest });
 
   const lineHeight = 13;
   const row = (label: string, value: string) => {

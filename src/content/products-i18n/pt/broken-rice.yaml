@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Arroz quebrado"
-summary: "A GoodBiz Agri exporta arroz 100% quebrado sob o HSN 100640 — branco, parboilizado e sortexed — de usinas do delta do Godavari, Nellore e Raichur."
+summary: "A GoodBiz Agri exporta arroz 100% quebrado — branco, parboilizado e sortexed — de usinas do delta do Godavari, Nellore e Raichur."
 originLine: "Usinas do delta do Godavari, Nellore e Raichur"
 sourcingStory: "O arroz quebrado é um alimento básico no Senegal, na Gâmbia e em grande parte da África Ocidental, além de insumo importante para cervejarias e ração animal. Compramos das mesmas usinas que nos fornecem o arroz de grão inteiro, de modo que umidade e limpeza seguem o mesmo padrão."
 varieties:
@@ -8,5 +8,4 @@ varieties:
   parboiled: { name: "Quebrado parboilizado", description: "Quebrados parboilizados, de textura mais firme." }
   sortexed: { name: "Quebrado sortexed", description: "Selecionado por cor para aparência uniforme e menos grãos danificados." }
 faq:
-  - { q: "Qual é o código HSN do arroz quebrado?", a: "O arroz quebrado é classificado sob o HSN 100640." }
   - { q: "Quem compra arroz quebrado?", a: "Importadores de alimentos da África Ocidental e da Ásia, cervejarias e fabricantes de ração animal." }

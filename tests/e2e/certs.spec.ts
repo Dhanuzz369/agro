@@ -5,6 +5,14 @@ test('registered-with strip shows each registration, with official logos where s
   const strip = page.locator('.certs');
   for (const id of ['apeda', 'spices-board', 'fieo', 'fssai', 'iec', 'cdb']) await expect(strip.locator(`[data-reg="${id}"]`)).toHaveCount(1);
   const logos = strip.locator('img');
-  await expect(logos).toHaveCount(5);
+  await expect(logos).toHaveCount(6);
   for (const img of await logos.all()) expect(await img.evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0)).toBe(true);
+});
+
+test('placeholder registration numbers are not shown', async ({ page }) => {
+  await page.goto('/');
+  const strip = page.locator('.certs');
+  await expect(strip.locator('.certs__no')).toHaveCount(0); // every number in site.yaml is still REPLACE:
+  await expect(strip).not.toContainText('Number on request');
+  await expect(strip).not.toContainText('Reg. no.');
 });

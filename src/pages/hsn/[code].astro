@@ -1,9 +1,0 @@
----
-import { getCollection } from 'astro:content';
-import HsnView from '../../views/HsnView.astro';
-export async function getStaticPaths() {
-  const products = await getCollection('products');
-  return products.flatMap((p) => p.data.hsn.map((h) => ({ params: { code: h.code } })));
-}
----
-<HsnView locale="en" code={Astro.params.code!} />

@@ -6,7 +6,7 @@ describe('resolveTarget', () => {
   it('core language navigates to localized path', () =>
     expect(resolveTarget('fr', '/products/turmeric', locales)).toEqual({ type: 'core', href: '/fr/products/turmeric' }));
   it('switching from a localized page keeps the path', () =>
-    expect(resolveTarget('de', '/ar/hsn/1701', locales)).toEqual({ type: 'core', href: '/de/hsn/1701' }));
+    expect(resolveTarget('de', '/ar/products/rice', locales)).toEqual({ type: 'core', href: '/de/products/rice' }));
   it('zh-CN maps to core zh', () => expect(resolveTarget('zh-CN', '/', locales)).toEqual({ type: 'core', href: '/zh' }));
   it('English goes to unprefixed path', () => expect(resolveTarget('en', '/fr/about', locales)).toEqual({ type: 'core', href: '/about' }));
   it('non-core language uses machine translation', () => expect(resolveTarget('tr', '/about', locales)).toEqual({ type: 'machine', gtCode: 'tr' }));

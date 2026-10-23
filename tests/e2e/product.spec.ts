@@ -10,25 +10,30 @@ for (const slug of slugs) {
   });
 }
 
-test('turmeric page has varieties, specs, HSN, quote prefill link and JSON-LD', async ({ page }) => {
+test('turmeric page has varieties, specs, quote prefill link and JSON-LD', async ({ page }) => {
   await page.goto('/products/turmeric');
   await expect(page.locator('[data-variety]')).toHaveCount(5);
-  await expect(page.getByText('0910 30 30').first()).toBeVisible();
+  await expect(page.locator('[data-variety="powder"] table')).toHaveCount(1);
   const quote = page.locator('[data-variety="powder"] a', { hasText: 'Quote this variety' });
   await expect(quote).toHaveAttribute('href', '/contact?product=turmeric&variety=powder');
   const types = await page.locator('script[type="application/ld+json"]').evaluateAll((s) => s.map((x) => JSON.parse(x.textContent!)['@type']));
   expect(types).toEqual(expect.arrayContaining(['Organization', 'Product', 'FAQPage', 'BreadcrumbList']));
 });
 
-test('unverified HSN is flagged on arecanut', async ({ page }) => {
-  await page.goto('/products/arecanut');
-  await expect(page.locator('.hsn__flag').first()).toBeVisible();
+test('product pages show no HSN codes or harvest season', async ({ page }) => {
+  for (const path of ['/products/turmeric', '/products/arecanut', '/zh/products/rice']) {
+    await page.goto(path);
+    const html = await page.content();
+    expect(html, path).not.toMatch(/HSN|0910 ?30|harvest season|harvest calendar/i);
+    await expect(page.locator('.cal, [data-month]'), path).toHaveCount(0);
+  }
+  await expect(page).toHaveTitle(/^印度/);
 });
 
-test('products index lists 9 products and 14 HSN rows', async ({ page }) => {
+test('products index lists 9 products and no HSN table', async ({ page }) => {
   await page.goto('/products');
   await expect(page.locator('main article')).toHaveCount(9);
-  await expect(page.locator('[data-hsn-row]')).toHaveCount(14);
+  expect(await page.content()).not.toMatch(/HSN/);
 });
 
 test('localized product page links back with locale prefix', async ({ page }) => {
@@ -48,13 +53,13 @@ test('product hero poster is preloaded with the exact srcset the img uses', asyn
 });
 
 test('related insights list published posts about the product', async ({ page }) => {
-  await page.goto('/products/turmeric');
+  await page.goto('/products/arecanut');
   const section = page.locator('[data-related-posts]');
   await expect(section.getByRole('heading', { name: 'Related insights' })).toBeVisible();
-  await expect(section.locator('a[href="/blog/turmeric-hsn-codes-explained"]')).toBeVisible();
+  await expect(section.locator('a[href="/blog/arecanut-grades-chali-vs-kempu"]')).toBeVisible();
   await expect(section.locator('a[href*="market-report"]')).toHaveCount(0); // draft
-  await page.goto('/fr/products/turmeric');
-  await expect(page.locator('[data-related-posts] a[href="/blog/turmeric-hsn-codes-explained"]')).toBeVisible(); // English fallback
+  await page.goto('/fr/products/arecanut');
+  await expect(page.locator('[data-related-posts] a[href="/blog/arecanut-grades-chali-vs-kempu"]')).toBeVisible(); // English fallback
   await page.goto('/products/jaggery');
   await expect(page.locator('[data-related-posts]')).toHaveCount(0);
 });

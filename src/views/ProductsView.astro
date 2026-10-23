@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import ProductCard from '../components/ProductCard.astro';
-import HsnTable from '../components/HsnTable.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { createT } from '../i18n/t';
 import { getLocalizedProducts } from '../lib/catalog';
@@ -25,7 +24,6 @@ const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
       <p>{t('home.range.lede')}</p>
     </header>
     <div class="grid">{products.map((p) => <ProductCard locale={locale} product={p} headingLevel="h2" />)}</div>
-    <section class="section"><HsnTable locale={locale} /></section>
   </div>
 </Base>
 <style>

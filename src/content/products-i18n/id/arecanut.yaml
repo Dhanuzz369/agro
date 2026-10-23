@@ -9,6 +9,4 @@ varieties:
   red-kempu: { name: "Merah (kempu) — api dan bette", description: "Mutu merah kecokelatan yang direbus dan dikeringkan dari Shivamogga." }
   sliced: { name: "Pinang iris", description: "Irisan seragam untuk pasar konsumsi langsung." }
 faq:
-  - { q: "Apa kode HSN untuk pinang?", a: "Pinang termasuk dalam pos HSN 0802 80. Kami sedang memastikan baris 8 digit yang tepat untuk setiap mutu; hubungi kami untuk kode yang digunakan pada dokumen impor Anda." }
   - { q: "Apa perbedaan antara chali dan kempu?", a: "Chali adalah biji utuh yang dijemur dari pesisir Karnataka; kempu direbus lalu dikeringkan sehingga berwarna merah." }
-  - { q: "Kapan pinang dipanen?", a: "November hingga Maret, dengan kedatangan panen baru memuncak pada Januari." }

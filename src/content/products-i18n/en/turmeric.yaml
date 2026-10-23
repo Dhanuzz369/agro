@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Turmeric
-summary: GoodBiz Agri exports fresh turmeric (HSN 09103010), dried turmeric fingers and bulbs (HSN 09103020) and turmeric powder (HSN 09103030) sourced from Erode and Salem in Tamil Nadu and Alappuzha in Kerala, with curcumin from 2% to 5% and moisture below 10%.
+summary: GoodBiz Agri exports fresh turmeric, dried turmeric fingers and bulbs and turmeric powder sourced from Erode and Salem in Tamil Nadu and Alappuzha in Kerala, with curcumin from 2% to 5% and moisture below 10%.
 originLine: Erode, Salem and Alleppey — India's turmeric heartland
 sourcingStory: Erode's regulated market sets the price for much of the world's turmeric. We buy polished fingers and bulbs there and in Salem each harvest, and source high-curcumin Alleppey finger from Kerala traders for buyers who need colour strength. Powder is milled to order so curcumin and mesh match your specification.
 varieties:
@@ -10,7 +10,5 @@ varieties:
   salem-bulb: { name: "Salem bulb", description: "Round bulbs from Salem, popular for grinding." }
   powder: { name: "Turmeric powder", description: "Milled to order, 60–80 mesh, curcumin graded 2–5%." }
 faq:
-  - { q: "What is the HSN code for turmeric powder?", a: "Turmeric powder is classified under HSN 09103030. Dried whole turmeric is 09103020 and fresh turmeric is 09103010." }
   - { q: "What curcumin levels can you supply?", a: "Erode and Salem turmeric typically test 2.5–4% curcumin; Alleppey finger tests 4.5–5%. Powder can be blended to a specified curcumin level." }
-  - { q: "When is turmeric harvested?", a: "The main harvest runs from January to April, with fresh arrivals at Erode from February." }
   - { q: "Can you meet EU pesticide limits?", a: "Yes. We source and test lots against EU MRLs and can provide third-party analysis before shipment." }

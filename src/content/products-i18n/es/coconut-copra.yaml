@@ -9,6 +9,5 @@ varieties:
   milling-copra: { name: "Copra para molienda", description: "Copra en copas para extracción de aceite." }
   edible-cups: { name: "Copas de copra comestibles", description: "Medias copas para uso alimentario." }
 faq:
-  - { q: "¿Cuál es el código HSN de la copra?", a: "El coco y la copra se clasifican en la partida HSN 0801. Estamos confirmando la línea exacta de 8 dígitos para cada producto." }
   - { q: "¿Qué es la copra en bola de Tiptur?", a: "Copra secada entera dentro de la cáscara hasta por un año, que da una almendra dulce y blanca muy apreciada en el Golfo y el sur de Asia." }
   - { q: "¿Hay cocos disponibles todo el año?", a: "Sí. Pollachi suministra cocos semidescascarados durante todo el año." }

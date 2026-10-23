@@ -1,16 +1,15 @@
 ---
 import { createT } from '../i18n/t';
 import { localizePath } from '../i18n/paths';
-import { getSite, getHsnEntries } from '../lib/catalog';
+import { getSite, getLocalizedProducts } from '../lib/catalog';
 import { mailtoHref, isPlaceholder } from '../lib/site';
-import { formatHsn } from '../lib/hsn';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
 const site = await getSite();
-const hsn = await getHsnEntries(locale);
 const mail = mailtoHref(site.email);
+const products = await getLocalizedProducts(locale);
 ---
 <footer class="ftr" data-tone="dark">
   <div class="container ftr__grid">
@@ -22,12 +21,12 @@ const mail = mailtoHref(site.email);
       </address>
       {mail && <a href={mail}>{site.email}</a>}
     </div>
-    <div>
-      <h2 class="eyebrow">{t('footer.hsnRef')}</h2>
-      <ul class="ftr__hsn">
-        {hsn.map((h) => <li><a href={localizePath(`/hsn/${h.code}`, locale)}><span dir="ltr">{formatHsn(h.code)}</span> {h.text.title}</a></li>)}
+    <nav aria-labelledby="ftr-products">
+      <h2 id="ftr-products" class="eyebrow">{t('nav.products')}</h2>
+      <ul class="ftr__list">
+        {products.map((p) => <li><a href={localizePath(`/products/${p.slug}`, locale)}>{p.text.name}</a></li>)}
       </ul>
-    </div>
+    </nav>
   </div>
   <div class="container ftr__base"><p>{t('footer.rights', { year: new Date().getFullYear() })}</p></div>
 </footer>
@@ -38,8 +37,7 @@ const mail = mailtoHref(site.email);
   .ftr__brand { font-family: var(--font-display); font-size: var(--step-2); }
   .ftr__brand span { color: var(--turmeric); }
   address { font-style: normal; margin-block: var(--space-4); opacity: 0.85; }
-  .ftr__hsn { list-style: none; padding: 0; margin: var(--space-4) 0 0; columns: 2 14rem; font-size: var(--step--1); }
-  .ftr__hsn li { break-inside: avoid; padding-block: var(--space-1); }
-  .ftr__hsn span { font-family: var(--font-mono); color: var(--gold-soft); }
+  .ftr__list { list-style: none; padding: 0; margin: var(--space-4) 0 0; columns: 2 14rem; font-size: var(--step--1); }
+  .ftr__list li { break-inside: avoid; padding-block: var(--space-1); }
   .ftr__base { margin-block-start: var(--space-7); padding-block-start: var(--space-5); border-block-start: 1px solid rgb(246 241 231 / 0.2); font-size: var(--step--1); opacity: 0.8; }
 </style>

@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Südindischer Reis"
-summary: "GoodBiz Agri exportiert südindische Spezialreissorten unter HSN 1006 — Sona Masoori (roh und gedämpft), Ponni, Kerala Matta, Seeraga Samba und Idli-Reis — gemahlen in Raichur, Mandya, Thanjavur und Palakkad."
+summary: "GoodBiz Agri exportiert südindische Spezialreissorten — Sona Masoori (roh und gedämpft), Ponni, Kerala Matta, Seeraga Samba und Idli-Reis — gemahlen in Raichur, Mandya, Thanjavur und Palakkad."
 originLine: "Mühlen in Raichur, Mandya, Thanjavur und Palakkad"
 sourcingStory: "Südindischer Reis ist leichter und vielfältiger als die Langkornsorten, die die meisten Käufer kennen. Wir beziehen Sona Masoori aus dem Bewässerungsgebiet des Tungabhadra um Raichur, Ponni und Seeraga Samba aus den Mühlen des Kaveri-Deltas bei Thanjavur und Matta aus Palakkad und stimmen jede Partie auf das Gericht und den Markt ab, für die sie bestimmt ist."
 varieties:
@@ -11,6 +11,5 @@ varieties:
   seeraga-samba: { name: "Seeraga Samba", description: "Kleines, aromatisches Korn, in Tamil Nadu für Biryani verwendet." }
   idli-rice: { name: "Idli-Reis", description: "Kurzer, runder Parboiled-Reis für Idli- und Dosa-Teig." }
 faq:
-  - { q: "Wie lautet der HSN-Code für Sona-Masoori-Reis?", a: "Reis fällt unter HSN 1006; gemahlener Nicht-Basmati-Reis wie Sona Masoori wird üblicherweise unter Unterpositionen von 10063090 angemeldet. Bestätigen Sie die achtstellige Zeile mit Ihrem Zollagenten." }
   - { q: "Was ist der Unterschied zwischen rohem und gedämpftem Sona Masoori?", a: "Gedämpfter Reis wird vor dem Mahlen leicht gedämpft, was festere gekochte Körner und eine längere Lagerfähigkeit ergibt." }
   - { q: "Können Sie Handelsmarken-Beutel für den Einzelhandel liefern?", a: "Ja, in BOPP- oder Jutesäcken zu 5, 10 und 25 kg mit Ihrer Marke." }

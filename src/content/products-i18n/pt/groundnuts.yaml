@@ -8,6 +8,5 @@ varieties:
   java: { name: "Java (Spanish)", description: "Grãos redondos, com alto teor de óleo, para confeitaria e esmagamento." }
   blanched: { name: "Blanched (sem pele)", description: "Sem pele, inteiros ou partidos, com baixa aflatoxina." }
 faq:
-  - { q: "Qual é o código HSN dos grãos de amendoim?", a: "O amendoim descascado é classificado sob o HSN 1202 42. Estamos confirmando a linha de 8 dígitos." }
   - { q: "Vocês atendem aos limites de aflatoxina da UE?", a: "Sim, com lotes selecionados e testes de terceiros até ≤ 4 ppb de aflatoxina total, sob consulta." }
   - { q: "Quais calibres estão disponíveis?", a: "De 38/42 a 80/90 grãos por onça, conforme a variedade." }

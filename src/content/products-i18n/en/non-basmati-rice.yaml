@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Non-Basmati Rice
-summary: GoodBiz Agri exports bulk non-basmati rice under HSN 10063099 — IR64 raw and parboiled, Swarna and IR36 in 5% and 25% broken grades — from mills in the Godavari delta, Nellore and Raichur.
+summary: GoodBiz Agri exports bulk non-basmati rice — IR64 raw and parboiled, Swarna and IR36 in 5% and 25% broken grades — from mills in the Godavari delta, Nellore and Raichur.
 originLine: Godavari delta, Nellore and Raichur mills
 sourcingStory: Andhra Pradesh's Godavari delta and Nellore district are among India's largest rice bowls. We contract with sortex-equipped mills there for consistent IR64 and Swarna in the broken grades African and Asian importers specify.
 varieties:
@@ -9,6 +9,5 @@ varieties:
   swarna: { name: "Swarna", description: "Medium-grain rice from Andhra Pradesh, widely used in Bangladesh and Africa." }
   ir36: { name: "IR36", description: "Long-grain white rice for price-sensitive markets." }
 faq:
-  - { q: "What is HSN 10063099?", a: "It covers semi-milled or wholly milled non-basmati rice not elsewhere specified." }
   - { q: "Which broken percentages do you supply?", a: "5% and 25% broken as standard; 10% and 15% on request." }
   - { q: "Is there an export duty on non-basmati rice?", a: "Indian export policy for rice changes periodically. We confirm the current DGFT position before every contract." }

@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Gengibre"
-summary: "A GoodBiz Agri exporta gengibre fresco (HSN 09101110), gengibre seco não branqueado (09101120), gengibre seco branqueado (09101130) e outros gengibres inteiros (09101190) de Wayanad, em Kerala, e de Kodagu e Hassan, em Karnataka."
+summary: "A GoodBiz Agri exporta gengibre fresco, gengibre seco não branqueado, gengibre seco branqueado e outros gengibres inteiros de Wayanad, em Kerala, e de Kodagu e Hassan, em Karnataka."
 originLine: "Wayanad, Kodagu e Hassan — o cinturão do gengibre dos Gates Ocidentais"
 sourcingStory: "O gengibre cultivado nas encostas dos Gates Ocidentais é conhecido pela pungência e pelo teor de óleo. Compramos gengibre fresco de produtores de Wayanad durante a colheita e gengibre seco pelo comércio de especiarias de Kochi, onde a classe «Cochin ginger» é negociada há séculos."
 varieties:
@@ -9,6 +9,4 @@ varieties:
   dried-bleached: { name: "Gengibre seco branqueado", description: "Branqueado com cal para aparência clara e uniforme." }
   whole-other: { name: "Gengibre seco inteiro (outros)", description: "Gengibre inteiro, nem triturado nem moído, conforme a classe do comprador." }
 faq:
-  - { q: "Qual é o código HSN do gengibre seco?", a: "O gengibre seco não branqueado é HSN 09101120 e o gengibre seco branqueado é 09101130. O gengibre fresco é 09101110." }
   - { q: "Como o gengibre fresco é embarcado?", a: "Em contêineres refrigerados de 40 pés a cerca de 12–13 °C, com capacidade para cerca de 26 toneladas." }
-  - { q: "Quando é a colheita do gengibre?", a: "De dezembro a março. O gengibre seco está disponível o ano todo, a partir de estoque." }

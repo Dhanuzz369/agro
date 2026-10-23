@@ -9,6 +9,4 @@ varieties:
   red-kempu: { name: "Vermelha (kempu) — api e bette", description: "Classes vermelho-amarronzadas, cozidas e secas, de Shivamogga." }
   sliced: { name: "Noz de areca fatiada", description: "Fatias uniformes para mercados de consumo direto." }
 faq:
-  - { q: "Qual é o código HSN da noz de areca?", a: "A noz de areca se enquadra na posição HSN 0802 80. Estamos confirmando a linha exata de 8 dígitos para cada classe; peça-nos o código a usar nos seus documentos de importação." }
   - { q: "Qual é a diferença entre chali e kempu?", a: "A chali é a noz inteira seca ao sol do litoral de Karnataka; a kempu é cozida e seca, o que lhe dá a cor vermelha." }
-  - { q: "Quando a noz de areca é colhida?", a: "De novembro a março, com a chegada da nova safra atingindo o pico em janeiro." }

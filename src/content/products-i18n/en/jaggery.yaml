@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Jaggery
-summary: GoodBiz Agri exports jaggery under HSN 1701 — blocks, cubes, powder, organic jaggery and palm jaggery (karupatti) — from Mandya and Belagavi in Karnataka and Thoothukudi in Tamil Nadu.
+summary: GoodBiz Agri exports jaggery — blocks, cubes, powder, organic jaggery and palm jaggery (karupatti) — from Mandya and Belagavi in Karnataka and Thoothukudi in Tamil Nadu.
 originLine: Mandya, Belagavi and Thoothukudi
 sourcingStory: Mandya's sugarcane belt has made jaggery for generations, boiling fresh cane juice in open pans. We buy blocks and organic jaggery there, cubes and powder from Belagavi's processors, and palm jaggery from Thoothukudi's palmyra tappers.
 varieties:
@@ -10,6 +10,5 @@ varieties:
   organic: { name: "Organic jaggery", description: "Made without chemical clarification." }
   palm-karupatti: { name: "Palm jaggery (karupatti)", description: "Made from palmyra palm sap in southern Tamil Nadu." }
 faq:
-  - { q: "What is the HSN code for jaggery?", a: "Jaggery is classified under HSN heading 1701." }
   - { q: "How long does jaggery keep?", a: "About 12 months in cool, dry storage; powder and vacuum-packed blocks keep best." }
   - { q: "Can you supply private label?", a: "Yes, in 500 g to 5 kg packs with your branding." }

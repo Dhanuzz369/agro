@@ -50,7 +50,7 @@ A printed field journal for a commodity trader: warm paper, thin high-contrast s
 ## Typography rules
 - Serif for feeling, sans for facts. Fraunces 300 only at 24px and above; never body copy.
 - Scale, not weight, creates hierarchy. Eyebrows set section context in small uppercase tracked sans.
-- HSN codes, specs and numbers in JetBrains Mono so they read like trade documents.
+- Specs and numbers in JetBrains Mono so they read like trade documents.
 
 ## Components
 - Buttons: pills, min-height 48px, 16px/600 label, padding 0 24px. Primary `turmeric`/ink; secondary `stone`/white; ghost 1px `stone` outline on paper or 1px `paper` outline on forest; on-dark `paper`/`stone`.
@@ -59,7 +59,7 @@ A printed field journal for a commodity trader: warm paper, thin high-contrast s
 - Pill tabs/filters: full radius, 1px `hairline` border; selected = `forest` fill, `paper` text.
 - Eyebrow label: 12px/700 uppercase, `clay` on paper, `gold-soft` on forest.
 - Stat: large Fraunces number in `forest` over a caption in `ash`.
-- Footer: `forest` world, paper text, gold-soft headings, HSN quick reference in mono.
+- Footer: `forest` world, paper text, gold-soft headings.
 
 ## Layout
 - Content max-width 1216px, gutters clamp(16px, 4vw, 48px); full-bleed photography may break out.

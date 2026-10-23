@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Beras Patah"
-summary: "GoodBiz Agri mengekspor beras patah 100% di bawah HSN 100640 — putih, parboiled, dan hasil sortex — dari penggilingan di delta Godavari, Nellore, dan Raichur."
+summary: "GoodBiz Agri mengekspor beras patah 100% — putih, parboiled, dan hasil sortex — dari penggilingan di delta Godavari, Nellore, dan Raichur."
 originLine: "Penggilingan di delta Godavari, Nellore, dan Raichur"
 sourcingStory: "Beras patah adalah makanan pokok di Senegal, Gambia, dan sebagian besar Afrika Barat, serta bahan penting untuk pembuatan bir dan pakan. Kami membelinya dari penggilingan yang sama dengan pemasok beras utuh kami, sehingga kadar air dan kebersihannya memenuhi standar yang sama."
 varieties:
@@ -8,5 +8,4 @@ varieties:
   parboiled: { name: "Patah parboiled", description: "Patahan parboiled dengan tekstur lebih padat." }
   sortexed: { name: "Patah hasil sortex", description: "Disortir warna agar tampilan seragam dan butir rusak lebih sedikit." }
 faq:
-  - { q: "Apa kode HSN untuk beras patah?", a: "Beras patah diklasifikasikan di bawah HSN 100640." }
   - { q: "Siapa yang membeli beras patah?", a: "Importir pangan di Afrika Barat dan Asia, pabrik bir, dan produsen pakan ternak." }

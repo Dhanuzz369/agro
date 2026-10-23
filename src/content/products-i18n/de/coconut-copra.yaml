@@ -9,6 +9,5 @@ varieties:
   milling-copra: { name: "Mahlkopra", description: "Koprahälften zur Ölgewinnung." }
   edible-cups: { name: "Essbare Koprahälften", description: "Halbe Schalen für die Lebensmittelverwendung." }
 faq:
-  - { q: "Wie lautet der HSN-Code für Kopra?", a: "Kokosnüsse und Kopra fallen unter die HSN-Position 0801. Wir bestätigen derzeit die genaue achtstellige Zeile für jedes Produkt." }
   - { q: "Was ist Tiptur-Ballkopra?", a: "Kopra, die bis zu ein Jahr ganz in der Schale getrocknet wird und einen süßen, weißen Kern ergibt, der am Golf und in Südasien geschätzt wird." }
   - { q: "Sind Kokosnüsse ganzjährig erhältlich?", a: "Ja. Pollachi liefert das ganze Jahr über halb enthülste Kokosnüsse." }

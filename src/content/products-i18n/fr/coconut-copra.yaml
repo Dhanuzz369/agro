@@ -9,6 +9,5 @@ varieties:
   milling-copra: { name: "Coprah de trituration", description: "Coprah en demi-coques pour l'extraction d'huile." }
   edible-cups: { name: "Demi-coques de coprah comestibles", description: "Demi-coques à usage alimentaire." }
 faq:
-  - { q: "Quel est le code HSN du coprah ?", a: "La noix de coco et le coprah relèvent de la position HSN 0801. Nous confirmons la ligne exacte à 8 chiffres pour chaque produit." }
   - { q: "Qu'est-ce que le coprah en boule de Tiptur ?", a: "Du coprah séché entier dans sa coque pendant jusqu'à un an, donnant une amande douce et blanche très appréciée dans le Golfe et en Asie du Sud." }
   - { q: "Les noix de coco sont-elles disponibles toute l'année ?", a: "Oui. Pollachi fournit des noix de coco semi-décortiquées tout au long de l'année." }
