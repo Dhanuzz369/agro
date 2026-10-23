@@ -13,7 +13,7 @@ const links = [
 ];
 const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
 ---
-<header class="hdr">
+<header class="hdr" data-hdr>
   <div class="container hdr__row">
     <a class="brand" href={localizePath('/', locale)}>GoodBiz <span>Agri</span></a>
     <nav aria-label="Main" class="hdr__nav" id="main-nav">
@@ -38,11 +38,27 @@ const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
     if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') { setOpen(false); btn.focus(); }
   });
   document.querySelectorAll('#main-nav a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+
+  // Keep the bar on screen and shrink it once the page has scrolled.
+  const hdr = document.querySelector<HTMLElement>('[data-hdr]');
+  let ticking = false;
+  const update = () => { hdr?.toggleAttribute('data-scrolled', window.scrollY > 24); ticking = false; };
+  window.addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } }, { passive: true });
+  update();
 </script>
 <style>
-  .hdr { position: absolute; inset-inline: 0; inset-block-start: 0; z-index: 30; padding-block: var(--space-4); }
+  .hdr { position: fixed; inset-inline: 0; inset-block-start: 0; z-index: 30; padding-block: var(--space-4); background-color: rgb(247 241 232 / 0);
+    transition: padding-block 0.35s var(--ease), background-color 0.35s var(--ease), box-shadow 0.35s var(--ease); }
+  .hdr[data-scrolled] { padding-block: var(--space-2); background-color: rgb(247 241 232 / 0.97); box-shadow: 0 1px 0 var(--rule), 0 8px 24px rgb(26 26 23 / 0.06); }
+  .brand { display: inline-block; transform-origin: left center; transition: transform 0.35s var(--ease); }
+  .hdr[data-scrolled] .brand { transform: scale(0.86); }
+  :global([dir='rtl']) .brand { transform-origin: right center; }
+  .hdr .btn { transition: min-block-size 0.35s var(--ease), padding 0.35s var(--ease), background-color var(--dur-1) var(--ease); }
+  .hdr[data-scrolled] .btn { min-block-size: 38px; padding-inline: var(--space-4); }
+  .hdr[data-scrolled] .hdr__toggle { min-block-size: 38px; }
   .hdr__row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
   .brand { font-family: var(--font-display); font-size: var(--step-1); text-decoration: none; }
+  @media (prefers-reduced-motion: reduce) { .hdr, .brand, .hdr .btn { transition: none; } }
   .brand span { color: var(--clay); }
   .hdr__nav { display: flex; align-items: center; gap: var(--space-6); }
   .hdr__nav ul { display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; }

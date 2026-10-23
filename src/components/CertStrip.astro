@@ -28,19 +28,23 @@ const regs = site.registrations.filter((r) => r.held);
   </div>
 </section>
 <style>
-  .certs { border-block: 1px solid var(--rule); padding-block: var(--space-6); }
-  .certs__inner { display: grid; gap: var(--space-5); }
-  ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 11rem), 1fr)); gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
-  li { display: grid; gap: var(--space-2); align-content: start; }
-  .certs__tile { display: grid; place-items: center start; block-size: 72px; }
-  .certs__tile img { max-block-size: 64px; max-inline-size: 100%; inline-size: auto; object-fit: contain; }
+  .certs { border-block: 1px solid var(--rule); padding-block: var(--space-7); }
+  .certs__inner { display: grid; gap: var(--space-6); justify-items: center; text-align: center; }
+  .certs__inner > ul { inline-size: 100%; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-7) var(--space-5); }
+  li { display: grid; justify-items: center; align-content: start; gap: var(--space-3); text-align: center; }
+  /* Every logo sits in the same-height box and is scaled to the same height, so the row reads evenly */
+  .certs__tile { display: grid; place-items: center; block-size: 64px; inline-size: 100%; }
+  .certs__tile img { block-size: 56px; inline-size: auto; max-inline-size: 100%; object-fit: contain; }
   .certs__mark { font-family: var(--font-display); font-weight: 500; font-size: var(--step-2); color: var(--forest); letter-spacing: 0.02em; }
   .certs__name { font-weight: 500; font-size: var(--step--1); }
   .certs__no { font-size: var(--step--1); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+  /* Desktop: one row of six equal columns, each logo centred in its column */
+  @media (min-width: 1100px) {
+    ul { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-5); }
+  }
   @media (max-width: 767px) {
     .certs__inner { justify-items: center; text-align: center; }
-    ul { justify-items: center; inline-size: 100%; }
-    li { justify-items: center; }
-    .certs__tile { place-items: center; }
+    ul { grid-template-columns: minmax(0, 1fr); inline-size: 100%; }
   }
 </style>
