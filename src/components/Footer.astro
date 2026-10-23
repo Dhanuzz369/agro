@@ -19,7 +19,10 @@ const products = await getLocalizedProducts(locale);
       <address>
         {!isPlaceholder(site.address.street) && <>{site.address.street}<br /></>}{site.address.city}, {site.address.region}{!isPlaceholder(site.address.postalCode) && ` ${site.address.postalCode}`}<br />India
       </address>
-      {mail && <a href={mail}>{site.email}</a>}
+      <p class="ftr__contact">
+        {mail && <a href={mail}>{site.email}</a>}
+        {!isPlaceholder(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr">{site.phone}</a>}
+      </p>
     </div>
     <nav aria-labelledby="ftr-products">
       <h2 id="ftr-products" class="eyebrow">{t('nav.products')}</h2>
@@ -36,6 +39,7 @@ const products = await getLocalizedProducts(locale);
   .ftr__grid { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
   .ftr__brand { font-family: var(--font-display); font-size: var(--step-2); }
   .ftr__brand span { color: var(--turmeric); }
+  .ftr__contact { display: grid; justify-items: start; gap: var(--space-2); margin: 0; }
   address { font-style: normal; margin-block: var(--space-4); opacity: 0.85; }
   .ftr__list { list-style: none; padding: 0; margin: var(--space-4) 0 0; columns: 2 14rem; font-size: var(--step--1); }
   .ftr__list li { break-inside: avoid; padding-block: var(--space-1); }

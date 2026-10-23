@@ -2,7 +2,6 @@
 import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
-import StockLabel from '../components/StockLabel.astro';
 import SpecTable from '../components/SpecTable.astro';
 import ProductCard from '../components/ProductCard.astro';
 import Faq from '../components/Faq.astro';
@@ -55,7 +54,6 @@ const title = t('meta.productTitle', { name: p.text.name });
       <div class="pv__heroGrid">
         <div class="pv__object">
           <Image src={p.data.heroImage.src} alt={p.text.name} {...poster} loading="eager" fetchpriority="high" data-product-hero />
-          <StockLabel locale={locale} show={p.data.heroImage.isStock} />
         </div>
         <div class="pv__intro">
           <h1>{p.text.name}</h1>
@@ -86,7 +84,6 @@ const title = t('meta.productTitle', { name: p.text.name });
             <article class="var" data-variety={v.id} data-reveal>
               <div class="var__media">
                 <Image src={v.image.src} alt={vt?.name ?? v.id} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
-                <StockLabel locale={locale} show={v.image.isStock} />
               </div>
               <div class="var__body">
                 <h3>{vt?.name ?? v.id}</h3>

@@ -2,7 +2,6 @@
 // Split hero: the product panels scroll on one half, the headline stays put on the other (desktop).
 // Below 1024px the headline comes first and the panels stack underneath.
 import { Image } from 'astro:assets';
-import StockLabel from '../StockLabel.astro';
 import { createT } from '../../i18n/t';
 import { localizePath } from '../../i18n/paths';
 import { getLocalizedProducts, getSite } from '../../lib/catalog';
@@ -30,7 +29,6 @@ const [products, site] = await Promise.all([getLocalizedProducts(locale), getSit
         <a class="panel__link" href={localizePath(`/products/${p.slug}`, locale)}>
           <Image src={p.data.heroImage.src} alt="" widths={[480, 720, 960, 1280, 1600]} sizes="(min-width: 1024px) 50vw, 100vw"
             quality={i === 0 ? 60 : 70} format="webp" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding={i === 0 ? 'sync' : 'async'} />
-          <StockLabel locale={locale} show={p.data.heroImage.isStock} />
           <span class="panel__cap" data-reveal>
             <span class="panel__name">{p.text.name}</span>
             <span class="panel__origin">{p.text.originLine}</span>

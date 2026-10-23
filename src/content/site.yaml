@@ -8,8 +8,8 @@ address:
   postalCode: "REPLACE: 5600xx"
   country: IN
 email: "REPLACE: export@goodbizagri.com"
-phone: "REPLACE: +91 00000 00000"
-whatsapp: "REPLACE: 910000000000"
+phone: "+91 88847 99369"
+whatsapp: "918884799369"
 web3formsKey: "REPLACE: web3forms-access-key"
 registrations:
   - { id: apeda, name: "APEDA", number: "REPLACE: RCMC no.", logo: /logos/apeda.png, held: true }

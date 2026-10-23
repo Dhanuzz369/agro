@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import StockLabel from './StockLabel.astro';
 import { localizePath } from '../i18n/paths';
 import type { Locale } from '../i18n/config';
 import type { LocalizedProduct } from '../lib/catalog';
@@ -13,7 +12,6 @@ const href = localizePath(`/products/${product.slug}`, locale);
   <a href={href} class="pc__link">
     <div class="pc__media">
       <Image src={product.data.heroImage.src} alt={product.text.name} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
-      <StockLabel locale={locale} show={product.data.heroImage.isStock} />
     </div>
     <H class="pc__title">{product.text.name}</H>
   </a>
