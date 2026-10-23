@@ -15,7 +15,7 @@ h1 { font-size: var(--step-4); } h2 { font-size: var(--step-3); }
 p { margin: 0; max-width: var(--measure); text-wrap: pretty; }
 a { color: inherit; text-underline-offset: 0.2em; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-/* Turmeric focus ring only on forest surfaces (hero, footer, world band, open phone menu): ink would vanish there. */
+/* Turmeric focus ring only on forest surfaces (footer, world band, open phone menu): ink would vanish there. */
 [data-tone='dark'] :focus-visible, .nav-open .hdr :focus-visible { outline-color: var(--turmeric); }
 .container { width: min(100% - 2 * var(--gutter), var(--max)); margin-inline: auto; }
 .section { padding-block: var(--space-9); }

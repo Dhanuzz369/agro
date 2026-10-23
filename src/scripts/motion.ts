@@ -46,12 +46,6 @@ async function init() {
     }, { margin: '0px 0px -15% 0px' });
   });
 
-  // Hero copy fades and lifts as the hero scrolls away
-  document.querySelectorAll<HTMLElement>('[data-hero-copy]').forEach((el) => {
-    const section = el.closest('section') ?? el;
-    scroll(animate(el, { opacity: [1, 0], y: [0, -80] }, { ease: 'linear' }), { target: section, offset: ['start start', 'end start'] });
-  });
-
   // Gentle image parallax
   document.querySelectorAll<HTMLElement>('[data-parallax]').forEach((el) => {
     scroll(animate(el, { y: [-30, 30] }, { ease: 'linear' }), { target: el, offset: ['start end', 'end start'] });

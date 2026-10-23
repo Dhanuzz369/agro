@@ -16,7 +16,7 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
 ---
-<Base locale={locale} title={t('meta.homeTitle')} description={t('meta.homeDescription')} path="/" hero="dark" ogImage="/og/home.png" jsonLd={[faqLd(homeFaq(locale))]}>
+<Base locale={locale} title={t('meta.homeTitle')} description={t('meta.homeDescription')} path="/" ogImage="/og/home.png" jsonLd={[faqLd(homeFaq(locale))]}>
   <Hero locale={locale} />
   <CertStrip locale={locale} />
   <Range locale={locale} />

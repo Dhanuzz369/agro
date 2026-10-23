@@ -6,7 +6,8 @@ test('registered-with strip shows each registration, with official logos where s
   for (const id of ['apeda', 'spices-board', 'fieo', 'fssai', 'iec', 'cdb']) await expect(strip.locator(`[data-reg="${id}"]`)).toHaveCount(1);
   const logos = strip.locator('img');
   await expect(logos).toHaveCount(6);
-  for (const img of await logos.all()) expect(await img.evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0)).toBe(true);
+  await strip.scrollIntoViewIfNeeded(); // the logos are lazy and sit below the nine hero panels
+  for (const img of await logos.all()) await expect.poll(() => img.evaluate((i: HTMLImageElement) => i.complete && i.naturalWidth > 0)).toBe(true);
 });
 
 test('placeholder registration numbers are not shown', async ({ page }) => {

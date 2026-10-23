@@ -2,8 +2,8 @@
 import { createT } from '../i18n/t';
 import { localizePath } from '../i18n/paths';
 import type { Locale } from '../i18n/config';
-interface Props { locale: Locale; path: string; hero?: 'dark' | 'light' }
-const { locale, path, hero = 'light' } = Astro.props;
+interface Props { locale: Locale; path: string }
+const { locale, path } = Astro.props;
 const t = createT(locale);
 const links = [
   { href: '/products', label: t('nav.products') },
@@ -13,7 +13,7 @@ const links = [
 ];
 const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
 ---
-<header class="hdr" data-tone={hero}>
+<header class="hdr">
   <div class="container hdr__row">
     <a class="brand" href={localizePath('/', locale)}>GoodBiz <span>Agri</span></a>
     <nav aria-label="Main" class="hdr__nav" id="main-nav">
@@ -41,11 +41,9 @@ const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
 </script>
 <style>
   .hdr { position: absolute; inset-inline: 0; inset-block-start: 0; z-index: 30; padding-block: var(--space-4); }
-  .hdr[data-tone='dark'] { color: var(--paper); }
   .hdr__row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-5); }
   .brand { font-family: var(--font-display); font-size: var(--step-1); text-decoration: none; }
   .brand span { color: var(--clay); }
-  .hdr[data-tone='dark'] .brand span { color: var(--turmeric); }
   .hdr__nav { display: flex; align-items: center; gap: var(--space-6); }
   .hdr__nav ul { display: flex; gap: var(--space-5); list-style: none; margin: 0; padding: 0; }
   .hdr__nav a:not(.btn) { text-decoration: none; }

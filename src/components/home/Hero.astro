@@ -1,37 +1,98 @@
 ---
-import { getImage } from 'astro:assets';
-import HeroParticles from '../HeroParticles.astro';
+// Split hero: the product panels scroll on one half, the headline stays put on the other (desktop).
+// Below 1024px the headline comes first and the panels stack underneath.
+import { Image } from 'astro:assets';
+import StockLabel from '../StockLabel.astro';
 import { createT } from '../../i18n/t';
 import { localizePath } from '../../i18n/paths';
-import { getLocalizedProducts } from '../../lib/catalog';
+import { getLocalizedProducts, getSite } from '../../lib/catalog';
 import type { Locale } from '../../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
-const products = await getLocalizedProducts(locale);
-const order = ['rice', 'turmeric', 'arecanut'];
-const picks = order.map((s) => products.find((p) => p.slug === s)!);
-const small = await Promise.all(picks.map((p) => getImage({ src: p.data.heroImage.src, width: 320, format: 'webp' })));
-const poster = await getImage({ src: picks[0].data.heroImage.src, width: 640, format: 'webp', quality: 50 });
-const title = t('hero.title');
+const [products, site] = await Promise.all([getLocalizedProducts(locale), getSite()]);
 ---
-<section class="hero" data-tone="dark">
-  <HeroParticles images={small.map((s) => s.src)} poster={{ src: poster.src, width: poster.options.width as number, height: poster.options.height as number }} alt="" />
-  <div class="container hero__copy" data-hero-copy>
-    <p class="eyebrow">{t('hero.eyebrow')}</p>
-    <h1 class="display">{title}</h1>
-    <p class="hero__lede">{t('hero.lede')}</p>
-    <div class="hero__ctas">
-      <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('cta.quote')}</a>
-      <a class="btn btn--ghost" href={localizePath('/products', locale)}>{t('cta.viewProducts')}</a>
+<section class="split" aria-labelledby="hero-title">
+  <div class="split__text">
+    <div class="split__inner">
+      <p class="split__label">{t('hero.label', { n: site.stats.countries })}</p>
+      <h1 id="hero-title" class="split__title">{t('hero.title')}</h1>
+      <p class="split__lede">{t('hero.lede')}</p>
+      <div class="split__ctas">
+        <a class="split__btn" href={localizePath('/products', locale)}>{t('hero.products')}</a>
+        <a class="split__btn split__btn--primary" href={localizePath('/contact', locale)}>{t('hero.quote')}</a>
+      </div>
     </div>
   </div>
+  <ul class="split__panels" role="list">
+    {products.map((p, i) => (
+      <li class="panel" data-hero-panel>
+        <a class="panel__link" href={localizePath(`/products/${p.slug}`, locale)}>
+          <Image src={p.data.heroImage.src} alt="" widths={[480, 720, 960, 1280, 1600]} sizes="(min-width: 1024px) 50vw, 100vw"
+            quality={i === 0 ? 60 : 70} format="webp" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding={i === 0 ? 'sync' : 'async'} />
+          <StockLabel locale={locale} show={p.data.heroImage.isStock} />
+          <span class="panel__cap" data-reveal>
+            <span class="panel__name">{p.text.name}</span>
+            <span class="panel__origin">{p.text.originLine}</span>
+          </span>
+        </a>
+      </li>
+    ))}
+  </ul>
 </section>
 <style>
-  .hero { position: relative; min-block-size: 100svh; display: grid; align-items: end; background: var(--forest); color: var(--paper); padding-block: 9rem var(--space-8); isolation: isolate; }
-  .hero__copy { position: relative; z-index: 1; display: grid; gap: var(--space-5); }
-  .hero .eyebrow { color: var(--gold-soft); }
-  .hero h1 { max-inline-size: 14ch; }
-  .hero__lede { font-size: var(--step-1); line-height: 1.45; opacity: 0.9; max-inline-size: 46ch; }
-  .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .split { --hdr-h: 6rem; display: grid; background: var(--paper); }
+
+  /* Text block: first in the DOM so phones read the headline before the photos */
+  .split__text { display: grid; place-items: center; padding: var(--hdr-h) var(--gutter) var(--space-8); text-align: center; container-type: inline-size; }
+  .split__inner { display: grid; justify-items: center; gap: var(--space-6); inline-size: 100%; max-inline-size: 40rem; }
+  .split__label { font-size: var(--step--2); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); max-inline-size: none; }
+  .split__title { font-family: var(--font-display); font-weight: 300; text-transform: uppercase; font-size: clamp(2.5rem, 14cqi, 7.25rem);
+    line-height: 0.9; letter-spacing: -0.035em; text-wrap: balance; overflow-wrap: break-word; hyphens: manual; color: var(--ink); }
+  .split__lede { font-family: var(--font-display); font-weight: 300; font-size: var(--step-1); line-height: 1.35; max-inline-size: 26ch; color: var(--ink-2); }
+  /* Two square buttons sharing one hairline; negative margins collapse the double border, also when they wrap */
+  .split__ctas { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding-block-start: 1px; padding-inline-start: 1px; margin-block-start: var(--space-2); }
+  @container (max-width: 26rem) { .split__ctas { grid-auto-flow: row; inline-size: 100%; } }
+  .split__btn { display: inline-flex; align-items: center; justify-content: center; min-block-size: 3rem; padding-inline: var(--space-5);
+    margin-block-start: -1px; margin-inline-start: -1px; border: 1px solid var(--ink); color: var(--ink); background: transparent;
+    font-size: var(--step--2); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; line-height: 1.2;
+    transition: background-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease); }
+  .split__btn:hover { background: var(--ink); color: var(--paper); }
+  .split__btn--primary { background: var(--turmeric); }
+  .split__btn--primary:hover { background: var(--turmeric-hover); color: var(--ink); }
+  .split__btn:focus-visible { position: relative; z-index: 1; }
+
+  /* Scripts without letter case: looser leading, no negative tracking */
+  :global(:root:lang(ar)) .split__title, :global(:root:lang(zh)) .split__title { line-height: 1.15; letter-spacing: 0; font-size: clamp(2.25rem, 13cqi, 6.5rem); }
+  /* Tracking breaks Arabic joins and is meaningless for Han; give the small labels a size step instead */
+  :global(:root:lang(ar)) :is(.split__label, .split__btn), :global(:root:lang(zh)) :is(.split__label, .split__btn) { letter-spacing: 0; font-size: var(--step--1); }
+  :global(:root:lang(ru)) .split__title { letter-spacing: -0.02em; }
+
+  /* A thin paper seam keeps neighbouring photos (two rices, for one) from reading as one image */
+  .split__panels { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
+  .panel { position: relative; block-size: max(70svh, 22rem); overflow: hidden; background: var(--paper-2); }
+  .panel__link { display: block; block-size: 100%; color: var(--ink); text-decoration: none; }
+  .panel__link :global(img) { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform var(--dur-2) var(--ease); }
+  .panel__link:hover :global(img) { transform: scale(1.03); }
+  .panel :global(.stock) { inset-block-end: auto; inset-block-start: var(--space-4); inset-inline-start: auto; inset-inline-end: var(--space-4); }
+  /* Caption on the inline-end side: the floating language button owns the inline-start corner */
+  .panel__cap { position: absolute; inset-block-end: var(--space-5); inset-inline-end: var(--space-5); max-inline-size: calc(100% - 2 * var(--space-5));
+    display: grid; gap: var(--space-1); padding: var(--space-3) var(--space-4); background: var(--paper); }
+  .panel__name { font-family: var(--font-display); font-size: var(--step-1); line-height: 1.15; }
+  .panel__origin { font-size: var(--step--1); color: var(--ash); line-height: 1.35; }
+  .panel__link:focus-visible { outline-offset: -4px; }
+
+  @media (min-width: 1024px) {
+    .split { --hdr-h: 5rem; grid-template-columns: 1fr 1fr; padding-block-start: var(--hdr-h); }
+    /* Column 2 in reading order: right in LTR, left in RTL */
+    /* Pulled up under the header band so its content centres between the header and the fold, before and while it sticks */
+    .split__text { grid-column: 2; grid-row: 1; position: sticky; inset-block-start: 0; align-self: start; block-size: 100svh;
+      margin-block-start: calc(-1 * var(--hdr-h)); padding: var(--hdr-h) clamp(var(--space-6), 4vw, var(--space-9)) var(--space-6); }
+    .split__title { font-size: clamp(2.5rem, 15cqi, 7.25rem); }
+    .split__panels { grid-column: 1; grid-row: 1; }
+    .panel { block-size: 100svh; }
+    /* The first panel sits under the header band, so it ends at the fold with its caption showing */
+    .panel:first-child { block-size: calc(100svh - var(--hdr-h)); }
+    .panel__cap { inset-block-end: var(--space-6); inset-inline-end: var(--space-6); max-inline-size: calc(100% - 2 * var(--space-6)); }
+  }
 </style>

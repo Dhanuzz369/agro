@@ -10,7 +10,7 @@ for (const path of ['/', '/products/turmeric', '/products/rice', '/blog']) {
       sizes.push(declared ? Promise.resolve(declared) : r.body().then((b) => b.length, () => 0));
     });
     await page.goto(path, { waitUntil: 'load' });
-    // scripts requested after idle (Motion, Lenis, Three.js) are excluded by stopping here
+    // scripts requested after idle (Motion, Lenis) are excluded by stopping here
     const total = (await Promise.all(sizes.splice(0))).reduce((a, b) => a + b, 0);
     expect(total / 1024).toBeLessThanOrEqual(60 * 3.2); // uncompressed bytes; ≈ 60 KB gzip at ~3.2× ratio
   });

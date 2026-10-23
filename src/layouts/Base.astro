@@ -15,9 +15,9 @@ import { getSite } from '../lib/catalog';
 
 interface Props {
   locale: Locale; title: string; description: string; path: string;
-  available?: readonly Locale[]; ogImage?: string; jsonLd?: object[]; noindex?: boolean; hero?: 'dark' | 'light';
+  available?: readonly Locale[]; ogImage?: string; jsonLd?: object[]; noindex?: boolean;
 }
-const { locale, hero = 'light', jsonLd = [], ...seo } = Astro.props;
+const { locale, jsonLd = [], ...seo } = Astro.props;
 const t = createT(locale);
 const site = await getSite();
 const ld = [organizationLd(site, Astro.site!.href), ...jsonLd];
@@ -25,7 +25,7 @@ const ld = [organizationLd(site, Astro.site!.href), ...jsonLd];
 const onVercel = Boolean(process.env.VERCEL);
 ---
 <!doctype html>
-<html lang={htmlLang[locale]} dir={isRtl(locale) ? 'rtl' : 'ltr'} data-hero={hero}>
+<html lang={htmlLang[locale]} dir={isRtl(locale) ? 'rtl' : 'ltr'}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -42,7 +42,7 @@ const onVercel = Boolean(process.env.VERCEL);
   </head>
   <body>
     <a class="skip" href="#main">{t('nav.skip')}</a>
-    <Header locale={locale} path={seo.path} hero={hero} />
+    <Header locale={locale} path={seo.path} />
     <main id="main"><slot /></main>
     <Footer locale={locale} />
     <WhatsAppButton locale={locale} />

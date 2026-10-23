@@ -4,7 +4,7 @@ description: Warm-paper editorial system for a South Indian agro exporter. Struc
 colors:
   paper: "#F7F1E8"      # default background — never white
   surface: "#FFFFFF"    # elevated cards and inputs only
-  forest: "#1F3D2B"     # dark world: hero stage, world band, footer
+  forest: "#1F3D2B"     # dark world: world band, footer
   turmeric: "#D99A1E"   # the single action colour — primary CTA only, ink text
   stone: "#4A4741"      # workhorse neutral: secondary pills, outlines, links, wordmark
   clay: "#6B443D"       # accent bands, eyebrows, map highlights
@@ -38,8 +38,8 @@ breakpoints: { desktop: 1280px, laptop: 1024px, tablet: 768px, nav: 860px }
 A printed field journal for a commodity trader: warm paper, thin high-contrast serif headlines, a calm sans for facts, and produce photography doing the emotional work. Restraint over decoration — flat fills, hairline rules, long vertical silences between sections.
 
 ## Surface worlds
-- Cream world (`paper`) — home for editorial content, product pages, forms.
-- Forest world (`forest`) — hero stage with the particle scene, the 70+ countries band, the footer. Text `paper`, accents `gold-soft`.
+- Cream world (`paper`) — home for editorial content, product pages, forms, and the home hero: a 50/50 split with full-height product photos scrolling on one half and a sticky uppercase Fraunces headline (leading 0.9) with two joined square buttons on the other (stacked below 1024px).
+- Forest world (`forest`) — the 70+ countries band, the footer. Text `paper`, accents `gold-soft`.
 - White (`surface`) — only for elevated cards and inputs sitting on paper.
 
 ## Colour rules
