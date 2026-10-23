@@ -1,6 +1,0 @@
-[   22635ms] TypeError: Cannot read properties of null (reading 'style')
-    at https://www.indianspices.com/:5302:14
-[   22652ms] TypeError: $(...).live is not a function
-    at https://www.indianspices.com/sites/all/themes/spices/js/customcdaa.js?pby5dm:105:16
-    at https://www.indianspices.com/sites/all/themes/spices/js/customcdaa.js?pby5dm:174:3
-[   25934ms] Unexpected token '<'
