@@ -51,3 +51,12 @@ Format: file | photographer | source page | licence | exact or generic
 - src/assets/products/rice/seeraga-samba.jpg | vie-studio | https://www.pexels.com/photo/7421207/ | Pexels License | generic
 - src/assets/products/rice/sona-masoori-raw.jpg | joaquinrr | https://www.pexels.com/photo/38781904/ | Pexels License | generic
 - src/assets/products/rice/sona-masoori-steam.jpg | suki-lee-110686949 | https://www.pexels.com/photo/14197581/ | Pexels License | generic
+
+## Registration logos (public/logos/)
+Shown only to indicate GoodBiz Agri's registrations. Sources:
+- apeda.png — https://apeda.gov.in/themes/custom/apedals/assets/images/logo.png
+- spices-board.png — https://www.indianspices.com/sites/default/files/new%20logo.jpg
+- fssai.png — https://www.fssai.gov.in/images/fssai-logo-color.png
+- dgft.png — https://commons.wikimedia.org/wiki/File:Directorate_General_of_Foreign_Trade_Logo.png
+- cdb.png — emblem cropped from https://coconutboard.gov.in/img/cdb-logo.png
+- FIEO — not included (official site unavailable); text badge shown until supplied.

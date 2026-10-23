@@ -1,0 +1,1263 @@
+- generic [ref=e3]:
+  - generic [ref=e5]:
+    - generic [ref=e6]:
+      - generic:
+        - generic:
+          - generic:
+            - paragraph [ref=e7]:
+              - link "Skip to main content" [ref=e8] [cursor=pointer]:
+                - /url: "#main"
+            - paragraph [ref=e9]:
+              - link "Screen Reader Access" [ref=e10] [cursor=pointer]:
+                - /url: screen-reader-access.html
+            - paragraph [ref=e11]
+            - generic [ref=e12]:
+              - link [ref=e13] [cursor=pointer]:
+                - /url: javascript:setFontSize('increase')
+                - img "Increase font size" [ref=e14]
+              - link [ref=e15] [cursor=pointer]:
+                - /url: javascript:setFontSize('normal')
+                - img "Normal font size" [ref=e16]
+              - link [ref=e17] [cursor=pointer]:
+                - /url: javascript:setFontSize('decrease')
+                - img "Decrease font size" [ref=e18]
+            - generic [ref=e19]:
+              - link [ref=e20] [cursor=pointer]:
+                - /url: javascript:chooseStyle('none', 60)
+                - img "Normal Contrast" [ref=e21]
+              - link [ref=e22] [cursor=pointer]:
+                - /url: javascript:chooseStyle('contrast', 60)
+                - img "High Contrast" [ref=e23]
+    - generic [ref=e29]:
+      - link "GST provisional registration details of Spices Board" [ref=e30] [cursor=pointer]:
+        - /url: /spice-news/gst-provisional-registration-details-spices-board.html
+      - 'link "New Feature : Click here for Auction Report" [ref=e31] [cursor=pointer]':
+        - /url: /dailyprice-auctiondetails.html
+      - link [ref=e32] [cursor=pointer]:
+        - /url: /marketing/price/domestic/daily-price.html
+    - generic [ref=e33]:
+      - generic:
+        - generic:
+          - generic:
+            - heading "Search form" [level=2] [ref=e34]
+            - generic:
+              - generic [ref=e35]: Search
+              - textbox "Enter the terms you wish to search for." [ref=e36]:
+                - /placeholder: Search
+            - button "Search" [ref=e37] [cursor=pointer]
+  - generic [ref=e38]:
+    - generic [ref=e39]:
+      - link [ref=e41] [cursor=pointer]:
+        - /url: /index.html
+        - img "Home" [ref=e42]
+      - generic [ref=e43]:
+        - generic:
+          - generic:
+            - generic:
+              - link "हिंदी" [ref=e45] [cursor=pointer]:
+                - /url: /hin/index.html
+              - list [ref=e46]:
+                - listitem [ref=e47]:
+                  - img "Home" [ref=e48]
+                  - link "Home" [ref=e49] [cursor=pointer]:
+                    - /url: /index.html
+                - listitem [ref=e50]:
+                  - img "Sitemap" [ref=e51]
+                  - link "Sitemap" [ref=e52] [cursor=pointer]:
+                    - /url: /sitemap.html
+                - listitem [ref=e53]:
+                  - img "Contact Us" [ref=e54]
+                  - link "Contact Us" [ref=e55] [cursor=pointer]:
+                    - /url: /contact.html
+              - generic [ref=e56]:
+                - link [ref=e57] [cursor=pointer]:
+                  - /url: http://spicesboard.in/virtual_office/index.php?vc=true
+                  - img "Facebook" [ref=e58]
+                - link [ref=e59] [cursor=pointer]:
+                  - /url: https://www.facebook.com/Spices-Board-INDIA-569686233241370/
+                  - img "Facebook" [ref=e60]
+                - link [ref=e61] [cursor=pointer]:
+                  - /url: https://www.instagram.com/spicesboardi/
+                  - img "Instagram" [ref=e62]
+                - link [ref=e63] [cursor=pointer]:
+                  - /url: https://twitter.com/Spices_Board
+                  - img "Twitter" [ref=e64]
+                - link [ref=e65] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/company/spices-board-india
+                  - img "LinkedIn" [ref=e66]
+                - link [ref=e67] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCcj0wKjXn-LZWcMXHrGJk5g
+                  - img "YouTube" [ref=e68]
+      - generic [ref=e70]:
+        - link [ref=e71] [cursor=pointer]:
+          - /url: https://knowindia.india.gov.in/national-identity-elements/national-flag.php
+        - link [ref=e74] [cursor=pointer]:
+          - /url: https://shebox.wcd.gov.in/
+    - generic [ref=e77]:
+      - generic:
+        - generic:
+          - generic:
+            - list:
+              - listitem [ref=e78]:
+                - link "About Us" [ref=e79] [cursor=pointer]:
+                  - /url: /about-us/overview-about-us.html
+                - list [ref=e80]:
+                  - listitem [ref=e81]:
+                    - link "Board Members" [ref=e82] [cursor=pointer]:
+                      - /url: /about-us/board-members.html
+                  - listitem [ref=e83]:
+                    - link "Constitution" [ref=e84] [cursor=pointer]:
+                      - /url: /about-us/constitution.html
+                  - listitem [ref=e85]:
+                    - link "Spices Board Act & Rules" [ref=e86] [cursor=pointer]:
+                      - /url: /spices-board-act-rules.html
+                  - listitem [ref=e87]:
+                    - link "Annual Reports" [ref=e88] [cursor=pointer]:
+                      - /url: /about-us/annual-reports.html
+                  - listitem [ref=e89]:
+                    - link "Staff Details" [ref=e90] [cursor=pointer]:
+                      - /url: http://spicesboard.in:8004/staffdeployment
+                  - listitem [ref=e91]:
+                    - link "Board's Offices" [ref=e92] [cursor=pointer]:
+                      - /url: http://spicesboard.in:8004/location-search
+                  - listitem [ref=e93]:
+                    - link "Board Meeting Minutes" [ref=e94] [cursor=pointer]:
+                      - /url: /bm-minutes.html
+                  - listitem [ref=e95]:
+                    - link "Right to Information Act" [ref=e96] [cursor=pointer]:
+                      - /url: /rti-page.html
+                  - listitem [ref=e97]:
+                    - link "Committees" [ref=e98] [cursor=pointer]:
+                      - /url: /right-to-information/statement-boards-councils-committees-and-other-bodies-consisting-two-or-more.html
+                  - listitem [ref=e99]:
+                    - link "Public Grievances Redressal" [ref=e100] [cursor=pointer]:
+                      - /url: ""
+                    - list [ref=e101]:
+                      - listitem [ref=e102]:
+                        - link "Video Conferencing" [ref=e103] [cursor=pointer]:
+                          - /url: http://spicesboard.in/virtual_office/index.php?vc=true
+                      - listitem [ref=e104]:
+                        - link "CPGRAMS Portal" [ref=e105] [cursor=pointer]:
+                          - /url: https://pgportal.gov.in/
+                      - listitem [ref=e106]:
+                        - link "Virtual Office" [ref=e107] [cursor=pointer]:
+                          - /url: http://spicesboard.in/virtual_office/index.php
+                      - listitem [ref=e108]:
+                        - link "Help Desk Support" [ref=e109] [cursor=pointer]:
+                          - /url: https://indianspices.com/contact.html
+              - listitem [ref=e110]:
+                - link "Indian Spices" [ref=e111] [cursor=pointer]:
+                  - /url: /spices-development/spice-catalogue.html
+                - list [ref=e112]:
+                  - listitem [ref=e113]:
+                    - generic [ref=e114]: "India: Spice bowl of the world"
+                    - list [ref=e115]:
+                      - listitem [ref=e116]:
+                        - generic [ref=e117]: Spices Production Data
+                        - list [ref=e118]:
+                          - listitem [ref=e119]:
+                            - link "Major Spice wise" [ref=e120] [cursor=pointer]:
+                              - /url: /sites/default/files/Major spice wise area production 2024-25 web.pdf
+                          - listitem [ref=e121]:
+                            - link "State Wise" [ref=e122] [cursor=pointer]:
+                              - /url: /sites/default/files/majorstatewise areaproduction 2024-25 web.pdf
+                          - listitem [ref=e123]:
+                            - link "Spice/State Wise" [ref=e124] [cursor=pointer]:
+                              - /url: /sites/default/files/Major spice state wise area production 2024-25 web.pdf
+                          - listitem [ref=e125]:
+                            - link "State Spice Wise" [ref=e126] [cursor=pointer]:
+                              - /url: /sites/default/files/all state item wise area and production of spices 2024-25 web.pdf
+                      - listitem [ref=e127]:
+                        - link "Spice Catalogue" [ref=e128] [cursor=pointer]:
+                          - /url: /spices-development/spice-catalogue.html
+                      - listitem [ref=e129]:
+                        - link "List of Spices with Botanical Names" [ref=e130] [cursor=pointer]:
+                          - /url: /sites/default/files/spices%20list%20under%20purview%20of%20spices%20board.pdf
+                      - listitem [ref=e131]:
+                        - link "Spice map" [ref=e132] [cursor=pointer]:
+                          - /url: /sites/default/files/INDIA_SPICE_MAP.jpg
+                      - listitem [ref=e133]:
+                        - link "Properties" [ref=e134] [cursor=pointer]:
+                          - /url: /spices-development/properties/nutritional-values-of-spices.html
+                        - list [ref=e135]:
+                          - listitem [ref=e136]:
+                            - link "Nutritional Values of Spices" [ref=e137] [cursor=pointer]:
+                              - /url: /spices-development/properties/nutritional-values-of-spices.html
+                          - listitem [ref=e138]:
+                            - link "Calorific Value of spices" [ref=e139] [cursor=pointer]:
+                              - /url: /spices-development/properties/calorific-value-spices.html
+                          - listitem [ref=e140]:
+                            - link "Medicinal & other Properties of Spices" [ref=e141] [cursor=pointer]:
+                              - /url: /spices-development/properties/medicinal-other-values-spices.html
+                          - listitem [ref=e142]:
+                            - link "Chemical and physical specification of spices" [ref=e143] [cursor=pointer]:
+                              - /url: /spices-development/properties/chemical-physical-specifications-of-spices.html
+                          - listitem [ref=e144]:
+                            - link "Physical Properties of Essential Oils& Flavourants" [ref=e145] [cursor=pointer]:
+                              - /url: /sites/default/files/phys_prop.pdf
+                          - listitem [ref=e146]:
+                            - link "Flavour Profile of spices" [ref=e147] [cursor=pointer]:
+                              - /url: /spices-development/properties/flavor-profile-spices.html
+                      - listitem [ref=e148]:
+                        - generic [ref=e149]: Organic Spices
+                        - list [ref=e150]:
+                          - listitem [ref=e151]:
+                            - link "Overview" [ref=e152] [cursor=pointer]:
+                              - /url: /spices-development/organic-spices.html
+                          - listitem [ref=e153]:
+                            - link "National Programme for Organic Production" [ref=e154] [cursor=pointer]:
+                              - /url: https://apeda.gov.in/apedawebsite/organic/Organic_Products.htm
+                          - listitem [ref=e155]:
+                            - link "Export Of Organic Spices from India" [ref=e156] [cursor=pointer]:
+                              - /url: /spices-development/export_of_organic_spices.html
+                      - listitem [ref=e157]:
+                        - generic [ref=e158]: Geographical Indication for Spices
+                        - list [ref=e159]:
+                          - listitem [ref=e160]:
+                            - link "Guidelines for obtaining GI Authorised User Certificate" [ref=e161] [cursor=pointer]:
+                              - /url: /sites/default/files/GI_Guidelines_for_release.pdf
+                          - listitem [ref=e162]:
+                            - link "List of GI Tags for Spices" [ref=e163] [cursor=pointer]:
+                              - /url: /sites/default/files/List_of_GItags_for_spices_BJ.pdf
+                          - listitem [ref=e164]:
+                            - link "GI Spices of India - E-Book" [ref=e165] [cursor=pointer]:
+                              - /url: https://online.pubhtml5.com/rjjvw/haap/
+                      - listitem [ref=e166]:
+                        - link "Spices & Spice Products" [ref=e167] [cursor=pointer]:
+                          - /url: /marketing/whole-spices.html
+                  - listitem [ref=e168]:
+                    - 'link "India: Global processing hub of spices" [ref=e169] [cursor=pointer]':
+                      - /url: /global-processing-hub-of-spices.html
+                    - list [ref=e170]:
+                      - listitem [ref=e171]:
+                        - link "Manufacturing facilities" [ref=e172] [cursor=pointer]:
+                          - /url: /manufacturing_facilities.html
+                      - listitem [ref=e173]:
+                        - link "Value added products" [ref=e174] [cursor=pointer]:
+                          - /url: /sites/default/files/VALUE ADDED PRODUCTS OF SPICES.pdf
+              - listitem [ref=e175]:
+                - link "Development" [ref=e176] [cursor=pointer]:
+                  - /url: /development-programmes.html
+                - list [ref=e177]:
+                  - listitem [ref=e178]:
+                    - link "SPEDA" [ref=e179] [cursor=pointer]:
+                      - /url: /spice-development-agency.html
+                  - listitem [ref=e180]:
+                    - link "Development Programmes" [ref=e181] [cursor=pointer]:
+                      - /url: /box5_programmes_schemes.html
+                  - listitem [ref=e182]:
+                    - link "Spice Growing States" [ref=e183] [cursor=pointer]:
+                      - /url: /sites/default/files/INDIA_SPICE_MAP.jpg
+                  - listitem [ref=e184]:
+                    - link "Cultivation Practices" [ref=e185] [cursor=pointer]:
+                      - /url: /cultivation-practices.html
+                    - list [ref=e186]:
+                      - listitem [ref=e187]:
+                        - generic [ref=e188]: Cardamom
+                        - list [ref=e189]:
+                          - listitem [ref=e190]:
+                            - link "Small Cardamom" [ref=e191] [cursor=pointer]:
+                              - /url: https://www.indianspices.com/sites/default/files/plant_protection_small.pdf
+                          - listitem [ref=e192]:
+                            - link "Large Cardamom" [ref=e193] [cursor=pointer]:
+                              - /url: https://www.indianspices.com/sites/default/files/plant_protection_large.pdf
+                      - listitem [ref=e194]:
+                        - link "Nutmeg" [ref=e195] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-nutmeg.pdf
+                      - listitem [ref=e196]:
+                        - link "Black Pepper" [ref=e197] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-pepper_1.pdf
+                      - listitem [ref=e198]:
+                        - link "Ginger" [ref=e199] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-ginger.pdf
+                      - listitem [ref=e200]:
+                        - link "Turmeric" [ref=e201] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-TURMERIC-1.pdf
+                      - listitem [ref=e202]:
+                        - link "Cinnamon" [ref=e203] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-cinnamon.pdf
+                      - listitem [ref=e204]:
+                        - link "Clove" [ref=e205] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-clove.pdf
+                      - listitem [ref=e206]:
+                        - link "Vanilla" [ref=e207] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-vanilla.pdf
+                      - listitem [ref=e208]:
+                        - link "Chilli" [ref=e209] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-Chillli-1.pdf
+                      - listitem [ref=e210]:
+                        - link "Coriander" [ref=e211] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-Coriander-1.pdf
+                      - listitem [ref=e212]:
+                        - link "Cumin" [ref=e213] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-CUMIN-1.pdf
+                      - listitem [ref=e214]:
+                        - link "Organic Package of Spices for North East Region (Black Pepper, Ginger, Turmeric & Large Cardamom" [ref=e215] [cursor=pointer]:
+                          - /url: /sites/default/files/cultivation_practices-organic package of spices full.pdf
+                  - listitem [ref=e216]:
+                    - link "Cost Of Cultivation(Cardamom)" [ref=e217] [cursor=pointer]:
+                      - /url: /cost-cultivation.html
+                  - listitem [ref=e218]:
+                    - generic [ref=e219]: Collaborative Projects
+                    - list [ref=e220]:
+                      - listitem [ref=e221]:
+                        - link "INDGAP" [ref=e222] [cursor=pointer]:
+                          - /url: /collaborative_project_indgap.html
+                      - listitem [ref=e223]:
+                        - link "STDF" [ref=e224] [cursor=pointer]:
+                          - /url: /collaborative_project_stdf.html
+                      - listitem [ref=e225]:
+                        - link "KERA" [ref=e226] [cursor=pointer]:
+                          - /url: /collaborative_project_kera.html
+                  - listitem [ref=e227]:
+                    - link "Harvest Calendar" [ref=e228] [cursor=pointer]:
+                      - /url: /spices-development/harvest-calendar.html
+                  - listitem [ref=e229]:
+                    - link "List of FPO/FPC" [ref=e230] [cursor=pointer]:
+                      - /url: /FPOs list_ Nine States.php
+                  - listitem [ref=e231]:
+                    - link "Empanelled manufacturers" [ref=e232] [cursor=pointer]:
+                      - /url: /trade/empanellment_view.html
+                  - listitem [ref=e233]:
+                    - generic [ref=e234]: GI Authorized Users
+                    - list [ref=e235]:
+                      - listitem [ref=e236]:
+                        - link "Malabar Pepper" [ref=e237] [cursor=pointer]:
+                          - /url: https://search.ipindia.gov.in/GIRPublic/Application/Details/49
+                      - listitem [ref=e238]:
+                        - link "Alleppey Green Cardamom" [ref=e239] [cursor=pointer]:
+                          - /url: https://search.ipindia.gov.in/GIRPublic/Application/Details/72
+                      - listitem [ref=e240]:
+                        - link "Coorg Green Cardamom" [ref=e241] [cursor=pointer]:
+                          - /url: https://search.ipindia.gov.in/GIRPublic/Application/Details/78
+                      - listitem [ref=e242]:
+                        - link "Guntur Sannam Chilli" [ref=e243] [cursor=pointer]:
+                          - /url: https://search.ipindia.gov.in/GIRPublic/Application/Details/143
+                      - listitem [ref=e244]:
+                        - link "Byadagi Chilli" [ref=e245] [cursor=pointer]:
+                          - /url: https://search.ipindia.gov.in/GIRPublic/Application/Details/129
+                  - listitem [ref=e246]:
+                    - link "PRODUCTIVITY AWARD- List of small cardamom productivity award winners" [ref=e247] [cursor=pointer]:
+                      - /url: sites/default/files/small cardamom productivity award winners.pdf
+              - listitem [ref=e248]:
+                - link "Research" [ref=e249] [cursor=pointer]:
+                  - /url: /research_desc.html
+                - list [ref=e250]:
+                  - listitem [ref=e251]:
+                    - link "Indian Cardamom Research Institute" [ref=e252] [cursor=pointer]:
+                      - /url: /indian-cardamom-research-institute-0.html
+                    - list [ref=e253]:
+                      - listitem [ref=e254]:
+                        - link "Facilities" [ref=e255] [cursor=pointer]:
+                          - /url: /facilities.html
+                  - listitem [ref=e256]:
+                    - link "Research Highlights" [ref=e257] [cursor=pointer]:
+                      - /url: /research-highlights-0.html
+                  - listitem [ref=e258]:
+                    - generic [ref=e259]: Plant Protection Code
+                    - list [ref=e260]:
+                      - listitem [ref=e261]:
+                        - link "Plant Protection Code for Large Cardamom" [ref=e262] [cursor=pointer]:
+                          - /url: /sites/default/files/plant_protection_large.pdf
+                      - listitem [ref=e263]:
+                        - link "Plant Protection Code for Small Cardamom" [ref=e264] [cursor=pointer]:
+                          - /url: /sites/default/files/plant_protection_small.pdf
+                  - listitem [ref=e265]:
+                    - generic [ref=e266]: Cultivation Practices
+                    - list [ref=e267]:
+                      - listitem [ref=e268]:
+                        - generic [ref=e269]: Small Cardamom
+                        - list [ref=e270]:
+                          - listitem [ref=e271]:
+                            - link "English" [ref=e272] [cursor=pointer]:
+                              - /url: /sites/default/files/Cultivation Practices Small Cardamom Englsih.pdf
+                          - listitem [ref=e273]:
+                            - link "Malayalam" [ref=e274] [cursor=pointer]:
+                              - /url: /sites/default/files/Cultivation Practices small cardamom Malayalam(1).pdf
+                      - listitem [ref=e275]:
+                        - generic [ref=e276]: Large Cardamom Cardamom
+                        - list [ref=e277]:
+                          - listitem [ref=e278]:
+                            - link "English" [ref=e279] [cursor=pointer]:
+                              - /url: /sites/default/files/Cultivation Practices Large cardamom ENGLISH.pdf
+                  - listitem [ref=e280]:
+                    - link "Services Offered" [ref=e281] [cursor=pointer]:
+                      - /url: /service-offered.html
+                  - listitem [ref=e282]:
+                    - link "Major Projects" [ref=e283] [cursor=pointer]:
+                      - /url: /major-projects-0.html
+                  - listitem [ref=e284]:
+                    - link "Collaborative Projects" [ref=e285] [cursor=pointer]:
+                      - /url: /collaborative-projects.html
+                  - listitem [ref=e286]:
+                    - link "QEL ICRI" [ref=e287] [cursor=pointer]:
+                      - /url: /QEL-ICRI.html
+                  - listitem [ref=e288]:
+                    - link "CARDAMOM SiS" [ref=e289] [cursor=pointer]:
+                      - /url: https://www.indianspices.com/research/slides.html
+                  - listitem [ref=e290]:
+                    - link "CardSApp" [ref=e291] [cursor=pointer]:
+                      - /url: https://cardsapp.spicesboard.org.in/
+              - listitem [ref=e292]:
+                - link "Quality" [ref=e293] [cursor=pointer]:
+                  - /url: /quality.html
+                - list [ref=e294]:
+                  - listitem [ref=e295]:
+                    - link "Quality Evaluation Laboratory" [ref=e296] [cursor=pointer]:
+                      - /url: /quality-evaluation-laboratory.html
+                  - listitem [ref=e297]:
+                    - link "Empanelled Laboratories" [ref=e298] [cursor=pointer]:
+                      - /url: /sites/default/files/Laboratories empanelled.pdf
+                  - listitem [ref=e299]:
+                    - link "Analytical Services & Fees" [ref=e300] [cursor=pointer]:
+                      - /url: /analytical-services-fees.html
+                    - list [ref=e301]:
+                      - listitem [ref=e302]:
+                        - link "QEL Chennai" [ref=e303] [cursor=pointer]:
+                          - /url: /sites/default/files/ChennaiQELFORMNo75_2020.pdf
+                      - listitem [ref=e304]:
+                        - link "QEL Guntur" [ref=e305] [cursor=pointer]:
+                          - /url: /sites/default/files/GunturQELFORMNo75_2020.pdf
+                      - listitem [ref=e306]:
+                        - link "QEL Kochi" [ref=e307] [cursor=pointer]:
+                          - /url: /sites/default/files/KochiQELFORMNo75_2026.pdf
+                      - listitem [ref=e308]:
+                        - link "QEL Mumbai" [ref=e309] [cursor=pointer]:
+                          - /url: /sites/default/files/MumbaiQELFORMNo75_2020.pdf
+                      - listitem [ref=e310]:
+                        - link "QEL Narela" [ref=e311] [cursor=pointer]:
+                          - /url: /sites/default/files/NarelaQELFORMNo75.pdf
+                      - listitem [ref=e312]:
+                        - link "QEL Tuticorin" [ref=e313] [cursor=pointer]:
+                          - /url: /sites/default/files/QEL_TUTICORIN_form75_REVISED.pdf
+                      - listitem [ref=e314]:
+                        - link "QEL Kandla" [ref=e315] [cursor=pointer]:
+                          - /url: /sites/default/files/Kandla_form_75.pdf
+                      - listitem [ref=e316]:
+                        - link "QEL Kolkata" [ref=e317] [cursor=pointer]:
+                          - /url: /sites/default/files/KolkataQELFORMNo75_2020.pdf
+                      - listitem [ref=e318]:
+                        - link "QEL Jodhpur" [ref=e319] [cursor=pointer]:
+                          - /url: /sites/default/files/jodhpur_form_75.pdf
+                  - listitem [ref=e320]:
+                    - link "Mandatory Tests for Export" [ref=e321] [cursor=pointer]:
+                      - /url: https://indianspices.org.in/ESS_V2/mapping_list.php
+                  - listitem [ref=e322]:
+                    - link "Quality Standards" [ref=e323] [cursor=pointer]:
+                      - /url: /quality/quality-standards/guidelines-quality-improvement.html
+                    - list [ref=e324]:
+                      - listitem [ref=e325]:
+                        - link "BIS" [ref=e326] [cursor=pointer]:
+                          - /url: https://www.bis.gov.in/
+                      - listitem [ref=e327]:
+                        - link "FSSAI" [ref=e328] [cursor=pointer]:
+                          - /url: https://fssai.gov.in/cms/food-safety-and-standards-regulations.php
+                      - listitem [ref=e329]:
+                        - link "AGMARK" [ref=e330] [cursor=pointer]:
+                          - /url: https://www.dmi.gov.in/GradesStandard.aspx
+                      - listitem [ref=e331]:
+                        - link "ESA" [ref=e332] [cursor=pointer]:
+                          - /url: http://www.esa-spices.org/
+                      - listitem [ref=e333]:
+                        - link "ASTA Cleanliness Specifications" [ref=e334] [cursor=pointer]:
+                          - /url: https://www.astaspice.org/food-safety-technical-guidance/best-practices-and-guidance/cleanliness-specifications/
+                      - listitem [ref=e335]:
+                        - link "MRLs for Pesticides" [ref=e336] [cursor=pointer]:
+                          - /url: /mrls-pesticides.html
+                      - listitem [ref=e337]:
+                        - link "SPS Requirements for Spices" [ref=e338] [cursor=pointer]:
+                          - /url: /sites/default/files/SPS Requirements for Spices v1.pdf
+                  - listitem [ref=e339]:
+                    - link "Guidelines for Quality Improvement" [ref=e340] [cursor=pointer]:
+                      - /url: /quality/quality-standards/guidelines-quality-improvement.html
+                  - listitem [ref=e341]:
+                    - link "e-Brochure of QELs" [ref=e342] [cursor=pointer]:
+                      - /url: /sites/default/files/E-BRO-NEWONE_29.pdf
+                  - listitem [ref=e343]:
+                    - link "Customer Feedback Form" [ref=e344] [cursor=pointer]:
+                      - /url: https://indianspices.org.in/app/cstfeed_old/feedback.php
+              - listitem [ref=e345]:
+                - link "Marketing" [ref=e346] [cursor=pointer]:
+                  - /url: marketing_desc.html
+                - list [ref=e347]:
+                  - listitem [ref=e348]:
+                    - generic [ref=e349]: Registration & Licensing
+                    - list [ref=e350]:
+                      - listitem [ref=e351]:
+                        - link "Exporters Registration" [ref=e352] [cursor=pointer]:
+                          - /url: https://www.indianspices.org.in/CRES_new/e-r-o/exporters-registration/form/Registration.php
+                      - listitem [ref=e353]:
+                        - link "Auctioneer" [ref=e354] [cursor=pointer]:
+                          - /url: /marketing/auctioneer.html
+                      - listitem [ref=e355]:
+                        - link "Dealer" [ref=e356] [cursor=pointer]:
+                          - /url: /marketing/dealer.html
+                  - listitem [ref=e357]:
+                    - link "Marketing Programmes" [ref=e358] [cursor=pointer]:
+                      - /url: /box5_programmes_schemes.html
+                  - listitem [ref=e359]:
+                    - link "Key Government scheme for spice exporters" [ref=e360] [cursor=pointer]:
+                      - /url: key_schemes.html
+                  - listitem [ref=e361]:
+                    - link "Trade Information" [ref=e362] [cursor=pointer]:
+                      - /url: /marketing/trade/trade-classification-itc-hs-code.html
+                    - list [ref=e363]:
+                      - listitem [ref=e364]:
+                        - link "Trade Classification (ITC HS) Code" [ref=e365] [cursor=pointer]:
+                          - /url: /marketing/trade/trade-classification-itc-hs-code.html
+                      - listitem [ref=e366]:
+                        - link "Trader Directory" [ref=e367] [cursor=pointer]:
+                          - /url: http://spicesboard.in:8004/traderdirectory
+                      - listitem [ref=e368]:
+                        - link "Trade Enquiry" [ref=e369] [cursor=pointer]:
+                          - /url: /trade/trade-enquiry.html
+                      - listitem [ref=e370]:
+                        - link "Trade Policies" [ref=e371] [cursor=pointer]:
+                          - /url: https://www.dgft.gov.in/CP/?opt=ft-policy
+                      - listitem [ref=e372]:
+                        - link "Trade Statistics" [ref=e373] [cursor=pointer]:
+                          - /url: https://tradestat.commerce.gov.in/meidb/default.asp
+                      - listitem [ref=e374]:
+                        - generic [ref=e375]: Export
+                        - list [ref=e376]:
+                          - listitem [ref=e377]:
+                            - link "Monthly estimated export" [ref=e378] [cursor=pointer]:
+                              - /url: /sites/default/files/estimated export of spices for march 2026.pdf
+                          - listitem [ref=e379]:
+                            - link "Major item wise export" [ref=e380] [cursor=pointer]:
+                              - /url: /export/major-itemwise-export.html
+                          - listitem [ref=e381]:
+                            - link "Major Country" [ref=e382] [cursor=pointer]:
+                              - /url: /sites/default/files/major country wise export web 2025.pdf
+                          - listitem [ref=e383]:
+                            - link "Major item/Country" [ref=e384] [cursor=pointer]:
+                              - /url: /sites/default/files/majoritemcountrywise export 2025 web.pdf
+                      - listitem [ref=e385]:
+                        - link "Import" [ref=e386] [cursor=pointer]:
+                          - /url: /marketing/import.html
+                      - listitem [ref=e387]:
+                        - link "Price" [ref=e388] [cursor=pointer]:
+                          - /url: /magazines/english/sm-weekly.html
+                        - list [ref=e389]:
+                          - listitem [ref=e390]:
+                            - link "Domestic" [ref=e391] [cursor=pointer]:
+                              - /url: /marketing/price/domestic/daily-price.html
+                            - list [ref=e392]:
+                              - listitem [ref=e393]:
+                                - link "Cardamom Price" [ref=e394] [cursor=pointer]:
+                                  - /url: /marketing/price/domestic/daily-price.html
+                              - listitem [ref=e395]:
+                                - link "Weekly Price" [ref=e396] [cursor=pointer]:
+                                  - /url: /weekly-price-domestic.html
+                              - listitem [ref=e397]:
+                                - link "Monthly Price" [ref=e398] [cursor=pointer]:
+                                  - /url: /monthly-price-domestic.html
+                              - listitem [ref=e399]:
+                                - link "Current Market Price" [ref=e400] [cursor=pointer]:
+                                  - /url: /marketing/price/domestic/current-market-price.html
+                  - listitem [ref=e401]:
+                    - generic [ref=e402]: International Regulation for Registration
+                    - list [ref=e403]:
+                      - listitem [ref=e404]:
+                        - link "Registration Regulations prescribed by China" [ref=e405] [cursor=pointer]:
+                          - /url: /trade/registration_regulations_china.html
+                      - listitem [ref=e406]:
+                        - generic [ref=e407]: EU General System of Preferences (GSP
+                        - list [ref=e408]:
+                          - listitem [ref=e409]:
+                            - link "Guide for Users on GSP Rules of Origin" [ref=e410] [cursor=pointer]:
+                              - /url: https://ec.europa.eu/taxation_customs/business/calculation-customs-duties/rules-origin/general-aspects-preferential-origin/a-guide-users-gsp-rules-origin_en
+                          - listitem [ref=e411]:
+                            - link "REX – Registered Exporter system" [ref=e412] [cursor=pointer]:
+                              - /url: " https://ec.europa.eu/taxation_customs/business/calculation-customs-duties/rules-origin/general-aspects-preferential-origin/arrangements-list/generalised-system-preferences/the_register_exporter_system_en"
+                      - listitem [ref=e413]:
+                        - generic [ref=e414]: USA
+                        - list [ref=e415]:
+                          - listitem [ref=e416]:
+                            - link "Procedure for Registration of Food Facility" [ref=e417] [cursor=pointer]:
+                              - /url: /trade/registration_regulations_USA.html
+                  - listitem [ref=e418]:
+                    - link "Spices Parks" [ref=e419] [cursor=pointer]:
+                      - /url: /spices-parks/overview-spices-parks.html
+                    - list [ref=e420]:
+                      - listitem [ref=e421]:
+                        - link "The Concept Plan" [ref=e422] [cursor=pointer]:
+                          - /url: /spices-parks/spices-park-concept-plan.html
+                      - listitem [ref=e423]:
+                        - link "Location" [ref=e424] [cursor=pointer]:
+                          - /url: /spices-parks/spices-park-locations.html
+                  - listitem [ref=e425]:
+                    - link "Spices & Spice Products" [ref=e426] [cursor=pointer]:
+                      - /url: /marketing/whole-spices.html
+                  - listitem [ref=e427]:
+                    - link "e-Auction" [ref=e428] [cursor=pointer]:
+                      - /url: /marketing/e-auction.html
+                    - list [ref=e429]:
+                      - listitem [ref=e430]:
+                        - link "Auction Details" [ref=e431] [cursor=pointer]:
+                          - /url: /dailyprice-auctiondetails.html
+                      - listitem [ref=e432]:
+                        - link "Live Auction channels" [ref=e433] [cursor=pointer]:
+                          - /url: /live-auction-channels.html
+                      - listitem [ref=e434]:
+                        - link "Auction Schedule" [ref=e435] [cursor=pointer]:
+                          - /url: /auction_schedule/
+                  - listitem [ref=e436]:
+                    - link "Indian Market / Trading Centers" [ref=e437] [cursor=pointer]:
+                      - /url: /marketing/indian-market-centers.html
+                  - listitem [ref=e438]:
+                    - generic [ref=e439]: Export Support System
+                    - list [ref=e440]:
+                      - listitem [ref=e441]:
+                        - link "ESS" [ref=e442] [cursor=pointer]:
+                          - /url: /ess.html
+                      - listitem [ref=e443]:
+                        - link "Quarterly Export Returns Submit" [ref=e444] [cursor=pointer]:
+                          - /url: https://indianspices.org.in/ESS
+                  - listitem [ref=e445]:
+                    - link "Circulars from Marketing Department" [ref=e446] [cursor=pointer]:
+                      - /url: /trade/marketing-circulars.html
+                  - listitem [ref=e447]:
+                    - generic [ref=e448]: Collaborative Projects and Schemes
+                    - list [ref=e449]:
+                      - listitem [ref=e450]:
+                        - link "DEH" [ref=e451] [cursor=pointer]:
+                          - /url: /collaborative_project_DEH.html
+                      - listitem [ref=e452]:
+                        - link "AEP" [ref=e453] [cursor=pointer]:
+                          - /url: /collaborative_project_AEP.html
+                      - listitem [ref=e454]:
+                        - link "ODOP" [ref=e455] [cursor=pointer]:
+                          - /url: /collaborative_project_ODOP.html
+                      - listitem [ref=e456]:
+                        - link "TIES" [ref=e457] [cursor=pointer]:
+                          - /url: /collaborative_project_TIES.html
+                  - listitem [ref=e458]:
+                    - link "Help Desk for Export" [ref=e459] [cursor=pointer]:
+                      - /url: https://indianspices.com/spice-news/details.html?id=153
+                  - listitem [ref=e460]:
+                    - generic [ref=e461]: TBT/SPS
+                    - list [ref=e462]:
+                      - listitem [ref=e463]:
+                        - link "Notifications" [ref=e464] [cursor=pointer]:
+                          - /url: /tbt-sps-notifications.html
+              - listitem [ref=e465]:
+                - link "Publicity" [ref=e466] [cursor=pointer]:
+                  - /url: /publicity_desc.html
+                - list [ref=e467]:
+                  - listitem [ref=e468]:
+                    - link "Incredible Spices of India" [ref=e469] [cursor=pointer]:
+                      - /url: /general-information/incredible_indian_spices.html
+                  - listitem [ref=e470]:
+                    - link "Exhibitions" [ref=e471] [cursor=pointer]:
+                      - /url: ""
+                    - list [ref=e472]:
+                      - listitem [ref=e473]:
+                        - link "International Fair Details" [ref=e474] [cursor=pointer]:
+                          - /url: /marketing/trade/trade-fairs.html
+                      - listitem [ref=e475]:
+                        - link "Domestic Fair Details" [ref=e476] [cursor=pointer]:
+                          - /url: /marketing/trade/domestic-trade-fairs.html
+                  - listitem [ref=e477]:
+                    - link "Publications" [ref=e478] [cursor=pointer]:
+                      - /url: /magazines/english/sm-weekly.html
+                    - list [ref=e479]:
+                      - listitem [ref=e480]:
+                        - link "Spice India Monthly" [ref=e481] [cursor=pointer]:
+                          - /url: /magazines/english/si-monthly.html
+                      - listitem [ref=e482]:
+                        - link "Spice Market Weekly" [ref=e483] [cursor=pointer]:
+                          - /url: /magazines/english/sm-weekly.html
+                      - listitem [ref=e484]:
+                        - link "Subscription Rates" [ref=e485] [cursor=pointer]:
+                          - /url: /publications/subscription-rates.html
+                      - listitem [ref=e486]:
+                        - link "Advertisement Tariff" [ref=e487] [cursor=pointer]:
+                          - /url: /publications/advertisement-tariff.html
+                  - listitem [ref=e488]:
+                    - link "Promotional Videos" [ref=e489] [cursor=pointer]:
+                      - /url: /general-information/films-spices.html
+                  - listitem [ref=e490]:
+                    - link "Spice Related News" [ref=e491] [cursor=pointer]:
+                      - /url: http://spicesboard.in:8004/spicenews
+                  - listitem [ref=e492]:
+                    - link "e-Newsletter" [ref=e493] [cursor=pointer]:
+                      - /url: https://indianspices.com/general-information/news_letter.html
+              - listitem [ref=e494]:
+                - generic [ref=e495]: Notifications
+                - list [ref=e496]:
+                  - listitem [ref=e497]:
+                    - link "Circulars" [ref=e498] [cursor=pointer]:
+                      - /url: /trade/trade-notifications.html
+                  - listitem [ref=e499]:
+                    - link "Events/Training Programmes" [ref=e500] [cursor=pointer]:
+                      - /url: /events-training.html
+                  - listitem [ref=e501]:
+                    - link "Download Forms" [ref=e502] [cursor=pointer]:
+                      - /url: /marketing/download-forms.html
+                  - listitem [ref=e503]:
+                    - link "Annual Procurement" [ref=e504] [cursor=pointer]:
+                      - /url: /trade/annual_procurement.html
+                  - listitem [ref=e505]:
+                    - link "Tender" [ref=e506] [cursor=pointer]:
+                      - /url: /tenders.html
+                  - listitem [ref=e507]:
+                    - link "Opportunities" [ref=e508] [cursor=pointer]:
+                      - /url: /opportunities.html
+                  - listitem [ref=e509]:
+                    - link "Related Links" [ref=e510] [cursor=pointer]:
+                      - /url: /general-information/related-links.html
+                  - listitem [ref=e511]:
+                    - link "What's New" [ref=e512] [cursor=pointer]:
+                      - /url: /general-information/spice-news.html
+              - listitem [ref=e513]:
+                - link "Contact Us" [ref=e514] [cursor=pointer]:
+                  - /url: /contact.html
+  - generic [ref=e522]:
+    - generic:
+      - generic:
+        - link "Previous" [ref=e530] [cursor=pointer]:
+          - /url: "#"
+        - link "Pause" [ref=e532] [cursor=pointer]:
+          - /url: "#"
+        - link "Next" [ref=e534] [cursor=pointer]:
+          - /url: "#"
+  - generic [ref=e535]:
+    - generic [ref=e538]:
+      - link [ref=e540] [cursor=pointer]:
+        - /url: /box1_vision_mission.html
+        - generic [ref=e542]:
+          - img [ref=e546]: 
+          - text: Spices Board Vision & Mission
+      - link [ref=e548] [cursor=pointer]:
+        - /url: /box2info.html
+        - generic [ref=e550]:
+          - img [ref=e554]: 
+          - text: Trade Information and Statistics
+      - link [ref=e556] [cursor=pointer]:
+        - /url: /box3_faq.html
+        - generic [ref=e558]:
+          - img [ref=e562]: 
+          - text: FAQ
+      - link [ref=e564] [cursor=pointer]:
+        - /url: http://spicesboard.in/virtual_office/index.php
+        - generic [ref=e566]:
+          - img [ref=e570]: 
+          - text: Spices Board Virtual Office
+      - link [ref=e572] [cursor=pointer]:
+        - /url: /box5_programmes_schemes.html
+        - generic [ref=e574]:
+          - img [ref=e578]: 
+          - text: Programmes and Schemes
+      - link [ref=e580] [cursor=pointer]:
+        - /url: /box6_eservices.html
+        - generic [ref=e582]:
+          - img [ref=e586]: 
+          - text: E-Services
+      - link [ref=e588] [cursor=pointer]:
+        - /url: /box7_codex_ccsch.html
+        - generic [ref=e590]:
+          - img [ref=e594]: 
+          - text: CODEX and CCSCH
+      - link [ref=e596] [cursor=pointer]:
+        - /url: /box8_trade_infrastr.html
+        - generic [ref=e598]:
+          - img [ref=e602]: 
+          - text: Trade Infrastructure
+    - generic [ref=e603]:
+      - generic [ref=e604]:
+        - generic [ref=e605]:
+          - generic [ref=e606]:
+            - generic [ref=e610]:
+              - heading "Welcome to Spices Board India" [level=2] [ref=e611]
+              - paragraph [ref=e612]: Spices Board (Ministry of Commerce and Industry, Government of India) is the flagship organization for the development and worldwide promotion of Indian spices. The Board is an international link between the Indian exporters and the importers abroad. The Board has been spearheading activities for excellence of Indian spices, involving every segment of the industry.
+              - link "Read More" [ref=e614] [cursor=pointer]:
+                - /url: about-us/constitution.html
+            - link [ref=e615] [cursor=pointer]:
+              - /url: "#"
+            - link [ref=e617] [cursor=pointer]:
+              - /url: "#"
+          - generic [ref=e620] [cursor=pointer]
+        - generic [ref=e622]:
+          - generic [ref=e623]:
+            - generic [ref=e624]:
+              - link [ref=e626] [cursor=pointer]:
+                - /url: https://www.flavourit.com/
+              - link [ref=e629] [cursor=pointer]:
+                - /url: https://indianspices.org.in/CRES_new/e-r-o/exporters-registration/form/Registration.php
+              - link [ref=e632] [cursor=pointer]:
+                - /url: https://www.worldspicecongress.com/
+            - generic [ref=e634]:
+              - link [ref=e637] [cursor=pointer]:
+                - /url: https://indianspices.org.in/ESS/
+              - link [ref=e640] [cursor=pointer]:
+                - /url: https://fas.spicesboard.gov.in/accounts/OnlinePayLogin.aspx
+          - generic [ref=e648]:
+            - list [ref=e649]:
+              - listitem [ref=e650]:
+                - link "Spice News" [ref=e651] [cursor=pointer]:
+                  - /url: ""
+              - listitem [ref=e652]:
+                - link "e-Newsletter" [ref=e653] [cursor=pointer]:
+                  - /url: ""
+            - generic [ref=e655]:
+              - link [ref=e656] [cursor=pointer]:
+                - /url: marketing/price/domestic/current-market-price.html
+                - img "Current Market Price" [ref=e657]
+                - text: Current Market Price
+              - list [ref=e658]:
+                - listitem [ref=e659]:
+                  - link "TENDER NOTICE FOR THE PROCUREMENT OF DESKTOP COMPUTERS FOR SPICESBOARD, HEAD OFFICE, KOCHI" [ref=e662] [cursor=pointer]:
+                    - /url: tenders/tenderdetails.html?id=786
+                - listitem [ref=e663]:
+                  - link "INVITATION OF BIDS FOR THE SUPPLY AND INSTALLATION OF SHELVING STORAGE RACKS" [ref=e666] [cursor=pointer]:
+                    - /url: tenders/tenderdetails.html?id=787
+                - listitem [ref=e667]:
+                  - link "PROVISIONAL RANK LIST- WALK IN TEST CONDUCTED ON 04.08.2026 FOR THE SELECTION OF TRAINEE ANALYST (CHEMISTRY) AT QUALITY EVALUATION LABORATORY, CHENNAI" [ref=e670] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=913
+                - listitem [ref=e671]:
+                  - 'link "REISSUE OF NOTIFICATION - SELECTION OF SPICES RESEARCH TRAINEES AT INDIAN CARDAMOM RESEARCH INSTITUTE(ICRI), MYLADUMPARA, IDUKKI, KERALA ( Ref: 1. Notification No:57/2025 dated 12.03.2026, 2. Corrigendum Notification dated 23.03.2026, 3. Corrigendum Notification dated 10.09.2026, 4. Corrigendum Notification dated 08.10.2026)" [ref=e674] [cursor=pointer]':
+                    - /url: opportunities/details.html?id=914
+                - listitem [ref=e675]:
+                  - link "WRITTEN TEST FOR SELECTION OF TRAINEE (MARKETING) AT SPICES BOARD, REGIONAL OFFICE, KOLKATA." [ref=e678] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=911
+                - listitem [ref=e679]:
+                  - link "PROVISIONAL RANK LIST- WRITTEN TEST CONDUCTED FOR THE SELECTION OF TRAINEE ANALYST (MICROBIOLOGY) ON 25-09-2026 FOR ENGAGING AT QUALITY EVALUATION LABORATORY (QEL), SPICES BOARD, KOLKATA." [ref=e682] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=912
+                - listitem [ref=e683]:
+                  - link "Pre-shipment testing and clearance for Aflatoxin for export of Chilli whole to Sri Lanka - reg" [ref=e686] [cursor=pointer]:
+                    - /url: trade/trade-notifications/notificationdetails.html?id=599
+                - listitem [ref=e687]:
+                  - link "Notice Inviting Tender for designing and fabrication of Spices Board’s stall in Indus Food 2026 Bangalore at Bangalore International Exhibition Centre, Bangalore" [ref=e690] [cursor=pointer]:
+                    - /url: tenders/tenderdetails.html?id=783
+                - listitem [ref=e691]:
+                  - link "WRITTEN TEST FOR SELECTION OF TRAINEES IN QUALITY EVALUATION LABORATORY (QEL) OF SPICES BOARD, TUTICORIN" [ref=e694] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=910
+                - listitem [ref=e695]:
+                  - 'link "CORRIGENDUM NOTIFICATION - SELECTION OF SPICES RESEARCH TRAINEES AT INDIAN CARDAMOM RESEARCH INSTITUTE(ICRI), MYLADUMPARA, IDUKKI, KERALA(Ref: 1. Notification No:57/2025 dated 12.03.2026, 2. Corrigendum Notification dated 23.03.2026 and 3. Corrigendum Notification dated 10.09.2026)" [ref=e698] [cursor=pointer]':
+                    - /url: opportunities/details.html?id=909
+                - listitem [ref=e699]:
+                  - link "INVITING TENDERS FOR IMMUNOAFFINITY COLUMNS FOR AFLATOXIN ANALYSIS AT QEL, KOCHI, FOR THE YEAR 2026" [ref=e702] [cursor=pointer]:
+                    - /url: tenders/tenderdetails.html?id=780
+                - listitem [ref=e703]:
+                  - link "SELECTION OF TRAINEE (DEVELOPMENT) AT INDIAN CARDAMOM RESEARCH INSTITUTE(ICRI), MYLADUMPARA, IDUKKI, KERALA" [ref=e706] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=907
+                - listitem [ref=e707]:
+                  - 'link "SELECTION OF SPICES RESEARCH TRAINEES AT INDIAN CARDAMOM RESEARCH INSTITUTE(ICRI), MYLADUMPARA, IDUKKI, KERALA( Ref: 1. Notification No:57/2025 dated 12.03.2026, 2. Corrigendum Notification dated 23.03.2026)" [ref=e710] [cursor=pointer]':
+                    - /url: opportunities/details.html?id=908
+                - listitem [ref=e711]:
+                  - link "SELECTION OF TRAINEE (DEVELOPMENT) AT VARIOUS OFFICES OF SPICES BOARD" [ref=e714] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=906
+                - listitem [ref=e715]:
+                  - link "LIST OF EVENTS TO BE CONDUCTED BY DEVELOPMENT DEPARTMENT OF SPICES BOARD." [ref=e718] [cursor=pointer]:
+                    - /url: training-calendar/details.html?id=31
+                - listitem [ref=e719]:
+                  - link "Schedule for conducting E-auctions at Puttady and Bodinaykanur E -auction centres from 23.09.2026 to 31.10.2026." [ref=e722] [cursor=pointer]:
+                    - /url: trade/trade-notifications/notificationdetails.html?id=595
+                - listitem [ref=e723]:
+                  - link "CORRIGENDUM- SELECTION OF SPICES EXTENSION TRAINEES AT VARIOUS OFFICES UNDER KERALA AND TAMIL NADU REGION" [ref=e726] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=902
+                - listitem [ref=e727]:
+                  - link "WRITTEN TEST FOR SELECTION OF TRAINEES IN QUALITY EVALUATION LABORATORY (QEL) OF SPICES BOARD, KOLKATA" [ref=e730] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=892
+                - listitem [ref=e731]:
+                  - 'link "Trade Advisory - Advisory on Proposed Maximum Levels (MLs) for Mineral Oil Aromatic Hydrocarbons (MOAH) in Spices and Spice ''`Products Exported to the European Union -reg." [ref=e734] [cursor=pointer]':
+                    - /url: trade/trade-notifications/notificationdetails.html?id=582
+                - listitem [ref=e735]:
+                  - link "Holidays approved for Cardamom e-auction centres for the crop season 2026-27" [ref=e738] [cursor=pointer]:
+                    - /url: trade/trade-notifications/notificationdetails.html?id=573
+                - listitem [ref=e739]:
+                  - link "CORRIGENDUM-POSTPONING WALK IN TESTS" [ref=e742] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=872
+                - listitem [ref=e743]:
+                  - link "SELECTION OF SPICES RESEARCH TRAINEES AT INDIAN CARDAMOM RESEARCH INSTITUTE(ICRI), MYLADUMPARA, IDUKKI, KERALA (57/2025)" [ref=e746] [cursor=pointer]:
+                    - /url: opportunities/details.html?id=868
+                - listitem [ref=e747]:
+                  - link "Cancellation of Cardamom E-auctioneer Licence of M/s Koko Spices -reg." [ref=e750] [cursor=pointer]:
+                    - /url: trade/trade-notifications/notificationdetails.html?id=537
+                - listitem [ref=e751]:
+                  - link "Notice inviting Expression of interest for taking up Franchising of Spices India Signature stalls across India and Abroad" [ref=e754] [cursor=pointer]:
+                    - /url: tenders/tenderdetails.html?id=366
+                - listitem [ref=e755]:
+                  - 'link "CORRIGENDUM - WRITTEN TEST FOR SELECTION OF TRAINEES IN QUALITY EVALUATION LABORATORY (QEL) OF SPICES BOARD, KOLKATA(Ref: 1. Notification No.48/2025 dated 12.08.2026, 2. Provisional Rank list published on 15.10.2026)" [ref=e758] [cursor=pointer]':
+                    - /url: opportunities/details.html?id=915
+                - listitem [ref=e759]:
+                  - link "RANK LIST FOR ALLOTMENT OF PLOTS IN SPICES PARKS VIZ. SIVAGANGA (TAMIL NADU) , GUNA (MADHYA PRADESH), GUNTUR (ANDHRA PRADESH), KOTA (RAJASTHAN) , JODHPUR (RAJASTHAN) & RAEBARELI (UTTAR PRADESH)" [ref=e762] [cursor=pointer]:
+                    - /url: trade/trade-notifications/notificationdetails.html?id=600
+              - link "Read More" [ref=e763] [cursor=pointer]:
+                - /url: general-information/spice-news.html
+      - generic [ref=e771]:
+        - list [ref=e773]:
+          - listitem [ref=e774]:
+            - link [ref=e777] [cursor=pointer]:
+              - /url: spice-catalog/cardamom-small-1.html
+              - img "Cardamom (small)" [ref=e778]
+            - link "Cardamom (small)" [ref=e781] [cursor=pointer]:
+              - /url: spice-catalog/cardamom-small-1.html
+          - listitem [ref=e782]:
+            - link [ref=e785] [cursor=pointer]:
+              - /url: spice-catalog/pepper-1.html
+            - link "Pepper" [ref=e788] [cursor=pointer]:
+              - /url: spice-catalog/pepper-1.html
+          - listitem [ref=e789]:
+            - link [ref=e792] [cursor=pointer]:
+              - /url: spice-catalog/chilli-1.html
+            - link "Chilli" [ref=e795] [cursor=pointer]:
+              - /url: spice-catalog/chilli-1.html
+          - listitem [ref=e796]:
+            - link [ref=e799] [cursor=pointer]:
+              - /url: spice-catalog/cumin.html
+            - link "Cumin" [ref=e802] [cursor=pointer]:
+              - /url: spice-catalog/cumin.html
+          - listitem [ref=e803]:
+            - link [ref=e806] [cursor=pointer]:
+              - /url: spice-catalog/turmeric-1.html
+            - link "Turmeric" [ref=e809] [cursor=pointer]:
+              - /url: spice-catalog/turmeric-1.html
+          - listitem [ref=e810]:
+            - link [ref=e813] [cursor=pointer]:
+              - /url: spice-catalog/ginger-0.html
+            - link "Ginger" [ref=e816] [cursor=pointer]:
+              - /url: spice-catalog/ginger-0.html
+          - listitem [ref=e817]:
+            - link [ref=e820] [cursor=pointer]:
+              - /url: spice-catalog/vanilla.html
+            - link "Vanilla" [ref=e823] [cursor=pointer]:
+              - /url: spice-catalog/vanilla.html
+          - listitem [ref=e824]:
+            - link [ref=e827] [cursor=pointer]:
+              - /url: spice-catalog/thyme.html
+            - link "Thyme" [ref=e830] [cursor=pointer]:
+              - /url: spice-catalog/thyme.html
+          - listitem [ref=e831]:
+            - link [ref=e834] [cursor=pointer]:
+              - /url: spice-catalog/tejpat.html
+            - link "Tejpat" [ref=e837] [cursor=pointer]:
+              - /url: spice-catalog/tejpat.html
+          - listitem [ref=e838]:
+            - link "Tarragon" [ref=e844] [cursor=pointer]:
+              - /url: spice-catalog/tarragon.html
+          - listitem [ref=e845]:
+            - link [ref=e848] [cursor=pointer]:
+              - /url: spice-catalog/tamarind.html
+            - link "Tamarind" [ref=e851] [cursor=pointer]:
+              - /url: spice-catalog/tamarind.html
+          - listitem [ref=e852]:
+            - link [ref=e855] [cursor=pointer]:
+              - /url: spice-catalog/sweet-flag.html
+              - img "Sweet flag" [ref=e856]
+            - link "Sweet Flag" [ref=e859] [cursor=pointer]:
+              - /url: spice-catalog/sweet-flag.html
+          - listitem [ref=e860]:
+            - link [ref=e863] [cursor=pointer]:
+              - /url: spice-catalog/star-anise.html
+              - img "star anise" [ref=e864]
+            - link "Star Anise" [ref=e867] [cursor=pointer]:
+              - /url: spice-catalog/star-anise.html
+          - listitem [ref=e868]:
+            - link [ref=e871] [cursor=pointer]:
+              - /url: spice-catalog/sage.html
+              - img "Sage" [ref=e872]
+            - link "Sage" [ref=e875] [cursor=pointer]:
+              - /url: spice-catalog/sage.html
+          - listitem [ref=e876]:
+            - link [ref=e879] [cursor=pointer]:
+              - /url: spice-catalog/saffron.html
+            - link "Saffron" [ref=e882] [cursor=pointer]:
+              - /url: spice-catalog/saffron.html
+          - listitem [ref=e883]:
+            - link [ref=e886] [cursor=pointer]:
+              - /url: spice-catalog/rosemary.html
+              - img "Rosemary" [ref=e887]
+            - link "Rosemary" [ref=e890] [cursor=pointer]:
+              - /url: spice-catalog/rosemary.html
+          - listitem [ref=e891]:
+            - link [ref=e894] [cursor=pointer]:
+              - /url: spice-catalog/poppy-seed.html
+              - img "Poppy Seed" [ref=e895]
+            - link "Poppy Seed" [ref=e898] [cursor=pointer]:
+              - /url: spice-catalog/poppy-seed.html
+          - listitem [ref=e899]:
+            - link [ref=e902] [cursor=pointer]:
+              - /url: spice-catalog/pomegranate.html
+              - img "Pomegranate" [ref=e903]
+            - link "Pomegranate" [ref=e906] [cursor=pointer]:
+              - /url: spice-catalog/pomegranate.html
+          - listitem [ref=e907]:
+            - link [ref=e910] [cursor=pointer]:
+              - /url: spice-catalog/pepper-long.html
+              - img "Pepper Long" [ref=e911]
+            - link "Pepper Long" [ref=e914] [cursor=pointer]:
+              - /url: spice-catalog/pepper-long.html
+          - listitem [ref=e915]:
+            - link [ref=e918] [cursor=pointer]:
+              - /url: spice-catalog/parsley.html
+              - img "Parsley" [ref=e919]
+            - link "Parsley" [ref=e922] [cursor=pointer]:
+              - /url: spice-catalog/parsley.html
+          - listitem [ref=e923]:
+            - link [ref=e926] [cursor=pointer]:
+              - /url: spice-catalog/oregano.html
+              - img "Oregano" [ref=e927]
+            - link "Oregano" [ref=e930] [cursor=pointer]:
+              - /url: spice-catalog/oregano.html
+          - listitem [ref=e931]:
+            - link [ref=e934] [cursor=pointer]:
+              - /url: spice-catalog/nutmeg-mace.html
+              - img "Nutmeg & Mace" [ref=e935]
+            - link "Nutmeg & Mace" [ref=e938] [cursor=pointer]:
+              - /url: spice-catalog/nutmeg-mace.html
+          - listitem [ref=e939]:
+            - link [ref=e942] [cursor=pointer]:
+              - /url: spice-catalog/mustard.html
+              - img "Mustard" [ref=e943]
+            - link "Mustard" [ref=e946] [cursor=pointer]:
+              - /url: spice-catalog/mustard.html
+          - listitem [ref=e947]:
+            - link [ref=e950] [cursor=pointer]:
+              - /url: spice-catalog/marjoram.html
+              - img "Marjoram" [ref=e951]
+            - link "Marjoram" [ref=e954] [cursor=pointer]:
+              - /url: spice-catalog/marjoram.html
+          - listitem [ref=e955]:
+            - link [ref=e958] [cursor=pointer]:
+              - /url: spice-catalog/lovage.html
+              - img "Lovage" [ref=e959]
+            - link "Lovage" [ref=e962] [cursor=pointer]:
+              - /url: spice-catalog/lovage.html
+          - listitem [ref=e963]:
+            - link [ref=e966] [cursor=pointer]:
+              - /url: spice-catalog/kokam.html
+              - img "Kokkam" [ref=e967]
+            - link "Kokam" [ref=e970] [cursor=pointer]:
+              - /url: spice-catalog/kokam.html
+          - listitem [ref=e971]:
+            - link [ref=e974] [cursor=pointer]:
+              - /url: spice-catalog/juniper-berry.html
+              - img "Juniper Berry" [ref=e975]
+            - link "Juniper Berry" [ref=e978] [cursor=pointer]:
+              - /url: spice-catalog/juniper-berry.html
+          - listitem [ref=e979]:
+            - link [ref=e982] [cursor=pointer]:
+              - /url: spice-catalog/hyssop.html
+              - img "Hyssop" [ref=e983]
+            - link "Hyssop" [ref=e986] [cursor=pointer]:
+              - /url: spice-catalog/hyssop.html
+          - listitem [ref=e987]:
+            - link [ref=e990] [cursor=pointer]:
+              - /url: spice-catalog/horseradish.html
+              - img "Horseradish" [ref=e991]
+            - link "Horseradish" [ref=e994] [cursor=pointer]:
+              - /url: spice-catalog/horseradish.html
+          - listitem [ref=e995]:
+            - link [ref=e998] [cursor=pointer]:
+              - /url: spice-catalog/greater-galanga.html
+              - img "Greater Galanga" [ref=e999]
+            - link "Greater Galanga" [ref=e1002] [cursor=pointer]:
+              - /url: spice-catalog/greater-galanga.html
+          - listitem [ref=e1003]:
+            - link [ref=e1006] [cursor=pointer]:
+              - /url: spice-catalog/garlic.html
+            - link "Garlic" [ref=e1009] [cursor=pointer]:
+              - /url: spice-catalog/garlic.html
+          - listitem [ref=e1010]:
+            - link [ref=e1013] [cursor=pointer]:
+              - /url: spice-catalog/fenugreek.html
+            - link "Fenugreek" [ref=e1016] [cursor=pointer]:
+              - /url: spice-catalog/fenugreek.html
+          - listitem [ref=e1017]:
+            - link [ref=e1020] [cursor=pointer]:
+              - /url: spice-catalog/fennel.html
+            - link "Fennel" [ref=e1023] [cursor=pointer]:
+              - /url: spice-catalog/fennel.html
+          - listitem [ref=e1024]:
+            - link [ref=e1027] [cursor=pointer]:
+              - /url: spice-catalog/dill.html
+              - img "Dill" [ref=e1028]
+            - link "Dill" [ref=e1031] [cursor=pointer]:
+              - /url: spice-catalog/dill.html
+          - listitem [ref=e1032]:
+            - link [ref=e1035] [cursor=pointer]:
+              - /url: spice-catalog/curry-leaf.html
+              - img "Curry Leaf" [ref=e1036]
+            - link "Curry Leaf" [ref=e1039] [cursor=pointer]:
+              - /url: spice-catalog/curry-leaf.html
+          - listitem [ref=e1040]:
+            - link [ref=e1043] [cursor=pointer]:
+              - /url: spice-catalog/mint-1.html
+            - link "Mint" [ref=e1046] [cursor=pointer]:
+              - /url: spice-catalog/mint-1.html
+          - listitem [ref=e1047]:
+            - link [ref=e1050] [cursor=pointer]:
+              - /url: spice-catalog/coriander.html
+              - img "Coriander" [ref=e1051]
+            - link "Coriander" [ref=e1054] [cursor=pointer]:
+              - /url: spice-catalog/coriander.html
+          - listitem [ref=e1055]:
+            - link [ref=e1058] [cursor=pointer]:
+              - /url: spice-catalog/clove.html
+              - img "Clove" [ref=e1059]
+            - link "Clove" [ref=e1062] [cursor=pointer]:
+              - /url: spice-catalog/clove.html
+          - listitem [ref=e1063]:
+            - link [ref=e1066] [cursor=pointer]:
+              - /url: spice-catalog/cinnamon.html
+            - link "Cinnamon" [ref=e1069] [cursor=pointer]:
+              - /url: spice-catalog/cinnamon.html
+          - listitem [ref=e1070]:
+            - link [ref=e1073] [cursor=pointer]:
+              - /url: spice-catalog/celery.html
+              - img "Celery" [ref=e1074]
+            - link "Celery" [ref=e1077] [cursor=pointer]:
+              - /url: spice-catalog/celery.html
+          - listitem [ref=e1078]:
+            - link [ref=e1081] [cursor=pointer]:
+              - /url: spice-catalog/cassia.html
+              - img "Cassia" [ref=e1082]
+            - link "Cassia" [ref=e1085] [cursor=pointer]:
+              - /url: spice-catalog/cassia.html
+          - listitem [ref=e1086]:
+            - link [ref=e1089] [cursor=pointer]:
+              - /url: spice-catalog/cardamom-large.html
+              - img "Cardamom (large)" [ref=e1090]
+            - link "Cardamom (large)" [ref=e1093] [cursor=pointer]:
+              - /url: spice-catalog/cardamom-large.html
+          - listitem [ref=e1094]:
+            - link [ref=e1097] [cursor=pointer]:
+              - /url: spice-catalog/caraway-seed.html
+              - img "Caraway Seed" [ref=e1098]
+            - link "Caraway Seed" [ref=e1101] [cursor=pointer]:
+              - /url: spice-catalog/caraway-seed.html
+          - listitem [ref=e1102]:
+            - link [ref=e1105] [cursor=pointer]:
+              - /url: spice-catalog/caper.html
+              - img "Caper" [ref=e1106]
+            - link "Caper" [ref=e1109] [cursor=pointer]:
+              - /url: spice-catalog/caper.html
+          - listitem [ref=e1110]:
+            - link [ref=e1113] [cursor=pointer]:
+              - /url: spice-catalog/cambodge.html
+            - link "Cambodge" [ref=e1116] [cursor=pointer]:
+              - /url: spice-catalog/cambodge.html
+          - listitem [ref=e1117]:
+            - link "Bishop's Weed" [ref=e1123] [cursor=pointer]:
+              - /url: spice-catalog/bishops-weed.html
+          - listitem [ref=e1124]:
+            - link "Bay Leaf" [ref=e1130] [cursor=pointer]:
+              - /url: spice-catalog/bay-leaf.html
+          - listitem [ref=e1131]:
+            - link "Basil" [ref=e1137] [cursor=pointer]:
+              - /url: spice-catalog/basil.html
+          - listitem [ref=e1138]:
+            - link "Asafoetida" [ref=e1144] [cursor=pointer]:
+              - /url: spice-catalog/asafoetida.html
+          - listitem [ref=e1145]:
+            - link "Aniseed" [ref=e1151] [cursor=pointer]:
+              - /url: spice-catalog/aniseed.html
+          - listitem [ref=e1152]:
+            - link "Allspice" [ref=e1158] [cursor=pointer]:
+              - /url: spice-catalog/allspice.html
+        - link [ref=e1159] [cursor=pointer]:
+          - /url: javascript:void(0)
+        - link [ref=e1160] [cursor=pointer]:
+          - /url: javascript:void(0)
+    - generic [ref=e1164]:
+      - button [ref=e1165]
+      - generic [ref=e1167]:
+        - link [ref=e1169] [cursor=pointer]:
+          - /url: https://commerce.gov.in/
+        - link [ref=e1172] [cursor=pointer]:
+          - /url: http://www.flavourit.com/
+        - link [ref=e1175] [cursor=pointer]:
+          - /url: http://www.teacoffeespiceofindia.com/
+        - link [ref=e1178] [cursor=pointer]:
+          - /url: https://data.gov.in/
+        - link [ref=e1181] [cursor=pointer]:
+          - /url: https://www.digitalindia.gov.in/
+        - link [ref=e1184] [cursor=pointer]:
+          - /url: https://india.gov.in/
+          - img "National Portal of India" [ref=e1185]
+        - link [ref=e1187] [cursor=pointer]:
+          - /url: https://commerce.gov.in/
+          - img "National Portal of India" [ref=e1188]
+        - link [ref=e1190] [cursor=pointer]:
+          - /url: http://www.flavourit.com/
+          - img "FLAVOURIT Logo" [ref=e1191]
+        - link [ref=e1193] [cursor=pointer]:
+          - /url: http://www.teacoffeespiceofindia.com/
+          - img "Tea, Coffee Logo" [ref=e1194]
+        - link [ref=e1196] [cursor=pointer]:
+          - /url: https://data.gov.in/
+          - img "Data.gov Logo" [ref=e1197]
+        - link [ref=e1199] [cursor=pointer]:
+          - /url: https://www.digitalindia.gov.in/
+        - link [ref=e1202] [cursor=pointer]:
+          - /url: https://india.gov.in/
+        - link [ref=e1205] [cursor=pointer]:
+          - /url: https://commerce.gov.in/
+        - link [ref=e1208] [cursor=pointer]:
+          - /url: http://www.flavourit.com/
+        - link [ref=e1211] [cursor=pointer]:
+          - /url: http://www.teacoffeespiceofindia.com/
+        - link [ref=e1214] [cursor=pointer]:
+          - /url: https://data.gov.in/
+        - link [ref=e1217] [cursor=pointer]:
+          - /url: https://www.digitalindia.gov.in/
+        - link [ref=e1220] [cursor=pointer]:
+          - /url: https://india.gov.in/
+        - link [ref=e1223] [cursor=pointer]:
+          - /url: https://commerce.gov.in/
+        - link [ref=e1226] [cursor=pointer]:
+          - /url: http://www.flavourit.com/
+        - link [ref=e1229] [cursor=pointer]:
+          - /url: http://www.teacoffeespiceofindia.com/
+        - link [ref=e1232] [cursor=pointer]:
+          - /url: https://data.gov.in/
+        - link [ref=e1235] [cursor=pointer]:
+          - /url: https://www.digitalindia.gov.in/
+        - link [ref=e1238] [cursor=pointer]:
+          - /url: https://india.gov.in/
+        - link [ref=e1241] [cursor=pointer]:
+          - /url: https://commerce.gov.in/
+        - link [ref=e1244] [cursor=pointer]:
+          - /url: http://www.flavourit.com/
+        - link [ref=e1247] [cursor=pointer]:
+          - /url: http://www.teacoffeespiceofindia.com/
+        - link [ref=e1250] [cursor=pointer]:
+          - /url: https://data.gov.in/
+        - link [ref=e1253] [cursor=pointer]:
+          - /url: https://www.digitalindia.gov.in/
+      - button [ref=e1255]
+  - generic [ref=e1257]:
+    - generic [ref=e1258]:
+      - list:
+        - listitem [ref=e1259]:
+          - link "Citizens Charter" [ref=e1260] [cursor=pointer]:
+            - /url: /citizens-charter.html
+        - listitem [ref=e1261]:
+          - link "Lodge Complaint" [ref=e1262] [cursor=pointer]:
+            - /url: /lodge-complaint.html
+        - listitem [ref=e1263]:
+          - link "Online Exporter Registration" [ref=e1264] [cursor=pointer]:
+            - /url: https://indianspices.org.in/CRES_new/e-r-o/exporters-registration/form/Registration.php
+        - listitem [ref=e1265]:
+          - link "Spices dyed Garments" [ref=e1266] [cursor=pointer]:
+            - /url: /spices-dyed-garments.html
+        - listitem [ref=e1267]:
+          - link "Website Policy" [ref=e1268] [cursor=pointer]:
+            - /url: /website-policy.html
+        - listitem [ref=e1269]:
+          - link "Codex committee on Spices and culinary herbs(CCSCH)" [ref=e1270] [cursor=pointer]:
+            - /url: http://ccsch.in/
+        - listitem [ref=e1271]:
+          - link "Export Support System and online Submission of Quarterly Export Return" [ref=e1272] [cursor=pointer]:
+            - /url: https://indianspices.org.in/ESS/
+        - listitem [ref=e1273]:
+          - link "Helpline for women in distress (7827170170, internalcommitteesbkochi@gmail.com)" [ref=e1274] [cursor=pointer]:
+            - /url: https://www.ncwwomenhelpline.in/
+    - generic:
+      - link "Videos":
+        - /url: /videos.html
+        - img "Videos"
+  - generic [ref=e1275]: © Spices Board India, Ministry of Commerce & Industry, Govt. of India
+  - generic [ref=e1277]: Last Updated:October 22 , 2026

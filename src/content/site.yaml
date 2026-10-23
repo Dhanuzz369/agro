@@ -12,10 +12,11 @@ phone: "REPLACE: +91 00000 00000"
 whatsapp: "REPLACE: 910000000000"
 web3formsKey: "REPLACE: web3forms-access-key"
 registrations:
-  - { id: apeda, name: "APEDA RCMC", number: "REPLACE: RCMC no.", held: true }
-  - { id: fssai, name: "FSSAI", number: "REPLACE: FSSAI licence no.", held: true }
-  - { id: spices-board, name: "Spices Board India", number: "REPLACE: CRES no.", held: true }
-  - { id: iec, name: "IEC (DGFT)", number: "REPLACE: IEC no.", held: true }
-  - { id: cdb, name: "Coconut Development Board", number: "REPLACE: CDB no.", held: true }
+  - { id: apeda, name: "APEDA", number: "REPLACE: RCMC no.", logo: /logos/apeda.png, held: true }
+  - { id: spices-board, name: "Spices Board India", number: "REPLACE: CRES no.", logo: /logos/spices-board.png, held: true }
+  - { id: fieo, name: "FIEO", number: "REPLACE: FIEO RCMC no.", held: true }
+  - { id: fssai, name: "FSSAI", number: "REPLACE: FSSAI licence no.", logo: /logos/fssai.png, held: true }
+  - { id: iec, name: "DGFT (IEC)", number: "REPLACE: IEC no.", logo: /logos/dgft.png, held: true }
+  - { id: cdb, name: "Coconut Development Board", number: "REPLACE: CDB no.", logo: /logos/cdb.png, held: true }
 stats: { countries: 70, products: 9, markets: 18, ports: 4 }
 social: []

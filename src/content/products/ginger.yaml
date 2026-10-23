@@ -9,7 +9,6 @@ regions: [wayanad, kodagu, hassan]
 markets: ["Wayanad (Sulthan Bathery) ginger traders", "Kodagu growers", "Hassan APMC", "Kochi spice market"]
 harvestMonths: [12, 1, 2, 3]
 ports: [kochi, mangalore, chennai]
-moq: "1 × 20 ft FCL (dried) · 1 × 40 ft reefer (fresh)"
 shelfLife: "Dried: 24 months · Fresh: 8–12 weeks (reefer)"
 packing: ["13 kg / 20 kg cartons or mesh bags (fresh)", "25 kg / 50 kg PP or jute bags (dried)"]
 containerLoad: { ft20: "Dried 13–15 MT", ft40: "Fresh 26 MT (reefer)" }

@@ -6,7 +6,6 @@ import HsnChip from '../components/HsnChip.astro';
 import StockLabel from '../components/StockLabel.astro';
 import SpecTable from '../components/SpecTable.astro';
 import HarvestCalendar from '../components/HarvestCalendar.astro';
-import SouthIndiaMap from '../components/SouthIndiaMap.astro';
 import ProductCard from '../components/ProductCard.astro';
 import Faq from '../components/Faq.astro';
 import { createT } from '../i18n/t';
@@ -80,7 +79,6 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
         <div><dt>{t('fact.hsn')}</dt><dd dir="ltr">{p.data.hsn.map((h) => formatHsn(h.code)).join(' · ')}</dd></div>
         <div><dt>{t('fact.states')}</dt><dd>{states}</dd></div>
         <div><dt>{t('fact.season')}</dt><dd>{seasonRange(p.data.harvestMonths, htmlLang[locale])}</dd></div>
-        <div><dt>{t('fact.moq')}</dt><dd>{p.data.moq}</dd></div>
         <div><dt>{t('fact.ports')}</dt><dd>{portNames}</dd></div>
         <div><dt>{t('fact.shelfLife')}</dt><dd>{p.data.shelfLife}</dd></div>
       </dl>
@@ -125,7 +123,6 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
           <h3>{t('product.calendar')}</h3>
           <HarvestCalendar locale={locale} months={p.data.harvestMonths} label={t('product.calendar')} />
         </div>
-        <SouthIndiaMap active={[...p.data.regions, ...p.data.ports]} label={`${t('product.where')}: ${p.text.name}`} />
       </div>
     </section>
 
@@ -203,7 +200,7 @@ const title = t('meta.productTitle', { name: p.text.name, hsn: formatHsn(p.data.
   .var__where, .var__pack { font-size: var(--step--1); color: var(--ink-2); }
   .var__where span, .var__pack span { color: var(--ink); font-weight: 500; }
   .pv__where { background: var(--paper-2); }
-  .pv__whereGrid { display: grid; gap: var(--space-7); grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: center; }
+  .pv__whereGrid { display: grid; gap: var(--space-7); max-inline-size: 52rem; }
   .pv__whereGrid > div { display: grid; gap: var(--space-4); }
   .pv__origin { font-family: var(--font-display); font-size: var(--step-1); color: var(--clay); }
   .pv__markets { margin: 0; padding-inline-start: 1.2em; }

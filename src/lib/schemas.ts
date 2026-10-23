@@ -22,7 +22,6 @@ export const productSchema = (image: ImageFn) =>
       markets: z.array(z.string()).min(1),
       harvestMonths: z.array(month).min(1),
       ports: z.array(z.enum(['chennai', 'kochi', 'tuticorin', 'mangalore'])).min(1),
-      moq: z.string(),
       shelfLife: z.string(),
       packing: z.array(z.string()).min(1),
       containerLoad: z.object({ ft20: z.string(), ft40: z.string() }),
@@ -57,7 +56,7 @@ export const productTextSchema = z.object({
   originLine: z.string(),
   sourcingStory: z.string(),
   varieties: z.record(z.string(), z.object({ name: z.string(), description: z.string() })),
-  faq: faqSchema.min(3),
+  faq: faqSchema.min(2),
 });
 
 export const hsnTextSchema = z.object({
@@ -91,10 +90,10 @@ export const siteSchema = z.object({
   whatsapp: z.string(),
   web3formsKey: z.string(),
   registrations: z.array(z.object({
-    id: z.enum(['apeda', 'fssai', 'spices-board', 'iec', 'cdb']),
+    id: z.enum(['apeda', 'fssai', 'spices-board', 'fieo', 'iec', 'cdb']),
     name: z.string(),
     number: z.string(),
-    logo: z.string().optional(),
+    logo: z.string().startsWith('/logos/').optional(),
     held: z.boolean(),
   })),
   stats: z.object({ countries: z.number(), products: z.number(), markets: z.number(), ports: z.number() }),

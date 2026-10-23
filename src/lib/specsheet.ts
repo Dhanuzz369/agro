@@ -31,7 +31,7 @@ export function contactFallback(email: string, site: URL): string {
 
 export async function buildSpecSheet(a: {
   productName: string; varietyName: string; hsn: string; verified: boolean; region: string; market: string;
-  specs: { label: string; value: string }[]; packing: string[]; moq: string; ports: string; contact: string; url: string;
+  specs: { label: string; value: string }[]; packing: string[]; ports: string; contact: string; url: string;
 }): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
   doc.setTitle(`${a.varietyName} — GoodBiz Agri spec sheet`);
@@ -74,7 +74,6 @@ export async function buildSpecSheet(a: {
   y -= 14;
   page.drawText('Commercial', { x, y: (y -= 14), size: 12, font: bold, color: ink });
   row('Packing', a.packing.join(', '));
-  row('Minimum order', a.moq);
   row('Loading ports', a.ports);
   row('Incoterms', 'FOB, CFR, CIF');
 

@@ -12,7 +12,6 @@
   "meta.contactDescription": "请告知产品、数量和目的港。GoodBiz Agri 将按 FOB、CFR 或 CIF 条件回复报价。",
   "meta.productTitle": "印度{name}出口商 — HSN {hsn}",
   "meta.hsnTitle": "HSN {code}：{title}",
-
   "nav.skip": "跳到正文",
   "nav.home": "首页",
   "nav.products": "产品",
@@ -21,7 +20,6 @@
   "nav.contact": "联系我们",
   "nav.menu": "菜单",
   "nav.close": "关闭菜单",
-
   "cta.quote": "获取报价",
   "cta.viewProducts": "查看产品",
   "cta.viewProduct": "查看产品",
@@ -29,19 +27,15 @@
   "cta.specSheet": "下载规格表",
   "cta.quoteVariety": "询价此品种",
   "cta.readPost": "阅读文章",
-
   "hero.eyebrow": "农产品出口商 · 印度班加罗尔",
   "hero.title": "南印度的收成，销往70多个国家",
   "hero.lede": "大米、香料、槟榔、黑糖、花生和椰干——直接在产地市场采购，经分级和实验室检测后，由金奈、科钦、杜蒂戈林和新门格洛尔港装运。",
-
   "trust.title": "注册机构",
   "trust.regNo": "注册号",
   "trust.onRequest": "注册号可应要求提供",
-
   "home.range.eyebrow": "产品系列",
   "home.range.title": "九大品类，一个可靠的供应商",
   "home.range.lede": "每个产品页面都列明品种、规格、HSN 编码以及我们采购的具体市场。",
-
   "home.journey.eyebrow": "从农场到港口",
   "home.journey.title": "一批货如何装进您的集装箱",
   "home.journey.s1.title": "产地采购",
@@ -52,7 +46,6 @@
   "home.journey.s3.body": "按您的要求使用 PP 编织袋、黄麻袋、BOPP 袋或真空袋包装，并办理熏蒸和植物检疫证书。",
   "home.journey.s4.title": "装箱与单证",
   "home.journey.s4.body": "在金奈、科钦、杜蒂戈林或新门格洛尔装箱，随附原产地证、植物检疫证、FSSAI 证书和分析证书。",
-
   "home.why.eyebrow": "客户为何长期合作",
   "home.why.title": "目的港少一分意外",
   "home.why.p1.title": "直接采购",
@@ -67,14 +60,8 @@
   "home.why.stat.products": "产品线",
   "home.why.stat.markets": "采购市场",
   "home.why.stat.ports": "装货港",
-
-  "home.sourcing.eyebrow": "产地来源",
-  "home.sourcing.title": "货源覆盖南部四邦",
-  "home.sourcing.lede": "选择产品，查看我们采购的产区和市场。",
-
   "home.faq.eyebrow": "买家常见问题",
   "home.faq.title": "下单之前",
-
   "home.world.eyebrow": "全球网络",
   "home.world.title": "发运至70多个国家",
   "home.world.lede": "定期发运至海湾、非洲、东南亚、欧洲和美洲。",
@@ -84,20 +71,16 @@
   "region.europe": "欧洲",
   "region.americas": "美洲",
   "region.oceania": "大洋洲",
-
   "home.cta.title": "告诉我们产品、数量和港口",
   "home.cta.body": "您将收到规格、包装方案以及 FOB、CFR 或 CIF 报价。",
-
   "footer.tagline": "来自南印度产区市场的农产品。",
   "footer.hsnRef": "HSN 编码速查",
   "footer.contact": "联系我们",
   "footer.rights": "© {year} GoodBiz Agri。保留所有权利。",
-
   "product.quickFacts": "要点速览",
   "fact.hsn": "HSN 编码",
   "fact.states": "采购产地",
   "fact.season": "收获季节",
-  "fact.moq": "起订量",
   "fact.packing": "包装",
   "fact.ports": "装货港",
   "fact.shelfLife": "保质期",
@@ -128,7 +111,6 @@
   "product.representative": "示意图",
   "product.hsnUnverified": "编码核实中",
   "product.drag": "拖动可旋转",
-
   "spec.moisture": "水分",
   "spec.admixture": "杂质",
   "spec.broken": "碎粒",
@@ -150,7 +132,6 @@
   "spec.aflatoxin": "黄曲霉毒素",
   "spec.mesh": "目数/质地",
   "spec.sulphur": "二氧化硫残留",
-
   "hsn.eyebrow": "HSN 编码参考（海关编码）",
   "hsn.covers": "该编码下我们供应的产品",
   "hsn.notes": "归类说明",
@@ -160,7 +141,6 @@
   "hsn.code": "HSN 编码",
   "hsn.description": "商品描述",
   "hsn.product": "产品",
-
   "blog.eyebrow": "资讯",
   "blog.title": "行情动态与采购指南",
   "blog.all": "全部",
@@ -171,7 +151,6 @@
   "blog.readingTime": "阅读约{n}分钟",
   "blog.by": "作者：{author}",
   "blog.inEnglish": "英文版",
-
   "about.eyebrow": "关于我们",
   "about.title": "一家把采购员派驻到产地市场的班加罗尔出口商",
   "about.lede": "GoodBiz Agri 连接进口商与卡纳塔克邦、泰米尔纳德邦、喀拉拉邦和安得拉邦的监管批发市场及加工厂。",
@@ -184,13 +163,11 @@
   "about.quality.s3": "按您所在市场的限量标准，检测水分、黄曲霉毒素和农药残留。",
   "about.quality.s4": "装运前样品确认，可选第三方检验。",
   "about.quality.s5": "熏蒸、植物检疫认证及监装。",
-
   "contact.eyebrow": "联系我们",
   "contact.title": "获取报价",
   "contact.lede": "请告知您的需求。我们通常在一个工作日内回复规格、包装方案和价格。",
   "contact.office": "办公室",
   "contact.direct": "想直接沟通？",
-
   "form.product": "产品",
   "form.variety": "品种",
   "form.anyVariety": "不限/不确定",
@@ -222,7 +199,6 @@
   "form.err.email": "请输入有效的电子邮箱地址",
   "form.err.quantity": "请输入大于0的数量",
   "form.err.product": "请选择产品",
-
   "lang.button": "语言",
   "lang.title": "选择语言",
   "lang.search": "搜索语言",
@@ -231,19 +207,16 @@
   "lang.suggestion": "以简体中文查看本网站？",
   "lang.suggestYes": "是，切换",
   "lang.dismiss": "不，谢谢",
-
   "breadcrumb.label": "面包屑导航",
   "a11y.close": "关闭",
-  "home.faq.q1": "最小起订量是多少？",
-  "home.faq.a1": "多数产品为一个20英尺集装箱；非印度香米和碎米的大宗订单为五个集装箱。部分香料可拼箱。",
-  "home.faq.q2": "你们报哪些贸易术语？",
-  "home.faq.a2": "从金奈、科钦、杜蒂戈林或新门格洛尔报 FOB、CFR 和 CIF。其他术语可应要求提供。",
-  "home.faq.q3": "接受哪些付款方式？",
-  "home.faq.a3": "不可撤销即期信用证；老客户可采用凭单据预付款。",
-  "home.faq.q4": "下单前可以先拿样品吗？",
-  "home.faq.a4": "可以。我们以快递寄送装运前样品，快递费用可在首单中抵扣。",
-  "home.faq.q5": "从下单到发运需要多久？",
-  "home.faq.a5": "通常在确认订单后2至4周，视产品、包装和船期而定。",
-  "home.faq.q6": "可以使用我们的品牌包装吗？",
-  "home.faq.a6": "可以。我们提供贴牌零售包装和大包装，采用您的设计和语言。"
+  "home.faq.q1": "你们报哪些贸易术语？",
+  "home.faq.a1": "从金奈、科钦、杜蒂戈林或新门格洛尔报 FOB、CFR 和 CIF。其他术语可应要求提供。",
+  "home.faq.q2": "接受哪些付款方式？",
+  "home.faq.a2": "不可撤销即期信用证；老客户可采用凭单据预付款。",
+  "home.faq.q3": "下单前可以先拿样品吗？",
+  "home.faq.a3": "可以。我们以快递寄送装运前样品，快递费用可在首单中抵扣。",
+  "home.faq.q4": "从下单到发运需要多久？",
+  "home.faq.a4": "通常在确认订单后2至4周，视产品、包装和船期而定。",
+  "home.faq.q5": "可以使用我们的品牌包装吗？",
+  "home.faq.a5": "可以。我们提供贴牌零售包装和大包装，采用您的设计和语言。"
 }

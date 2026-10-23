@@ -6,7 +6,6 @@ regions: [godavari, nellore, raichur]
 markets: ["Godavari delta mills", "Nellore mills"]
 harvestMonths: [3, 4, 10, 11, 12]
 ports: [chennai, tuticorin]
-moq: "5 × 20 ft FCL"
 shelfLife: "12 months"
 packing: ["50 kg PP bags", "Jumbo bags"]
 containerLoad: { ft20: "25–26 MT", ft40: "27 MT" }

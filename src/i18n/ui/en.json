@@ -12,7 +12,6 @@
   "meta.contactDescription": "Send product, quantity and destination port. GoodBiz Agri replies with FOB, CFR or CIF pricing.",
   "meta.productTitle": "{name} Exporter from India — HSN {hsn}",
   "meta.hsnTitle": "HSN {code}: {title}",
-
   "nav.skip": "Skip to content",
   "nav.home": "Home",
   "nav.products": "Products",
@@ -21,7 +20,6 @@
   "nav.contact": "Contact",
   "nav.menu": "Menu",
   "nav.close": "Close menu",
-
   "cta.quote": "Request a quote",
   "cta.viewProducts": "View products",
   "cta.viewProduct": "View product",
@@ -29,19 +27,15 @@
   "cta.specSheet": "Download spec sheet",
   "cta.quoteVariety": "Quote this variety",
   "cta.readPost": "Read article",
-
   "hero.eyebrow": "Agro exporters · Bengaluru, India",
   "hero.title": "South India's harvest, shipped to 70+ countries",
   "hero.lede": "Rice, spices, arecanut, jaggery, groundnuts and copra — bought direct from the markets where they grow, graded, lab-tested and loaded at Chennai, Kochi, Tuticorin and New Mangalore.",
-
   "trust.title": "Registered with",
   "trust.regNo": "Reg. no.",
   "trust.onRequest": "Number on request",
-
   "home.range.eyebrow": "Product range",
   "home.range.title": "Nine commodities, one accountable supplier",
   "home.range.lede": "Every product page lists varieties, specifications, HSN codes and the exact markets we buy from.",
-
   "home.journey.eyebrow": "From farm to port",
   "home.journey.title": "How a lot reaches your container",
   "home.journey.s1.title": "Bought at source",
@@ -52,7 +46,6 @@
   "home.journey.s3.body": "Packed to your specification in PP, jute, BOPP or vacuum bags, with fumigation and phytosanitary certification.",
   "home.journey.s4.title": "Loaded and documented",
   "home.journey.s4.body": "Stuffed at Chennai, Kochi, Tuticorin or New Mangalore with origin, phytosanitary, FSSAI and analysis certificates.",
-
   "home.why.eyebrow": "Why buyers stay",
   "home.why.title": "Fewer surprises at the destination port",
   "home.why.p1.title": "Direct sourcing",
@@ -67,14 +60,8 @@
   "home.why.stat.products": "Product lines",
   "home.why.stat.markets": "Sourcing markets",
   "home.why.stat.ports": "Loading ports",
-
-  "home.sourcing.eyebrow": "Where it comes from",
-  "home.sourcing.title": "Sourced across four southern states",
-  "home.sourcing.lede": "Choose a product to see the districts and markets we buy from.",
-
   "home.faq.eyebrow": "Buyer questions",
   "home.faq.title": "Before you place an order",
-
   "home.world.eyebrow": "Global reach",
   "home.world.title": "Shipping to 70+ countries",
   "home.world.lede": "Regular shipments to the Gulf, Africa, Southeast Asia, Europe and the Americas.",
@@ -84,20 +71,16 @@
   "region.europe": "Europe",
   "region.americas": "Americas",
   "region.oceania": "Oceania",
-
   "home.cta.title": "Tell us the product, quantity and port",
   "home.cta.body": "You'll get specifications, packing options and an FOB, CFR or CIF quote.",
-
   "footer.tagline": "Agro commodities from South India's producing markets.",
   "footer.hsnRef": "HSN quick reference",
   "footer.contact": "Contact",
   "footer.rights": "© {year} GoodBiz Agri. All rights reserved.",
-
   "product.quickFacts": "Quick facts",
   "fact.hsn": "HSN codes",
   "fact.states": "Sourced from",
   "fact.season": "Harvest season",
-  "fact.moq": "Minimum order",
   "fact.packing": "Packing",
   "fact.ports": "Loading ports",
   "fact.shelfLife": "Shelf life",
@@ -128,7 +111,6 @@
   "product.representative": "Representative image",
   "product.hsnUnverified": "Code under verification",
   "product.drag": "Drag to rotate",
-
   "spec.moisture": "Moisture",
   "spec.admixture": "Admixture",
   "spec.broken": "Broken",
@@ -150,7 +132,6 @@
   "spec.aflatoxin": "Aflatoxin",
   "spec.mesh": "Mesh / texture",
   "spec.sulphur": "Sulphur residue",
-
   "hsn.eyebrow": "HSN reference",
   "hsn.covers": "What we supply under this code",
   "hsn.notes": "Classification notes",
@@ -160,7 +141,6 @@
   "hsn.code": "HSN code",
   "hsn.description": "Description",
   "hsn.product": "Product",
-
   "blog.eyebrow": "Insights",
   "blog.title": "Market updates and buyer guides",
   "blog.all": "All",
@@ -171,7 +151,6 @@
   "blog.readingTime": "{n} min read",
   "blog.by": "By {author}",
   "blog.inEnglish": "In English",
-
   "about.eyebrow": "About us",
   "about.title": "A Bengaluru exporter with buyers in the markets",
   "about.lede": "GoodBiz Agri connects importers with the regulated markets and mills of Karnataka, Tamil Nadu, Kerala and Andhra Pradesh.",
@@ -184,13 +163,11 @@
   "about.quality.s3": "Laboratory testing for moisture, aflatoxin and pesticide residues against your market's limits.",
   "about.quality.s4": "Pre-shipment sample approval and optional third-party inspection.",
   "about.quality.s5": "Fumigation, phytosanitary certification and supervised container stuffing.",
-
   "contact.eyebrow": "Contact",
   "contact.title": "Request a quote",
   "contact.lede": "Share what you need. We usually reply within one business day with specifications, packing options and pricing.",
   "contact.office": "Office",
   "contact.direct": "Prefer to talk directly?",
-
   "form.product": "Product",
   "form.variety": "Variety",
   "form.anyVariety": "Any / not sure",
@@ -222,7 +199,6 @@
   "form.err.email": "Enter a valid email address",
   "form.err.quantity": "Enter a quantity above 0",
   "form.err.product": "Choose a product",
-
   "lang.button": "Language",
   "lang.title": "Choose your language",
   "lang.search": "Search languages",
@@ -231,19 +207,16 @@
   "lang.suggestion": "View this site in English?",
   "lang.suggestYes": "Yes, switch",
   "lang.dismiss": "No, thanks",
-
   "breadcrumb.label": "Breadcrumb",
   "a11y.close": "Close",
-  "home.faq.q1": "What is your minimum order quantity?",
-  "home.faq.a1": "One 20 ft container for most products; five containers for bulk non-basmati and broken rice. Mixed containers are possible for some spices.",
-  "home.faq.q2": "Which Incoterms do you quote?",
-  "home.faq.a2": "FOB, CFR and CIF from Chennai, Kochi, Tuticorin or New Mangalore. Other terms on request.",
-  "home.faq.q3": "What payment terms do you accept?",
-  "home.faq.a3": "Irrevocable letter of credit at sight, or advance payment against documents for established buyers.",
-  "home.faq.q4": "Can I get samples before ordering?",
-  "home.faq.a4": "Yes. We send pre-shipment samples by courier; the courier cost is adjusted against your first order.",
-  "home.faq.q5": "How long from order to shipment?",
-  "home.faq.a5": "Usually 2–4 weeks after confirmation, depending on product, packing and vessel availability.",
-  "home.faq.q6": "Can you pack under our brand?",
-  "home.faq.a6": "Yes. We supply private-label retail and bulk packing with your design and language."
+  "home.faq.q1": "Which Incoterms do you quote?",
+  "home.faq.a1": "FOB, CFR and CIF from Chennai, Kochi, Tuticorin or New Mangalore. Other terms on request.",
+  "home.faq.q2": "What payment terms do you accept?",
+  "home.faq.a2": "Irrevocable letter of credit at sight, or advance payment against documents for established buyers.",
+  "home.faq.q3": "Can I get samples before ordering?",
+  "home.faq.a3": "Yes. We send pre-shipment samples by courier; the courier cost is adjusted against your first order.",
+  "home.faq.q4": "How long from order to shipment?",
+  "home.faq.a4": "Usually 2–4 weeks after confirmation, depending on product, packing and vessel availability.",
+  "home.faq.q5": "Can you pack under our brand?",
+  "home.faq.a5": "Yes. We supply private-label retail and bulk packing with your design and language."
 }

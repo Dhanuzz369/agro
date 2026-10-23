@@ -17,7 +17,7 @@ export const GET: APIRoute = async ({ props, site }) => {
     productName: p.text.name, varietyName: p.text.varieties[v.id]?.name ?? v.id, hsn: v.hsn, verified: p.data.hsn.find((h) => h.code === v.hsn)?.verified ?? false,
     region: `${places[v.region].name}, ${places[v.region].state}`, market: v.market,
     specs: v.specs.map((x) => ({ label: t(`spec.${x.key}` as UiKey), value: x.value })),
-    packing: v.packing, moq: p.data.moq, ports: p.data.ports.map((id) => places[id].name).join(', '),
+    packing: v.packing, ports: p.data.ports.map((id) => places[id].name).join(', '),
     contact: contactFallback(s.email, site!),
     url: new URL(`/products/${p.slug}`, site).href,
   });

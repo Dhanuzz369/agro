@@ -12,7 +12,6 @@
   "meta.contactDescription": "Indiquez le produit, la quantité et le port de destination. GoodBiz Agri répond avec un prix FOB, CFR ou CIF.",
   "meta.productTitle": "{name} : exportateur en Inde — HSN {hsn}",
   "meta.hsnTitle": "HSN {code} : {title}",
-
   "nav.skip": "Aller au contenu",
   "nav.home": "Accueil",
   "nav.products": "Produits",
@@ -21,7 +20,6 @@
   "nav.contact": "Contact",
   "nav.menu": "Menu",
   "nav.close": "Fermer le menu",
-
   "cta.quote": "Demander un devis",
   "cta.viewProducts": "Voir les produits",
   "cta.viewProduct": "Voir le produit",
@@ -29,19 +27,15 @@
   "cta.specSheet": "Télécharger la fiche technique",
   "cta.quoteVariety": "Demander un devis pour cette variété",
   "cta.readPost": "Lire l'article",
-
   "hero.eyebrow": "Exportateurs agricoles · Bengaluru, Inde",
   "hero.title": "La récolte de l'Inde du Sud, expédiée dans plus de 70 pays",
   "hero.lede": "Riz, épices, noix d'arec, jaggery, arachides et coprah — achetés directement sur les marchés où ils sont produits, calibrés, analysés en laboratoire et chargés à Chennai, Kochi, Tuticorin et New Mangalore.",
-
   "trust.title": "Enregistré auprès de",
   "trust.regNo": "N° d'enreg.",
   "trust.onRequest": "Numéro sur demande",
-
   "home.range.eyebrow": "Gamme de produits",
   "home.range.title": "Neuf produits, un seul fournisseur responsable",
   "home.range.lede": "Chaque fiche produit indique les variétés, les spécifications, les codes HSN (SH) et les marchés exacts où nous achetons.",
-
   "home.journey.eyebrow": "De la ferme au port",
   "home.journey.title": "Comment un lot arrive dans votre conteneur",
   "home.journey.s1.title": "Acheté à la source",
@@ -52,7 +46,6 @@
   "home.journey.s3.body": "Emballé selon votre cahier des charges en sacs PP, jute, BOPP ou sous vide, avec fumigation et certificat phytosanitaire.",
   "home.journey.s4.title": "Chargé et documenté",
   "home.journey.s4.body": "Empoté à Chennai, Kochi, Tuticorin ou New Mangalore avec certificats d'origine, phytosanitaire, FSSAI et d'analyse.",
-
   "home.why.eyebrow": "Pourquoi les acheteurs restent",
   "home.why.title": "Moins de mauvaises surprises au port de destination",
   "home.why.p1.title": "Approvisionnement direct",
@@ -67,14 +60,8 @@
   "home.why.stat.products": "Lignes de produits",
   "home.why.stat.markets": "Marchés d'approvisionnement",
   "home.why.stat.ports": "Ports de chargement",
-
-  "home.sourcing.eyebrow": "D'où cela vient",
-  "home.sourcing.title": "Approvisionnement dans quatre États du Sud",
-  "home.sourcing.lede": "Choisissez un produit pour voir les districts et les marchés où nous achetons.",
-
   "home.faq.eyebrow": "Questions d'acheteurs",
   "home.faq.title": "Avant de passer commande",
-
   "home.world.eyebrow": "Présence mondiale",
   "home.world.title": "Expéditions vers plus de 70 pays",
   "home.world.lede": "Expéditions régulières vers le Golfe, l'Afrique, l'Asie du Sud-Est, l'Europe et les Amériques.",
@@ -84,20 +71,16 @@
   "region.europe": "Europe",
   "region.americas": "Amériques",
   "region.oceania": "Océanie",
-
   "home.cta.title": "Indiquez-nous le produit, la quantité et le port",
   "home.cta.body": "Vous recevrez les spécifications, les options d'emballage et un devis FOB, CFR ou CIF.",
-
   "footer.tagline": "Produits agricoles issus des marchés producteurs d'Inde du Sud.",
   "footer.hsnRef": "Référence rapide des codes HSN",
   "footer.contact": "Contact",
   "footer.rights": "© {year} GoodBiz Agri. Tous droits réservés.",
-
   "product.quickFacts": "En bref",
   "fact.hsn": "Codes HSN (SH)",
   "fact.states": "Origine",
   "fact.season": "Saison de récolte",
-  "fact.moq": "Commande minimale",
   "fact.packing": "Emballage",
   "fact.ports": "Ports de chargement",
   "fact.shelfLife": "Durée de conservation",
@@ -128,7 +111,6 @@
   "product.representative": "Image illustrative",
   "product.hsnUnverified": "Code en cours de vérification",
   "product.drag": "Faire glisser pour pivoter",
-
   "spec.moisture": "Humidité",
   "spec.admixture": "Mélange d'autres variétés",
   "spec.broken": "Brisures",
@@ -150,7 +132,6 @@
   "spec.aflatoxin": "Aflatoxine",
   "spec.mesh": "Mesh / granulométrie",
   "spec.sulphur": "Résidus de soufre",
-
   "hsn.eyebrow": "Référence HSN (SH)",
   "hsn.covers": "Ce que nous fournissons sous ce code",
   "hsn.notes": "Notes de classification",
@@ -160,7 +141,6 @@
   "hsn.code": "Code HSN (SH)",
   "hsn.description": "Description",
   "hsn.product": "Produit",
-
   "blog.eyebrow": "Analyses",
   "blog.title": "Actualités des marchés et guides pour acheteurs",
   "blog.all": "Tous",
@@ -171,7 +151,6 @@
   "blog.readingTime": "{n} min de lecture",
   "blog.by": "Par {author}",
   "blog.inEnglish": "En anglais",
-
   "about.eyebrow": "Qui sommes-nous",
   "about.title": "Un exportateur de Bengaluru avec des acheteurs sur les marchés",
   "about.lede": "GoodBiz Agri met les importateurs en relation avec les marchés réglementés et les minoteries du Karnataka, du Tamil Nadu, du Kerala et de l'Andhra Pradesh.",
@@ -184,13 +163,11 @@
   "about.quality.s3": "Analyses en laboratoire (humidité, aflatoxine, résidus de pesticides) selon les limites de votre marché.",
   "about.quality.s4": "Validation d'un échantillon avant expédition et inspection par un tiers en option.",
   "about.quality.s5": "Fumigation, certification phytosanitaire et empotage de conteneurs supervisé.",
-
   "contact.eyebrow": "Contact",
   "contact.title": "Demander un devis",
   "contact.lede": "Dites-nous ce dont vous avez besoin. Nous répondons généralement sous un jour ouvrable avec les spécifications, les options d'emballage et les prix.",
   "contact.office": "Bureau",
   "contact.direct": "Vous préférez nous parler directement ?",
-
   "form.product": "Produit",
   "form.variety": "Variété",
   "form.anyVariety": "Indifférent / pas sûr",
@@ -222,7 +199,6 @@
   "form.err.email": "Saisissez une adresse e-mail valide",
   "form.err.quantity": "Saisissez une quantité supérieure à 0",
   "form.err.product": "Choisissez un produit",
-
   "lang.button": "Langue",
   "lang.title": "Choisissez votre langue",
   "lang.search": "Rechercher une langue",
@@ -231,19 +207,16 @@
   "lang.suggestion": "Voir ce site en français ?",
   "lang.suggestYes": "Oui, changer",
   "lang.dismiss": "Non, merci",
-
   "breadcrumb.label": "Fil d'Ariane",
   "a11y.close": "Fermer",
-  "home.faq.q1": "Quelle est votre quantité minimale de commande ?",
-  "home.faq.a1": "Un conteneur de 20 pieds pour la plupart des produits ; cinq conteneurs pour le riz non basmati et le riz brisé en vrac. Les conteneurs mixtes sont possibles pour certaines épices.",
-  "home.faq.q2": "Quels Incoterms proposez-vous ?",
-  "home.faq.a2": "FOB, CFR et CIF depuis Chennai, Kochi, Tuticorin ou New Mangalore. Autres conditions sur demande.",
-  "home.faq.q3": "Quelles conditions de paiement acceptez-vous ?",
-  "home.faq.a3": "Lettre de crédit irrévocable à vue, ou paiement d'avance contre documents pour les acheteurs établis.",
-  "home.faq.q4": "Puis-je recevoir des échantillons avant de commander ?",
-  "home.faq.a4": "Oui. Nous envoyons des échantillons avant expédition par courrier express ; les frais d'envoi sont déduits de votre première commande.",
-  "home.faq.q5": "Quel est le délai entre la commande et l'expédition ?",
-  "home.faq.a5": "Généralement 2 à 4 semaines après confirmation, selon le produit, l'emballage et la disponibilité des navires.",
-  "home.faq.q6": "Pouvez-vous emballer sous notre marque ?",
-  "home.faq.a6": "Oui. Nous fournissons des emballages en marque blanche, détail ou vrac, avec votre design et votre langue."
+  "home.faq.q1": "Quels Incoterms proposez-vous ?",
+  "home.faq.a1": "FOB, CFR et CIF depuis Chennai, Kochi, Tuticorin ou New Mangalore. Autres conditions sur demande.",
+  "home.faq.q2": "Quelles conditions de paiement acceptez-vous ?",
+  "home.faq.a2": "Lettre de crédit irrévocable à vue, ou paiement d'avance contre documents pour les acheteurs établis.",
+  "home.faq.q3": "Puis-je recevoir des échantillons avant de commander ?",
+  "home.faq.a3": "Oui. Nous envoyons des échantillons avant expédition par courrier express ; les frais d'envoi sont déduits de votre première commande.",
+  "home.faq.q4": "Quel est le délai entre la commande et l'expédition ?",
+  "home.faq.a4": "Généralement 2 à 4 semaines après confirmation, selon le produit, l'emballage et la disponibilité des navires.",
+  "home.faq.q5": "Pouvez-vous emballer sous notre marque ?",
+  "home.faq.a5": "Oui. Nous fournissons des emballages en marque blanche, détail ou vrac, avec votre design et votre langue."
 }

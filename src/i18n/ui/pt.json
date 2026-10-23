@@ -12,7 +12,6 @@
   "meta.contactDescription": "Envie produto, quantidade e porto de destino. A GoodBiz Agri responde com preços FOB, CFR ou CIF.",
   "meta.productTitle": "Exportador de {name} da Índia — HSN {hsn}",
   "meta.hsnTitle": "HSN {code}: {title}",
-
   "nav.skip": "Ir para o conteúdo",
   "nav.home": "Início",
   "nav.products": "Produtos",
@@ -21,7 +20,6 @@
   "nav.contact": "Contato",
   "nav.menu": "Menu",
   "nav.close": "Fechar menu",
-
   "cta.quote": "Solicitar cotação",
   "cta.viewProducts": "Ver produtos",
   "cta.viewProduct": "Ver produto",
@@ -29,19 +27,15 @@
   "cta.specSheet": "Baixar ficha técnica",
   "cta.quoteVariety": "Cotar esta variedade",
   "cta.readPost": "Ler artigo",
-
   "hero.eyebrow": "Exportadores agrícolas · Bengaluru, Índia",
   "hero.title": "A colheita do sul da Índia, enviada para mais de 70 países",
   "hero.lede": "Arroz, especiarias, noz de areca, jaggery, amendoim e copra: comprados diretamente nos mercados onde são cultivados, classificados, testados em laboratório e carregados em Chennai, Kochi, Tuticorin e New Mangalore.",
-
   "trust.title": "Registrados em",
   "trust.regNo": "N.º de reg.",
   "trust.onRequest": "Número sob consulta",
-
   "home.range.eyebrow": "Linha de produtos",
   "home.range.title": "Nove commodities, um único fornecedor responsável",
   "home.range.lede": "Cada página de produto lista variedades, especificações, códigos HSN (SH) e os mercados exatos onde compramos.",
-
   "home.journey.eyebrow": "Da fazenda ao porto",
   "home.journey.title": "Como um lote chega ao seu contêiner",
   "home.journey.s1.title": "Comprado na origem",
@@ -52,7 +46,6 @@
   "home.journey.s3.body": "Embalado conforme a sua especificação em sacos de PP, juta, BOPP ou a vácuo, com fumigação e certificação fitossanitária.",
   "home.journey.s4.title": "Carregado e documentado",
   "home.journey.s4.body": "Estufagem em Chennai, Kochi, Tuticorin ou New Mangalore com certificados de origem, fitossanitário, FSSAI e de análise.",
-
   "home.why.eyebrow": "Por que os compradores ficam",
   "home.why.title": "Menos surpresas no porto de destino",
   "home.why.p1.title": "Compra direta",
@@ -67,14 +60,8 @@
   "home.why.stat.products": "Linhas de produtos",
   "home.why.stat.markets": "Mercados de origem",
   "home.why.stat.ports": "Portos de carregamento",
-
-  "home.sourcing.eyebrow": "De onde vem",
-  "home.sourcing.title": "Origem em quatro estados do sul",
-  "home.sourcing.lede": "Escolha um produto para ver os distritos e mercados onde compramos.",
-
   "home.faq.eyebrow": "Perguntas de compradores",
   "home.faq.title": "Antes de fazer um pedido",
-
   "home.world.eyebrow": "Alcance global",
   "home.world.title": "Embarques para mais de 70 países",
   "home.world.lede": "Embarques regulares para o Golfo, a África, o Sudeste Asiático, a Europa e as Américas.",
@@ -84,20 +71,16 @@
   "region.europe": "Europa",
   "region.americas": "Américas",
   "region.oceania": "Oceania",
-
   "home.cta.title": "Informe o produto, a quantidade e o porto",
   "home.cta.body": "Você receberá especificações, opções de embalagem e uma cotação FOB, CFR ou CIF.",
-
   "footer.tagline": "Commodities agrícolas dos mercados produtores do sul da Índia.",
   "footer.hsnRef": "Referência rápida de códigos HSN (SH)",
   "footer.contact": "Contato",
   "footer.rights": "© {year} GoodBiz Agri. Todos os direitos reservados.",
-
   "product.quickFacts": "Dados rápidos",
   "fact.hsn": "Códigos HSN (SH)",
   "fact.states": "Origem",
   "fact.season": "Época de colheita",
-  "fact.moq": "Pedido mínimo",
   "fact.packing": "Embalagem",
   "fact.ports": "Portos de carregamento",
   "fact.shelfLife": "Validade",
@@ -128,7 +111,6 @@
   "product.representative": "Imagem representativa",
   "product.hsnUnverified": "Código em verificação",
   "product.drag": "Arraste para girar",
-
   "spec.moisture": "Umidade",
   "spec.admixture": "Mistura de outras variedades",
   "spec.broken": "Quebrados",
@@ -150,7 +132,6 @@
   "spec.aflatoxin": "Aflatoxina",
   "spec.mesh": "Malha / textura",
   "spec.sulphur": "Resíduo de enxofre",
-
   "hsn.eyebrow": "Referência HSN (SH)",
   "hsn.covers": "O que fornecemos sob este código",
   "hsn.notes": "Notas de classificação",
@@ -160,7 +141,6 @@
   "hsn.code": "Código HSN (SH)",
   "hsn.description": "Descrição",
   "hsn.product": "Produto",
-
   "blog.eyebrow": "Insights",
   "blog.title": "Atualizações de mercado e guias para compradores",
   "blog.all": "Todos",
@@ -171,7 +151,6 @@
   "blog.readingTime": "{n} min de leitura",
   "blog.by": "Por {author}",
   "blog.inEnglish": "Em inglês",
-
   "about.eyebrow": "Quem somos",
   "about.title": "Uma exportadora de Bengaluru com compradores nos próprios mercados",
   "about.lede": "A GoodBiz Agri conecta importadores aos mercados regulados e às usinas de Karnataka, Tamil Nadu, Kerala e Andhra Pradesh.",
@@ -184,13 +163,11 @@
   "about.quality.s3": "Testes laboratoriais de umidade, aflatoxina e resíduos de pesticidas conforme os limites do seu mercado.",
   "about.quality.s4": "Aprovação de amostra pré-embarque e inspeção opcional de terceiros.",
   "about.quality.s5": "Fumigação, certificação fitossanitária e estufagem de contêineres supervisionada.",
-
   "contact.eyebrow": "Contato",
   "contact.title": "Solicitar cotação",
   "contact.lede": "Conte-nos o que você precisa. Normalmente respondemos em um dia útil com especificações, opções de embalagem e preços.",
   "contact.office": "Escritório",
   "contact.direct": "Prefere falar diretamente?",
-
   "form.product": "Produto",
   "form.variety": "Variedade",
   "form.anyVariety": "Qualquer / não tenho certeza",
@@ -222,7 +199,6 @@
   "form.err.email": "Informe um endereço de e-mail válido",
   "form.err.quantity": "Informe uma quantidade maior que 0",
   "form.err.product": "Escolha um produto",
-
   "lang.button": "Idioma",
   "lang.title": "Escolha seu idioma",
   "lang.search": "Buscar idiomas",
@@ -231,19 +207,16 @@
   "lang.suggestion": "Ver este site em português?",
   "lang.suggestYes": "Sim, mudar",
   "lang.dismiss": "Não, obrigado",
-
   "breadcrumb.label": "Trilha de navegação",
   "a11y.close": "Fechar",
-  "home.faq.q1": "Qual é a quantidade mínima de pedido?",
-  "home.faq.a1": "Um contêiner de 20 pés para a maioria dos produtos; cinco contêineres para arroz não basmati e quebrado a granel. Contêineres mistos são possíveis para algumas especiarias.",
-  "home.faq.q2": "Quais Incoterms vocês cotam?",
-  "home.faq.a2": "FOB, CFR e CIF a partir de Chennai, Kochi, Tuticorin ou New Mangalore. Outros termos sob consulta.",
-  "home.faq.q3": "Quais condições de pagamento vocês aceitam?",
-  "home.faq.a3": "Carta de crédito irrevogável à vista, ou pagamento antecipado contra documentos para compradores já estabelecidos.",
-  "home.faq.q4": "Posso receber amostras antes de pedir?",
-  "home.faq.a4": "Sim. Enviamos amostras pré-embarque por courier; o custo do envio é abatido do seu primeiro pedido.",
-  "home.faq.q5": "Quanto tempo do pedido ao embarque?",
-  "home.faq.a5": "Normalmente de 2 a 4 semanas após a confirmação, conforme o produto, a embalagem e a disponibilidade de navios.",
-  "home.faq.q6": "Vocês embalam com a nossa marca?",
-  "home.faq.a6": "Sim. Fornecemos embalagens de marca própria, para varejo e a granel, com o seu design e idioma."
+  "home.faq.q1": "Quais Incoterms vocês cotam?",
+  "home.faq.a1": "FOB, CFR e CIF a partir de Chennai, Kochi, Tuticorin ou New Mangalore. Outros termos sob consulta.",
+  "home.faq.q2": "Quais condições de pagamento vocês aceitam?",
+  "home.faq.a2": "Carta de crédito irrevogável à vista, ou pagamento antecipado contra documentos para compradores já estabelecidos.",
+  "home.faq.q3": "Posso receber amostras antes de pedir?",
+  "home.faq.a3": "Sim. Enviamos amostras pré-embarque por courier; o custo do envio é abatido do seu primeiro pedido.",
+  "home.faq.q4": "Quanto tempo do pedido ao embarque?",
+  "home.faq.a4": "Normalmente de 2 a 4 semanas após a confirmação, conforme o produto, a embalagem e a disponibilidade de navios.",
+  "home.faq.q5": "Vocês embalam com a nossa marca?",
+  "home.faq.a5": "Sim. Fornecemos embalagens de marca própria, para varejo e a granel, com o seu design e idioma."
 }

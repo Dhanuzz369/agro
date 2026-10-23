@@ -6,7 +6,6 @@ regions: [mandya, belagavi, thoothukudi]
 markets: ["Mandya jaggery market", "Belagavi (Mudalgi) market", "Thoothukudi palm jaggery producers"]
 harvestMonths: [11, 12, 1, 2, 3, 4]
 ports: [chennai, mangalore, tuticorin]
-moq: "1 × 20 ft FCL"
 shelfLife: "12 months (cool, dry storage)"
 packing: ["1 kg / 5 kg / 30 kg cartons", "Vacuum-packed blocks", "Private label"]
 containerLoad: { ft20: "18–20 MT", ft40: "26 MT" }

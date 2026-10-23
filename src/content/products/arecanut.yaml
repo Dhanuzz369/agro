@@ -6,7 +6,6 @@ regions: [shivamogga, dakshinaKannada, kasaragod]
 markets: ["Shivamogga APMC", "Puttur (CAMPCO) market", "Kasaragod traders"]
 harvestMonths: [11, 12, 1, 2, 3]
 ports: [mangalore, chennai]
-moq: "1 × 20 ft FCL"
 shelfLife: "12 months"
 packing: ["50 kg / 70 kg PP or jute bags"]
 containerLoad: { ft20: "17–18 MT (whole)", ft40: "26 MT" }

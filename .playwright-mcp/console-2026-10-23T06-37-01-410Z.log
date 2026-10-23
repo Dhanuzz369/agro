@@ -1,0 +1,19 @@
+[     827ms] [LOG] Page translation enabled @ https://www.ebhashasetu.com/webzaar/v3/widget.js:1
+[     855ms] [WARNING] {languageToShow: en, language: en, selectedLanguage: en} @ https://www.ebhashasetu.com/webzaar/v3/widget.js:1
+[     860ms] [WARNING] {languageToShow: en, language: en, selectedLanguage: en} @ https://www.ebhashasetu.com/webzaar/v3/widget.js:1
+[    1062ms] [WARNING] {languageToShow: en, language: en, selectedLanguage: en} @ https://www.ebhashasetu.com/webzaar/v3/widget.js:1
+[    1213ms] [LOG] [Bhashini] Early init: Using localStorage/initial preference: null @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:1069
+[    1214ms] [LOG] JSHandle@node close @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:1884
+[    1214ms] [LOG] [Bhashini] === initializeTranslation START === @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2192
+[    1214ms] [LOG] [Bhashini] Current URL: https://www.fssai.gov.in/ @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2193
+[    1214ms] [LOG] [Bhashini] isRedirection: false @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2194
+[    1214ms] [LOG] [Bhashini] defaultTranslatedLanguage: null @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2195
+[    1214ms] [LOG] [Bhashini] isFromTargetLangParam (from session): false @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2196
+[    1214ms] [LOG] [Bhashini] Priority 1 - target_lang param: null @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2201
+[    1214ms] [LOG] [Bhashini] Priority 2 check - languageToUse: null isRedirection: false @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2222
+[    1214ms] [LOG] [Bhashini] Priority 2 SKIPPED @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2237
+[    1214ms] [LOG] [Bhashini] Priority 3 check - languageToUse: null defaultTranslatedLanguage: null @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2242
+[    1214ms] [LOG] [Bhashini] Priority 3 SKIPPED - languageToUse already set or no defaultTranslatedLanguage @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2279
+[    1214ms] [LOG] [Bhashini] Priority 4 check - languageToUse: null initialPreferredLanguage: null savedPreference: null @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2286
+[    1214ms] [LOG] [Bhashini] Priority 4 SKIPPED - languageToUse: null savedPreference: null @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2324
+[    1214ms] [LOG] [Bhashini] No translation needed - English source with English preference or no preference @ https://translation-plugin.bhashini.co.in/v3/website_translation_utility.js:2346

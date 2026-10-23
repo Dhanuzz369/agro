@@ -12,7 +12,6 @@
   "meta.contactDescription": "Senden Sie uns Produkt, Menge und Zielhafen. GoodBiz Agri antwortet mit einem Preis auf FOB-, CFR- oder CIF-Basis.",
   "meta.productTitle": "{name}-Exporteur aus Indien — HSN {hsn}",
   "meta.hsnTitle": "HSN {code}: {title}",
-
   "nav.skip": "Zum Inhalt springen",
   "nav.home": "Startseite",
   "nav.products": "Produkte",
@@ -21,7 +20,6 @@
   "nav.contact": "Kontakt",
   "nav.menu": "Menü",
   "nav.close": "Menü schließen",
-
   "cta.quote": "Angebot anfordern",
   "cta.viewProducts": "Produkte ansehen",
   "cta.viewProduct": "Produkt ansehen",
@@ -29,19 +27,15 @@
   "cta.specSheet": "Spezifikationsblatt herunterladen",
   "cta.quoteVariety": "Angebot für diese Sorte anfordern",
   "cta.readPost": "Artikel lesen",
-
   "hero.eyebrow": "Agrarexporteure · Bengaluru, Indien",
   "hero.title": "Südindiens Ernte, geliefert in mehr als 70 Länder",
   "hero.lede": "Reis, Gewürze, Arekanüsse, Jaggery, Erdnüsse und Kopra — direkt auf den Märkten der Anbauregionen eingekauft, sortiert, im Labor geprüft und in Chennai, Kochi, Tuticorin und New Mangalore verladen.",
-
   "trust.title": "Registriert bei",
   "trust.regNo": "Reg.-Nr.",
   "trust.onRequest": "Nummer auf Anfrage",
-
   "home.range.eyebrow": "Produktsortiment",
   "home.range.title": "Neun Rohstoffe, ein verlässlicher Lieferant",
   "home.range.lede": "Jede Produktseite nennt Sorten, Spezifikationen, HSN-Codes und die genauen Märkte, auf denen wir einkaufen.",
-
   "home.journey.eyebrow": "Vom Feld zum Hafen",
   "home.journey.title": "Wie eine Partie in Ihren Container gelangt",
   "home.journey.s1.title": "Direkt an der Quelle eingekauft",
@@ -52,7 +46,6 @@
   "home.journey.s3.body": "Nach Ihrer Spezifikation in PP-, Jute-, BOPP- oder Vakuumsäcken verpackt, mit Begasung und Pflanzengesundheitszeugnis.",
   "home.journey.s4.title": "Verladen und dokumentiert",
   "home.journey.s4.body": "Verladen in Chennai, Kochi, Tuticorin oder New Mangalore mit Ursprungs-, Pflanzengesundheits-, FSSAI- und Analysezertifikaten.",
-
   "home.why.eyebrow": "Warum Kunden bleiben",
   "home.why.title": "Weniger Überraschungen im Zielhafen",
   "home.why.p1.title": "Direkter Einkauf",
@@ -67,14 +60,8 @@
   "home.why.stat.products": "Produktlinien",
   "home.why.stat.markets": "Einkaufsmärkte",
   "home.why.stat.ports": "Verladehäfen",
-
-  "home.sourcing.eyebrow": "Woher es kommt",
-  "home.sourcing.title": "Bezogen aus vier südlichen Bundesstaaten",
-  "home.sourcing.lede": "Wählen Sie ein Produkt, um die Distrikte und Märkte zu sehen, auf denen wir einkaufen.",
-
   "home.faq.eyebrow": "Fragen von Käufern",
   "home.faq.title": "Bevor Sie bestellen",
-
   "home.world.eyebrow": "Weltweite Reichweite",
   "home.world.title": "Lieferung in mehr als 70 Länder",
   "home.world.lede": "Regelmäßige Sendungen in den Golfraum, nach Afrika, Südostasien, Europa und Amerika.",
@@ -84,20 +71,16 @@
   "region.europe": "Europa",
   "region.americas": "Amerika",
   "region.oceania": "Ozeanien",
-
   "home.cta.title": "Nennen Sie uns Produkt, Menge und Hafen",
   "home.cta.body": "Sie erhalten Spezifikationen, Verpackungsoptionen und ein Angebot auf FOB-, CFR- oder CIF-Basis.",
-
   "footer.tagline": "Agrarrohstoffe von den Erzeugermärkten Südindiens.",
   "footer.hsnRef": "HSN-Kurzübersicht",
   "footer.contact": "Kontakt",
   "footer.rights": "© {year} GoodBiz Agri. Alle Rechte vorbehalten.",
-
   "product.quickFacts": "Auf einen Blick",
   "fact.hsn": "HSN-Codes",
   "fact.states": "Bezugsregion",
   "fact.season": "Erntezeit",
-  "fact.moq": "Mindestbestellmenge",
   "fact.packing": "Verpackung",
   "fact.ports": "Verladehäfen",
   "fact.shelfLife": "Haltbarkeit",
@@ -128,7 +111,6 @@
   "product.representative": "Beispielbild",
   "product.hsnUnverified": "Code wird geprüft",
   "product.drag": "Zum Drehen ziehen",
-
   "spec.moisture": "Feuchtigkeit",
   "spec.admixture": "Beimengungen",
   "spec.broken": "Bruch",
@@ -150,7 +132,6 @@
   "spec.aflatoxin": "Aflatoxin",
   "spec.mesh": "Mesh / Textur",
   "spec.sulphur": "Schwefelrückstände",
-
   "hsn.eyebrow": "HSN-Referenz (HS-Code)",
   "hsn.covers": "Was wir unter diesem Code liefern",
   "hsn.notes": "Hinweise zur Einreihung",
@@ -160,7 +141,6 @@
   "hsn.code": "HSN-Code",
   "hsn.description": "Beschreibung",
   "hsn.product": "Produkt",
-
   "blog.eyebrow": "Einblicke",
   "blog.title": "Marktberichte und Einkaufsleitfäden",
   "blog.all": "Alle",
@@ -171,7 +151,6 @@
   "blog.readingTime": "{n} Min. Lesezeit",
   "blog.by": "Von {author}",
   "blog.inEnglish": "Auf Englisch",
-
   "about.eyebrow": "Über uns",
   "about.title": "Ein Exporteur aus Bengaluru mit Einkäufern direkt auf den Märkten",
   "about.lede": "GoodBiz Agri verbindet Importeure mit den regulierten Märkten und Mühlen in Karnataka, Tamil Nadu, Kerala und Andhra Pradesh.",
@@ -184,13 +163,11 @@
   "about.quality.s3": "Laboranalyse auf Feuchtigkeit, Aflatoxin und Pestizidrückstände gemäß den Grenzwerten Ihres Marktes.",
   "about.quality.s4": "Freigabe der Vorverladeprobe und optionale Prüfung durch Dritte.",
   "about.quality.s5": "Begasung, Pflanzengesundheitszeugnis und überwachte Containerbeladung.",
-
   "contact.eyebrow": "Kontakt",
   "contact.title": "Angebot anfordern",
   "contact.lede": "Teilen Sie uns Ihren Bedarf mit. Wir antworten in der Regel innerhalb eines Werktags mit Spezifikationen, Verpackungsoptionen und Preisen.",
   "contact.office": "Büro",
   "contact.direct": "Lieber direkt sprechen?",
-
   "form.product": "Produkt",
   "form.variety": "Sorte",
   "form.anyVariety": "Beliebig / unsicher",
@@ -222,7 +199,6 @@
   "form.err.email": "Geben Sie eine gültige E-Mail-Adresse ein",
   "form.err.quantity": "Geben Sie eine Menge größer als 0 ein",
   "form.err.product": "Wählen Sie ein Produkt",
-
   "lang.button": "Sprache",
   "lang.title": "Sprache auswählen",
   "lang.search": "Sprachen suchen",
@@ -231,19 +207,16 @@
   "lang.suggestion": "Diese Seite auf Deutsch ansehen?",
   "lang.suggestYes": "Ja, wechseln",
   "lang.dismiss": "Nein, danke",
-
   "breadcrumb.label": "Brotkrumennavigation",
   "a11y.close": "Schließen",
-  "home.faq.q1": "Wie hoch ist Ihre Mindestbestellmenge?",
-  "home.faq.a1": "Bei den meisten Produkten ein 20-Fuß-Container; fünf Container bei Nicht-Basmati- und Bruchreis in Großmengen. Bei einigen Gewürzen sind gemischte Container möglich.",
-  "home.faq.q2": "Welche Incoterms bieten Sie an?",
-  "home.faq.a2": "FOB, CFR und CIF ab Chennai, Kochi, Tuticorin oder New Mangalore. Andere Klauseln auf Anfrage.",
-  "home.faq.q3": "Welche Zahlungsbedingungen akzeptieren Sie?",
-  "home.faq.a3": "Unwiderrufliches Sichtakkreditiv oder, für etablierte Kunden, Vorauszahlung gegen Dokumente.",
-  "home.faq.q4": "Kann ich vor der Bestellung Muster erhalten?",
-  "home.faq.a4": "Ja. Wir senden Vorverladeproben per Kurier; die Kurierkosten werden mit Ihrer ersten Bestellung verrechnet.",
-  "home.faq.q5": "Wie lange dauert es von der Bestellung bis zur Verschiffung?",
-  "home.faq.a5": "In der Regel 2–4 Wochen nach Auftragsbestätigung, abhängig von Produkt, Verpackung und Schiffsverfügbarkeit.",
-  "home.faq.q6": "Können Sie unter unserer Marke verpacken?",
-  "home.faq.a6": "Ja. Wir liefern Handelsmarken-Verpackungen für den Einzelhandel und als Großgebinde mit Ihrem Design und in Ihrer Sprache."
+  "home.faq.q1": "Welche Incoterms bieten Sie an?",
+  "home.faq.a1": "FOB, CFR und CIF ab Chennai, Kochi, Tuticorin oder New Mangalore. Andere Klauseln auf Anfrage.",
+  "home.faq.q2": "Welche Zahlungsbedingungen akzeptieren Sie?",
+  "home.faq.a2": "Unwiderrufliches Sichtakkreditiv oder, für etablierte Kunden, Vorauszahlung gegen Dokumente.",
+  "home.faq.q3": "Kann ich vor der Bestellung Muster erhalten?",
+  "home.faq.a3": "Ja. Wir senden Vorverladeproben per Kurier; die Kurierkosten werden mit Ihrer ersten Bestellung verrechnet.",
+  "home.faq.q4": "Wie lange dauert es von der Bestellung bis zur Verschiffung?",
+  "home.faq.a4": "In der Regel 2–4 Wochen nach Auftragsbestätigung, abhängig von Produkt, Verpackung und Schiffsverfügbarkeit.",
+  "home.faq.q5": "Können Sie unter unserer Marke verpacken?",
+  "home.faq.a5": "Ja. Wir liefern Handelsmarken-Verpackungen für den Einzelhandel und als Großgebinde mit Ihrem Design und in Ihrer Sprache."
 }

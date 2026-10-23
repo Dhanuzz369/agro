@@ -12,7 +12,6 @@
   "meta.contactDescription": "Kirimkan produk, jumlah, dan pelabuhan tujuan. GoodBiz Agri akan membalas dengan harga FOB, CFR, atau CIF.",
   "meta.productTitle": "Eksportir {name} dari India — HSN {hsn}",
   "meta.hsnTitle": "HSN {code}: {title}",
-
   "nav.skip": "Langsung ke konten",
   "nav.home": "Beranda",
   "nav.products": "Produk",
@@ -21,7 +20,6 @@
   "nav.contact": "Kontak",
   "nav.menu": "Menu",
   "nav.close": "Tutup menu",
-
   "cta.quote": "Minta penawaran",
   "cta.viewProducts": "Lihat produk",
   "cta.viewProduct": "Lihat produk",
@@ -29,19 +27,15 @@
   "cta.specSheet": "Unduh lembar spesifikasi",
   "cta.quoteVariety": "Minta penawaran varietas ini",
   "cta.readPost": "Baca artikel",
-
   "hero.eyebrow": "Eksportir agro · Bengaluru, India",
   "hero.title": "Panen India Selatan, dikirim ke lebih dari 70 negara",
   "hero.lede": "Beras, rempah, pinang, jaggery, kacang tanah, dan kopra — dibeli langsung dari pasar tempat komoditas tersebut ditanam, disortir, diuji laboratorium, dan dimuat di Chennai, Kochi, Tuticorin, dan New Mangalore.",
-
   "trust.title": "Terdaftar di",
   "trust.regNo": "No. reg.",
   "trust.onRequest": "Nomor tersedia atas permintaan",
-
   "home.range.eyebrow": "Lini produk",
   "home.range.title": "Sembilan komoditas, satu pemasok yang bertanggung jawab",
   "home.range.lede": "Setiap halaman produk memuat varietas, spesifikasi, kode HSN, dan pasar tepat tempat kami membeli.",
-
   "home.journey.eyebrow": "Dari kebun ke pelabuhan",
   "home.journey.title": "Bagaimana satu lot sampai ke kontainer Anda",
   "home.journey.s1.title": "Dibeli langsung di sumber",
@@ -52,7 +46,6 @@
   "home.journey.s3.body": "Dikemas sesuai spesifikasi Anda dalam karung PP, goni, BOPP, atau vakum, dengan fumigasi dan sertifikasi fitosanitasi.",
   "home.journey.s4.title": "Dimuat dan didokumentasikan",
   "home.journey.s4.body": "Dimuat ke kontainer di Chennai, Kochi, Tuticorin, atau New Mangalore dengan sertifikat asal, fitosanitasi, FSSAI, dan analisis.",
-
   "home.why.eyebrow": "Mengapa pembeli bertahan",
   "home.why.title": "Lebih sedikit kejutan di pelabuhan tujuan",
   "home.why.p1.title": "Pengadaan langsung",
@@ -67,14 +60,8 @@
   "home.why.stat.products": "Lini produk",
   "home.why.stat.markets": "Pasar pengadaan",
   "home.why.stat.ports": "Pelabuhan muat",
-
-  "home.sourcing.eyebrow": "Asal produk",
-  "home.sourcing.title": "Bersumber dari empat negara bagian di selatan",
-  "home.sourcing.lede": "Pilih produk untuk melihat distrik dan pasar tempat kami membeli.",
-
   "home.faq.eyebrow": "Pertanyaan pembeli",
   "home.faq.title": "Sebelum Anda memesan",
-
   "home.world.eyebrow": "Jangkauan global",
   "home.world.title": "Mengirim ke lebih dari 70 negara",
   "home.world.lede": "Pengiriman rutin ke Teluk, Afrika, Asia Tenggara, Eropa, dan Amerika.",
@@ -84,20 +71,16 @@
   "region.europe": "Eropa",
   "region.americas": "Amerika",
   "region.oceania": "Oseania",
-
   "home.cta.title": "Sampaikan produk, jumlah, dan pelabuhan tujuan",
   "home.cta.body": "Anda akan menerima spesifikasi, pilihan kemasan, dan penawaran FOB, CFR, atau CIF.",
-
   "footer.tagline": "Komoditas agro dari pasar produsen di India Selatan.",
   "footer.hsnRef": "Referensi cepat HSN",
   "footer.contact": "Kontak",
   "footer.rights": "© {year} GoodBiz Agri. Semua hak dilindungi.",
-
   "product.quickFacts": "Fakta singkat",
   "fact.hsn": "Kode HSN",
   "fact.states": "Asal pengadaan",
   "fact.season": "Musim panen",
-  "fact.moq": "Pesanan minimum",
   "fact.packing": "Kemasan",
   "fact.ports": "Pelabuhan muat",
   "fact.shelfLife": "Masa simpan",
@@ -128,7 +111,6 @@
   "product.representative": "Gambar ilustrasi",
   "product.hsnUnverified": "Kode sedang diverifikasi",
   "product.drag": "Geser untuk memutar",
-
   "spec.moisture": "Kadar air",
   "spec.admixture": "Campuran",
   "spec.broken": "Patah",
@@ -150,7 +132,6 @@
   "spec.aflatoxin": "Aflatoksin",
   "spec.mesh": "Mesh / tekstur",
   "spec.sulphur": "Residu belerang",
-
   "hsn.eyebrow": "Referensi HSN (Kode HS)",
   "hsn.covers": "Yang kami pasok dengan kode ini",
   "hsn.notes": "Catatan klasifikasi",
@@ -160,7 +141,6 @@
   "hsn.code": "Kode HSN",
   "hsn.description": "Deskripsi",
   "hsn.product": "Produk",
-
   "blog.eyebrow": "Wawasan",
   "blog.title": "Pembaruan pasar dan panduan pembeli",
   "blog.all": "Semua",
@@ -171,7 +151,6 @@
   "blog.readingTime": "{n} menit baca",
   "blog.by": "Oleh {author}",
   "blog.inEnglish": "Dalam bahasa Inggris",
-
   "about.eyebrow": "Tentang kami",
   "about.title": "Eksportir dari Bengaluru dengan pembeli langsung di pasar",
   "about.lede": "GoodBiz Agri menghubungkan importir dengan pasar resmi dan penggilingan di Karnataka, Tamil Nadu, Kerala, dan Andhra Pradesh.",
@@ -184,13 +163,11 @@
   "about.quality.s3": "Pengujian laboratorium untuk kadar air, aflatoksin, dan residu pestisida sesuai batas di pasar Anda.",
   "about.quality.s4": "Persetujuan sampel pra-pengapalan dan inspeksi pihak ketiga opsional.",
   "about.quality.s5": "Fumigasi, sertifikasi fitosanitasi, dan pemuatan kontainer yang diawasi.",
-
   "contact.eyebrow": "Kontak",
   "contact.title": "Minta penawaran",
   "contact.lede": "Sampaikan kebutuhan Anda. Kami biasanya membalas dalam satu hari kerja dengan spesifikasi, pilihan kemasan, dan harga.",
   "contact.office": "Kantor",
   "contact.direct": "Lebih suka berbicara langsung?",
-
   "form.product": "Produk",
   "form.variety": "Varietas",
   "form.anyVariety": "Apa saja / belum yakin",
@@ -222,7 +199,6 @@
   "form.err.email": "Masukkan alamat email yang valid",
   "form.err.quantity": "Masukkan jumlah lebih dari 0",
   "form.err.product": "Pilih produk",
-
   "lang.button": "Bahasa",
   "lang.title": "Pilih bahasa Anda",
   "lang.search": "Cari bahasa",
@@ -231,19 +207,16 @@
   "lang.suggestion": "Lihat situs ini dalam Bahasa Indonesia?",
   "lang.suggestYes": "Ya, ganti",
   "lang.dismiss": "Tidak, terima kasih",
-
   "breadcrumb.label": "Jejak navigasi",
   "a11y.close": "Tutup",
-  "home.faq.q1": "Berapa jumlah pesanan minimum Anda?",
-  "home.faq.a1": "Satu kontainer 20 kaki untuk sebagian besar produk; lima kontainer untuk beras non-basmati dan beras patah curah. Kontainer campuran dimungkinkan untuk beberapa rempah.",
-  "home.faq.q2": "Incoterms apa yang Anda tawarkan?",
-  "home.faq.a2": "FOB, CFR, dan CIF dari Chennai, Kochi, Tuticorin, atau New Mangalore. Ketentuan lain atas permintaan.",
-  "home.faq.q3": "Syarat pembayaran apa yang Anda terima?",
-  "home.faq.a3": "Letter of credit tak dapat dibatalkan at sight, atau pembayaran di muka terhadap dokumen untuk pembeli yang sudah mapan.",
-  "home.faq.q4": "Bisakah saya mendapat sampel sebelum memesan?",
-  "home.faq.a4": "Bisa. Kami mengirim sampel pra-pengapalan melalui kurir; biaya kurir diperhitungkan terhadap pesanan pertama Anda.",
-  "home.faq.q5": "Berapa lama dari pesanan hingga pengiriman?",
-  "home.faq.a5": "Biasanya 2–4 minggu setelah konfirmasi, tergantung produk, kemasan, dan ketersediaan kapal.",
-  "home.faq.q6": "Bisakah Anda mengemas dengan merek kami?",
-  "home.faq.a6": "Bisa. Kami menyediakan kemasan ritel dan curah private label dengan desain dan bahasa Anda."
+  "home.faq.q1": "Incoterms apa yang Anda tawarkan?",
+  "home.faq.a1": "FOB, CFR, dan CIF dari Chennai, Kochi, Tuticorin, atau New Mangalore. Ketentuan lain atas permintaan.",
+  "home.faq.q2": "Syarat pembayaran apa yang Anda terima?",
+  "home.faq.a2": "Letter of credit tak dapat dibatalkan at sight, atau pembayaran di muka terhadap dokumen untuk pembeli yang sudah mapan.",
+  "home.faq.q3": "Bisakah saya mendapat sampel sebelum memesan?",
+  "home.faq.a3": "Bisa. Kami mengirim sampel pra-pengapalan melalui kurir; biaya kurir diperhitungkan terhadap pesanan pertama Anda.",
+  "home.faq.q4": "Berapa lama dari pesanan hingga pengiriman?",
+  "home.faq.a4": "Biasanya 2–4 minggu setelah konfirmasi, tergantung produk, kemasan, dan ketersediaan kapal.",
+  "home.faq.q5": "Bisakah Anda mengemas dengan merek kami?",
+  "home.faq.a5": "Bisa. Kami menyediakan kemasan ritel dan curah private label dengan desain dan bahasa Anda."
 }

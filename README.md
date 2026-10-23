@@ -15,9 +15,9 @@ The build prints a content report. Clear every item:
 1. `src/content/site.yaml` — replace every `REPLACE:` value (legal name, address, email, phone, WhatsApp, Web3Forms key, registration numbers). Set `held: false` for any registration you do not hold. The floating WhatsApp button only appears once a real number is set.
 2. `site.yaml` `stats` — confirm the counters shown on the home page (countries, products, markets, ports).
 3. Web3Forms — create the account, set the destination inbox for quote requests, and put the access key in `site.yaml`.
-4. Certification logos — put official files in `public/logos/` and set `logo: /logos/<file>` per registration.
+4. Registration logos — APEDA, Spices Board, FSSAI, DGFT (IEC) and Coconut Development Board logos are in `public/logos/` (from each body's official site). FIEO shows as a text badge: add `public/logos/fieo.png` and set `logo: /logos/fieo.png` on the FIEO entry in `site.yaml`. Set `held: false` for any registration you do not hold.
 5. HSN codes marked unverified (arecanut, groundnuts, coconut/copra) — confirm with your CHA, then set `verified: true` in `src/content/products/<slug>.yaml`. Also confirm the rice FAQ wording on 10063090 vs 10063099 with your CHA.
-6. Product facts — check varieties, specs, MOQ and ports in `src/content/products/*.yaml`.
+6. Product facts — check varieties, specs and ports in `src/content/products/*.yaml`.
 7. Photos — replace files in `src/assets/products/<slug>/` keeping the same names; set `isStock: false` for your own photos.
 8. Draft market report — `src/content/blog/en/market-report-2026-10.mdx` is a template with `draft: true`, so it is not published. Write it and set `draft: false`, or delete the file.
 9. Translations — have a native speaker review each of the 184 translation files listed under "Pending review"; set `reviewStatus: reviewed`.
