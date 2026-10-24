@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Coco e copra"
-summary: "A GoodBiz Agri exporta cocos semidescascados e copra (kobre) — copra em bola de Tiptur, copra para moagem e taças comestíveis — originários de Tiptur e Tumakuru, em Karnataka, e de Pollachi, em Tamil Nadu."
+summary: "A GoodBiz Agri exporta coco semidescascado e copra — copra em bola de Tiptur, copra para moagem e copas comestíveis — de Tiptur e Tumakuru, em Karnataka, e Pollachi, em Tamil Nadu, embarcados de New Mangalore, Kochi e Chennai para o Golfo, o Sul da Ásia e outros mercados."
 originLine: "Tiptur, Tumakuru e Pollachi"
 sourcingStory: "Tiptur, no distrito de Tumakuru, é famosa pela copra em bola: a polpa inteira secada lentamente dentro da casca, com resultado doce e branco. Compramos a copra de lá, a copra para moagem de comerciantes de Tumakuru e os cocos frescos semidescascados do mercado de Pollachi, ativo o ano todo."
 varieties:
@@ -11,3 +11,9 @@ varieties:
 faq:
   - { q: "O que é a copra em bola de Tiptur?", a: "Copra seca inteira dentro da casca por até um ano, resultando numa polpa doce e branca muito valorizada no Golfo e no sul da Ásia." }
   - { q: "Há cocos disponíveis o ano todo?", a: "Sim. Pollachi fornece cocos semidescascados durante todo o ano." }
+  - { q: "De quais portos vocês embarcam a copra e o coco?", a: "A GoodBiz Agri embarca copra em bola, copra para moagem e coco semidescascado de New Mangalore, Kochi e Chennai, em termos FOB, CFR ou CIF." }
+seo:
+  title: "Exportador de copra e coco da Índia"
+  h1: "Copra e coco: copra em bola de Tiptur"
+  description: "Exportador de copra da Índia: copra em bola de Tiptur, copra para moagem, copas de copra comestível e coco semidescascado o ano todo. Cote hoje."
+  keywords: ["exportador copra Índia", "copra em bola Tiptur", "copra para moagem", "exportador coco semidescascado", "copas de copra comestível", "coco seco fornecedor", "coco Pollachi"]

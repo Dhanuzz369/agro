@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Jengibre"
-summary: "GoodBiz Agri exporta jengibre fresco, jengibre seco sin blanquear, jengibre seco blanqueado y otro jengibre entero de Wayanad, en Kerala, y de Kodagu y Hassan, en Karnataka."
+summary: "GoodBiz Agri exporta jengibre seco (sin blanquear y blanqueado), otros jengibres secos enteros y jengibre fresco de Wayanad en Kerala y Kodagu y Hassan en Karnataka, enviados desde Kochi, New Mangalore y Chennai; el fresco, en contenedor refrigerado."
 originLine: "Wayanad, Kodagu y Hassan — el cinturón del jengibre de los Ghats Occidentales"
 sourcingStory: "El jengibre cultivado en las laderas de los Ghats Occidentales es conocido por su pungencia y su contenido de aceite. Compramos jengibre fresco a los productores de Wayanad durante la cosecha y jengibre seco a través del comercio de especias de Kochi, donde la calidad «Cochin ginger» se comercializa desde hace siglos."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   dried-bleached: { name: "Jengibre seco blanqueado", description: "Blanqueado con cal para un aspecto pálido y uniforme." }
   whole-other: { name: "Jengibre seco entero (otro)", description: "Jengibre entero, ni triturado ni molido, según la calidad del comprador." }
 faq:
-  - { q: "¿Cómo se envía el jengibre fresco?", a: "En contenedores refrigerados de 40 pies a unos 12–13 °C, con una capacidad de unas 26 toneladas." }
+  - { q: "¿Cómo se envía el jengibre fresco?", a: "El jengibre fresco viaja en contenedores refrigerados de 40 pies a unos 12–13 °C, con unas 26 toneladas por contenedor." }
+  - { q: "¿Desde qué puertos envían el jengibre?", a: "GoodBiz Agri envía jengibre seco y fresco desde Kochi, New Mangalore y Chennai en condiciones FOB, CFR o CIF." }
+seo:
+  title: "Exportador de jengibre seco de la India"
+  h1: "Jengibre seco y jengibre fresco de la India"
+  description: "Exportador de jengibre seco de la India: jengibre de Cochin sin blanquear y blanqueado, jengibre seco entero y fresco en reefer. Pida su cotización."
+  keywords: ["exportador jengibre seco India", "proveedor jengibre fresco", "jengibre sin blanquear", "jengibre blanqueado", "jengibre de Cochin", "jengibre de Wayanad", "jengibre seco a granel"]

@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Bruchreis"
-summary: "GoodBiz Agri exportiert 100 % Bruchreis — weiß, parboiled und sortexiert — aus Mühlen im Godavari-Delta, in Nellore und Raichur."
+summary: "GoodBiz Agri exportiert 100 % Bruchreis — weiß, parboiled und sortexiert — aus Mühlen im Godavari-Delta, in Nellore und Raichur, verschifft ab Chennai und Tuticorin an Lebensmittelimporteure in Westafrika und Asien sowie an Brauereien und Futtermühlen."
 originLine: "Mühlen im Godavari-Delta, in Nellore und Raichur"
 sourcingStory: "Bruchreis ist ein Grundnahrungsmittel im Senegal, in Gambia und in weiten Teilen Westafrikas sowie ein wichtiger Rohstoff für das Brauwesen und für Futtermittel. Wir beziehen ihn aus denselben Mühlen, die auch unseren Vollkornreis liefern, sodass Feuchtigkeit und Sauberkeit denselben Standard erfüllen."
 varieties:
@@ -8,4 +8,10 @@ varieties:
   parboiled: { name: "Parboiled-Bruch", description: "Parboiled-Bruch mit festerer Konsistenz." }
   sortexed: { name: "Sortexierter Bruch", description: "Farbsortiert für ein gleichmäßiges Erscheinungsbild und weniger beschädigte Körner." }
 faq:
-  - { q: "Wer kauft Bruchreis?", a: "Lebensmittelimporteure in Westafrika und Asien, Brauereien und Futtermittelhersteller." }
+  - { q: "Wer kauft Bruchreis?", a: "Bruchreis kaufen vor allem Lebensmittelimporteure in Westafrika und Asien, Brauereien und Futtermittelhersteller." }
+  - { q: "Ab welchen Häfen verschiffen Sie Bruchreis?", a: "GoodBiz Agri verschifft 100 % Bruchreis ab Chennai und Tuticorin zu FOB-, CFR- oder CIF-Bedingungen in 20- oder 40-Fuß-Containern." }
+seo:
+  title: "100 % Bruchreis Lieferant aus Indien"
+  h1: "100 % Bruchreis: weiß, parboiled und sortexiert"
+  description: "100 % Bruchreis Lieferant aus Indien: weißer, parboiled und sortexierter Bruchreis für Lebensmittelimporteure, Brauereien und Futtermühlen. Angebot anfragen."
+  keywords: ["100 % Bruchreis Lieferant", "Bruchreis Exporteur Indien", "Parboiled-Bruchreis", "sortexierter Bruchreis", "Bruchreis für Brauereien", "Bruchreis Futtermittel", "Bruchreis Westafrika"]

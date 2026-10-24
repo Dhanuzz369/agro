@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Riz d'Inde du Sud"
-summary: "GoodBiz Agri exporte des riz spéciaux d'Inde du Sud — Sona Masoori (cru et étuvé), Ponni, Kerala Matta, Seeraga Samba et riz pour idli — usinés à Raichur, Mandya, Thanjavur et Palakkad."
+summary: "GoodBiz Agri exporte du riz d'Inde du Sud — Sona Masoori (cru et étuvé), Ponni, Kerala Matta, Seeraga Samba et riz idli — usiné à Raichur, Mandya, Thanjavur et Palakkad et expédié depuis Chennai, Tuticorin et Kochi vers plus de 70 pays."
 originLine: "Rizeries de Raichur, Mandya, Thanjavur et Palakkad"
 sourcingStory: "Le riz d'Inde du Sud est plus léger et plus varié que les riz à grain long que la plupart des acheteurs connaissent. Nous achetons le Sona Masoori dans la zone irriguée de la Tungabhadra autour de Raichur, le Ponni et le Seeraga Samba dans les rizeries du delta de la Kaveri à Thanjavur, et le Matta à Palakkad, en adaptant chaque lot au plat et au marché auxquels il est destiné."
 varieties:
@@ -13,3 +13,9 @@ varieties:
 faq:
   - { q: "Quelle différence entre Sona Masoori cru et étuvé ?", a: "Le riz étuvé est légèrement étuvé avant l'usinage, ce qui donne des grains cuits plus fermes et une meilleure durée de stockage." }
   - { q: "Pouvez-vous fournir des sacs de détail en marque blanche ?", a: "Oui, en sacs BOPP ou jute de 5, 10 et 25 kg à votre marque." }
+  - { q: "Depuis quels ports expédiez-vous le riz d'Inde du Sud ?", a: "GoodBiz Agri expédie le Sona Masoori, le Ponni, le Matta et les autres riz d'Inde du Sud depuis Chennai, Tuticorin et Kochi, aux conditions FOB, CFR ou CIF." }
+seo:
+  title: "Exportateur de riz Sona Masoori d'Inde"
+  h1: "Riz Sona Masoori, Ponni et riz d'Inde du Sud"
+  description: "Exportateur de riz Sona Masoori : Sona Masoori cru et étuvé, Ponni, Kerala Matta, Seeraga Samba et riz idli, en vrac ou sous marque privée. Demandez un devis."
+  keywords: ["exportateur riz Sona Masoori", "riz d'Inde du Sud", "fournisseur riz Ponni", "riz Kerala Matta", "riz Seeraga Samba", "riz idli en vrac", "riz sous marque privée Inde"]

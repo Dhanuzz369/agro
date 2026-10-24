@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "槟榔"
-summary: "GoodBiz Agri 出口槟榔（又称蒌叶果）——整颗白色 chali（查利）、对半切 split、红色 kempu（肯普；api 和 bette 等级）以及切片——产自卡纳塔克邦的希莫加和南卡纳拉，以及喀拉拉邦的卡萨拉戈德。"
+summary: "GoodBiz Agri 出口槟榔（betel nut、supari）——整颗白槟榔 chali、对半槟榔、红槟榔 kempu（api 和 bette 等级）及切片——产自卡纳塔克邦的希莫加、南卡纳达和喀拉拉邦的卡萨拉戈德，从新芒格洛尔和金奈发货。"
 originLine: "希莫加、南卡纳拉和卡萨拉戈德"
 sourcingStory: "卡纳塔克邦出产印度大部分槟榔。沿海的南卡纳拉和卡萨拉戈德以日晒白色 chali 闻名，通过普图尔合作社市场交易；希莫加的马尔纳德地区则专营煮制红色等级。"
 varieties:
@@ -9,4 +9,10 @@ varieties:
   red-kempu: { name: "红槟榔（kempu）——api 和 bette", description: "产自希莫加的煮制晒干红褐色等级。" }
   sliced: { name: "槟榔切片", description: "厚薄均匀的切片，面向直接食用市场。" }
 faq:
-  - { q: "chali 和 kempu 有什么区别？", a: "Chali 是产自卡纳塔克沿海的日晒整颗槟榔；kempu 经煮制后晒干，呈红色。" }
+  - { q: "chali 和 kempu 有什么区别？", a: "Chali 是在卡纳塔克沿海带壳晒干的成熟槟榔，颜色发白；kempu 是嫩果去壳后煮制并干燥的槟榔，颜色发红。" }
+  - { q: "槟榔从哪些港口发货？", a: "GoodBiz Agri 从新芒格洛尔和金奈按 FOB、CFR 或 CIF 条件发运槟榔。" }
+seo:
+  title: "印度槟榔出口商：槟榔干果与切片"
+  h1: "印度槟榔：白槟榔（chali）、红槟榔（kempu）与切片"
+  description: "印度槟榔（betel nut / supari）出口商：整颗白槟榔 chali、对半槟榔、红槟榔 kempu 及切片，产自希莫加和卡纳塔克沿海。立即获取报价。"
+  keywords: ["印度槟榔出口", "槟榔干果供应商", "supari", "白槟榔chali", "红槟榔kempu", "槟榔切片", "betel nut exporter"]

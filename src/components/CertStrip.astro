@@ -2,12 +2,19 @@
 import { createT } from '../i18n/t';
 import { getSite } from '../lib/catalog';
 import { isPlaceholder } from '../lib/site';
+import sharp from 'sharp';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
 const site = await getSite();
-const regs = site.registrations.filter((r) => r.held);
+const held = site.registrations.filter((r) => r.held);
+// Intrinsic width at the rendered 56px height, so the browser reserves the space (no layout shift).
+const regs = await Promise.all(held.map(async (r) => {
+  if (!r.logo) return { ...r, width: undefined };
+  const m = await sharp(`public${r.logo}`).metadata();
+  return { ...r, width: m.width && m.height ? Math.round((m.width / m.height) * 56) : undefined };
+}));
 ---
 <section class="certs" aria-labelledby="certs-title">
   <div class="container certs__inner">
@@ -17,7 +24,7 @@ const regs = site.registrations.filter((r) => r.held);
         <li data-reg={r.id}>
           <span class="certs__tile">
             {r.logo
-              ? <img src={r.logo} alt={r.name} height="56" loading="lazy" decoding="async" />
+              ? <img src={r.logo} alt={t('alt.registration', { name: r.name })} width={r.width} height="56" loading="lazy" decoding="async" />
               : <strong class="certs__mark">{r.name}</strong>}
           </span>
           <span class="certs__name">{r.name}</span>

@@ -4,16 +4,21 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import CertStrip from '../components/CertStrip.astro';
 import { createT, type UiKey } from '../i18n/t';
 import { getLocalizedProducts } from '../lib/catalog';
+import { breadcrumbLd } from '../lib/jsonld';
+import { localizePath } from '../i18n/paths';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
 const products = await getLocalizedProducts(locale);
 const markets = [...new Set(products.flatMap((p) => p.data.markets))];
+const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.about'), path: '/about' }];
+const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
 ---
-<Base locale={locale} title={t('meta.aboutTitle')} description={t('meta.aboutDescription')} path="/about" ogImage="/og/about.png">
+<Base locale={locale} title={t('meta.aboutTitle')} description={t('meta.aboutDescription')} keywords={t('meta.aboutKeywords')} path="/about" ogImage="/og/about.png"
+  jsonLd={[breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) })))]}>
   <div class="container av">
-    <Breadcrumbs locale={locale} items={[{ name: t('nav.home'), path: '/' }, { name: t('nav.about'), path: '/about' }]} />
+    <Breadcrumbs locale={locale} items={crumbs} />
     <header class="av__head">
       <p class="eyebrow">{t('about.eyebrow')}</p>
       <h1>{t('about.title')}</h1>

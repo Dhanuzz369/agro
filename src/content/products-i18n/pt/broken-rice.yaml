@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Arroz quebrado"
-summary: "A GoodBiz Agri exporta arroz 100% quebrado — branco, parboilizado e sortexed — de usinas do delta do Godavari, Nellore e Raichur."
+summary: "A GoodBiz Agri exporta arroz quebrado 100% — branco, parboilizado e selecionado — de engenhos do delta do Godavari, Nellore e Raichur, embarcado de Chennai e Tuticorin para importadores da África Ocidental e da Ásia, cervejarias e fábricas de ração."
 originLine: "Usinas do delta do Godavari, Nellore e Raichur"
 sourcingStory: "O arroz quebrado é um alimento básico no Senegal, na Gâmbia e em grande parte da África Ocidental, além de insumo importante para cervejarias e ração animal. Compramos das mesmas usinas que nos fornecem o arroz de grão inteiro, de modo que umidade e limpeza seguem o mesmo padrão."
 varieties:
@@ -8,4 +8,10 @@ varieties:
   parboiled: { name: "Quebrado parboilizado", description: "Quebrados parboilizados, de textura mais firme." }
   sortexed: { name: "Quebrado sortexed", description: "Selecionado por cor para aparência uniforme e menos grãos danificados." }
 faq:
-  - { q: "Quem compra arroz quebrado?", a: "Importadores de alimentos da África Ocidental e da Ásia, cervejarias e fabricantes de ração animal." }
+  - { q: "Quem compra arroz quebrado?", a: "O arroz quebrado é comprado principalmente por importadores de alimentos da África Ocidental e da Ásia, por cervejarias e por fabricantes de ração animal." }
+  - { q: "De quais portos vocês embarcam o arroz quebrado?", a: "A GoodBiz Agri embarca arroz quebrado 100% de Chennai e Tuticorin, em termos FOB, CFR ou CIF, em contêineres de 20 ou 40 pés." }
+seo:
+  title: "Fornecedor de arroz quebrado 100% da Índia"
+  h1: "Arroz quebrado 100%: branco, parboilizado e selecionado"
+  description: "Fornecedor de arroz quebrado 100% da Índia: quirera branca, parboilizada e selecionada para importadores, cervejarias e fábricas de ração. Peça uma cotação."
+  keywords: ["fornecedor arroz quebrado 100%", "exportador quirera de arroz Índia", "arroz quebrado parboilizado", "arroz quebrado selecionado", "quirera para cervejaria", "arroz quebrado para ração", "arroz quebrado a granel"]

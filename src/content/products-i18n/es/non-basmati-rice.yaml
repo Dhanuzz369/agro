@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Arroz no basmati"
-summary: "GoodBiz Agri exporta arroz no basmati a granel — IR64 crudo y parboiled, Swarna e IR36 en calidades de 5% y 25% de partido — de molinos del delta del Godavari, Nellore y Raichur."
+summary: "GoodBiz Agri exporta arroz no basmati a granel — IR64 crudo y sancochado, Swarna e IR36 con 5 % y 25 % de quebrado — de molinos del delta del Godavari, Nellore y Raichur, enviado desde Chennai y Tuticorin a África, Asia y Oriente Medio."
 originLine: "Molinos del delta del Godavari, Nellore y Raichur"
 sourcingStory: "El delta del Godavari y el distrito de Nellore, en Andhra Pradesh, están entre los mayores graneros de arroz de la India. Contratamos con molinos equipados con sortex para obtener IR64 y Swarna uniformes en las calidades de partido que especifican los importadores africanos y asiáticos."
 varieties:
@@ -11,3 +11,9 @@ varieties:
 faq:
   - { q: "¿Qué porcentajes de partido suministran?", a: "5% y 25% de partido como estándar; 10% y 15% a solicitud." }
   - { q: "¿Existe un arancel de exportación para el arroz no basmati?", a: "La política india de exportación de arroz cambia periódicamente. Confirmamos la situación vigente ante la DGFT antes de cada contrato." }
+  - { q: "¿Desde qué puertos envían el arroz no basmati?", a: "GoodBiz Agri envía arroz IR64, Swarna e IR36 desde Chennai y Tuticorin en condiciones FOB, CFR o CIF, en contenedores de 20 o 40 pies." }
+seo:
+  title: "Arroz no basmati de la India: IR64 sancochado"
+  h1: "Arroz no basmati: IR64, Swarna e IR36"
+  description: "Exportador de arroz no basmati de la India: IR64 crudo y sancochado, Swarna e IR36 con 5 % y 25 % de quebrado, de molinos con selectora. Pida precio FOB o CIF."
+  keywords: ["exportador arroz no basmati India", "arroz IR64 sancochado", "arroz parboiled IR64", "arroz Swarna", "arroz IR36", "arroz grano largo a granel", "arroz 25 % quebrado"]

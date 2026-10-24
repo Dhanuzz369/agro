@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Jaggery
-summary: GoodBiz Agri exports jaggery — blocks, cubes, powder, organic jaggery and palm jaggery (karupatti) — from Mandya and Belagavi in Karnataka and Thoothukudi in Tamil Nadu.
+summary: GoodBiz Agri exports jaggery — blocks, cubes, powder, organic jaggery and palm jaggery (karupatti) — made in Mandya and Belagavi in Karnataka and Thoothukudi in Tamil Nadu, shipped from Chennai, New Mangalore and Tuticorin to buyers in 70+ countries.
 originLine: Mandya, Belagavi and Thoothukudi
 sourcingStory: Mandya's sugarcane belt has made jaggery for generations, boiling fresh cane juice in open pans. We buy blocks and organic jaggery there, cubes and powder from Belagavi's processors, and palm jaggery from Thoothukudi's palmyra tappers.
 varieties:
@@ -12,3 +12,9 @@ varieties:
 faq:
   - { q: "How long does jaggery keep?", a: "About 12 months in cool, dry storage; powder and vacuum-packed blocks keep best." }
   - { q: "Can you supply private label?", a: "Yes, in 500 g to 5 kg packs with your branding." }
+  - { q: "Which ports do you ship jaggery from?", a: "GoodBiz Agri ships jaggery blocks, powder and palm jaggery from Chennai, New Mangalore and Tuticorin on FOB, CFR or CIF terms." }
+seo:
+  title: "Jaggery Exporter India: Powder, Blocks, Palm"
+  h1: "Jaggery blocks, powder and palm jaggery"
+  description: "Jaggery exporter India: jaggery blocks, cubes, organic jaggery powder in bulk and palm jaggery (karupatti), private label from 500 g. Request a quote today."
+  keywords: ["jaggery exporter India", "organic jaggery powder bulk", "jaggery blocks supplier", "jaggery cubes", "palm jaggery karupatti", "gur exporter", "Mandya jaggery", "private label jaggery"]

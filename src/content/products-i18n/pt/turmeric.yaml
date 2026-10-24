@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Cúrcuma"
-summary: "A GoodBiz Agri exporta cúrcuma fresca, dedos e bulbos de cúrcuma seca e cúrcuma em pó originárias de Erode e Salem, em Tamil Nadu, e de Alappuzha, em Kerala, com curcumina de 2% a 5% e umidade abaixo de 10%."
+summary: "A GoodBiz Agri exporta cúrcuma — fresca, dedos secos de Erode, bulbos de Salem, dedos de Alleppey ricos em curcumina e cúrcuma em pó — de Erode e Salem, em Tamil Nadu, e Alappuzha, em Kerala, embarcada de Chennai, Tuticorin e Kochi, com 2–5% de curcumina e umidade abaixo de 10%."
 originLine: "Erode, Salem e Alleppey — o coração da cúrcuma da Índia"
 sourcingStory: "O mercado regulado de Erode define o preço de grande parte da cúrcuma do mundo. Lá e em Salem compramos dedos e bulbos polidos a cada colheita, e adquirimos de comerciantes de Kerala o dedo Alleppey, de alta curcumina, para compradores que precisam de intensidade de cor. O pó é moído sob encomenda para que curcumina e malha atendam à sua especificação."
 varieties:
@@ -12,3 +12,9 @@ varieties:
 faq:
   - { q: "Que níveis de curcumina vocês fornecem?", a: "A cúrcuma de Erode e Salem costuma apresentar 2,5–4% de curcumina; o dedo Alleppey, 4,5–5%. O pó pode ser misturado para um nível de curcumina especificado." }
   - { q: "Vocês atendem aos limites de pesticidas da UE?", a: "Sim. Adquirimos e testamos os lotes conforme os LMR da UE e podemos fornecer análise de terceiros antes do embarque." }
+  - { q: "De quais portos vocês embarcam a cúrcuma?", a: "A GoodBiz Agri embarca cúrcuma em dedos, bulbos e pó de Chennai, Tuticorin e Kochi, em termos FOB, CFR ou CIF." }
+seo:
+  title: "Exportador de cúrcuma da Índia: dedos e pó"
+  h1: "Cúrcuma em dedos, bulbos e pó"
+  description: "Exportador de cúrcuma (açafrão-da-terra) da Índia: dedos de Erode, bulbos de Salem, Alleppey rica em curcumina e cúrcuma em pó, testada para a UE. Cote já."
+  keywords: ["exportador cúrcuma Índia", "açafrão-da-terra a granel", "cúrcuma de Erode", "cúrcuma seca a granel", "exportador cúrcuma em pó", "cúrcuma Alleppey curcumina", "bulbos de cúrcuma Salem"]

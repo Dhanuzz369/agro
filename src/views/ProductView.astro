@@ -35,28 +35,31 @@ const poster = { widths: [480, 640], sizes: '(max-width: 860px) 100vw, 50vw', qu
 const posterPreload = await getImage({ src: p.data.heroImage.src, ...poster });
 const wa = whatsappHref(site.whatsapp, `${p.text.name} — ${abs(path)}`);
 const quoteHref = (variety?: string) => `${localizePath('/contact', locale)}?product=${slug}${variety ? `&variety=${variety}` : ''}`;
+const productImages = [new URL(hero.src, Astro.site).href];
 const ld = [
   productLd({
-    name: p.text.name, description: p.text.summary, url: abs(path), image: new URL(hero.src, Astro.site).href,
-    brand: 'GoodBiz Agri',
+    name: p.text.name, description: p.text.summary, url: abs(path), image: productImages,
+    brand: 'GoodBiz Agri', siteUrl: Astro.site!.href, category: t('nav.products'), keywords: p.text.seo.keywords,
     varieties: p.data.varieties.map((v) => ({ name: p.text.varieties[v.id]?.name ?? v.id })),
   }),
   faqLd(p.text.faq),
   breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
 ];
-const title = t('meta.productTitle', { name: p.text.name });
+const alt = (name: string, origin: string) => t('alt.product', { name, origin });
+const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text.name });
 ---
-<Base locale={locale} title={title} description={p.text.summary} path={path} ogImage={`/og/products/${slug}.png`} jsonLd={ld}>
+<Base locale={locale} title={p.text.seo.title} description={p.text.seo.description} keywords={p.text.seo.keywords} path={path}
+  ogImage={`/og/products/${slug}.png`} ogImageAlt={p.text.seo.h1} jsonLd={ld}>
   <link slot="head" rel="preload" as="image" imagesrcset={posterPreload.srcSet.attribute} imagesizes={poster.sizes} fetchpriority="high" />
   <article class="pv">
     <section class="pv__hero container">
       <Breadcrumbs locale={locale} items={crumbs} />
       <div class="pv__heroGrid">
         <div class="pv__object">
-          <Image src={p.data.heroImage.src} alt={p.text.name} {...poster} loading="eager" fetchpriority="high" data-product-hero />
+          <Image src={p.data.heroImage.src} alt={alt(p.text.seo.h1, p.text.originLine)} {...poster} loading="eager" fetchpriority="high" data-product-hero />
         </div>
         <div class="pv__intro">
-          <h1>{p.text.name}</h1>
+          <h1>{p.text.seo.h1}</h1>
           <p class="pv__summary">{p.text.summary}</p>
           <div class="pv__ctas">
             <a class="btn btn--primary" href={quoteHref()}>{t('cta.quote')}</a>
@@ -83,7 +86,7 @@ const title = t('meta.productTitle', { name: p.text.name });
           return (
             <article class="var" data-variety={v.id} data-reveal>
               <div class="var__media">
-                <Image src={v.image.src} alt={vt?.name ?? v.id} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
+                <Image src={v.image.src} alt={varietyAlt(vt?.name ?? v.id)} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
               </div>
               <div class="var__body">
                 <h3>{vt?.name ?? v.id}</h3>

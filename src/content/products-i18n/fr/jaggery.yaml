@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Jaggery"
-summary: "GoodBiz Agri exporte du jaggery — blocs, cubes, poudre, jaggery biologique et jaggery de palmier (karupatti) — de Mandya et Belagavi au Karnataka et de Thoothukudi au Tamil Nadu."
+summary: "GoodBiz Agri exporte du jaggery — blocs, cubes, poudre, jaggery bio et jaggery de palme (karupatti) — produit à Mandya et Belagavi au Karnataka et à Thoothukudi au Tamil Nadu, expédié de Chennai, New Mangalore et Tuticorin vers plus de 70 pays."
 originLine: "Mandya, Belagavi et Thoothukudi"
 sourcingStory: "La ceinture de canne à sucre de Mandya produit du jaggery depuis des générations, en faisant bouillir du jus de canne frais dans des bassines ouvertes. Nous y achetons les blocs et le jaggery biologique, les cubes et la poudre auprès des transformateurs de Belagavi, et le jaggery de palmier auprès des récolteurs de palmyre de Thoothukudi."
 varieties:
@@ -12,3 +12,9 @@ varieties:
 faq:
   - { q: "Combien de temps le jaggery se conserve-t-il ?", a: "Environ 12 mois dans un endroit frais et sec ; la poudre et les blocs emballés sous vide se conservent le mieux." }
   - { q: "Pouvez-vous fournir en marque blanche ?", a: "Oui, en emballages de 500 g à 5 kg à votre marque." }
+  - { q: "Depuis quels ports expédiez-vous le jaggery ?", a: "GoodBiz Agri expédie le jaggery en blocs, en poudre et de palme depuis Chennai, New Mangalore et Tuticorin aux conditions FOB, CFR ou CIF." }
+seo:
+  title: "Exportateur de jaggery d'Inde : poudre, blocs"
+  h1: "Jaggery en blocs, en poudre et jaggery de palme"
+  description: "Exportateur de jaggery d'Inde : blocs, cubes, poudre de jaggery bio en vrac et jaggery de palme (karupatti), marque privée dès 500 g. Demandez un devis."
+  keywords: ["exportateur jaggery Inde", "poudre de jaggery bio en vrac", "jaggery en blocs", "cubes de jaggery", "jaggery de palme karupatti", "sucre de canne non raffiné", "jaggery marque privée"]

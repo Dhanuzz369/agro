@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Arekanuss"
-summary: "GoodBiz Agri exportiert Arekanüsse (Betelnüsse) — ganze weiße Chali, gespalten, rote Kempu (Güten Api und Bette) und in Scheiben — aus Shivamogga und Dakshina Kannada in Karnataka sowie Kasaragod in Kerala."
+summary: "GoodBiz Agri exportiert Arekanuss (Betelnuss, Supari) — ganze weiße Chali, gespalten, rote Kempu (Api- und Bette-Sorten) und geschnitten — aus Shivamogga und Dakshina Kannada in Karnataka und Kasaragod in Kerala, verschifft ab New Mangalore und Chennai."
 originLine: "Shivamogga, Dakshina Kannada und Kasaragod"
 sourcingStory: "Karnataka erzeugt den Großteil der indischen Arekanüsse. Das küstennahe Dakshina Kannada und Kasaragod sind für sonnengetrocknete weiße Chali bekannt, die über den Genossenschaftsmarkt von Puttur gehandelt wird, während die Malnad-Region um Shivamogga auf gekochte rote Güten spezialisiert ist."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   red-kempu: { name: "Rot (Kempu) — Api und Bette", description: "Gekochte und getrocknete rotbraune Güten aus Shivamogga." }
   sliced: { name: "Arekanüsse in Scheiben", description: "Gleichmäßige Scheiben für Märkte mit direktem Verzehr." }
 faq:
-  - { q: "Was ist der Unterschied zwischen Chali und Kempu?", a: "Chali ist die sonnengetrocknete ganze Nuss von der Küste Karnatakas; Kempu wird gekocht und getrocknet, wodurch sie rot wird." }
+  - { q: "Was ist der Unterschied zwischen Chali und Kempu?", a: "Chali ist reife Arekanuss, die an der Küste Karnatakas in der Schale sonnengetrocknet wird und weiß bleibt; Kempu ist junge Nuss, die geschält, gekocht und getrocknet wird und dadurch rot wird." }
+  - { q: "Ab welchen Häfen verschiffen Sie Arekanuss?", a: "GoodBiz Agri verschifft Arekanuss (Betelnuss) ab New Mangalore und Chennai zu FOB-, CFR- oder CIF-Bedingungen." }
+seo:
+  title: "Arekanuss Exporteur Indien: Betelnuss"
+  h1: "Arekanuss (Betelnuss): Chali, Kempu, geschnitten"
+  description: "Arekanuss Exporteur aus Indien: Betelnuss (Supari) als ganze weiße Chali, gespalten, rote Kempu und geschnitten, aus Shivamogga und Karnataka. Angebot anfragen."
+  keywords: ["Arekanuss Exporteur Indien", "Betelnuss Lieferant", "Supari", "Arekanuss Chali", "rote Kempu Arekanuss", "gespaltene Arekanuss", "geschnittene Betelnuss"]

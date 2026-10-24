@@ -2,16 +2,18 @@
 import { Image } from 'astro:assets';
 import { localizePath } from '../i18n/paths';
 import type { Locale } from '../i18n/config';
+import { createT } from '../i18n/t';
 import type { LocalizedProduct } from '../lib/catalog';
 interface Props { locale: Locale; product: LocalizedProduct; headingLevel?: 'h2' | 'h3' }
 const { locale, product, headingLevel = 'h3' } = Astro.props;
 const H = headingLevel;
 const href = localizePath(`/products/${product.slug}`, locale);
+const alt = createT(locale)('alt.product', { name: product.text.name, origin: product.text.originLine });
 ---
 <article class="pc" data-reveal>
   <a href={href} class="pc__link">
     <div class="pc__media">
-      <Image src={product.data.heroImage.src} alt={product.text.name} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
+      <Image src={product.data.heroImage.src} alt={alt} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
     </div>
     <H class="pc__title">{product.text.name}</H>
   </a>

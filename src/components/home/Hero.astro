@@ -27,7 +27,7 @@ const [products, site] = await Promise.all([getLocalizedProducts(locale), getSit
     {products.map((p, i) => (
       <li class="panel" data-hero-panel>
         <a class="panel__link" href={localizePath(`/products/${p.slug}`, locale)}>
-          <Image src={p.data.heroImage.src} alt="" widths={[480, 720, 960, 1280, 1600]} sizes="(min-width: 1024px) 50vw, 100vw"
+          <Image src={p.data.heroImage.src} alt={t('alt.product', { name: p.text.name, origin: p.text.originLine })} widths={[480, 720, 960, 1280, 1600]} sizes="(min-width: 1024px) 50vw, 100vw"
             quality={i === 0 ? 60 : 70} format="webp" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding={i === 0 ? 'sync' : 'async'} />
           <span class="panel__cap" data-reveal>
             <span class="panel__name">{p.text.name}</span>

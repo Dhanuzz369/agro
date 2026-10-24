@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Jahe"
-summary: "GoodBiz Agri mengekspor jahe segar, jahe kering tanpa pemutih, jahe kering diputihkan, dan jahe utuh lainnya dari Wayanad di Kerala serta Kodagu dan Hassan di Karnataka."
+summary: "GoodBiz Agri mengekspor jahe kering (tanpa pemutih dan diputihkan), jahe kering utuh lainnya dan jahe segar dari Wayanad di Kerala serta Kodagu dan Hassan di Karnataka, dikirim dari Kochi, New Mangalore dan Chennai — jahe segar dengan kontainer reefer."
 originLine: "Wayanad, Kodagu, dan Hassan — sabuk jahe Ghats Barat"
 sourcingStory: "Jahe yang tumbuh di lereng Ghats Barat dikenal karena rasa pedas dan kandungan minyaknya. Kami membeli jahe segar dari petani Wayanad pada musim panen dan jahe kering melalui perdagangan rempah Kochi, tempat mutu \"Cochin ginger\" telah diperdagangkan selama berabad-abad."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   dried-bleached: { name: "Jahe kering diputihkan", description: "Diputihkan dengan kapur agar tampak pucat dan seragam." }
   whole-other: { name: "Jahe kering utuh (lainnya)", description: "Jahe utuh yang tidak dihancurkan maupun digiling, sesuai mutu pembeli." }
 faq:
-  - { q: "Bagaimana jahe segar dikirim?", a: "Dalam kontainer reefer 40 kaki pada suhu sekitar 12–13 °C, dengan muatan sekitar 26 ton." }
+  - { q: "Bagaimana jahe segar dikirim?", a: "Jahe segar dikirim dalam kontainer reefer 40 kaki pada suhu sekitar 12–13 °C, sekitar 26 ton per kontainer." }
+  - { q: "Dari pelabuhan mana jahe dikirim?", a: "GoodBiz Agri mengirim jahe kering dan segar dari Kochi, New Mangalore dan Chennai dengan syarat FOB, CFR atau CIF." }
+seo:
+  title: "Eksportir Jahe Kering India: Jahe Segar"
+  h1: "Jahe kering dan jahe segar dari India"
+  description: "Eksportir jahe kering India: jahe Cochin tanpa pemutih dan diputihkan, jahe kering utuh dan jahe segar via reefer dari Wayanad dan Kodagu. Minta penawaran."
+  keywords: ["eksportir jahe kering India", "pemasok jahe segar", "jahe kering tanpa pemutih", "jahe diputihkan", "jahe Cochin", "jahe Wayanad", "jahe kering curah"]

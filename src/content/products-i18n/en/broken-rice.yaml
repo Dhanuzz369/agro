@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Broken Rice
-summary: GoodBiz Agri exports 100% broken rice — white, parboiled and sortexed — from mills in the Godavari delta, Nellore and Raichur.
+summary: GoodBiz Agri exports 100% broken rice — white, parboiled and sortexed — from mills in the Godavari delta, Nellore and Raichur, shipped from Chennai and Tuticorin to food importers in West Africa and Asia and to brewers and feed mills.
 originLine: Godavari delta, Nellore and Raichur mills
 sourcingStory: Broken rice is a staple in Senegal, the Gambia and much of West Africa, and a key input for brewing and feed. We buy it from the same mills that supply our whole-grain rice, so moisture and cleanliness meet the same standard.
 varieties:
@@ -8,4 +8,10 @@ varieties:
   parboiled: { name: "Parboiled broken", description: "Parboiled brokens with a firmer texture." }
   sortexed: { name: "Sortexed broken", description: "Colour-sorted for uniform appearance and fewer damaged grains." }
 faq:
-  - { q: "Who buys broken rice?", a: "Food importers in West Africa and Asia, breweries and animal-feed producers." }
+  - { q: "Who buys broken rice?", a: "Broken rice is bought mainly by food importers in West Africa and Asia, by breweries and by animal-feed producers." }
+  - { q: "Which ports do you ship broken rice from?", a: "GoodBiz Agri ships 100% broken rice from Chennai and Tuticorin on FOB, CFR or CIF terms, in 20 ft or 40 ft containers." }
+seo:
+  title: "100% Broken Rice Supplier & Exporter India"
+  h1: "100% broken rice: white, parboiled and sortexed"
+  description: "100% broken rice supplier from India: white, parboiled and sortexed broken rice for food importers, breweries and feed mills, in bulk bags. Request a quote."
+  keywords: ["100% broken rice supplier", "broken rice exporter India", "parboiled broken rice", "sortexed broken rice", "broken rice for brewery", "broken rice animal feed", "broken rice West Africa"]

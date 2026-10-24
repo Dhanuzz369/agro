@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Riz brisé"
-summary: "GoodBiz Agri exporte du riz brisé à 100 % — blanc, étuvé et trié au sortex — issu de rizeries du delta de la Godavari, de Nellore et de Raichur."
+summary: "GoodBiz Agri exporte du riz brisé 100 % — blanc, étuvé et trié — depuis des rizeries du delta de la Godavari, de Nellore et de Raichur, expédié de Chennai et Tuticorin vers les importateurs d'Afrique de l'Ouest et d'Asie, les brasseries et les fabricants d'aliments."
 originLine: "Rizeries du delta de la Godavari, de Nellore et de Raichur"
 sourcingStory: "Le riz brisé est un aliment de base au Sénégal, en Gambie et dans une grande partie de l'Afrique de l'Ouest, ainsi qu'une matière première clé pour la brasserie et l'alimentation animale. Nous l'achetons dans les mêmes rizeries que celles qui fournissent notre riz en grains entiers, de sorte que l'humidité et la propreté répondent au même standard."
 varieties:
@@ -8,4 +8,10 @@ varieties:
   parboiled: { name: "Brisures étuvées", description: "Brisures étuvées à la texture plus ferme." }
   sortexed: { name: "Brisures triées au sortex", description: "Triées par couleur pour un aspect uniforme et moins de grains endommagés." }
 faq:
-  - { q: "Qui achète du riz brisé ?", a: "Des importateurs alimentaires d'Afrique de l'Ouest et d'Asie, des brasseries et des fabricants d'aliments pour animaux." }
+  - { q: "Qui achète du riz brisé ?", a: "Le riz brisé est acheté surtout par les importateurs alimentaires d'Afrique de l'Ouest et d'Asie, par les brasseries et par les fabricants d'aliments pour animaux." }
+  - { q: "Depuis quels ports expédiez-vous le riz brisé ?", a: "GoodBiz Agri expédie le riz brisé 100 % depuis Chennai et Tuticorin aux conditions FOB, CFR ou CIF, en conteneurs de 20 ou 40 pieds." }
+seo:
+  title: "Fournisseur de riz brisé 100 % d'Inde"
+  h1: "Riz brisé 100 % : blanc, étuvé et trié"
+  description: "Fournisseur de riz brisé 100 % d'Inde : brisures blanches, étuvées et triées pour importateurs alimentaires, brasseries et provenderies. Demandez votre devis."
+  keywords: ["fournisseur riz brisé 100 %", "exportateur riz brisé Inde", "brisures de riz étuvé", "riz brisé trié", "brisures de riz brasserie", "riz brisé alimentation animale", "riz brisé Sénégal"]

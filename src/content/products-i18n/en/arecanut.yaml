@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Arecanut
-summary: GoodBiz Agri exports arecanut (betel nut) — whole white chali, split, red kempu (api and bette grades) and sliced — sourced from Shivamogga and Dakshina Kannada in Karnataka and Kasaragod in Kerala.
+summary: GoodBiz Agri exports arecanut (betel nut, supari) — whole white chali, split, red kempu (api and bette grades) and sliced — from Shivamogga and Dakshina Kannada in Karnataka and Kasaragod in Kerala, shipped from New Mangalore and Chennai.
 originLine: Shivamogga, Dakshina Kannada and Kasaragod
 sourcingStory: Karnataka produces most of India's arecanut. Coastal Dakshina Kannada and Kasaragod are known for sun-dried white chali, traded through Puttur's cooperative market, while Shivamogga's Malnad region specialises in boiled red grades.
 varieties:
@@ -9,4 +9,10 @@ varieties:
   red-kempu: { name: "Red (kempu) — api and bette", description: "Boiled and dried red-brown grades from Shivamogga." }
   sliced: { name: "Sliced arecanut", description: "Uniform slices for direct consumption markets." }
 faq:
-  - { q: "What is the difference between chali and kempu?", a: "Chali is sun-dried whole nut from coastal Karnataka; kempu is boiled and dried, giving a red colour." }
+  - { q: "What is the difference between chali and kempu?", a: "Chali is ripe arecanut sun-dried in the husk in coastal Karnataka and stays white; kempu is tender nut that is de-husked, boiled and dried, which turns it red." }
+  - { q: "Which ports do you ship arecanut from?", a: "GoodBiz Agri ships arecanut (betel nut) from New Mangalore and Chennai on FOB, CFR or CIF terms." }
+seo:
+  title: "Arecanut Exporter India: Betel Nut & Supari"
+  h1: "Arecanut (betel nut): chali, kempu and sliced"
+  description: "Arecanut exporter India: betel nut (supari) as whole white chali, split, red kempu and sliced, from Shivamogga and coastal Karnataka. Request a quote today."
+  keywords: ["arecanut exporter India", "betel nut exporter", "supari supplier", "areca nut chali", "red kempu arecanut", "split arecanut", "sliced betel nut", "Shivamogga arecanut"]

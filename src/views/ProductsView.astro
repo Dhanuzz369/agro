@@ -4,7 +4,7 @@ import ProductCard from '../components/ProductCard.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { createT } from '../i18n/t';
 import { getLocalizedProducts } from '../lib/catalog';
-import { breadcrumbLd } from '../lib/jsonld';
+import { breadcrumbLd, itemListLd } from '../lib/jsonld';
 import { localizePath } from '../i18n/paths';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
@@ -14,14 +14,17 @@ const products = await getLocalizedProducts(locale);
 const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }];
 const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
 ---
-<Base locale={locale} title={t('meta.productsTitle')} description={t('meta.productsDescription')} path="/products" ogImage="/og/products.png"
-  jsonLd={[breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) })))]}>
+<Base locale={locale} title={t('meta.productsTitle')} description={t('meta.productsDescription')} keywords={t('meta.productsKeywords')} path="/products" ogImage="/og/products.png"
+  jsonLd={[
+    itemListLd({ name: t('products.title'), items: products.map((p) => ({ name: p.text.name, url: abs(`/products/${p.slug}`) })) }),
+    breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
+  ]}>
   <div class="container page">
     <Breadcrumbs locale={locale} items={crumbs} />
     <header class="page__head">
       <p class="eyebrow">{t('home.range.eyebrow')}</p>
-      <h1>{t('home.range.title')}</h1>
-      <p>{t('home.range.lede')}</p>
+      <h1>{t('products.title')}</h1>
+      <p>{t('products.lede')}</p>
     </header>
     <div class="grid">{products.map((p) => <ProductCard locale={locale} product={p} headingLevel="h2" />)}</div>
   </div>

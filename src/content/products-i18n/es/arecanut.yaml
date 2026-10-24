@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Nuez de areca"
-summary: "GoodBiz Agri exporta nuez de areca (betel) — chali blanca entera, partida, kempu roja (calidades api y bette) y en rodajas — procedente de Shivamogga y Dakshina Kannada, en Karnataka, y de Kasaragod, en Kerala."
+summary: "GoodBiz Agri exporta nuez de areca (nuez de betel, supari) — chali blanca entera, partida, kempu roja (grados api y bette) y en rodajas — de Shivamogga y Dakshina Kannada en Karnataka y Kasaragod en Kerala, enviada desde New Mangalore y Chennai."
 originLine: "Shivamogga, Dakshina Kannada y Kasaragod"
 sourcingStory: "Karnataka produce la mayor parte de la nuez de areca de la India. La costera Dakshina Kannada y Kasaragod son conocidas por la chali blanca secada al sol, comercializada en el mercado cooperativo de Puttur, mientras que la región de Malnad, en Shivamogga, se especializa en calidades rojas hervidas."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   red-kempu: { name: "Roja (kempu) — api y bette", description: "Calidades rojo-marrón hervidas y secadas, de Shivamogga." }
   sliced: { name: "Nuez de areca en rodajas", description: "Rodajas uniformes para mercados de consumo directo." }
 faq:
-  - { q: "¿Cuál es la diferencia entre chali y kempu?", a: "La chali es nuez entera secada al sol de la costa de Karnataka; la kempu se hierve y se seca, lo que le da un color rojo." }
+  - { q: "¿Cuál es la diferencia entre chali y kempu?", a: "La chali es nuez de areca madura secada al sol con su cáscara en la costa de Karnataka y queda blanca; la kempu es nuez tierna pelada, hervida y secada, lo que le da color rojo." }
+  - { q: "¿Desde qué puertos envían la nuez de areca?", a: "GoodBiz Agri envía nuez de areca (betel) desde New Mangalore y Chennai en condiciones FOB, CFR o CIF." }
+seo:
+  title: "Exportador de nuez de areca (betel), India"
+  h1: "Nuez de areca (betel): chali, kempu y en rodajas"
+  description: "Exportador de nuez de areca de la India: nuez de betel (supari) entera blanca chali, partida, roja kempu y en rodajas, de Karnataka. Pida su cotización."
+  keywords: ["exportador nuez de areca India", "nuez de betel", "supari", "areca chali", "areca roja kempu", "areca partida", "nuez de betel en rodajas"]

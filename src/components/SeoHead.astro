@@ -4,28 +4,40 @@ import { ogLocale, type Locale, locales } from '../i18n/config';
 
 interface Props {
   locale: Locale; title: string; description: string; path: string;
-  available?: readonly Locale[]; ogImage?: string; jsonLd?: object[]; noindex?: boolean;
+  available?: readonly Locale[]; ogImage?: string; ogImageAlt?: string; ogType?: 'website' | 'article';
+  keywords?: readonly string[] | string; jsonLd?: object[]; noindex?: boolean;
 }
-const { locale, title, description, path, available = locales, ogImage, jsonLd = [], noindex = false } = Astro.props;
+const { locale, title, description, path, available = locales, ogImage, ogImageAlt, ogType = 'website', keywords, jsonLd = [], noindex = false } = Astro.props;
 const site = Astro.site!;
 const canonical = new URL(localizePath(path, locale), site).href;
 const og = new URL(ogImage ?? '/og/home.png', site).href;
+// Primary keyword first, brand last.
 const fullTitle = title.includes('GoodBiz') ? title : `${title} | GoodBiz Agri`;
+const kw = typeof keywords === 'string' ? keywords : keywords?.join(', ');
+const alt = ogImageAlt ?? title;
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
+{kw && <meta name="keywords" content={kw} />}
+<meta name="robots" content={noindex ? 'noindex' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
 <link rel="canonical" href={canonical} />
-{noindex && <meta name="robots" content="noindex" />}
-{alternates(path, available).map((a) => <link rel="alternate" hreflang={a.hreflang} href={new URL(a.path, site).href} />)}
-<meta property="og:type" content="website" />
+{!noindex && alternates(path, available).map((a) => <link rel="alternate" hreflang={a.hreflang} href={new URL(a.path, site).href} />)}
+<meta property="og:type" content={ogType} />
 <meta property="og:site_name" content="GoodBiz Agri" />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={og} />
+<meta property="og:image:type" content="image/png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={alt} />
 <meta property="og:locale" content={ogLocale[locale]} />
+{available.filter((l) => l !== locale).map((l) => <meta property="og:locale:alternate" content={ogLocale[l]} />)}
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={og} />
+<meta name="twitter:image:alt" content={alt} />
 <link rel="alternate" type="application/rss+xml" title="GoodBiz Agri" href={localizePath('/rss.xml', locale)} />
 {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}

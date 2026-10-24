@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Beras Non-Basmati"
-summary: "GoodBiz Agri mengekspor beras non-basmati curah — IR64 mentah dan parboiled, Swarna, dan IR36 dengan mutu patah 5% dan 25% — dari penggilingan di delta Godavari, Nellore, dan Raichur."
+summary: "GoodBiz Agri mengekspor beras non-basmati curah — IR64 mentah dan parboiled, Swarna dan IR36 dengan patahan 5% dan 25% — dari pabrik sortex di delta Godavari, Nellore dan Raichur, dikirim dari Chennai dan Tuticorin ke Afrika, Asia dan Timur Tengah."
 originLine: "Penggilingan di delta Godavari, Nellore, dan Raichur"
 sourcingStory: "Delta Godavari dan distrik Nellore di Andhra Pradesh termasuk lumbung padi terbesar di India. Kami bekerja sama dengan penggilingan berperalatan sortex di sana untuk memperoleh IR64 dan Swarna yang konsisten pada mutu patah yang ditetapkan importir Afrika dan Asia."
 varieties:
@@ -11,3 +11,9 @@ varieties:
 faq:
   - { q: "Persentase patah berapa yang Anda pasok?", a: "Patah 5% dan 25% sebagai standar; 10% dan 15% atas permintaan." }
   - { q: "Apakah ada bea ekspor untuk beras non-basmati?", a: "Kebijakan ekspor beras India berubah secara berkala. Kami memastikan posisi DGFT terkini sebelum setiap kontrak." }
+  - { q: "Dari pelabuhan mana beras non-basmati dikirim?", a: "GoodBiz Agri mengirim beras IR64, Swarna dan IR36 dari Chennai dan Tuticorin dengan syarat FOB, CFR atau CIF dalam kontainer 20 atau 40 kaki." }
+seo:
+  title: "Eksportir Beras Non Basmati India: IR64"
+  h1: "Beras non-basmati: IR64, Swarna dan IR36"
+  description: "Eksportir beras non basmati India: IR64 mentah dan parboiled, Swarna dan IR36 patah 5% dan 25% dari pabrik bersortex, dikemas sesuai pesanan. Minta harga FOB."
+  keywords: ["eksportir beras non basmati India", "beras parboiled IR64", "beras IR64 patah 5%", "beras Swarna", "beras IR36", "beras butir panjang curah", "beras patah 25%"]

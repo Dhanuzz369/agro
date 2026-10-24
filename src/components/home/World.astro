@@ -16,7 +16,7 @@ const regions: Region[] = ['middle-east', 'africa', 'asia', 'europe', 'americas'
       <h2>{t('home.world.title')}</h2>
       <p>{t('home.world.lede')}</p>
     </header>
-    <WorldMap label={t('home.world.title')} />
+    <WorldMap label={`${t('home.world.title')}: ${t('home.world.lede')}`} />
     <div class="world__lists">
       {regions.map((r) => (
         <div>

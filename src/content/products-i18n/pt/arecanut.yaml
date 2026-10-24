@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Noz de areca"
-summary: "A GoodBiz Agri exporta noz de areca (bétele) — chali branca inteira, partida, kempu vermelha (classes api e bette) e fatiada — originária de Shivamogga e Dakshina Kannada, em Karnataka, e de Kasaragod, em Kerala."
+summary: "A GoodBiz Agri exporta noz de areca (noz de bétel, supari) — chali branca inteira, partida, kempu vermelha (graus api e bette) e fatiada — de Shivamogga e Dakshina Kannada, em Karnataka, e Kasaragod, em Kerala, embarcada de New Mangalore e Chennai."
 originLine: "Shivamogga, Dakshina Kannada e Kasaragod"
 sourcingStory: "Karnataka produz a maior parte da noz de areca da Índia. A litorânea Dakshina Kannada e Kasaragod são conhecidas pela chali branca seca ao sol, negociada no mercado cooperativo de Puttur, enquanto a região de Malnad, em Shivamogga, se especializa em classes vermelhas cozidas."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   red-kempu: { name: "Vermelha (kempu) — api e bette", description: "Classes vermelho-amarronzadas, cozidas e secas, de Shivamogga." }
   sliced: { name: "Noz de areca fatiada", description: "Fatias uniformes para mercados de consumo direto." }
 faq:
-  - { q: "Qual é a diferença entre chali e kempu?", a: "A chali é a noz inteira seca ao sol do litoral de Karnataka; a kempu é cozida e seca, o que lhe dá a cor vermelha." }
+  - { q: "Qual é a diferença entre chali e kempu?", a: "A chali é noz de areca madura seca ao sol na casca na costa de Karnataka e continua branca; a kempu é noz tenra descascada, fervida e seca, o que a deixa vermelha." }
+  - { q: "De quais portos vocês embarcam a noz de areca?", a: "A GoodBiz Agri embarca noz de areca (bétel) de New Mangalore e Chennai, em termos FOB, CFR ou CIF." }
+seo:
+  title: "Exportador de noz de areca (bétel) da Índia"
+  h1: "Noz de areca (bétel): chali, kempu e fatiada"
+  description: "Exportador de noz de areca da Índia: noz de bétel (supari) inteira branca chali, partida, vermelha kempu e fatiada, de Karnataka. Peça uma cotação hoje."
+  keywords: ["exportador noz de areca Índia", "noz de bétel", "supari", "areca chali", "areca vermelha kempu", "areca partida", "noz de bétel fatiada"]

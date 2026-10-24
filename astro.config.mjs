@@ -12,6 +12,7 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
+      lastmod: new Date(),
       i18n: { defaultLocale: 'en', locales: Object.fromEntries(locales.map((l) => [l, l === 'zh' ? 'zh-Hans' : l])) },
       filter: (page) => !page.includes('/og/') && !page.includes('/spec-sheets/') && !/\/thanks\/?$/.test(page) && !/\/404\/?$/.test(page),
     }),

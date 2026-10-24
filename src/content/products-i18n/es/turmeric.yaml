@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Cúrcuma"
-summary: "GoodBiz Agri exporta cúrcuma fresca, dedos y bulbos de cúrcuma seca y cúrcuma en polvo procedentes de Erode y Salem, en Tamil Nadu, y de Alappuzha, en Kerala, con curcumina del 2% al 5% y humedad inferior al 10%."
+summary: "GoodBiz Agri exporta cúrcuma — fresca, dedos secos de Erode, bulbos de Salem, dedos de Alleppey altos en curcumina y cúrcuma en polvo — de Erode y Salem en Tamil Nadu y Alappuzha en Kerala, enviada desde Chennai, Tuticorin y Kochi, con 2–5 % de curcumina y humedad inferior al 10 %."
 originLine: "Erode, Salem y Alleppey — el corazón de la cúrcuma de la India"
 sourcingStory: "El mercado regulado de Erode fija el precio de gran parte de la cúrcuma del mundo. Allí y en Salem compramos dedos y bulbos pulidos en cada cosecha, y adquirimos de comerciantes de Kerala dedo Alleppey de alta curcumina para los compradores que necesitan intensidad de color. El polvo se muele por encargo para que la curcumina y la malla se ajusten a su especificación."
 varieties:
@@ -12,3 +12,9 @@ varieties:
 faq:
   - { q: "¿Qué niveles de curcumina pueden suministrar?", a: "La cúrcuma de Erode y Salem suele dar entre 2,5 y 4% de curcumina; el dedo Alleppey, entre 4,5 y 5%. El polvo puede mezclarse hasta un nivel de curcumina especificado." }
   - { q: "¿Pueden cumplir los límites de plaguicidas de la UE?", a: "Sí. Adquirimos y analizamos los lotes según los LMR de la UE y podemos facilitar análisis de terceros antes del embarque." }
+  - { q: "¿Desde qué puertos envían la cúrcuma?", a: "GoodBiz Agri envía cúrcuma en dedos, bulbos y polvo desde Chennai, Tuticorin y Kochi en condiciones FOB, CFR o CIF." }
+seo:
+  title: "Exportador de cúrcuma India: dedos y polvo"
+  h1: "Cúrcuma en dedos, bulbos y polvo"
+  description: "Exportador de cúrcuma de la India: dedos de cúrcuma de Erode, bulbos de Salem, Alleppey alta en curcumina y cúrcuma en polvo, analizada según la UE. Cotice FOB."
+  keywords: ["exportador cúrcuma India", "proveedor cúrcuma en dedos", "cúrcuma de Erode", "cúrcuma seca a granel", "exportador cúrcuma en polvo", "cúrcuma Alleppey alta curcumina", "bulbos de cúrcuma Salem"]

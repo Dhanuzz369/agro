@@ -57,6 +57,8 @@ export const productTextSchema = z.object({
   sourcingStory: z.string(),
   varieties: z.record(z.string(), z.object({ name: z.string(), description: z.string() })),
   faq: faqSchema.min(1),
+  // Search snippet text for the product page: title (brand is appended), H1, meta description and meta keywords.
+  seo: z.object({ title: z.string().max(45), h1: z.string(), description: z.string(), keywords: z.array(z.string()).min(4).max(10) }),
 });
 
 export const blogSchema = (image: ImageFn) =>

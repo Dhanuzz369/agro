@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Gengibre"
-summary: "A GoodBiz Agri exporta gengibre fresco, gengibre seco não branqueado, gengibre seco branqueado e outros gengibres inteiros de Wayanad, em Kerala, e de Kodagu e Hassan, em Karnataka."
+summary: "A GoodBiz Agri exporta gengibre seco (não branqueado e branqueado), outros gengibres secos inteiros e gengibre fresco de Wayanad, em Kerala, e Kodagu e Hassan, em Karnataka, embarcados de Kochi, New Mangalore e Chennai; o fresco, em contêiner refrigerado."
 originLine: "Wayanad, Kodagu e Hassan — o cinturão do gengibre dos Gates Ocidentais"
 sourcingStory: "O gengibre cultivado nas encostas dos Gates Ocidentais é conhecido pela pungência e pelo teor de óleo. Compramos gengibre fresco de produtores de Wayanad durante a colheita e gengibre seco pelo comércio de especiarias de Kochi, onde a classe «Cochin ginger» é negociada há séculos."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   dried-bleached: { name: "Gengibre seco branqueado", description: "Branqueado com cal para aparência clara e uniforme." }
   whole-other: { name: "Gengibre seco inteiro (outros)", description: "Gengibre inteiro, nem triturado nem moído, conforme a classe do comprador." }
 faq:
-  - { q: "Como o gengibre fresco é embarcado?", a: "Em contêineres refrigerados de 40 pés a cerca de 12–13 °C, com capacidade para cerca de 26 toneladas." }
+  - { q: "Como o gengibre fresco é embarcado?", a: "O gengibre fresco viaja em contêineres refrigerados de 40 pés a cerca de 12–13 °C, com cerca de 26 toneladas por contêiner." }
+  - { q: "De quais portos vocês embarcam o gengibre?", a: "A GoodBiz Agri embarca gengibre seco e fresco de Kochi, New Mangalore e Chennai, em termos FOB, CFR ou CIF." }
+seo:
+  title: "Exportador de gengibre seco e fresco da Índia"
+  h1: "Gengibre seco e gengibre fresco da Índia"
+  description: "Exportador de gengibre seco da Índia: gengibre de Cochin não branqueado e branqueado, gengibre seco inteiro e fresco em reefer. Peça uma cotação."
+  keywords: ["exportador gengibre seco Índia", "fornecedor gengibre fresco", "gengibre não branqueado", "gengibre branqueado", "gengibre de Cochin", "gengibre de Wayanad", "gengibre seco a granel"]

@@ -6,6 +6,7 @@ import { localizePath } from '../i18n/paths';
 import { htmlLang, type Locale } from '../i18n/config';
 import { postsFor } from '../lib/blog';
 import { readingTime } from '../lib/blog-pure';
+import { breadcrumbLd } from '../lib/jsonld';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
@@ -13,10 +14,13 @@ const posts = await postsFor(locale);
 // Only offer filters for categories that have at least one published post.
 const cats = (['market-updates', 'buyer-guides', 'product-knowledge', 'export-process'] as const).filter((c) => posts.some((p) => p.entry.data.category === c));
 const date = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'medium', timeZone: 'UTC' });
+const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.blog'), path: '/blog' }];
+const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
 ---
-<Base locale={locale} title={t('meta.blogTitle')} description={t('meta.blogDescription')} path="/blog" ogImage="/og/blog.png">
+<Base locale={locale} title={t('meta.blogTitle')} description={t('meta.blogDescription')} keywords={t('meta.blogKeywords')} path="/blog" ogImage="/og/blog.png"
+  jsonLd={[breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) })))]}>
   <div class="container bi">
-    <Breadcrumbs locale={locale} items={[{ name: t('nav.home'), path: '/' }, { name: t('nav.blog'), path: '/blog' }]} />
+    <Breadcrumbs locale={locale} items={crumbs} />
     <header><p class="eyebrow">{t('blog.eyebrow')}</p><h1>{t('blog.title')}</h1></header>
     <div class="bi__filters" role="group" aria-label={t('blog.title')}>
       <button type="button" data-cat="" aria-pressed="true">{t('blog.all')}</button>

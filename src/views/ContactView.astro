@@ -6,6 +6,8 @@ import { createT } from '../i18n/t';
 import { getSite } from '../lib/catalog';
 import { whatsappHref, mailtoHref, isPlaceholder } from '../lib/site';
 import type { Locale } from '../i18n/config';
+import { breadcrumbLd } from '../lib/jsonld';
+import { localizePath } from '../i18n/paths';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
@@ -15,10 +17,13 @@ const mail = mailtoHref(site.email);
 const addr = site.address;
 const street = isPlaceholder(addr.street) ? '' : addr.street;
 const postal = isPlaceholder(addr.postalCode) ? '' : addr.postalCode;
+const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.contact'), path: '/contact' }];
+const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
 ---
-<Base locale={locale} title={t('meta.contactTitle')} description={t('meta.contactDescription')} path="/contact" ogImage="/og/contact.png">
+<Base locale={locale} title={t('meta.contactTitle')} description={t('meta.contactDescription')} keywords={t('meta.contactKeywords')} path="/contact" ogImage="/og/contact.png"
+  jsonLd={[breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) })))]}>
   <div class="container cv">
-    <Breadcrumbs locale={locale} items={[{ name: t('nav.home'), path: '/' }, { name: t('nav.contact'), path: '/contact' }]} />
+    <Breadcrumbs locale={locale} items={crumbs} />
     <div class="cv__grid">
       <div class="cv__form">
         <p class="eyebrow">{t('contact.eyebrow')}</p>

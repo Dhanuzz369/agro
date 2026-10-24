@@ -10,13 +10,22 @@ import World from '../components/home/World.astro';
 import FinalCta from '../components/home/FinalCta.astro';
 import { createT } from '../i18n/t';
 import { homeFaq } from '../i18n/home-faq';
-import { faqLd } from '../lib/jsonld';
-import type { Locale } from '../i18n/config';
+import { faqLd, websiteLd, itemListLd } from '../lib/jsonld';
+import { getLocalizedProducts } from '../lib/catalog';
+import { localizePath } from '../i18n/paths';
+import { htmlLang, type Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
+const products = await getLocalizedProducts(locale);
+const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
+const ld = [
+  websiteLd({ siteUrl: Astro.site!.href, url: abs('/'), name: 'GoodBiz Agri', description: t('meta.homeDescription'), inLanguage: htmlLang[locale] }),
+  itemListLd({ name: t('products.title'), items: products.map((p) => ({ name: p.text.name, url: abs(`/products/${p.slug}`) })) }),
+  faqLd(homeFaq(locale)),
+];
 ---
-<Base locale={locale} title={t('meta.homeTitle')} description={t('meta.homeDescription')} path="/" ogImage="/og/home.png" jsonLd={[faqLd(homeFaq(locale))]}>
+<Base locale={locale} title={t('meta.homeTitle')} description={t('meta.homeDescription')} keywords={t('meta.homeKeywords')} path="/" ogImage="/og/home.png" jsonLd={ld}>
   <Hero locale={locale} />
   <CertStrip locale={locale} />
   <Range locale={locale} />

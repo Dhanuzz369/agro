@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "非印度香米"
-summary: "GoodBiz Agri 出口散装非印度香米——IR64 生米和蒸谷米、Swarna（斯瓦尔纳）和 IR36，碎米比例5%和25%——产自戈达瓦里三角洲、内洛尔和赖丘尔的碾米厂。"
+summary: "GoodBiz Agri 批量出口非印度香米——IR64 生米与蒸谷米、Swarna 和 IR36，碎米率 5% 和 25%——产自戈达瓦里三角洲、内洛尔和赖久尔的色选米厂，从金奈和图蒂戈林发往非洲、亚洲和中东。"
 originLine: "戈达瓦里三角洲、内洛尔和赖丘尔的碾米厂"
 sourcingStory: "安得拉邦的戈达瓦里三角洲和内洛尔县是印度最大的粮仓之一。我们与配备色选机的碾米厂签约，稳定供应非洲和亚洲进口商指定碎米等级的 IR64 和 Swarna。"
 varieties:
@@ -11,3 +11,9 @@ varieties:
 faq:
   - { q: "你们供应哪些碎米比例？", a: "标准为5%和25%；10%和15%可应要求供应。" }
   - { q: "非印度香米有出口关税吗？", a: "印度的大米出口政策会定期调整。每份合同签订前，我们都会确认 DGFT 的现行规定。" }
+  - { q: "非印度香米从哪些港口发货？", a: "GoodBiz Agri 从金奈和图蒂戈林按 FOB、CFR 或 CIF 条件，以 20 尺或 40 尺集装箱发运 IR64、Swarna 和 IR36 大米。" }
+seo:
+  title: "印度非香米出口商：IR64 蒸谷米、Swarna"
+  h1: "非印度香米：IR64、Swarna 和 IR36"
+  description: "印度非香米出口商：IR64 生米与蒸谷米、Swarna 和 IR36，碎米率 5% 和 25%，来自配备色选机的米厂，按需包装。获取 FOB 或 CIF 报价。"
+  keywords: ["印度非香米出口", "IR64蒸谷米供应商", "IR64大米5%碎", "Swarna大米", "IR36大米", "长粒米批发", "non basmati rice exporter India"]

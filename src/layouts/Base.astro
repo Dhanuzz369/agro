@@ -15,7 +15,8 @@ import { getSite } from '../lib/catalog';
 
 interface Props {
   locale: Locale; title: string; description: string; path: string;
-  available?: readonly Locale[]; ogImage?: string; jsonLd?: object[]; noindex?: boolean;
+  available?: readonly Locale[]; ogImage?: string; ogImageAlt?: string; ogType?: 'website' | 'article';
+  keywords?: readonly string[] | string; jsonLd?: object[]; noindex?: boolean;
 }
 const { locale, jsonLd = [], ...seo } = Astro.props;
 const t = createT(locale);
@@ -31,6 +32,9 @@ const onVercel = Boolean(process.env.VERCEL);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1F3D2B" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     {/* Noto Sans SC is ~700 KB of unicode-range slices for a zh page: fetch it after load so text paints at once in the
          system CJK font and swaps in, instead of every slice competing with the LCP. */}
     {locale === 'zh' && <script is:inline>addEventListener('load', () => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '/fonts/sc/400.css'; document.head.append(l); });</script>}

@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Noix d'arec"
-summary: "GoodBiz Agri exporte de la noix d'arec (noix de bétel) — chali blanche entière, fendue, kempu rouge (qualités api et bette) et en tranches — d'origine Shivamogga et Dakshina Kannada au Karnataka et Kasaragod au Kerala."
+summary: "GoodBiz Agri exporte de la noix d'arec (noix de bétel, supari) — chali blanche entière, fendue, kempu rouge (grades api et bette) et tranchée — de Shivamogga et du Dakshina Kannada au Karnataka et de Kasaragod au Kerala, expédiée depuis New Mangalore et Chennai."
 originLine: "Shivamogga, Dakshina Kannada et Kasaragod"
 sourcingStory: "Le Karnataka produit l'essentiel de la noix d'arec de l'Inde. Les régions côtières de Dakshina Kannada et de Kasaragod sont réputées pour la chali blanche séchée au soleil, négociée sur le marché coopératif de Puttur, tandis que la région de Malnad, à Shivamogga, se spécialise dans les qualités rouges bouillies."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   red-kempu: { name: "Rouge (kempu) — api et bette", description: "Qualités rouge-brun bouillies et séchées de Shivamogga." }
   sliced: { name: "Noix d'arec en tranches", description: "Tranches uniformes pour les marchés de consommation directe." }
 faq:
-  - { q: "Quelle différence entre chali et kempu ?", a: "La chali est une noix entière séchée au soleil de la côte du Karnataka ; la kempu est bouillie puis séchée, ce qui lui donne sa couleur rouge." }
+  - { q: "Quelle différence entre chali et kempu ?", a: "La chali est une noix d'arec mûre séchée au soleil dans sa bourre sur la côte du Karnataka et reste blanche ; la kempu est une noix tendre décortiquée, bouillie puis séchée, ce qui la rend rouge." }
+  - { q: "Depuis quels ports expédiez-vous la noix d'arec ?", a: "GoodBiz Agri expédie la noix d'arec (bétel) depuis New Mangalore et Chennai aux conditions FOB, CFR ou CIF." }
+seo:
+  title: "Exportateur de noix d'arec (bétel) d'Inde"
+  h1: "Noix d'arec (bétel) : chali, kempu et tranchée"
+  description: "Exportateur de noix d'arec d'Inde : noix de bétel (supari) entière blanche chali, fendue, rouge kempu et tranchée, du Karnataka. Demandez un devis."
+  keywords: ["exportateur noix d'arec Inde", "noix de bétel", "supari", "noix d'arec chali", "noix d'arec rouge kempu", "noix d'arec fendue", "noix de bétel tranchée"]

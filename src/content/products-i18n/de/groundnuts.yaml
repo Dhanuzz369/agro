@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Erdnüsse"
-summary: "GoodBiz Agri exportiert geschälte Erdnüsse — Bold Runner, Java und blanchiert in Kalibern von 38/42 bis 80/90 — aus Chitradurga in Karnataka, Anantapur in Andhra Pradesh und Tiruvannamalai in Tamil Nadu."
+summary: "GoodBiz Agri exportiert geschälte Erdnüsse (Erdnusskerne) — Bold Runner, Java und blanchiert in Kalibern von 38/42 bis 80/90 — aus Chitradurga, Anantapur und Tiruvannamalai, verschifft ab Chennai und New Mangalore, Aflatoxin-Tests auf Anfrage."
 originLine: "Chitradurga, Anantapur und Tiruvannamalai"
 sourcingStory: "Das trockene Dekkan-Plateau um Anantapur und Chitradurga ist eine der größten Erdnussregionen Indiens. Wir kaufen die Kerne nach der Ernte, sortieren sie nach Kaliber und prüfen vor der Verpackung auf Aflatoxin."
 varieties:
@@ -9,4 +9,10 @@ varieties:
   blanched: { name: "Blanchiert", description: "Ohne Haut, ganz oder gespalten, niedriger Aflatoxingehalt." }
 faq:
   - { q: "Können Sie die EU-Aflatoxin-Grenzwerte einhalten?", a: "Ja, mit sortierten Partien und Prüfung durch Dritte auf ≤ 4 ppb Gesamtaflatoxin auf Anfrage." }
-  - { q: "Welche Kaliber sind erhältlich?", a: "38/42 bis 80/90 Kerne pro Unze, je nach Sorte." }
+  - { q: "Welche Kaliber sind erhältlich?", a: "Erdnusskerne sind je nach Sorte in Kalibern von 38/42 bis 80/90 Kernen pro Unze erhältlich." }
+  - { q: "Ab welchen Häfen verschiffen Sie Erdnüsse?", a: "GoodBiz Agri verschifft Erdnusskerne ab Chennai und New Mangalore zu FOB-, CFR- oder CIF-Bedingungen." }
+seo:
+  title: "Erdnusskerne Exporteur aus Indien"
+  h1: "Erdnusskerne: Bold, Java und blanchiert"
+  description: "Erdnusskerne Exporteur Indien: Bold Runner, Java und blanchierte Erdnüsse von 38/42 bis 80/90, sortiert und auf Aflatoxin getestet für die EU. Angebot anfragen."
+  keywords: ["Erdnusskerne Exporteur", "Erdnüsse Lieferant Indien", "Bold Erdnüsse 38/42", "Java Erdnüsse 50/60", "blanchierte Erdnüsse", "Aflatoxin geprüfte Erdnüsse", "Erdnusskerne lose Ware"]

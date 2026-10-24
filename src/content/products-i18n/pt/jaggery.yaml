@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Jaggery"
-summary: "A GoodBiz Agri exporta jaggery — blocos, cubos, pó, jaggery orgânico e jaggery de palma (karupatti) — de Mandya e Belagavi, em Karnataka, e Thoothukudi, em Tamil Nadu."
+summary: "A GoodBiz Agri exporta jaggery — blocos, cubos, pó, jaggery orgânico e jaggery de palma (karupatti) — produzido em Mandya e Belagavi (Karnataka) e Thoothukudi (Tamil Nadu), embarcado de Chennai, New Mangalore e Tuticorin para mais de 70 países."
 originLine: "Mandya, Belagavi e Thoothukudi"
 sourcingStory: "O cinturão canavieiro de Mandya faz jaggery há gerações, fervendo caldo de cana fresco em tachos abertos. Compramos lá blocos e jaggery orgânico, cubos e pó dos processadores de Belagavi, e jaggery de palma dos extratores de seiva de palmira de Thoothukudi."
 varieties:
@@ -12,3 +12,9 @@ varieties:
 faq:
   - { q: "Quanto tempo o jaggery dura?", a: "Cerca de 12 meses em local fresco e seco; o pó e os blocos embalados a vácuo se conservam melhor." }
   - { q: "Vocês fornecem marca própria?", a: "Sim, em embalagens de 500 g a 5 kg com a sua marca." }
+  - { q: "De quais portos vocês embarcam o jaggery?", a: "A GoodBiz Agri embarca jaggery em blocos, em pó e de palma de Chennai, New Mangalore e Tuticorin, em termos FOB, CFR ou CIF." }
+seo:
+  title: "Exportador de jaggery (rapadura) da Índia"
+  h1: "Jaggery em blocos, em pó e de palma"
+  description: "Exportador de jaggery (rapadura) da Índia: blocos, cubos, jaggery orgânico em pó a granel e jaggery de palma (karupatti), marca própria desde 500 g. Cote hoje."
+  keywords: ["exportador jaggery Índia", "rapadura orgânica em pó a granel", "jaggery em blocos", "cubos de jaggery", "jaggery de palma karupatti", "açúcar de cana não refinado", "rapadura marca própria"]

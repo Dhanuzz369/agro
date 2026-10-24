@@ -10,6 +10,8 @@ Astro static site. Node 20+.
 
 ## Before launch (owner checklist)
 
+The full, step-by-step version is in `docs/launch-checklist.md`; the keyword plan is in `docs/seo/keyword-map.md`.
+
 The build prints a content report. Clear every item:
 
 1. `src/content/site.yaml` — replace every `REPLACE:` value (legal name, address, email, phone, WhatsApp, Web3Forms key, registration numbers). Set `held: false` for any registration you do not hold. The floating WhatsApp button only appears once a real number is set.
@@ -21,7 +23,7 @@ The build prints a content report. Clear every item:
 7. Draft market report — `src/content/blog/en/market-report-2026-10.mdx` is a template with `draft: true`, so it is not published. Write it and set `draft: false`, or delete the file.
 8. Translations — have a native speaker review each of the 72 translation files listed under "Pending review"; set `reviewStatus: reviewed`.
 9. Served countries — confirm `src/data/countries.ts`.
-10. Domain — set `SITE_URL` in Vercel and update the `Sitemap:` line in `public/robots.txt`.
+10. Domain — set `SITE_URL` in Vercel; `robots.txt`, the sitemap, canonical links and `llms.txt` all follow it.
 11. Vercel — import the repo, enable Analytics and Speed Insights.
 12. Google Search Console and Bing Webmaster Tools — verify the domain and submit `/sitemap-index.xml`.
 
