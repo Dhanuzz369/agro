@@ -9,7 +9,8 @@ import { createT } from '../i18n/t';
 import { localizePath } from '../i18n/paths';
 import { htmlLang, type Locale } from '../i18n/config';
 import { getLocalizedProduct, getLocalizedProducts, getSite } from '../lib/catalog';
-import { productLd, faqLd, breadcrumbLd } from '../lib/jsonld';
+import { productLd, faqLd, breadcrumbLd, productCategory } from '../lib/jsonld';
+import { homeFaq } from '../i18n/home-faq';
 import { whatsappHref } from '../lib/site';
 import { places } from '../data/places';
 import { postsFor } from '../lib/blog';
@@ -36,13 +37,15 @@ const posterPreload = await getImage({ src: p.data.heroImage.src, ...poster });
 const wa = whatsappHref(site.whatsapp, `${p.text.name} — ${abs(path)}`);
 const quoteHref = (variety?: string) => `${localizePath('/contact', locale)}?product=${slug}${variety ? `&variety=${variety}` : ''}`;
 const productImages = [new URL(hero.src, Astro.site).href];
+// Payment, samples and lead time are what buyers ask first; the shared answers sit on every product page, not only home.
+const faq = [...p.text.faq, ...homeFaq(locale).slice(1, 4)];
 const ld = [
   productLd({
     name: p.text.name, description: p.text.summary, url: abs(path), image: productImages,
-    brand: 'GoodBiz Agri', siteUrl: Astro.site!.href, category: t('nav.products'), keywords: p.text.seo.keywords,
+    brand: 'GoodBiz Agri', siteUrl: Astro.site!.href, category: productCategory[slug], keywords: p.text.seo.keywords,
     varieties: p.data.varieties.map((v) => ({ name: p.text.varieties[v.id]?.name ?? v.id })),
   }),
-  faqLd(p.text.faq),
+  faqLd(faq),
   breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
 ];
 const alt = (name: string, origin: string) => t('alt.product', { name, origin });
@@ -138,7 +141,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
 
     <section class="section container" aria-labelledby="pfaq">
       <h2 id="pfaq">{t('product.faq', { name: p.text.name })}</h2>
-      <Faq items={p.text.faq} />
+      <Faq items={faq} />
     </section>
 
     {insights.length > 0 && (
@@ -176,6 +179,9 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
   .pv__object { position: relative; aspect-ratio: 1; border-radius: var(--radius-media); overflow: hidden; background: var(--paper-2); }
   .pv__object :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; }
   .pv__intro { display: grid; gap: var(--space-5); }
+  /* Phones: headline and quote button before the photo, so the call to action is on the first screen */
+  @media (max-width: 860px) { .pv__intro { order: -1; } }
+  .var__ctas a[download] { display: inline-flex; align-items: center; min-block-size: 44px; }
   .pv__summary { font-size: var(--step-1); line-height: 1.45; }
   .pv__ctas, .var__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
   .pv__facts dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--space-4); margin: 0; border-block: 1px solid var(--ink); padding-block: var(--space-5); }

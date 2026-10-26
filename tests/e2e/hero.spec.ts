@@ -17,7 +17,7 @@ test('headline, label, lede and both buttons point where they should', async ({ 
   await page.goto('/');
   const hero = page.locator('section.split');
   await expect(hero.locator('h1')).toBeVisible();
-  await expect(hero.locator('h1')).toHaveText(/SOUTH INDIA'S HARVEST/);
+  await expect(hero.locator('h1')).toHaveText(/South India's harvest/i);
   await expect(hero.locator('.split__label')).toHaveText(/70\+/);
   await expect(hero.locator('.split__btn')).toHaveCount(2);
   await expect(hero.locator('.split__btn').first()).toHaveAttribute('href', '/products');

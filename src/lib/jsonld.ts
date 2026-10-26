@@ -72,6 +72,20 @@ export function itemListLd(a: { name: string; items: { name: string; url: string
   };
 }
 
+// Google product taxonomy paths, so Product.category says what the goods are instead of "Products".
+const food = 'Food, Beverages & Tobacco > Food Items';
+export const productCategory: Record<string, string> = {
+  rice: `${food} > Grains, Rice & Cereal > Rice`,
+  'non-basmati-rice': `${food} > Grains, Rice & Cereal > Rice`,
+  'broken-rice': `${food} > Grains, Rice & Cereal > Rice`,
+  jaggery: `${food} > Cooking & Baking Ingredients > Sugars & Sweeteners`,
+  arecanut: `${food} > Nuts & Seeds`,
+  groundnuts: `${food} > Nuts & Seeds`,
+  'coconut-copra': `${food} > Nuts & Seeds`,
+  ginger: `${food} > Seasonings & Spices > Herbs & Spices`,
+  turmeric: `${food} > Seasonings & Spices > Herbs & Spices`,
+};
+
 export function productLd(a: {
   name: string; description: string; url: string; image: string | string[]; brand: string; siteUrl?: string;
   category?: string; keywords?: string[]; varieties: { name: string }[];
@@ -79,6 +93,7 @@ export function productLd(a: {
   return {
     '@context': ctx,
     '@type': 'Product',
+    '@id': `${a.url}#product`,
     name: a.name,
     description: a.description,
     url: a.url,

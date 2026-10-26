@@ -12,6 +12,7 @@ import { htmlLang, isRtl, type Locale } from '../i18n/config';
 import { createT } from '../i18n/t';
 import { organizationLd } from '../lib/jsonld';
 import { getSite } from '../lib/catalog';
+import displayFont from '@fontsource/fraunces/files/fraunces-latin-300-normal.woff2?url';
 
 interface Props {
   locale: Locale; title: string; description: string; path: string;
@@ -37,6 +38,8 @@ const onVercel = Boolean(process.env.VERCEL);
     <link rel="manifest" href="/site.webmanifest" />
     {/* Noto Sans SC is ~700 KB of unicode-range slices for a zh page: fetch it after load so text paints at once in the
          system CJK font and swaps in, instead of every slice competing with the LCP. */}
+    {/* The headline (home LCP) is Fraunces 300; fetch it with the HTML rather than after the CSS is parsed */}
+    {!['ar', 'zh', 'ru'].includes(locale) && <link rel="preload" as="font" type="font/woff2" href={displayFont} crossorigin />}
     {locale === 'zh' && <script is:inline>addEventListener('load', () => { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '/fonts/sc/400.css'; document.head.append(l); });</script>}
     {locale === 'zh' && <noscript><link rel="stylesheet" href="/fonts/sc/400.css" /></noscript>}
     <SeoHead locale={locale} jsonLd={ld} {...seo} />
