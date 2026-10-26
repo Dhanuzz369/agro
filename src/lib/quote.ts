@@ -1,11 +1,17 @@
 export type Catalog = { slug: string; varieties: string[] }[];
+
+/** The steps in the order a buyer sees them. Contact comes first so a buyer who stops later is still a lead. */
+export const STEPS = ['contact', 'product', 'variety', 'quantity', 'destination', 'incoterm', 'notes'] as const;
+export type Step = (typeof STEPS)[number];
+
 export type QuoteInput = {
-  product: string; variety: string; quantity: string; unit: 'mt' | 'fcl20' | 'fcl40'; country: string; port: string;
-  incoterm: 'FOB' | 'CFR' | 'CIF' | 'other'; packing: string; name: string; company: string; email: string;
-  whatsapp: string; message: string; botcheck: string; startedAt: number;
+  name: string; company: string; email: string; whatsapp: string;
+  product: string; variety: string; quantity: string; country: string; port: string;
+  incoterm: 'FOB' | 'CFR' | 'CIF' | 'other' | ''; message: string;
+  botcheck: string; startedAt: number;
 };
-type ErrorCode = 'required' | 'email' | 'quantity' | 'product';
-export type QuoteResult = { ok: true; waitMs: number } | { ok: false; errors: Partial<Record<keyof QuoteInput, ErrorCode>>; spam?: boolean };
+type ErrorCode = 'required' | 'email' | 'contact' | 'product' | 'choose';
+export type StepErrors = Partial<Record<keyof QuoteInput, ErrorCode>>;
 
 export function parsePrefill(search: string, catalog: Catalog): { product?: string; variety?: string } {
   const q = new URLSearchParams(search);
@@ -15,40 +21,72 @@ export function parsePrefill(search: string, catalog: Catalog): { product?: stri
   return variety && product.varieties.includes(variety) ? { product: product.slug, variety } : { product: product.slug };
 }
 
-export function validateQuote(input: QuoteInput, now: number): QuoteResult {
-  if (input.botcheck) return { ok: false, errors: {}, spam: true };
-  const errors: Partial<Record<keyof QuoteInput, ErrorCode>> = {};
-  if (!input.product) errors.product = 'product';
-  const qty = Number(input.quantity);
-  if (!input.quantity.trim() || !Number.isFinite(qty) || qty <= 0) errors.quantity = 'quantity';
-  if (!input.country.trim()) errors.country = 'required';
-  if (!input.name.trim()) errors.name = 'required';
-  if (!input.email.trim()) errors.email = 'required';
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(input.email.trim())) errors.email = 'email';
-  // Field errors win; a valid but fast submit is never dropped, the caller waits waitMs before sending.
-  if (Object.keys(errors).length) return { ok: false, errors };
-  return { ok: true, waitMs: Math.max(0, 3000 - (now - input.startedAt)) };
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+const PHONE_DIGITS = 7;
+
+/** Errors for one step only; an empty object means the buyer may move on. */
+export function validateStep(step: Step, i: QuoteInput): StepErrors {
+  const e: StepErrors = {};
+  switch (step) {
+    case 'contact': {
+      if (!i.name.trim()) e.name = 'required';
+      const email = i.email.trim();
+      const phone = i.whatsapp.replace(/\D/g, '');
+      // Either channel is enough: buyers reply on whichever they check first.
+      if (email && !EMAIL.test(email)) e.email = 'email';
+      else if (!email && phone.length < PHONE_DIGITS) e.email = 'contact';
+      break;
+    }
+    case 'product': if (!i.product) e.product = 'product'; break;
+    case 'quantity': if (!i.quantity.trim()) e.quantity = 'choose'; break;
+    case 'destination': if (!i.country.trim()) e.country = 'required'; break;
+  }
+  return e;
 }
 
-export function summarizeQuote(i: QuoteInput, labels: { product: string; variety: string }): string {
-  const unit = { mt: 'MT', fcl20: '× 20 ft', fcl40: '× 40 ft' }[i.unit];
+/** Final check before the request is sent. A valid but fast submit is never dropped: the caller waits waitMs. */
+export function validateQuote(i: QuoteInput, now: number):
+  | { ok: true; waitMs: number } | { ok: false; step?: Step; errors: StepErrors; spam?: boolean } {
+  if (i.botcheck) return { ok: false, errors: {}, spam: true };
+  for (const step of STEPS) {
+    const errors = validateStep(step, i);
+    if (Object.keys(errors).length) return { ok: false, step, errors };
+  }
+  return { ok: true, waitMs: Math.max(0, 3000 - (now - i.startedAt)) };
+}
+
+export type Labels = { product: string; variety: string; quantity: string; incoterm: string };
+
+export function summarizeQuote(i: QuoteInput, l: Labels): string {
   return [
-    `Quote request — ${labels.product}${labels.variety ? ` (${labels.variety})` : ''}`,
-    `Quantity: ${i.quantity} ${unit}`,
-    `Destination: ${i.port ? `${i.port}, ` : ''}${i.country}`,
-    `Incoterm: ${i.incoterm}`,
-    i.packing && `Packing: ${i.packing}`,
+    `Quote request — ${l.product || 'product not chosen yet'}${l.variety ? ` (${l.variety})` : ''}`,
+    l.quantity && `Quantity: ${l.quantity}`,
+    i.country && `Destination: ${i.port ? `${i.port}, ` : ''}${i.country}`,
+    l.incoterm && `Incoterm: ${l.incoterm}`,
     `Name: ${i.name}${i.company ? `, ${i.company}` : ''}`,
-    `Email: ${i.email}`,
+    i.email && `Email: ${i.email}`,
     i.whatsapp && `WhatsApp: ${i.whatsapp}`,
     i.message && `Notes: ${i.message}`,
   ].filter(Boolean).join('\n');
 }
 
+/** One row per lead: every step re-sends the same leadId so the sheet updates the row instead of adding one. */
+export function leadPayload(a: { leadId: string; stage: Step | 'submitted'; locale: string; page: string; input: QuoteInput; labels: Labels }) {
+  const { botcheck: _b, startedAt: _s, ...fields } = a.input;
+  return {
+    leadId: a.leadId, stage: a.stage, locale: a.locale, page: a.page, ...fields,
+    product: a.labels.product, variety: a.labels.variety, quantity: a.labels.quantity, incoterm: a.labels.incoterm,
+    summary: summarizeQuote(a.input, a.labels),
+  };
+}
+
 export const SUBMIT_TIMEOUT_MS = 15_000;
 
-export async function submitQuote(fetchFn: typeof fetch, accessKey: string, input: QuoteInput, labels: { product: string; variety: string }): Promise<'ok' | 'error'> {
-  const { botcheck: _b, startedAt: _s, ...fields } = input;
+/**
+ * POST a lead to the Google Apps Script web app. text/plain keeps it a "simple" request (no CORS preflight,
+ * which Apps Script cannot answer); the script reads e.postData.contents as JSON.
+ */
+export async function sendLead(fetchFn: typeof fetch, endpoint: string, payload: object): Promise<'ok' | 'error'> {
   // A hung request must not leave the buyer staring at "Sending…": abort after 15 s and show the fallbacks.
   const ctrl = new AbortController();
   let timer: ReturnType<typeof setTimeout> | undefined;
@@ -57,23 +95,14 @@ export async function submitQuote(fetchFn: typeof fetch, accessKey: string, inpu
   });
   try {
     const send = async () => {
-      const res = await fetchFn('https://api.web3forms.com/submit', {
-        method: 'POST',
-        signal: ctrl.signal,
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: accessKey,
-          subject: `Quote request: ${labels.product}${labels.variety ? ` — ${labels.variety}` : ''} (${input.country})`,
-          from_name: 'GoodBiz Agri website',
-          ...fields,
-          product: labels.product,
-          variety: labels.variety,
-          summary: summarizeQuote(input, labels),
-        }),
+      const res = await fetchFn(endpoint, {
+        method: 'POST', signal: ctrl.signal,
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
       });
       if (!res.ok) return 'error' as const;
-      const data = (await res.json()) as { success?: boolean };
-      return data.success ? ('ok' as const) : ('error' as const);
+      const data = (await res.json()) as { ok?: boolean };
+      return data.ok ? ('ok' as const) : ('error' as const);
     };
     return await Promise.race([send(), timedOut]);
   } catch {

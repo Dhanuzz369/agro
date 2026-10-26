@@ -22,9 +22,9 @@ Every `npm run build` also prints a "content report" that lists what is still mi
   data all use this value automatically. Until it is set they point at `https://goodbizagri.com`.
 - [ ] **Connect the domain** in Vercel → *Settings → Domains*; pick one version (with or without `www`) and let
   Vercel redirect the other to it.
-- [ ] **Quote form key (Web3Forms).** Create a free account at web3forms.com with the inbox that should receive
-  quote requests, copy the *Access Key* and put it in `src/content/site.yaml` → `web3formsKey`.
-  Without it the form cannot send (visitors are offered WhatsApp/email instead).
+- [ ] **Lead capture (Google Sheets).** Follow `docs/lead-capture.md` to create the sheet and Apps Script web app,
+  then put its `/exec` URL in `src/content/site.yaml` → `leadEndpoint`. Until then the form still works step by
+  step, but nothing is saved: on the last step visitors are offered WhatsApp/email instead.
 - [ ] **Business email** → `site.yaml` → `email` (e.g. `export@yourdomain.com`). Set up the mailbox first and
   send yourself a test.
 - [ ] **Registered legal name** → `site.yaml` → `legalName` (exactly as on your GST / IEC certificate).

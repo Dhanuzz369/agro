@@ -14,9 +14,9 @@ The full, step-by-step version is in `docs/launch-checklist.md`; the keyword pla
 
 The build prints a content report. Clear every item:
 
-1. `src/content/site.yaml` — replace every `REPLACE:` value (legal name, address, email, phone, WhatsApp, Web3Forms key, registration numbers). Set `held: false` for any registration you do not hold. The floating WhatsApp button only appears once a real number is set.
+1. `src/content/site.yaml` — replace every `REPLACE:` value (legal name, address, email, phone, WhatsApp, lead endpoint, registration numbers). Set `held: false` for any registration you do not hold. The floating WhatsApp button only appears once a real number is set.
 2. `site.yaml` `stats` — confirm the counters shown on the home page (countries, products, markets, ports).
-3. Web3Forms — create the account, set the destination inbox for quote requests, and put the access key in `site.yaml`.
+3. Lead capture — set up the Google Sheet and Apps Script web app (`docs/lead-capture.md`) and put its URL in `site.yaml` → `leadEndpoint`.
 4. Registration logos — APEDA, Spices Board, FSSAI, DGFT (IEC) and Coconut Development Board logos are in `public/logos/` (from each body's official site). FIEO shows as a text badge: add `public/logos/fieo.png` and set `logo: /logos/fieo.png` on the FIEO entry in `site.yaml`. Set `held: false` for any registration you do not hold.
 5. Product facts — check varieties, specs and ports in `src/content/products/*.yaml`.
 6. Photos — replace files in `src/assets/products/<slug>/` keeping the same names; set `isStock: false` for your own photos.

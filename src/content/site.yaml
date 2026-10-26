@@ -10,7 +10,8 @@ address:
 email: "REPLACE: export@goodbizagri.com"
 phone: "+91 88847 99369"
 whatsapp: "918884799369"
-web3formsKey: "REPLACE: web3forms-access-key"
+# Google Apps Script web app URL (https://script.google.com/macros/s/…/exec); see docs/lead-capture.md
+leadEndpoint: "REPLACE: apps-script-web-app-url"
 registrations:
   - { id: apeda, name: "APEDA", number: "REPLACE: RCMC no.", logo: /logos/apeda.png, held: true }
   - { id: spices-board, name: "Spices Board India", number: "REPLACE: CRES no.", logo: /logos/spices-board.png, held: true }

@@ -82,7 +82,7 @@ export const siteSchema = z.object({
   email: z.string(),
   phone: z.string(),
   whatsapp: z.string(),
-  web3formsKey: z.string(),
+  leadEndpoint: z.string(),
   registrations: z.array(z.object({
     id: z.enum(['apeda', 'fssai', 'spices-board', 'fieo', 'iec', 'cdb']),
     name: z.string(),

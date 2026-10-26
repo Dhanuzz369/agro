@@ -1,9 +1,13 @@
 ---
+// Step-by-step quote form. Contact details come first and are sent the moment the buyer taps Next, so a buyer who
+// stops later is still a lead; every later step updates the same row in the Google Sheet (see docs/lead-capture.md).
+// Without JavaScript every step shows at once and the form posts straight to the Apps Script endpoint.
+import { Image } from 'astro:assets';
 import { createT } from '../i18n/t';
-import { localizePath } from '../i18n/paths';
-import type { Locale } from '../i18n/config';
+import { htmlLang, type Locale } from '../i18n/config';
 import { getLocalizedProducts, getSite } from '../lib/catalog';
 import { whatsappHref, mailtoHref, isPlaceholder } from '../lib/site';
+import { regionCodes } from '../lib/regions';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
@@ -13,70 +17,121 @@ const catalog = products.map((p) => ({
   slug: p.slug, name: p.text.name,
   varieties: p.data.varieties.map((v) => ({ id: v.id, name: p.text.varieties[v.id]?.name ?? v.id })),
 }));
-const thanks = new URL(localizePath('/thanks', 'en'), Astro.site).href;
+const quantities = [['trial', t('form.q.trial')], ['one', t('form.q.one')], ['few', t('form.q.few')], ['many', t('form.q.many')]] as const;
+const incoterms = [['FOB', t('form.inc.fob')], ['CFR', t('form.inc.cfr')], ['CIF', t('form.inc.cif')], ['other', '']] as const;
+const regionName = new Intl.DisplayNames([htmlLang[locale]], { type: 'region' });
+const countries = regionCodes.map((c) => regionName.of(c)!).filter(Boolean).sort((a, b) => a.localeCompare(b, htmlLang[locale]));
 const msgs = {
-  required: t('form.err.required'), email: t('form.err.email'), quantity: t('form.err.quantity'), product: t('form.err.product'),
-  sending: t('form.sending'), submit: t('form.submit'), any: t('form.anyVariety'),
+  required: t('form.err.required'), email: t('form.err.email'), contact: t('form.err.contact'), product: t('form.err.product'),
+  choose: t('form.err.choose'), sending: t('form.sending'), submit: t('form.submit'), next: t('form.next'), stepOf: t('form.stepOf'),
+  other: t('form.incoterm.other'),
 };
+const endpoint = isPlaceholder(site.leadEndpoint) ? '' : site.leadEndpoint;
 const waBase = whatsappHref(site.whatsapp) ?? '';
-const hasKey = !isPlaceholder(site.web3formsKey);
-const formKey = hasKey ? site.web3formsKey : '';
 const mailBase = mailtoHref(site.email) ?? '';
 ---
-<form class="qf" method="POST" action="https://api.web3forms.com/submit" novalidate
-  data-quote-form data-key={formKey} data-catalog={JSON.stringify(catalog)} data-msgs={JSON.stringify(msgs)}
+<form class="qf" method="POST" action={endpoint || undefined} novalidate
+  data-quote-form data-endpoint={endpoint} data-locale={locale} data-catalog={JSON.stringify(catalog)} data-msgs={JSON.stringify(msgs)}
   data-wa={waBase} data-mail={mailBase} data-form-state="idle">
-  {hasKey && <input type="hidden" name="access_key" value={formKey} />}
-  {hasKey && <input type="hidden" name="redirect" value={thanks} />}
   <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
-  <div class="qf__grid">
-    <label>{t('form.product')}
-      <select name="product" required aria-describedby="err-product">
-        <option value="">{t('form.select')}</option>
-        {catalog.map((p) => <option value={p.slug}>{p.name}</option>)}
-      </select>
-      <span class="qf__err" id="err-product" aria-live="polite"></span>
-    </label>
-    <label>{t('form.variety')}
-      <select name="variety"><option value="">{t('form.anyVariety')}</option></select>
-    </label>
-    <label>{t('form.quantity')}
-      <input name="quantity" type="number" inputmode="decimal" min="0" step="any" required aria-describedby="err-quantity" />
-      <span class="qf__err" id="err-quantity" aria-live="polite"></span>
-    </label>
-    <label>{t('form.unit')}
-      <select name="unit">
-        <option value="mt">{t('form.unit.mt')}</option>
-        <option value="fcl20">{t('form.unit.fcl20')}</option>
-        <option value="fcl40">{t('form.unit.fcl40')}</option>
-      </select>
-    </label>
-    <label>{t('form.country')}
-      <input name="country" autocomplete="country-name" required aria-describedby="err-country" />
-      <span class="qf__err" id="err-country" aria-live="polite"></span>
-    </label>
-    <label>{t('form.port')}<input name="port" /></label>
-    <label>{t('form.incoterm')}
-      <select name="incoterm"><option>FOB</option><option>CFR</option><option selected>CIF</option><option value="other">{t('form.incoterm.other')}</option></select>
-    </label>
-    <label>{t('form.packing')}<input name="packing" /></label>
-    <label>{t('form.name')}
-      <input name="name" autocomplete="name" required aria-describedby="err-name" />
-      <span class="qf__err" id="err-name" aria-live="polite"></span>
-    </label>
-    <label>{t('form.company')}<input name="company" autocomplete="organization" /></label>
-    <label>{t('form.email')}
-      <input name="email" type="email" autocomplete="email" required aria-describedby="err-email" />
-      <span class="qf__err" id="err-email" aria-live="polite"></span>
-    </label>
-    <label>{t('form.whatsapp')}<input name="whatsapp" type="tel" autocomplete="tel" /></label>
-    <label class="qf__wide">{t('form.message')}<textarea name="message" rows="4"></textarea></label>
+  <div class="qf__progress" hidden data-progress>
+    <p class="qf__count" aria-live="polite" data-step-count></p>
+    <div class="qf__track" aria-hidden="true"><span class="qf__fill" data-fill></span></div>
   </div>
 
-  <button class="btn btn--primary" type="submit">{t('form.submit')}</button>
+  <div class="qf__steps">
+    <fieldset class="qf__step" data-step="contact">
+      <legend class="qf__q" tabindex="-1">{t('form.s.contact')}</legend>
+      <p class="qf__hint">{t('form.s.contactHint')}</p>
+      <div class="qf__fields">
+        <label class="qf__field">{t('form.name')}
+          <input name="name" autocomplete="name" required aria-describedby="err-name" />
+          <span class="qf__err" id="err-name" aria-live="polite"></span>
+        </label>
+        <label class="qf__field">{t('form.company')}<input name="company" autocomplete="organization" /></label>
+        <label class="qf__field">{t('form.email')}
+          <input name="email" type="email" autocomplete="email" inputmode="email" aria-describedby="err-email" />
+          <span class="qf__err" id="err-email" aria-live="polite"></span>
+        </label>
+        <label class="qf__field">{t('form.whatsapp')}<input name="whatsapp" type="tel" autocomplete="tel" inputmode="tel" dir="ltr" /></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="qf__step" data-step="product">
+      <legend class="qf__q" tabindex="-1">{t('form.s.product')}</legend>
+      <p class="qf__hint">{t('form.s.productHint')}</p>
+      <div class="qf__tiles">
+        {products.map((p) => (
+          <label class="qf__tile">
+            <input type="radio" name="product" value={p.slug} class="qf__radio" aria-describedby="err-product" />
+            {/* The image carries the name for assistive tech; the visible caption is hidden from it to avoid "Turmeric Turmeric" */}
+            <Image src={p.data.heroImage.src} alt={p.text.name} widths={[160, 240, 320]} sizes="(max-width: 600px) 30vw, 160px" quality={60} format="webp" loading="lazy" />
+            <span class="qf__tileName" aria-hidden="true">{p.text.name}</span>
+          </label>
+        ))}
+      </div>
+      <span class="qf__err" id="err-product" aria-live="polite"></span>
+    </fieldset>
+
+    <fieldset class="qf__step" data-step="variety">
+      <legend class="qf__q" tabindex="-1">{t('form.s.variety')}</legend>
+      {catalog.map((p) => (
+        <div class="qf__chips" data-for={p.slug}>
+          {p.varieties.map((v) => <label class="qf__chip"><input type="radio" name="variety" value={v.id} class="qf__radio" />{v.name}</label>)}
+          <label class="qf__chip"><input type="radio" name="variety" value="" class="qf__radio" />{t('form.anyVariety')}</label>
+        </div>
+      ))}
+    </fieldset>
+
+    <fieldset class="qf__step" data-step="quantity">
+      <legend class="qf__q" tabindex="-1">{t('form.s.quantity')}</legend>
+      <div class="qf__chips qf__chips--stack">
+        {quantities.map(([v, label]) => <label class="qf__chip"><input type="radio" name="quantityChoice" value={v} class="qf__radio" aria-describedby="err-quantity" />{label}</label>)}
+        <label class="qf__chip"><input type="radio" name="quantityChoice" value="other" class="qf__radio" aria-describedby="err-quantity" />{t('form.q.other')}</label>
+      </div>
+      <label class="qf__field qf__other" data-other>{t('form.q.otherLabel')}<input name="quantityOther" /></label>
+      <span class="qf__err" id="err-quantity" aria-live="polite"></span>
+    </fieldset>
+
+    <fieldset class="qf__step" data-step="destination">
+      <legend class="qf__q" tabindex="-1">{t('form.s.destination')}</legend>
+      <div class="qf__fields">
+        <label class="qf__field">{t('form.country')}
+          <input name="country" list="qf-countries" autocomplete="country-name" required aria-describedby="err-country" />
+          <span class="qf__err" id="err-country" aria-live="polite"></span>
+        </label>
+        <label class="qf__field">{t('form.port')}<input name="port" /></label>
+      </div>
+      <datalist id="qf-countries">{countries.map((c) => <option value={c} />)}</datalist>
+    </fieldset>
+
+    <fieldset class="qf__step" data-step="incoterm">
+      <legend class="qf__q" tabindex="-1">{t('form.s.incoterm')}</legend>
+      <div class="qf__chips qf__chips--stack">
+        {incoterms.map(([v, hint]) => (
+          <label class="qf__chip qf__chip--term">
+            <input type="radio" name="incoterm" value={v} class="qf__radio" />
+            <span class="qf__term" dir={v === 'other' ? undefined : 'ltr'}>{v === 'other' ? t('form.incoterm.other') : v}</span>
+            {hint && <span class="qf__termHint">{hint}</span>}
+          </label>
+        ))}
+      </div>
+    </fieldset>
+
+    <fieldset class="qf__step" data-step="notes">
+      <legend class="qf__q" tabindex="-1">{t('form.s.notes')}</legend>
+      <label class="qf__field"><span class="qf__hint">{t('form.s.notesHint')}</span><textarea name="message" rows="4"></textarea></label>
+    </fieldset>
+  </div>
+
+  <div class="qf__nav">
+    <button class="qf__back" type="button" hidden data-back>{t('form.back')}</button>
+    <button class="btn btn--primary qf__next" type="submit" data-next>{t('form.submit')}</button>
+  </div>
 
   <div class="qf__status qf__status--success" role="status" data-show="success">
+    <svg class="qf__tick" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" /><path d="M14 25l7 7 13-15" /></svg>
     <h3 tabindex="-1" data-status-heading>{t('form.success.title')}</h3><p>{t('form.success.body')}</p>
   </div>
   <div class="qf__status qf__status--error" role="alert" data-show="error">
@@ -89,17 +144,118 @@ const mailBase = mailtoHref(site.email) ?? '';
 </form>
 <script>import '../scripts/quote-form';</script>
 <style>
-  .qf { display: grid; gap: var(--space-6); }
-  .qf__grid { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
-  label { display: grid; gap: var(--space-2); align-content: start; font-size: var(--step--1); font-weight: 500; }
-  input, select, textarea { font: inherit; font-size: 16px; min-block-size: 48px; padding: var(--space-2) var(--space-3); border: 1px solid var(--hairline); border-radius: var(--radius-input); background: var(--surface); color: var(--ink); }
-  input:focus, select:focus, textarea:focus { outline: 2px solid var(--ink); outline-offset: 1px; }
-  [aria-invalid='true'] { border-color: var(--error); }
-  .qf__wide { grid-column: 1 / -1; }
-  .qf__err { color: var(--error); font-weight: 400; min-block-size: 1.2em; }
-  .qf__status { display: none; gap: var(--space-3); padding: var(--space-5); border-radius: var(--radius-card); }
-  .qf[data-form-state='success'] .qf__status--success { display: grid; background: var(--sage-pale); }
+  .qf {
+    --qf-ease: cubic-bezier(0.23, 1, 0.32, 1);
+    --qf-move: cubic-bezier(0.77, 0, 0.175, 1);
+    display: grid; gap: var(--space-6); padding: clamp(var(--space-5), 4vw, var(--space-7));
+    scroll-margin-block-start: 5rem; /* clear the fixed header when a step change scrolls the form into view */
+    background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--radius-card); box-shadow: var(--shadow-1);
+  }
+
+  /* Progress: a hairline that fills by transform, never by width */
+  .qf__progress { display: grid; gap: var(--space-3); }
+  .qf__progress[hidden] { display: none; }
+  .qf__count { margin: 0; font-size: var(--step--2); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ash); }
+  :global(:root:is(:lang(ar), :lang(zh))) .qf__count { letter-spacing: 0; font-size: var(--step--1); }
+  .qf__track { block-size: 3px; border-radius: 3px; background: var(--paper-2); overflow: hidden; }
+  .qf__fill { display: block; block-size: 100%; background: var(--forest); transform-origin: left; transform: scaleX(0); transition: transform 320ms var(--qf-move); }
+  :global([dir='rtl']) .qf__fill { transform-origin: right; }
+
+  .qf__steps { display: grid; gap: var(--space-8); }
+  .qf__step { display: grid; gap: var(--space-4); margin: 0; padding: 0; border: 0; min-inline-size: 0; }
+  .qf__q { padding: 0; font-family: var(--font-display); font-weight: 300; font-size: var(--step-2); line-height: 1.15; color: var(--ink); outline: none; text-wrap: balance; }
+  .qf__hint { margin: 0; color: var(--ink-2); font-size: var(--step--1); }
+  /* A legend sits outside the fieldset's grid, so it carries its own spacing; a hint tucks up under it */
+  .qf__q { margin-block-end: var(--space-4); }
+  .qf__q + .qf__hint { margin-block-start: calc(-1 * var(--space-4)); }
+
+  .qf__fields { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+  .qf__field { display: grid; gap: var(--space-2); align-content: start; font-size: var(--step--1); font-weight: 500; }
+  input:not([type='radio'], [type='checkbox']), textarea {
+    font: inherit; font-size: 16px; font-weight: 400; min-block-size: 52px; padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--hairline); border-radius: var(--radius-input); background: var(--paper); color: var(--ink);
+    transition: border-color 150ms ease, background-color 150ms ease;
+  }
+  input:not([type='radio'], [type='checkbox']):focus, textarea:focus { outline: none; border-color: var(--ink); background: var(--surface); }
+  [aria-invalid='true'] { border-color: var(--error) !important; }
+  .qf__err { color: var(--error); font-size: var(--step--1); font-weight: 400; }
+  .qf__err:empty { display: none; } /* empty slots would make the field rhythm uneven */
+
+  /* The radio itself is visually hidden; the whole card is the target */
+  .qf__radio { position: absolute; opacity: 0; inline-size: 1px; block-size: 1px; pointer-events: none; }
+
+  .qf__tiles { display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(min(100%, 8.5rem), 1fr)); }
+  /* Phones: three across so all nine products fit on about one screen */
+  @media (max-width: 480px) { .qf__tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); } .qf__tile :global(img) { aspect-ratio: 1; } }
+  .qf__tile {
+    position: relative; display: grid; gap: var(--space-2); padding: var(--space-2) var(--space-2) var(--space-3);
+    border: 1px solid var(--hairline); border-radius: calc(var(--radius) + 4px); background: var(--paper); cursor: pointer;
+    transition: transform 160ms var(--qf-ease), border-color 150ms ease, box-shadow 150ms ease;
+  }
+  .qf__tile :global(img) { inline-size: 100%; aspect-ratio: 4 / 3; block-size: auto; object-fit: cover; border-radius: var(--radius); background: var(--paper-2); }
+  .qf__tileName { padding-inline: var(--space-1); font-weight: 500; font-size: var(--step--1); line-height: 1.25; }
+
+  .qf__chips { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+  .qf__chips--stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }
+  .qf__chip {
+    position: relative; display: inline-flex; align-items: center; gap: var(--space-2); min-block-size: 52px; padding: var(--space-3) var(--space-5);
+    border: 1px solid var(--hairline); border-radius: 999px; background: var(--paper); font-weight: 500; cursor: pointer;
+    transition: transform 160ms var(--qf-ease), border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+  }
+  .qf__chip--term { display: grid; gap: var(--space-1); align-content: center; border-radius: calc(var(--radius) + 4px); padding-block: var(--space-4); }
+  .qf__term { font-weight: 700; letter-spacing: 0.04em; }
+  .qf__termHint { font-weight: 400; font-size: var(--step--1); color: var(--ink-2); }
+
+  /* Press feedback for every choice; hover only where there is a real pointer */
+  .qf__tile:active, .qf__chip:active { transform: scale(0.97); }
+  @media (hover: hover) and (pointer: fine) {
+    .qf__tile:hover, .qf__chip:hover { border-color: var(--ink-2); }
+  }
+  .qf__tile:has(:checked), .qf__chip:has(:checked) { border-color: var(--forest); box-shadow: 0 0 0 1px var(--forest); }
+  .qf__chip:has(:checked) { background: var(--forest); color: var(--paper); }
+  .qf__chip--term:has(:checked) .qf__termHint { color: rgb(247 241 232 / 0.8); }
+  .qf__tile:has(:focus-visible), .qf__chip:has(:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
+
+  .qf__other { margin-block-start: var(--space-2); }
+
+  .qf__nav { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); }
+  .qf__next { margin-inline-start: auto; min-inline-size: 9rem; transition: transform 160ms var(--qf-ease), background-color 150ms ease; }
+  .qf__next:active { transform: scale(0.97); }
+  .qf__back {
+    display: inline-flex; align-items: center; gap: var(--space-2); min-block-size: 48px; padding-inline: var(--space-2);
+    border: 0; background: none; color: var(--ink-2); font: inherit; font-weight: 500; cursor: pointer; transition: color 150ms ease, transform 160ms var(--qf-ease);
+  }
+  .qf__back::before { content: '←'; }
+  :global([dir='rtl']) .qf__back::before { content: '→'; }
+  .qf__back:active { transform: scale(0.97); }
+  @media (hover: hover) and (pointer: fine) { .qf__back:hover { color: var(--ink); } }
+  .qf__back[hidden] { display: none; }
+
+  /* Enhanced: one step at a time (JS adds data-enhanced; without it every step shows) */
+  .qf[data-enhanced] .qf__step:not([data-active]) { display: none; }
+  .qf[data-enhanced] .qf__steps { display: block; }
+  .qf[data-enhanced] .qf__chips[data-for]:not([data-current]) { display: none; }
+  .qf[data-enhanced] .qf__other:not([data-open]) { display: none; }
+  .qf:not([data-enhanced]) .qf__chips[data-for]::before { content: attr(data-for); flex-basis: 100%; font-size: var(--step--1); color: var(--ash); text-transform: capitalize; }
+
+  .qf__status { display: none; gap: var(--space-3); justify-items: start; padding: var(--space-6); border-radius: var(--radius-card); }
+  .qf__status h3 { outline: none; }
+  .qf[data-form-state='success'] .qf__status--success { display: grid; background: var(--paper); }
   .qf[data-form-state='error'] .qf__status--error { display: grid; background: var(--clay-pale); }
   .qf__fallbacks { display: flex; flex-wrap: wrap; gap: var(--space-3); }
-  .qf[data-form-state='success'] .qf__grid, .qf[data-form-state='success'] > button { display: none; }
+  .qf[data-form-state='success'] :is(.qf__steps, .qf__nav, .qf__progress) { display: none; }
+
+  /* The tick draws once, on a rare moment worth marking */
+  .qf__tick { inline-size: 48px; block-size: 48px; fill: none; stroke: var(--forest); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+  .qf__tick circle { stroke-dasharray: 139; stroke-dashoffset: 139; }
+  .qf__tick path { stroke-dasharray: 32; stroke-dashoffset: 32; }
+  .qf[data-form-state='success'] .qf__tick circle { animation: qf-draw 420ms var(--qf-ease) forwards; }
+  .qf[data-form-state='success'] .qf__tick path { animation: qf-draw 280ms var(--qf-ease) 260ms forwards; }
+  @keyframes qf-draw { to { stroke-dashoffset: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .qf__tick circle, .qf__tick path { stroke-dashoffset: 0; animation: none !important; }
+    .qf__fill { transition-duration: 0ms; }
+    .qf__tile, .qf__chip, .qf__next, .qf__back { transition-property: border-color, background-color, color; }
+    .qf__tile:active, .qf__chip:active, .qf__next:active, .qf__back:active { transform: none; }
+  }
 </style>
