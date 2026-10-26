@@ -38,7 +38,7 @@ function doPost(e) {
       if (c === 'firstSeen') return old[i] || now;
       if (c === 'updated') return now;
       const v = data[c];
-      return v === undefined || v === '' ? (old[i] ?? '') : String(v).slice(0, 2000);
+      return v === undefined || v === '' ? (old[i] ?? '') : safe(v);
     });
     sheet.getRange(row, 1, 1, COLUMNS.length).setValues([values]);
     if (NOTIFY && (data.stage === 'contact' || data.stage === 'submitted')) {
@@ -52,6 +52,12 @@ function doPost(e) {
   } finally {
     lock.releaseLock();
   }
+}
+
+// Visitors type these values: a leading = + - @ (or tab/CR) would make Sheets run them as a formula, so quote it.
+function safe(v) {
+  const s = String(v).slice(0, 2000);
+  return /^[=+\-@\t\r]/.test(s) ? `'${s}` : s;
 }
 
 function sheetWithHeader() {
