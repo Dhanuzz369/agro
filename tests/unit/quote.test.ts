@@ -4,7 +4,7 @@ import { parsePrefill, validateStep, validateQuote, summarizeQuote, leadPayload,
 const catalog = [{ slug: 'turmeric', varieties: ['powder', 'dried-finger'] }, { slug: 'rice', varieties: ['ponni'] }];
 const base: QuoteInput = {
   name: 'Amal', company: 'Gulf Foods', email: 'amal@gulf.ae', whatsapp: '',
-  product: 'turmeric', variety: 'powder', quantity: 'one', country: 'UAE', port: 'Jebel Ali', incoterm: 'CIF',
+  product: 'turmeric', productOther: '', variety: 'powder', quantity: 'one', country: 'UAE', port: 'Jebel Ali', incoterm: 'CIF',
   message: '', botcheck: '', startedAt: 0,
 };
 const labels = { product: 'Turmeric', variety: 'Turmeric powder', quantity: '1 container', incoterm: 'CIF' };
@@ -32,6 +32,8 @@ describe('validateStep', () => {
   });
   it('product, quantity and destination are required; variety, incoterm and notes are not', () => {
     expect(validateStep('product', { ...base, product: '' })).toEqual({ product: 'product' });
+    expect(validateStep('product', { ...base, product: 'other', productOther: ' ' })).toEqual({ productOther: 'required' });
+    expect(validateStep('product', { ...base, product: 'other', productOther: 'Cashew' })).toEqual({});
     expect(validateStep('quantity', { ...base, quantity: ' ' })).toEqual({ quantity: 'choose' });
     expect(validateStep('destination', { ...base, country: '' })).toEqual({ country: 'required' });
     expect(validateStep('variety', { ...base, variety: '' })).toEqual({});

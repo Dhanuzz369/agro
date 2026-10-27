@@ -224,5 +224,7 @@
   "form.inc.cfr": "Kami kirim ke pelabuhan Anda, Anda yang mengasuransikan",
   "form.inc.cif": "Kami kirim dan asuransikan sampai pelabuhan Anda",
   "form.err.contact": "Tambahkan email atau nomor WhatsApp",
-  "form.err.choose": "Pilih salah satu untuk melanjutkan"
+  "form.err.choose": "Pilih salah satu untuk melanjutkan",
+  "form.p.other": "Produk lain",
+  "form.p.otherLabel": "Produk apa? (mis. kacang mete, lada hitam)"
 }

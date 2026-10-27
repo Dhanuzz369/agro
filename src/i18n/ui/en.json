@@ -224,5 +224,7 @@
   "form.inc.cfr": "We ship to your port, you insure",
   "form.inc.cif": "We ship and insure to your port",
   "form.err.contact": "Add an email or a WhatsApp number",
-  "form.err.choose": "Choose one to continue"
+  "form.err.choose": "Choose one to continue",
+  "form.p.other": "Something else",
+  "form.p.otherLabel": "Which product? (e.g. cashew, black pepper)"
 }

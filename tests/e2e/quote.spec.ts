@@ -129,3 +129,19 @@ test('placeholder endpoint skips the network and shows the error state', async (
   await expect(page.locator('[data-form-state="error"]')).toBeVisible({ timeout: 8000 });
   expect(calls).toBe(0);
 });
+
+test('"Something else" asks which product, skips varieties and sends the typed name', async ({ page }) => {
+  const bodies: any[] = [];
+  await page.route(ENDPOINT, async (r) => { bodies.push(JSON.parse(r.request().postData()!)); await r.fulfill({ json: { ok: true } }); });
+  await open(page);
+  await contact(page);
+  await page.locator('.qf__tile--other').click();
+  await expect(page.locator('input[name="productOther"]')).toBeFocused();
+  await next(page);
+  await expect(page.locator('#err-productOther')).toHaveText('Required');
+  await page.fill('input[name="productOther"]', 'Black pepper');
+  await next(page);
+  await expect(active(page)).toHaveAttribute('data-step', 'quantity');
+  await expect(page.locator('[data-step-count]')).toHaveText('Step 3 of 6');
+  await expect.poll(() => bodies.find((b) => b.stage === 'product')?.product).toBe('Black pepper');
+});

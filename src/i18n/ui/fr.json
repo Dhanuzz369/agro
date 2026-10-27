@@ -224,5 +224,7 @@
   "form.inc.cfr": "Nous expédions jusqu'à votre port, vous assurez",
   "form.inc.cif": "Nous expédions et assurons jusqu'à votre port",
   "form.err.contact": "Ajoutez un e-mail ou un numéro WhatsApp",
-  "form.err.choose": "Choisissez une option pour continuer"
+  "form.err.choose": "Choisissez une option pour continuer",
+  "form.p.other": "Autre chose",
+  "form.p.otherLabel": "Quel produit ? (ex. noix de cajou, poivre noir)"
 }

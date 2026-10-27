@@ -224,5 +224,7 @@
   "form.inc.cfr": "Wir verschiffen bis zu Ihrem Hafen, Sie versichern",
   "form.inc.cif": "Wir verschiffen und versichern bis zu Ihrem Hafen",
   "form.err.contact": "Geben Sie eine E-Mail oder WhatsApp-Nummer an",
-  "form.err.choose": "Wählen Sie eine Option, um fortzufahren"
+  "form.err.choose": "Wählen Sie eine Option, um fortzufahren",
+  "form.p.other": "Etwas anderes",
+  "form.p.otherLabel": "Welches Produkt? (z. B. Cashews, schwarzer Pfeffer)"
 }

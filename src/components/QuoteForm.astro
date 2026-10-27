@@ -70,7 +70,17 @@ const mailBase = mailtoHref(site.email) ?? '';
             <span class="qf__tileName" aria-hidden="true">{p.text.name}</span>
           </label>
         ))}
+        {/* Anything outside the catalogue: a full-width row so the nine photo cards stay a tidy grid */}
+        <label class="qf__tile qf__tile--other">
+          <input type="radio" name="product" value="other" class="qf__radio" aria-describedby="err-product" />
+          <span class="qf__plus" aria-hidden="true">+</span>
+          <span class="qf__tileName">{t('form.p.other')}</span>
+        </label>
       </div>
+      <label class="qf__field qf__other" data-other="product">{t('form.p.otherLabel')}
+        <input name="productOther" aria-describedby="err-productOther" />
+        <span class="qf__err" id="err-productOther" aria-live="polite"></span>
+      </label>
       <span class="qf__err" id="err-product" aria-live="polite"></span>
     </fieldset>
 
@@ -90,7 +100,7 @@ const mailBase = mailtoHref(site.email) ?? '';
         {quantities.map(([v, label]) => <label class="qf__chip"><input type="radio" name="quantityChoice" value={v} class="qf__radio" aria-describedby="err-quantity" />{label}</label>)}
         <label class="qf__chip"><input type="radio" name="quantityChoice" value="other" class="qf__radio" aria-describedby="err-quantity" />{t('form.q.other')}</label>
       </div>
-      <label class="qf__field qf__other" data-other>{t('form.q.otherLabel')}<input name="quantityOther" /></label>
+      <label class="qf__field qf__other" data-other="quantityChoice">{t('form.q.otherLabel')}<input name="quantityOther" /></label>
       <span class="qf__err" id="err-quantity" aria-live="polite"></span>
     </fieldset>
 
@@ -194,6 +204,9 @@ const mailBase = mailtoHref(site.email) ?? '';
   }
   .qf__tile :global(img) { inline-size: 100%; aspect-ratio: 4 / 3; block-size: auto; object-fit: cover; border-radius: var(--radius); background: var(--paper-2); }
   .qf__tileName { padding-inline: var(--space-1); font-weight: 500; font-size: var(--step--1); line-height: 1.25; }
+  .qf__tile--other { grid-column: 1 / -1; grid-template-columns: auto 1fr; align-items: center; gap: var(--space-3); padding: var(--space-2); }
+  .qf__plus { display: grid; place-items: center; inline-size: 44px; block-size: 44px; border-radius: var(--radius); background: var(--paper-2); font-size: 1.5rem; font-weight: 300; line-height: 1; color: var(--ink-2); }
+  .qf__tile--other:has(:checked) .qf__plus { background: var(--forest); color: var(--paper); }
 
   .qf__chips { display: flex; flex-wrap: wrap; gap: var(--space-3); }
   .qf__chips--stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); }

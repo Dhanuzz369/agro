@@ -224,5 +224,7 @@
   "form.inc.cfr": "我方运至您的港口，您负责保险",
   "form.inc.cif": "我方运输并投保至您的港口",
   "form.err.contact": "请填写邮箱或 WhatsApp 号码",
-  "form.err.choose": "请选择一项以继续"
+  "form.err.choose": "请选择一项以继续",
+  "form.p.other": "其他产品",
+  "form.p.otherLabel": "哪种产品？（如腰果、黑胡椒）"
 }

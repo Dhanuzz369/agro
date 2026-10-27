@@ -6,7 +6,7 @@ export type Step = (typeof STEPS)[number];
 
 export type QuoteInput = {
   name: string; company: string; email: string; whatsapp: string;
-  product: string; variety: string; quantity: string; country: string; port: string;
+  product: string; productOther: string; variety: string; quantity: string; country: string; port: string;
   incoterm: 'FOB' | 'CFR' | 'CIF' | 'other' | ''; message: string;
   botcheck: string; startedAt: number;
 };
@@ -37,7 +37,10 @@ export function validateStep(step: Step, i: QuoteInput): StepErrors {
       else if (!email && phone.length < PHONE_DIGITS) e.email = 'contact';
       break;
     }
-    case 'product': if (!i.product) e.product = 'product'; break;
+    case 'product':
+      if (!i.product) e.product = 'product';
+      else if (i.product === 'other' && !i.productOther.trim()) e.productOther = 'required';
+      break;
     case 'quantity': if (!i.quantity.trim()) e.quantity = 'choose'; break;
     case 'destination': if (!i.country.trim()) e.country = 'required'; break;
   }

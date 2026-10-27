@@ -224,5 +224,7 @@
   "form.inc.cfr": "Enviamos até o seu porto, você faz o seguro",
   "form.inc.cif": "Enviamos e seguramos até o seu porto",
   "form.err.contact": "Adicione um e-mail ou um número de WhatsApp",
-  "form.err.choose": "Escolha uma opção para continuar"
+  "form.err.choose": "Escolha uma opção para continuar",
+  "form.p.other": "Outro produto",
+  "form.p.otherLabel": "Qual produto? (ex. caju, pimenta-do-reino)"
 }

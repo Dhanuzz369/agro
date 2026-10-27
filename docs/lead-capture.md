@@ -26,7 +26,8 @@ function doPost(e) {
     const data = e.postData && e.postData.type !== 'application/x-www-form-urlencoded'
       ? JSON.parse(e.postData.contents)
       : Object.assign({ leadId: Utilities.getUuid(), stage: 'submitted' }, e.parameter, // no-JS form post
-        { quantity: e.parameter.quantityOther || e.parameter.quantityChoice || '' });
+        { quantity: e.parameter.quantityOther || e.parameter.quantityChoice || '',
+          product: e.parameter.product === 'other' ? e.parameter.productOther : e.parameter.product });
     if (data.botcheck) return reply({ ok: true }); // honeypot: pretend success
     const sheet = sheetWithHeader();
     const now = new Date();

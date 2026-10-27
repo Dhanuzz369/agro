@@ -21,7 +21,6 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
   const back = form.querySelector<HTMLButtonElement>('[data-back]')!;
   const count = form.querySelector<HTMLElement>('[data-step-count]')!;
   const fill = form.querySelector<HTMLElement>('[data-fill]')!;
-  const other = form.querySelector<HTMLElement>('[data-other]')!;
   const leadId = crypto.randomUUID?.() ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
   const startedAt = Date.now();
   let busy = false;
@@ -35,7 +34,7 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
   const flow = (): Step[] => STEPS.filter((s) => {
     if (s === 'product') return !pre.product;
     // Until a product is picked, count the variety step so the total doesn't shrink under the buyer.
-    if (s === 'variety') return !pre.variety && (catalog.find((c) => c.slug === productNow())?.varieties.length ?? 1) > 0;
+    if (s === 'variety') return !pre.variety && productNow() !== 'other' && (catalog.find((c) => c.slug === productNow())?.varieties.length ?? 1) > 0;
     return true;
   });
 
@@ -58,7 +57,7 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     const choice = s('quantityChoice');
     return {
       name: s('name'), company: s('company'), email: s('email'), whatsapp: s('whatsapp'),
-      product: s('product'), variety: s('variety'),
+      product: s('product'), productOther: s('productOther'), variety: s('variety'),
       quantity: choice === 'other' ? s('quantityOther') : choice,
       country: s('country'), port: s('port'), incoterm: s('incoterm') as QuoteInput['incoterm'], message: s('message'),
       botcheck: fd.get('botcheck') ? 'on' : '', startedAt,
@@ -71,7 +70,7 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     const p = catalog.find((c) => c.slug === i.product);
     const choice = form.querySelector<HTMLInputElement>('input[name="quantityChoice"]:checked');
     return {
-      product: p?.name ?? '',
+      product: i.product === 'other' ? i.productOther.trim() : p?.name ?? '',
       variety: p?.varieties.find((v) => v.id === i.variety)?.name ?? '',
       quantity: choice?.value === 'other' ? i.quantity.trim() : textOf(choice),
       incoterm: i.incoterm === 'other' ? msgs.other : i.incoterm,
@@ -187,7 +186,9 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     if (el.type !== 'radio') return;
     clearErrors(stepEl(current()));
     if (el.name === 'product') syncVarieties();
-    if (el.name === 'quantityChoice') {
+    // "Something else" / "Another amount" open a text box instead of moving on
+    const other = form.querySelector<HTMLElement>(`[data-other="${el.name}"]`);
+    if (other) {
       const open = el.value === 'other';
       other.toggleAttribute('data-open', open);
       if (open) { other.querySelector('input')!.focus(); return; }
