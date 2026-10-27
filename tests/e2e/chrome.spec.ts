@@ -52,7 +52,7 @@ test('focus rings: ink on light surfaces, turmeric on forest, ink on form inputs
   expect(await ring('footer a')).toBe(TURMERIC);
   await page.goto('/');
   await page.keyboard.press('Tab');
-  expect(await ring('.split a')).toBe(INK);
+  expect(await ring('.frame__ctas a')).toBe(INK);
   expect(await ring('#world a, footer a')).toBe(TURMERIC);
   await page.goto('/contact');
   expect(await ring('form input:not([type="hidden"]):not([name="botcheck"])')).toBe(INK);

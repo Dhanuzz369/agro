@@ -1,6 +1,7 @@
 ---
-// Split hero: the product panels scroll on one half, the headline stays put on the other (desktop).
-// Below 1024px the headline comes first and the panels stack underneath.
+// Framed hero: the headline sits in the middle of an 8 × 5 grid and product photos fill the ring around it
+// (after glideapps.com/customers, with bigger photos). Every photo links to its product page.
+// Below 1024px the frame becomes a strip of photos above the headline and two rows below it.
 import { Image } from 'astro:assets';
 import { createT } from '../../i18n/t';
 import { localizePath } from '../../i18n/paths';
@@ -10,87 +11,113 @@ interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
 const [products, site] = await Promise.all([getLocalizedProducts(locale), getSite()]);
+
+// The ring of an 8 × 5 grid, row by row: the middle four columns of rows 2–4 are left for the text.
+const COLS = 8, ROWS = 5;
+const ring: { r: number; c: number }[] = [];
+for (let r = 1; r <= ROWS; r++)
+  for (let c = 1; c <= COLS; c++)
+    if (r === 1 || r === ROWS || c <= 2 || c > COLS - 2) ring.push({ r, c });
+
+// Hero shot of every product first, then their varieties, dealt round-robin so neighbours differ.
+const pool = products.map((p) => [
+  { src: p.data.heroImage.src, alt: t('alt.product', { name: p.text.name, origin: p.text.originLine }), name: p.text.name, slug: p.slug },
+  ...p.data.varieties.map((v) => {
+    const name = p.text.varieties[v.id]?.name ?? v.id;
+    return { src: v.image.src, alt: t('alt.variety', { variety: name, name: p.text.name }), name, slug: p.slug };
+  }),
+]);
+const photos: (typeof pool)[number] = [];
+for (let round = 0; photos.length < ring.length && round < 20; round++)
+  for (const list of pool) if (list[round] && photos.length < ring.length) photos.push(list[round]);
+// A loose rhythm of portrait and landscape frames, like contact prints laid on a table.
+const landscape = (i: number) => [3, 6, 11, 17, 21, 22].includes(i);
 ---
-<section class="split" aria-labelledby="hero-title">
-  <div class="split__text">
-    <div class="split__inner">
-      <p class="split__label">{t('hero.label', { n: site.stats.countries })}</p>
-      <h1 id="hero-title" class="split__title">{t('hero.title')}</h1>
-      <p class="split__lede">{t('hero.lede')}</p>
-      <div class="split__ctas">
-        <a class="split__btn" href={localizePath('/products', locale)}>{t('hero.products')}</a>
-        <a class="split__btn split__btn--primary" href={localizePath('/contact', locale)}>{t('hero.quote')}</a>
-      </div>
+<section class="frame" aria-labelledby="hero-title">
+  <div class="frame__text">
+    <p class="frame__label">{t('hero.label', { n: site.stats.countries })}</p>
+    <h1 id="hero-title" class="frame__title">{t('hero.title')}</h1>
+    <p class="frame__lede">{t('hero.lede')}</p>
+    <div class="frame__ctas">
+      <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('hero.quote')}</a>
+      <a class="btn btn--ghost" href={localizePath('/products', locale)}>{t('hero.products')}</a>
     </div>
   </div>
-  <ul class="split__panels" role="list">
-    {products.map((p, i) => (
-      <li class="panel" data-hero-panel>
-        <a class="panel__link" href={localizePath(`/products/${p.slug}`, locale)}>
-          <Image src={p.data.heroImage.src} alt={t('alt.product', { name: p.text.name, origin: p.text.originLine })} widths={[480, 720, 960, 1280, 1600]} sizes="(min-width: 1024px) 50vw, 100vw"
-            quality={60} format="webp" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} decoding={i === 0 ? 'sync' : 'async'} />
-          <span class="panel__cap" data-reveal>
-            <span class="panel__name">{p.text.name}</span>
-            <span class="panel__origin">{p.text.originLine}</span>
-          </span>
-        </a>
-      </li>
-    ))}
-  </ul>
+  {photos.map((p, i) => (
+    <a class:list={['frame__photo', { 'frame__photo--wide': landscape(i) }]} href={localizePath(`/products/${p.slug}`, locale)}
+      style={`--r:${ring[i].r};--c:${ring[i].c};--i:${i}`} data-hero-photo>
+      <Image src={p.src} alt={p.alt} widths={[160, 240, 320]} sizes="(min-width: 1024px) 10vw, 25vw" quality={60} format="webp" loading="lazy" decoding="async" />
+      <span class="frame__cap" aria-hidden="true">{p.name}</span>
+    </a>
+  ))}
 </section>
 <style>
-  .split { --hdr-h: 6rem; display: grid; background: var(--paper); }
+  .frame {
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4) var(--space-3);
+    padding: calc(var(--header-offset) - var(--space-4)) var(--gutter) var(--space-8); background: var(--paper);
+    overflow-x: clip; /* hidden name tags on edge photos must not widen the page */
+  }
 
-  /* Text block: first in the DOM so phones read the headline before the photos */
-  .split__text { display: grid; place-items: center; padding: var(--hdr-h) var(--gutter) var(--space-8); text-align: center; container-type: inline-size; }
-  .split__inner { display: grid; justify-items: center; gap: var(--space-6); inline-size: 100%; max-inline-size: 40rem; }
-  .split__label { font-size: var(--step--2); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); max-inline-size: none; }
-  .split__title { font-family: var(--font-display); font-weight: 300; text-transform: uppercase; font-size: clamp(2.5rem, 14cqi, 7.25rem);
-    line-height: 0.9; letter-spacing: -0.035em; text-wrap: balance; overflow-wrap: break-word; hyphens: manual; color: var(--ink); }
-  .split__lede { font-family: var(--font-display); font-weight: 300; font-size: var(--step-1); line-height: 1.35; max-inline-size: 26ch; color: var(--ink-2); }
-  /* Two square buttons sharing one hairline; negative margins collapse the double border, also when they wrap */
-  .split__ctas { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; padding-block-start: 1px; padding-inline-start: 1px; margin-block-start: var(--space-2); }
-  @container (max-width: 26rem) { .split__ctas { grid-auto-flow: row; inline-size: 100%; } }
-  .split__btn { display: inline-flex; align-items: center; justify-content: center; min-block-size: 3rem; padding-inline: var(--space-5);
-    margin-block-start: -1px; margin-inline-start: -1px; border: 1px solid var(--ink); color: var(--ink); background: transparent;
-    font-size: var(--step--2); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; line-height: 1.2;
-    transition: background-color var(--dur-1) var(--ease), color var(--dur-1) var(--ease); }
-  .split__btn:hover { background: var(--ink); color: var(--paper); }
-  .split__btn--primary { background: var(--turmeric); }
-  .split__btn--primary:hover { background: var(--turmeric-hover); color: var(--ink); }
-  .split__btn:focus-visible { position: relative; z-index: 1; }
+  .frame__text { grid-column: 1 / -1; order: 1; display: grid; justify-items: center; gap: var(--space-5); padding-block: var(--space-6); text-align: center; }
+  .frame__label { margin: 0; font-size: var(--step--2); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
+  .frame__title { margin: 0; max-inline-size: 13ch; font-family: var(--font-display); font-weight: 300; font-size: clamp(2.75rem, 4.6vw + 1rem, 5.25rem);
+    line-height: 1; letter-spacing: -0.03em; text-wrap: balance; color: var(--ink); }
+  .frame__lede { margin: 0; max-inline-size: 34rem; font-size: var(--step-0); line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+  .frame__ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3); margin-block-start: var(--space-2); }
+  :global(:root:is(:lang(ar), :lang(zh))) .frame__label { letter-spacing: 0; font-size: var(--step--1); }
+  :global(:root:is(:lang(ar), :lang(zh))) .frame__title { line-height: 1.2; letter-spacing: 0; }
 
-  /* Scripts without letter case: looser leading, no negative tracking */
-  :global(:root:lang(ar)) .split__title, :global(:root:lang(zh)) .split__title { line-height: 1.15; letter-spacing: 0; font-size: clamp(2.25rem, 13cqi, 6.5rem); }
-  /* Tracking breaks Arabic joins and is meaningless for Han; give the small labels a size step instead */
-  :global(:root:lang(ar)) :is(.split__label, .split__btn), :global(:root:lang(zh)) :is(.split__label, .split__btn) { letter-spacing: 0; font-size: var(--step--1); }
-  :global(:root:lang(ru)) .split__title { letter-spacing: -0.02em; }
+  /* Photos: phones show four above the headline and eight below; the rest of the ring is for wider screens */
+  .frame__photo { position: relative; display: grid; place-items: center; order: 2; text-decoration: none; color: var(--ink); }
+  .frame__photo:nth-of-type(-n + 4) { order: 0; }
+  .frame__photo:nth-of-type(n + 13) { display: none; }
+  .frame__photo :global(img) {
+    inline-size: 100%; aspect-ratio: 3 / 4; block-size: auto; object-fit: cover; border-radius: 6px; background: var(--paper-2);
+    transition: transform 220ms var(--ease-out);
+  }
+  .frame__photo--wide :global(img) { aspect-ratio: 4 / 3; }
 
-  /* A thin paper seam keeps neighbouring photos (two rices, for one) from reading as one image */
-  .split__panels { list-style: none; margin: 0; padding: 0; display: grid; gap: 3px; }
-  .panel { position: relative; block-size: max(70svh, 22rem); overflow: hidden; background: var(--paper-2); }
-  .panel__link { display: block; block-size: 100%; color: var(--ink); text-decoration: none; }
-  .panel__link :global(img) { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform var(--dur-2) var(--ease); }
-  .panel__link:hover :global(img) { transform: scale(1.03); }
-  .panel :global(.stock) { inset-block-end: auto; inset-block-start: var(--space-4); inset-inline-start: auto; inset-inline-end: var(--space-4); }
-  /* Caption on the inline-end side: the floating language button owns the inline-start corner */
-  .panel__cap { position: absolute; inset-block-end: var(--space-5); inset-inline-end: var(--space-5); max-inline-size: calc(100% - 2 * var(--space-5));
-    display: grid; gap: var(--space-1); padding: var(--space-3) var(--space-4); background: var(--paper); }
-  .panel__name { font-family: var(--font-display); font-size: var(--step-1); line-height: 1.15; }
-  .panel__origin { font-size: var(--step--1); color: var(--ash); line-height: 1.35; }
-  .panel__link:focus-visible { outline-offset: -4px; }
+  /* Name on hover (real pointers only), so a buyer can tell Salem bulb from Alleppey finger */
+  .frame__cap {
+    position: absolute; inset-block-start: calc(100% + 0.35rem); inset-inline-start: 50%; translate: -50% 0; z-index: 1;
+    padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--ink); color: var(--paper);
+    font-size: 0.75rem; font-weight: 500; white-space: nowrap; pointer-events: none;
+    opacity: 0; transform: translateY(-4px); transition: opacity 150ms ease, transform 150ms var(--ease-out);
+  }
+  :global([dir='rtl']) .frame__cap { translate: 50% 0; }
+  @media (hover: hover) and (pointer: fine) {
+    .frame__photo:hover :global(img) { transform: scale(1.04); }
+    .frame__photo:hover .frame__cap { opacity: 1; transform: none; }
+  }
+  .frame__photo:focus-visible { outline: none; }
+  .frame__photo:focus-visible :global(img) { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .frame__photo:focus-visible .frame__cap { opacity: 1; transform: none; }
+  .frame__photo:active :global(img) { transform: scale(0.97); }
 
+  /* Photos settle in one after another on load: decorative, quick, never blocking the text */
+  @media (prefers-reduced-motion: no-preference) {
+    .frame__photo { animation: frame-in 520ms var(--ease-out) both; animation-delay: calc(var(--i) * 35ms + 120ms); }
+    @keyframes frame-in { from { opacity: 0; transform: translateY(10px) scale(0.96); } }
+  }
+
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .frame { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .frame__photo:nth-of-type(-n + 6) { order: 0; }
+    .frame__photo:nth-of-type(n + 13) { display: grid; }
+    .frame__photo:nth-of-type(n + 19) { display: none; }
+  }
+
+  /* Desktop: the full ring around the text, one viewport tall */
   @media (min-width: 1024px) {
-    .split { --hdr-h: 5rem; grid-template-columns: 1fr 1fr; padding-block-start: var(--hdr-h); }
-    /* Column 2 in reading order: right in LTR, left in RTL */
-    /* Pulled up under the header band so its content centres between the header and the fold, before and while it sticks */
-    .split__text { grid-column: 2; grid-row: 1; position: sticky; inset-block-start: 0; align-self: start; block-size: 100svh;
-      margin-block-start: calc(-1 * var(--hdr-h)); padding: var(--hdr-h) clamp(var(--space-6), 4vw, var(--space-9)) var(--space-6); }
-    .split__title { font-size: clamp(2.5rem, 15cqi, 7.25rem); }
-    .split__panels { grid-column: 1; grid-row: 1; }
-    .panel { block-size: 100svh; }
-    /* The first panel sits under the header band, so it ends at the fold with its caption showing */
-    .panel:first-child { block-size: calc(100svh - var(--hdr-h)); }
-    .panel__cap { inset-block-end: var(--space-6); inset-inline-end: var(--space-6); max-inline-size: calc(100% - 2 * var(--space-6)); }
+    .frame {
+      grid-template-columns: repeat(8, minmax(0, 1fr)); grid-template-rows: repeat(5, minmax(0, 1fr));
+      min-block-size: max(100svh, 46rem); gap: 0; padding: 5.5rem clamp(var(--space-5), 3vw, var(--space-7)) var(--space-6);
+    }
+    .frame__text { grid-column: 3 / 7; grid-row: 2 / 5; align-content: center; padding: 0; }
+    .frame__photo, .frame__photo:nth-of-type(n) { display: grid; order: 0; grid-row: var(--r); grid-column: var(--c); }
+    /* Bigger than the reference: ~104 px portraits and ~140 px landscapes at 1440 wide */
+    .frame__photo :global(img) { inline-size: clamp(4.5rem, 7.2vw, 7.5rem); }
+    .frame__photo--wide :global(img) { inline-size: clamp(6rem, 9.7vw, 10rem); }
   }
 </style>
