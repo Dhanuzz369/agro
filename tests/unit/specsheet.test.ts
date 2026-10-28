@@ -7,7 +7,7 @@ describe('buildSpecSheet', () => {
     const bytes = await buildSpecSheet({
       productName: 'Turmeric', varietyName: 'Turmeric powder', region: 'Erode, Tamil Nadu', market: 'Erode Regulated Market',
       specs: [{ label: 'Curcumin', value: '2–5%' }, { label: 'Moisture', value: '≤ 10%' }], packing: ['25 kg paper bags'],
-      ports: 'Chennai Port', contact: 'export@example.com', url: 'https://goodbizagri.com/products/turmeric',
+      ports: 'Chennai Port', contact: 'export@example.com', url: 'https://goodbizagro.com/products/turmeric',
     });
     const doc = await PDFDocument.load(bytes);
     expect(doc.getPageCount()).toBe(1);

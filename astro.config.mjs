@@ -11,7 +11,7 @@ const postDates = Object.fromEntries(readdirSync('src/content/blog/en').map((f) 
 ]));
 
 export default defineConfig({
-  site: process.env.SITE_URL ?? 'https://goodbizagri.com',
+  site: process.env.SITE_URL ?? 'https://goodbizagro.com',
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'directory', inlineStylesheets: 'always' },

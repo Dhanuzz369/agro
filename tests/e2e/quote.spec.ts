@@ -116,7 +116,7 @@ test('service failure shows WhatsApp fallback with the request written out', asy
   await expect(page.locator('[data-form-state="error"]')).toBeVisible({ timeout: 8000 });
   await expect(page.locator('[data-show="error"] h3')).toBeFocused();
   await expect(page.locator('[data-fallback="whatsapp"]')).toHaveAttribute('href', /text=Quote%20request/);
-  await expect(page.locator('[data-fallback="email"]')).toHaveCount(0); // site.yaml email is a placeholder
+  await expect(page.locator('[data-fallback="email"]')).toHaveAttribute('href', /^mailto:agro@goodbizglobal\.com\?/);
 });
 
 test('placeholder endpoint skips the network and shows the error state', async ({ page }) => {

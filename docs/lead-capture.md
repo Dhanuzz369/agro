@@ -15,7 +15,7 @@ Without JavaScript the form posts as a normal HTML form; the script below handle
 
 ```js
 const SHEET = 'Leads';
-const NOTIFY = 'export@goodbizagri.com'; // '' to switch email alerts off
+const NOTIFY = 'agro@goodbizglobal.com'; // '' to switch email alerts off
 const COLUMNS = ['leadId', 'stage', 'firstSeen', 'updated', 'name', 'company', 'email', 'whatsapp', 'product',
   'variety', 'quantity', 'country', 'port', 'incoterm', 'message', 'locale', 'page', 'summary'];
 

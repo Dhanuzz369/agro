@@ -19,7 +19,7 @@ Every `npm run build` also prints a "content report" that lists what is still mi
 - [ ] **Domain and `SITE_URL`.** In Vercel → your project → *Settings → Environment Variables*, add
   `SITE_URL` = `https://www.yourdomain.com` (the exact address you will use, no trailing slash) for
   *Production*, then redeploy. Canonical links, hreflang, the sitemap, `robots.txt`, `llms.txt` and structured
-  data all use this value automatically. Until it is set they point at `https://goodbizagri.com`.
+  data all use this value automatically. Until it is set they point at `https://goodbizagro.com`.
 - [ ] **Connect the domain** in Vercel → *Settings → Domains*; pick one version (with or without `www`) and let
   Vercel redirect the other to it.
 - [ ] **Lead capture (Google Sheets).** Follow `docs/lead-capture.md` to create the sheet and Apps Script web app,
