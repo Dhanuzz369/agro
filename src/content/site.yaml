@@ -11,7 +11,7 @@ email: "agro@goodbizglobal.com"
 phone: "+91 88847 99369"
 whatsapp: "918884799369"
 # Google Apps Script web app URL (https://script.google.com/macros/s/…/exec); see docs/lead-capture.md
-leadEndpoint: "REPLACE: apps-script-web-app-url"
+leadEndpoint: "https://script.google.com/macros/s/AKfycbwAz8CHk8vS4NSTCdCeS2pxK9LO1WQobOFemzyZaFt9FCuQXtnII1lNjP68iBpCWLAHDg/exec"
 registrations:
   - { id: apeda, name: "APEDA", number: "REPLACE: RCMC no.", logo: /logos/apeda.png, held: true }
   - { id: spices-board, name: "Spices Board India", number: "REPLACE: CRES no.", logo: /logos/spices-board.png, held: true }

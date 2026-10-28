@@ -1,7 +1,11 @@
 import { test, expect, type Page } from '@playwright/test';
 
-// site.yaml ships a placeholder lead endpoint, so tests inject one and route it.
+// Tests inject their own endpoint and route it; anything else bound for Apps Script (the real sheet in site.yaml)
+// is answered here so a test run never writes a lead. Routes added inside a test take priority over this one.
 const ENDPOINT = 'https://script.google.com/macros/s/test/exec';
+test.beforeEach(async ({ page }) => {
+  await page.route('https://script.google.com/**', (r) => r.fulfill({ json: { ok: true } }));
+});
 async function open(page: Page, query = '', endpoint = true) {
   await page.goto(`/contact${query}`);
   await expect(page.locator('[data-quote-form][data-enhanced]')).toBeVisible();
@@ -119,10 +123,11 @@ test('service failure shows WhatsApp fallback with the request written out', asy
   await expect(page.locator('[data-fallback="email"]')).toHaveAttribute('href', /^mailto:agro@goodbizglobal\.com\?/);
 });
 
-test('placeholder endpoint skips the network and shows the error state', async ({ page }) => {
+test('without an endpoint (placeholder in site.yaml) the form skips the network and shows the error state', async ({ page }) => {
   let calls = 0;
   await page.route('https://script.google.com/**', async (r) => { calls++; await r.abort(); });
   await open(page, '?product=turmeric&variety=powder', false);
+  await page.evaluate(() => { document.querySelector<HTMLElement>('[data-quote-form]')!.dataset.endpoint = ''; });
   await contact(page);
   await finish(page);
   await next(page);
