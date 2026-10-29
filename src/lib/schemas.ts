@@ -16,6 +16,8 @@ export const productSchema = (image: ImageFn) =>
   z
     .object({
       order: z.number().int(),
+      // When the page's facts (specs, packing, loads) were last changed: shown on the page, in schema and in the sitemap.
+      updated: z.coerce.date(),
       hsn: z.array(z.object({ code: hsnCode, verified: z.boolean() })).min(1),
       heroImage: z.object({ src: image(), isStock: z.boolean() }),
       regions: z.array(z.enum(placeIds)).min(1),

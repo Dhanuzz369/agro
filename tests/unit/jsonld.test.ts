@@ -23,6 +23,8 @@ describe('jsonld', () => {
     const p = productLd({ name: 'Turmeric', description: 'd', url: 'https://x.com/products/turmeric', image: 'https://x.com/i.jpg', brand: 'GoodBiz Agri', category: 'Products', keywords: ['a', 'b'], varieties: [{ name: 'Erode' }] }) as any;
     expect(p['@type']).toBe('Product');
     expect(p.model).toEqual([{ '@type': 'ProductModel', name: 'Erode' }]);
+    const withSpecs = productLd({ name: 'T', description: 'd', url: 'u', image: 'i', brand: 'b', varieties: [{ name: 'Erode', specs: [{ name: 'Curcumin', value: '2–5%' }] }] }) as any;
+    expect(withSpecs.model[0].additionalProperty).toEqual([{ '@type': 'PropertyValue', name: 'Curcumin', value: '2–5%' }]);
     expect(p.hasVariant).toBeUndefined();
     expect(p.keywords).toBe('a, b');
     expect(p.countryOfOrigin).toEqual({ '@type': 'Country', name: 'India' });

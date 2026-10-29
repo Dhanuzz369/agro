@@ -1,14 +1,16 @@
 ---
 import { createT, type UiKey } from '../i18n/t';
 import type { Locale } from '../i18n/config';
+import { createTd } from '../i18n/data';
 interface Props { locale: Locale; specs: { key: string; value: string }[]; caption: string }
 const { locale, specs, caption } = Astro.props;
 const t = createT(locale);
+const td = createTd(locale);
 ---
 <table class="spec">
   <caption class="sr-only">{caption}</caption>
   <tbody>
-    {specs.map((s) => <tr><th scope="row">{t(`spec.${s.key}` as UiKey)}</th><td dir="ltr">{s.value}</td></tr>)}
+    {specs.map((s) => <tr><th scope="row">{t(`spec.${s.key}` as UiKey)}</th><td dir="auto">{td(s.value)}</td></tr>)}
   </tbody>
 </table>
 <style>

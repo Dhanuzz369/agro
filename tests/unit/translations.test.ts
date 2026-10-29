@@ -53,3 +53,22 @@ describe('no HSN codes in visitor-facing text', () => {
     }
   });
 });
+
+describe('product data dictionaries', async () => {
+  const { dataDictionaries } = await import('../../src/i18n/data');
+  const { readdirSync, readFileSync } = await import('node:fs');
+  const { parse } = await import('yaml');
+  // Every English phrase in the product files that contains words, so a new phrase can't ship untranslated.
+  const phrases = new Set<string>();
+  for (const f of readdirSync('src/content/products')) {
+    const d = parse(readFileSync(`src/content/products/${f}`, 'utf8'));
+    [d.shelfLife, ...d.packing, d.containerLoad.ft20, d.containerLoad.ft40].forEach((s: string) => phrases.add(s));
+    for (const v of d.varieties) [...(v.packing ?? []), ...v.specs.map((s: { value: string }) => s.value)].forEach((s: string) => phrases.add(s));
+  }
+  const worded = [...phrases].filter((s) => /[A-Za-z]{3,}/.test(s));
+  for (const [locale, dict] of Object.entries(dataDictionaries)) {
+    it(`${locale} translates every worded product phrase`, () => {
+      expect(worded.filter((s) => !dict[s])).toEqual([]);
+    });
+  }
+});

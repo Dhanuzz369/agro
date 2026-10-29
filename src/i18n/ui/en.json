@@ -237,5 +237,8 @@
   "link.email": "Email GoodBiz Agri",
   "link.phone": "Call GoodBiz Agri",
   "link.spec": "{name} specification sheet (PDF)",
-  "link.quoteVariety": "Request a quote for {name}"
+  "link.quoteVariety": "Request a quote for {name}",
+  "product.updated": "Last updated {date}",
+  "products.compare": "Compare our products at a glance",
+  "products.compare.product": "Product"
 }

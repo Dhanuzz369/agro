@@ -237,5 +237,8 @@
   "link.email": "راسل GoodBiz Agri بالبريد الإلكتروني",
   "link.phone": "اتصل بـ GoodBiz Agri",
   "link.spec": "ورقة مواصفات {name} (PDF)",
-  "link.quoteVariety": "اطلب عرض سعر لـ {name}"
+  "link.quoteVariety": "اطلب عرض سعر لـ {name}",
+  "product.updated": "آخر تحديث {date}",
+  "products.compare": "قارن منتجاتنا بنظرة سريعة",
+  "products.compare.product": "المنتج"
 }

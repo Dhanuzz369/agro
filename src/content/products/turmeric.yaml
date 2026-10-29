@@ -1,4 +1,5 @@
 order: 9
+updated: 2026-10-29
 hsn:
   - { code: "09103010", verified: true }
   - { code: "09103020", verified: true }

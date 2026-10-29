@@ -16,7 +16,8 @@ export function e164Dashed(phone: string): string | undefined {
 
 export const orgId = (siteUrl: string) => `${new URL('/', siteUrl).href}#organization`;
 
-export function organizationLd(site: SiteData, siteUrl: string) {
+// description: the page language's own summary, so a translated page doesn't carry an English Organization block.
+export function organizationLd(site: SiteData, siteUrl: string, description?: string) {
   const url = new URL('/', siteUrl).href;
   const telephone = e164Dashed(site.phone);
   const email = real(site.email);
@@ -29,7 +30,7 @@ export function organizationLd(site: SiteData, siteUrl: string) {
     url,
     logo: { '@type': 'ImageObject', url: new URL('/icon-512.png', siteUrl).href, width: 512, height: 512 },
     image: new URL('/og/home.png', siteUrl).href,
-    description: 'B2B exporter of South Indian rice, non-basmati and broken rice, jaggery, arecanut, groundnuts, coconut and copra, ginger and turmeric, based in Bengaluru, India.',
+    description: description ?? 'B2B exporter of South Indian rice, non-basmati and broken rice, jaggery, arecanut, groundnuts, coconut and copra, ginger and turmeric, based in Bengaluru, India.',
     email,
     telephone,
     address: {
@@ -62,10 +63,11 @@ export function websiteLd(a: { siteUrl: string; url: string; name: string; descr
   };
 }
 
-export function itemListLd(a: { name: string; items: { name: string; url: string; image?: string }[] }) {
+export function itemListLd(a: { id?: string; name: string; items: { name: string; url: string; image?: string }[] }) {
   return {
     '@context': ctx,
     '@type': 'ItemList',
+    '@id': a.id,
     name: a.name,
     numberOfItems: a.items.length,
     itemListElement: a.items.map((i, idx) => ({ '@type': 'ListItem', position: idx + 1, name: i.name, url: i.url, image: i.image })),
@@ -88,7 +90,7 @@ export const productCategory: Record<string, string> = {
 
 export function productLd(a: {
   name: string; description: string; url: string; image: string | string[]; brand: string; siteUrl?: string;
-  category?: string; keywords?: string[]; varieties: { name: string }[];
+  category?: string; keywords?: string[]; varieties: { name: string; specs?: { name: string; value: string }[] }[];
 }) {
   return {
     '@context': ctx,
@@ -104,7 +106,11 @@ export function productLd(a: {
     keywords: a.keywords?.join(', '),
     countryOfOrigin: { '@type': 'Country', name: 'India' },
     // Varieties as product models (hasVariant belongs to ProductGroup, which needs per-variant offers we do not publish).
-    model: a.varieties.map((v) => ({ '@type': 'ProductModel', name: v.name })),
+    // Each model carries the spec rows its table shows on the page.
+    model: a.varieties.map((v) => ({
+      '@type': 'ProductModel', name: v.name,
+      additionalProperty: v.specs?.length ? v.specs.map((s) => ({ '@type': 'PropertyValue', name: s.name, value: s.value })) : undefined,
+    })),
   };
 }
 
@@ -120,6 +126,7 @@ export function breadcrumbLd(items: { name: string; url: string }[]) {
   return {
     '@context': ctx,
     '@type': 'BreadcrumbList',
+    '@id': items.length ? `${items[items.length - 1].url}#breadcrumb` : undefined,
     itemListElement: items.map((i, idx) => ({ '@type': 'ListItem', position: idx + 1, name: i.name, item: i.url })),
   };
 }
@@ -131,15 +138,40 @@ export function articleLd(a: { title: string; description: string; url: string; 
   return {
     '@context': ctx,
     '@type': 'Article',
+    '@id': `${a.url}#article`,
     headline: a.title,
     description: a.description,
-    mainEntityOfPage: a.url,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': `${a.url}#webpage` },
     image: a.image,
     datePublished: a.date.toISOString(),
     dateModified: a.date.toISOString(),
-    author: { '@type': 'Organization', name: 'GoodBiz Agri' },
+    author: a.siteUrl ? { '@id': orgId(a.siteUrl) } : { '@type': 'Organization', name: 'GoodBiz Agri' },
     publisher: org,
     keywords: a.keywords?.join(', '),
     inLanguage: a.locale,
+  };
+}
+
+/**
+ * The page itself, tying the graph together: which site it belongs to, who publishes it, its breadcrumb and
+ * what it is about (the product, article or list that the page's other blocks describe by @id).
+ */
+export function webPageLd(a: {
+  type: 'WebPage' | 'AboutPage' | 'ContactPage' | 'CollectionPage'; url: string; name: string; description: string;
+  inLanguage: string; siteUrl: string; websiteUrl: string; breadcrumb?: boolean; mainEntity?: string; dateModified?: Date;
+}) {
+  return {
+    '@context': ctx,
+    '@type': a.type,
+    '@id': `${a.url}#webpage`,
+    url: a.url,
+    name: a.name,
+    description: a.description,
+    inLanguage: a.inLanguage,
+    isPartOf: { '@id': `${a.websiteUrl}#website` },
+    publisher: { '@id': orgId(a.siteUrl) },
+    breadcrumb: a.breadcrumb ? { '@id': `${a.url}#breadcrumb` } : undefined,
+    mainEntity: a.mainEntity ? { '@id': a.mainEntity } : undefined,
+    dateModified: a.dateModified?.toISOString().slice(0, 10),
   };
 }

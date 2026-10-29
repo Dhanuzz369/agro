@@ -1,4 +1,5 @@
 order: 6
+updated: 2026-10-29
 hsn:
   - { code: "120242", verified: false }
 heroImage: { src: ../../assets/products/groundnuts/hero.jpg, isStock: true }

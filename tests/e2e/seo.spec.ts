@@ -3,7 +3,7 @@ import { test, expect, type APIRequestContext } from '@playwright/test';
 test('robots.txt allows AI crawlers and lists the sitemap on the build domain', async ({ request }) => {
   const body = await (await request.get('/robots.txt')).text();
   const bots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'Google-Extended', 'ClaudeBot', 'Claude-Web', 'Applebot-Extended', 'Bingbot'];
-  for (const bot of bots) expect(body).toMatch(new RegExp(`User-agent: ${bot}\\nAllow: /`));
+  for (const bot of bots) expect(body).toMatch(new RegExp(`User-agent: ${bot}\\nContent-Signal: search=yes, ai-input=yes, ai-train=yes\\nAllow: /`));
   expect(body).not.toMatch(/Disallow: \/\s*$/m);
   expect(body).toMatch(/^Sitemap: https?:\/\/[^/]+\/sitemap-index\.xml$/m);
 });
@@ -48,7 +48,9 @@ test('sitemap index splits products, blog and other pages, with localized URLs',
 
 test('product sitemap lists each product page photos for Google Images', async ({ request }) => {
   const map = await (await request.get('/sitemap-products-0.xml')).text();
-  const turmeric = map.match(/<url><loc>[^<]*\/products\/turmeric<\/loc>.*?<\/url>/)![0];
+  // Photos are listed once, on the English URL; translations of the page show the same files.
+  const turmeric = map.match(/<url><loc>https?:\/\/[^/<]+\/products\/turmeric<\/loc>.*?<\/url>/)![0];
+  expect(map.match(/<url><loc>[^<]*\/ar\/products\/turmeric<\/loc>.*?<\/url>/)![0]).not.toContain('image:loc');
   const imgs = [...turmeric.matchAll(/<image:loc>(.*?)<\/image:loc>/g)].map((m) => m[1]);
   expect(imgs.length).toBeGreaterThan(1);
   for (const i of imgs) expect((await request.get(new URL(i).pathname)).headers()['content-type'], i).toContain('image/');
@@ -163,15 +165,15 @@ async function ldTypes(page: import('@playwright/test').Page) {
 
 test('JSON-LD types match the page type and never carry placeholders or HSN', async ({ page }) => {
   const want: [string, string[]][] = [
-    ['/', ['Organization', 'WebSite', 'ItemList', 'FAQPage']],
-    ['/ar', ['Organization', 'WebSite', 'ItemList', 'FAQPage']],
-    ['/products', ['Organization', 'ItemList', 'BreadcrumbList']],
-    ['/products/turmeric', ['Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
-    ['/de/products/coconut-copra', ['Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
-    ['/about', ['Organization', 'BreadcrumbList']],
-    ['/contact', ['Organization', 'BreadcrumbList']],
-    ['/blog', ['Organization', 'BreadcrumbList']],
-    ['/blog/arecanut-grades-chali-vs-kempu', ['Organization', 'Article', 'BreadcrumbList']],
+    ['/', ['WebPage', 'Organization', 'WebSite', 'ItemList', 'FAQPage']],
+    ['/ar', ['WebPage', 'Organization', 'WebSite', 'ItemList', 'FAQPage']],
+    ['/products', ['CollectionPage', 'Organization', 'ItemList', 'BreadcrumbList']],
+    ['/products/turmeric', ['WebPage', 'Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
+    ['/de/products/coconut-copra', ['WebPage', 'Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
+    ['/about', ['AboutPage', 'Organization', 'BreadcrumbList']],
+    ['/contact', ['ContactPage', 'Organization', 'BreadcrumbList']],
+    ['/blog', ['CollectionPage', 'Organization', 'BreadcrumbList']],
+    ['/blog/arecanut-grades-chali-vs-kempu', ['WebPage', 'Organization', 'Article', 'BreadcrumbList']],
   ];
   for (const [path, types] of want) {
     await page.goto(path);
@@ -191,6 +193,10 @@ test('JSON-LD types match the page type and never carry placeholders or HSN', as
   expect(product.keywords).toContain('Sona Masoori');
   expect(product.offers).toBeUndefined();
   expect(product.aggregateRating).toBeUndefined();
+  // The page node ties the blocks together by @id
+  const webPage = JSON.parse((await page.locator('script[type="application/ld+json"]').allTextContents()).find((b) => b.includes('"WebPage"'))!);
+  expect(webPage.mainEntity['@id']).toBe(product['@id']);
+  expect(webPage.isPartOf['@id']).toMatch(/\/#website$/);
 });
 
 test('product pages open with a direct answer naming the exporter', async ({ page }) => {
@@ -215,4 +221,23 @@ test('every image and link carries a descriptive title', async ({ page }) => {
       els.filter((e) => !(e.getAttribute('title') ?? '').trim()).map((e) => e.outerHTML.slice(0, 80)));
     expect(missing, path).toEqual([]);
   }
+});
+
+test('product pages show when their facts last changed; the sitemap and schema agree', async ({ page, request }) => {
+  await page.goto('/products/turmeric');
+  const time = page.locator('.pv__updated time');
+  await expect(time).toHaveText(/Last updated/);
+  const date = await time.getAttribute('datetime');
+  const pageLd = JSON.parse((await page.locator('script[type="application/ld+json"]').allTextContents()).find((b) => b.includes('"WebPage"'))!);
+  expect(pageLd.dateModified).toBe(date);
+  const map = await (await request.get('/sitemap-products-0.xml')).text();
+  expect(map).toMatch(new RegExp(`/products/turmeric</loc><lastmod>${date}`));
+});
+
+test('the products page compares every product side by side, in the page language', async ({ page }) => {
+  await page.goto('/fr/products');
+  const rows = page.locator('.compare tbody tr');
+  await expect(rows).toHaveCount(9);
+  await expect(page.locator('.compare')).toContainText('Séché');
+  expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 });

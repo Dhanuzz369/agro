@@ -17,12 +17,12 @@ import displayFont from '@fontsource/fraunces/files/fraunces-latin-300-normal.wo
 interface Props {
   locale: Locale; title: string; description: string; path: string;
   available?: readonly Locale[]; ogImage?: string; ogImageAlt?: string; ogType?: 'website' | 'article';
-  keywords?: readonly string[] | string; jsonLd?: object[]; noindex?: boolean;
+  keywords?: readonly string[] | string; jsonLd?: object[]; noindex?: boolean; modified?: Date;
 }
 const { locale, jsonLd = [], ...seo } = Astro.props;
 const t = createT(locale);
 const site = await getSite();
-const ld = [organizationLd(site, Astro.site!.href), ...jsonLd];
+const ld = [organizationLd(site, Astro.site!.href, t('meta.homeDescription')), ...jsonLd];
 // Vercel serves /_vercel/* only on its own deployments; locally those paths 404 and log console errors.
 const onVercel = Boolean(process.env.VERCEL);
 ---

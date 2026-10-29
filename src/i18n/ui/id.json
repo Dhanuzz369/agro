@@ -237,5 +237,8 @@
   "link.email": "Kirim email ke GoodBiz Agri",
   "link.phone": "Telepon GoodBiz Agri",
   "link.spec": "Lembar spesifikasi {name} (PDF)",
-  "link.quoteVariety": "Minta penawaran untuk {name}"
+  "link.quoteVariety": "Minta penawaran untuk {name}",
+  "product.updated": "Terakhir diperbarui {date}",
+  "products.compare": "Bandingkan produk kami sekilas",
+  "products.compare.product": "Produk"
 }

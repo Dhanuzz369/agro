@@ -1,4 +1,5 @@
 order: 2
+updated: 2026-10-29
 hsn:
   - { code: "10063099", verified: true }
 heroImage: { src: ../../assets/products/non-basmati-rice/hero.jpg, isStock: true }

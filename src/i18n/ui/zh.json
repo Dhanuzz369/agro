@@ -237,5 +237,8 @@
   "link.email": "发送邮件给 GoodBiz Agri",
   "link.phone": "致电 GoodBiz Agri",
   "link.spec": "{name}规格表（PDF）",
-  "link.quoteVariety": "获取{name}报价"
+  "link.quoteVariety": "获取{name}报价",
+  "product.updated": "最后更新：{date}",
+  "products.compare": "产品一览对比",
+  "products.compare.product": "产品"
 }

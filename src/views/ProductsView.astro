@@ -6,17 +6,20 @@ import { createT } from '../i18n/t';
 import { getLocalizedProducts } from '../lib/catalog';
 import { breadcrumbLd, itemListLd } from '../lib/jsonld';
 import { localizePath } from '../i18n/paths';
+import { createTd } from '../i18n/data';
+import { places } from '../data/places';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
 const t = createT(locale);
+const td = createTd(locale);
 const products = await getLocalizedProducts(locale);
 const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }];
 const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
 ---
 <Base locale={locale} title={t('meta.productsTitle')} description={t('meta.productsDescription')} keywords={t('meta.productsKeywords')} path="/products" ogImage="/og/products.png"
   jsonLd={[
-    itemListLd({ name: t('products.title'), items: products.map((p) => ({ name: p.text.name, url: abs(`/products/${p.slug}`) })) }),
+    itemListLd({ id: `${abs('/products')}#list`, name: t('products.title'), items: products.map((p) => ({ name: p.text.name, url: abs(`/products/${p.slug}`) })) }),
     breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
   ]}>
   <div class="container page">
@@ -27,11 +30,45 @@ const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
       <p>{t('products.lede')}</p>
     </header>
     <div class="grid">{products.map((p) => <ProductCard locale={locale} product={p} headingLevel="h2" />)}</div>
+    {/* The same facts each product page lists, side by side, so a buyer comparing ranges needn't open nine pages */}
+    <section class="compare" aria-labelledby="compare">
+      <h2 id="compare">{t('products.compare')}</h2>
+      <div class="compare__scroll" tabindex="0" role="region" aria-labelledby="compare">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">{t('products.compare.product')}</th>
+              <th scope="col">{t('fact.states')}</th>
+              <th scope="col">{t('fact.ports')}</th>
+              <th scope="col">{t('product.container20')}</th>
+              <th scope="col">{t('product.container40')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((p) => (
+              <tr>
+                <th scope="row"><a href={localizePath(`/products/${p.slug}`, locale)} title={p.text.seo.title}>{p.text.name}</a></th>
+                <td>{p.text.originLine}</td>
+                <td>{p.data.ports.map((id) => places[id].name).join(', ')}</td>
+                <td>{td(p.data.containerLoad.ft20)}</td>
+                <td>{td(p.data.containerLoad.ft40)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
   </div>
 </Base>
 <style>
   .page { padding-block: var(--header-offset) var(--space-8); display: grid; gap: var(--space-7); }
   .page > :global(*) { min-inline-size: 0; }
   .page__head { display: grid; gap: var(--space-4); }
+  .compare { display: grid; gap: var(--space-4); }
+  .compare__scroll { overflow-x: auto; }
+  .compare table { inline-size: 100%; min-inline-size: 44rem; border-collapse: collapse; font-size: var(--step--1); }
+  .compare th, .compare td { padding: var(--space-3) var(--space-3) var(--space-3) 0; border-block-end: 1px solid var(--rule); text-align: start; vertical-align: top; }
+  .compare thead th { font-weight: 500; color: var(--ink-2); }
+  .compare tbody th { font-weight: 600; }
   .grid { display: grid; gap: var(--space-7) var(--space-5); grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
 </style>

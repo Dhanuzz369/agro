@@ -4,16 +4,22 @@ import sitemap from '@astrojs/sitemap';
 import { readdirSync, readFileSync } from 'node:fs';
 
 const locales = ['en', 'ar', 'fr', 'es', 'pt', 'ru', 'zh', 'id', 'de'];
-// A build timestamp on every URL tells crawlers nothing, so only blog posts carry a lastmod: their own date.
+// A build timestamp on every URL tells crawlers nothing, so lastmod is a real content date: a blog post's own
+// date, or the `updated` date in a product's data file (the date its specs or packing last changed).
 const postDates = Object.fromEntries(readdirSync('src/content/blog/en').map((f) => [
   f.replace(/\.mdx?$/, ''),
   readFileSync(`src/content/blog/en/${f}`, 'utf8').match(/^date:\s*(\S+)/m)?.[1],
+]));
+const productDates = Object.fromEntries(readdirSync('src/content/products').map((f) => [
+  f.replace(/\.ya?ml$/, ''),
+  readFileSync(`src/content/products/${f}`, 'utf8').match(/^updated:\s*(\S+)/m)?.[1],
 ]));
 // Product photos go into the sitemap so Google Images can find every variety. The sitemap is written after the
 // pages, so the built page already names its optimised image files.
 const productImages = (url) => {
   const path = new URL(url).pathname;
-  if (!/\/products\/[^/]+$/.test(path)) return undefined;
+  // English URLs only: the translated pages show the same photos, and listing them once is enough.
+  if (!/^\/products\/[^/]+$/.test(path)) return undefined;
   let html;
   try { html = readFileSync(`dist${path}/index.html`, 'utf8'); } catch { return undefined; }
   const srcs = [...html.matchAll(/<img[^>]*?\ssrc="(\/_astro\/[^"]+)"/g)].map((m) => new URL(m[1], url).href);
@@ -44,11 +50,13 @@ export default defineConfig({
     sitemap({
       i18n: { defaultLocale: 'en', locales: Object.fromEntries(locales.map((l) => [l, l === 'zh' ? 'zh-Hans' : l])) },
       serialize(item) {
-        const date = postDates[item.url.match(/\/blog\/([^/]+)$/)?.[1]];
+        const date = postDates[item.url.match(/\/blog\/([^/]+)$/)?.[1]] ?? productDates[item.url.match(/\/products\/([^/]+)$/)?.[1]];
         if (date) item.lastmod = new Date(date).toISOString();
         // Match the x-default the page head declares (the English URL)
         const en = item.links?.find((l) => l.lang === 'en');
         if (en) item.links = [...item.links.filter((l) => l.lang !== 'x-default'), { lang: 'x-default', url: en.url }];
+        // English-only pages (blog posts not yet translated) still name themselves, as their page head does
+        else if (!item.links?.length && !/^\/[a-z]{2}(\/|$)/.test(new URL(item.url).pathname)) item.links = [{ lang: 'en', url: item.url }, { lang: 'x-default', url: item.url }];
         const img = productImages(item.url);
         if (img?.length) item.img = img;
         return item;

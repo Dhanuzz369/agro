@@ -237,5 +237,8 @@
   "link.email": "Escribir a GoodBiz Agri",
   "link.phone": "Llamar a GoodBiz Agri",
   "link.spec": "Ficha técnica de {name} (PDF)",
-  "link.quoteVariety": "Solicitar cotización de {name}"
+  "link.quoteVariety": "Solicitar cotización de {name}",
+  "product.updated": "Última actualización: {date}",
+  "products.compare": "Compare nuestros productos de un vistazo",
+  "products.compare.product": "Producto"
 }

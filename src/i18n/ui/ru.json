@@ -237,5 +237,8 @@
   "link.email": "Написать письмо GoodBiz Agri",
   "link.phone": "Позвонить в GoodBiz Agri",
   "link.spec": "Спецификация: {name} (PDF)",
-  "link.quoteVariety": "Запросить цену: {name}"
+  "link.quoteVariety": "Запросить цену: {name}",
+  "product.updated": "Обновлено {date}",
+  "products.compare": "Сравнение нашей продукции",
+  "products.compare.product": "Продукт"
 }

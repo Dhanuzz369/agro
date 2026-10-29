@@ -1,4 +1,5 @@
 order: 5
+updated: 2026-10-29
 hsn:
   - { code: "80280", verified: false }
 heroImage: { src: ../../assets/products/arecanut/hero.jpg, isStock: true }

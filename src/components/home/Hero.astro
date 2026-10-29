@@ -46,7 +46,9 @@ const landscape = (i: number) => [3, 6, 11, 17, 21, 22].includes(i);
   {photos.map((p, i) => (
     <a class:list={['frame__photo', { 'frame__photo--wide': landscape(i) }]} href={localizePath(`/products/${p.slug}`, locale)} title={p.title}
       style={`--r:${ring[i].r};--c:${ring[i].c};--i:${i}`} data-hero-photo>
-      <Image src={p.src} alt={p.alt} title={p.alt} widths={[160, 240, 320]} sizes="(min-width: 1024px) 10vw, 25vw" quality={60} format="webp" loading="lazy" decoding="async" />
+      {/* The top row is on screen at load on every layout, so it loads straight away; the rest wait their turn */}
+      <Image src={p.src} alt={p.alt} title={p.alt} widths={[160, 240, 320]} sizes="(min-width: 1024px) 10vw, 25vw" quality={60} format="webp"
+        loading={i < 8 ? 'eager' : 'lazy'} fetchpriority={i < 4 ? 'high' : undefined} decoding="async" />
       <span class="frame__cap" aria-hidden="true">{p.name}</span>
     </a>
   ))}

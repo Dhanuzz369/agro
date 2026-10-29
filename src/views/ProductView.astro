@@ -5,7 +5,8 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SpecTable from '../components/SpecTable.astro';
 import ProductCard from '../components/ProductCard.astro';
 import Faq from '../components/Faq.astro';
-import { createT } from '../i18n/t';
+import { createT, type UiKey } from '../i18n/t';
+import { createTd } from '../i18n/data';
 import { localizePath } from '../i18n/paths';
 import { htmlLang, type Locale } from '../i18n/config';
 import { getLocalizedProduct, getLocalizedProducts, getSite } from '../lib/catalog';
@@ -18,7 +19,9 @@ import { aboutProduct } from '../lib/blog-pure';
 interface Props { locale: Locale; slug: string }
 const { locale, slug } = Astro.props;
 const t = createT(locale);
+const td = createTd(locale);
 const p = await getLocalizedProduct(locale, slug);
+const updatedDate = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'long', timeZone: 'UTC' }).format(p.data.updated);
 const all = await getLocalizedProducts(locale);
 const related = p.data.related.map((s) => all.find((x) => x.slug === s)!).filter(Boolean);
 const site = await getSite();
@@ -43,7 +46,10 @@ const ld = [
   productLd({
     name: p.text.name, description: p.text.summary, url: abs(path), image: productImages,
     brand: 'GoodBiz Agri', siteUrl: Astro.site!.href, category: productCategory[slug], keywords: p.text.seo.keywords,
-    varieties: p.data.varieties.map((v) => ({ name: p.text.varieties[v.id]?.name ?? v.id })),
+    varieties: p.data.varieties.map((v) => ({
+      name: p.text.varieties[v.id]?.name ?? v.id,
+      specs: v.specs.map((s) => ({ name: t(`spec.${s.key}` as UiKey), value: td(s.value) })),
+    })),
   }),
   faqLd(faq),
   breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
@@ -52,7 +58,7 @@ const alt = (name: string, origin: string) => t('alt.product', { name, origin })
 const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text.name });
 ---
 <Base locale={locale} title={p.text.seo.title} description={p.text.seo.description} keywords={p.text.seo.keywords} path={path}
-  ogImage={`/og/products/${slug}.png`} ogImageAlt={p.text.seo.h1} jsonLd={ld}>
+  ogImage={`/og/products/${slug}.png`} ogImageAlt={p.text.seo.h1} jsonLd={ld} modified={p.data.updated}>
   <link slot="head" rel="preload" as="image" imagesrcset={posterPreload.srcSet.attribute} imagesizes={poster.sizes} fetchpriority="high" />
   <article class="pv">
     <section class="pv__hero container">
@@ -64,6 +70,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
         <div class="pv__intro">
           <h1>{p.text.seo.h1}</h1>
           <p class="pv__summary">{p.text.summary}</p>
+          <p class="pv__updated"><time datetime={p.data.updated.toISOString().slice(0, 10)}>{t('product.updated', { date: updatedDate })}</time></p>
           <div class="pv__ctas">
             <a class="btn btn--primary" href={quoteHref()} title={t('link.quote')}>{t('cta.quote')}</a>
             {wa && <a class="btn btn--ghost" href={wa} target="_blank" rel="noopener" title={t('link.whatsapp')}>{t('cta.whatsapp')}</a>}
@@ -77,7 +84,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
       <dl>
         <div><dt>{t('fact.states')}</dt><dd>{states}</dd></div>
         <div><dt>{t('fact.ports')}</dt><dd>{portNames}</dd></div>
-        <div><dt>{t('fact.shelfLife')}</dt><dd>{p.data.shelfLife}</dd></div>
+        <div><dt>{t('fact.shelfLife')}</dt><dd>{td(p.data.shelfLife)}</dd></div>
       </dl>
     </section>
 
@@ -96,7 +103,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
                 <p>{vt?.description}</p>
                 <p class="var__where"><span>{t('product.region')}:</span> {places[v.region].name}, {places[v.region].state} · <span>{t('product.market')}:</span> {v.market}</p>
                 <SpecTable locale={locale} specs={v.specs} caption={`${t('product.specs')} — ${vt?.name ?? v.id}`} />
-                <p class="var__pack"><span>{t('product.packing')}:</span> {v.packing.join(' · ')}</p>
+                <p class="var__pack"><span>{t('product.packing')}:</span> {v.packing.map(td).join(' · ')}</p>
                 <div class="var__ctas">
                   <a class="btn btn--secondary" href={quoteHref(v.id)} title={t('link.quoteVariety', { name: vt?.name ?? v.id })}>{t('cta.quoteVariety')}</a>
                   <a href={`/spec-sheets/${slug}/${v.id}.pdf`} download title={t('link.spec', { name: vt?.name ?? v.id })}>{t('cta.specSheet')}</a>
@@ -131,9 +138,9 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
       <div data-reveal>
         <h2>{t('product.shipping')}</h2>
         <dl class="pv__ship">
-          <div><dt>{t('fact.packing')}</dt><dd>{p.data.packing.join(' · ')}</dd></div>
-          <div><dt>{t('product.container20')}</dt><dd>{p.data.containerLoad.ft20}</dd></div>
-          <div><dt>{t('product.container40')}</dt><dd>{p.data.containerLoad.ft40}</dd></div>
+          <div><dt>{t('fact.packing')}</dt><dd>{p.data.packing.map(td).join(' · ')}</dd></div>
+          <div><dt>{t('product.container20')}</dt><dd>{td(p.data.containerLoad.ft20)}</dd></div>
+          <div><dt>{t('product.container40')}</dt><dd>{td(p.data.containerLoad.ft40)}</dd></div>
           <div><dt>{t('product.incoterms')}</dt><dd dir="ltr">FOB · CFR · CIF</dd></div>
         </dl>
       </div>
@@ -183,6 +190,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
   @media (max-width: 860px) { .pv__intro { order: -1; } }
   .var__ctas a[download] { display: inline-flex; align-items: center; min-block-size: 44px; }
   .pv__summary { font-size: var(--step-1); line-height: 1.45; }
+  .pv__updated { margin: 0; font-size: var(--step--1); color: var(--ink-2); }
   .pv__ctas, .var__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
   .pv__facts dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr)); gap: var(--space-4); margin: 0; border-block: 1px solid var(--ink); padding-block: var(--space-5); }
   dt { font-size: var(--step--1); color: var(--ink-2); }

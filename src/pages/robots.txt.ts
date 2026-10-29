@@ -7,13 +7,14 @@ export const aiBots = [
   'DuckDuckBot', 'YandexBot', 'Baiduspider', 'meta-externalagent', 'Amazonbot', 'cohere-ai', 'MistralAI-User',
 ];
 
+const signal = 'Content-Signal: search=yes, ai-input=yes, ai-train=yes';
+
 export const GET: APIRoute = ({ site }) => {
   const sitemap = new URL('/sitemap-index.xml', site).href;
   const lines = [
-    'User-agent: *',
-    'Allow: /',
-    '',
-    ...aiBots.flatMap((b) => [`User-agent: ${b}`, 'Allow: /', '']),
+    // Content Signals (contentsignals.org) say the same as the Allow lines, explicitly. A named crawler reads only its
+    // own group, so every group carries the line. Training stays allowed because the training crawlers are allowed.
+    ...['*', ...aiBots].flatMap((b) => [`User-agent: ${b}`, signal, 'Allow: /', '']),
     `Sitemap: ${sitemap}`,
     '',
   ];

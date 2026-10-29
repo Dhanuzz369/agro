@@ -1,13 +1,14 @@
 ---
 import { alternates, localizePath } from '../i18n/paths';
-import { ogLocale, type Locale, locales } from '../i18n/config';
+import { ogLocale, htmlLang, type Locale, locales } from '../i18n/config';
+import { webPageLd } from '../lib/jsonld';
 
 interface Props {
   locale: Locale; title: string; description: string; path: string;
   available?: readonly Locale[]; ogImage?: string; ogImageAlt?: string; ogType?: 'website' | 'article';
-  keywords?: readonly string[] | string; jsonLd?: object[]; noindex?: boolean;
+  keywords?: readonly string[] | string; jsonLd?: object[]; noindex?: boolean; modified?: Date;
 }
-const { locale, title, description, path, available = locales, ogImage, ogImageAlt, ogType = 'website', keywords, jsonLd = [], noindex = false } = Astro.props;
+const { locale, title, description, path, available = locales, ogImage, ogImageAlt, ogType = 'website', keywords, jsonLd = [], noindex = false, modified } = Astro.props;
 const site = Astro.site!;
 const canonical = new URL(localizePath(path, locale), site).href;
 const og = new URL(ogImage ?? '/og/home.png', site).href;
@@ -15,6 +16,16 @@ const og = new URL(ogImage ?? '/og/home.png', site).href;
 const fullTitle = title.includes('GoodBiz') ? title : `${title} | GoodBiz Agri`;
 const kw = typeof keywords === 'string' ? keywords : keywords?.join(', ');
 const alt = ogImageAlt ?? title;
+// Every indexable page describes itself as a WebPage that links to the other blocks on it by @id.
+const ids = jsonLd.map((d) => (d as { '@id'?: string })['@id'] ?? '');
+const pageType = path === '/about' ? 'AboutPage' : path === '/contact' ? 'ContactPage' : path === '/products' || path === '/blog' ? 'CollectionPage' : 'WebPage';
+const page = noindex ? [] : [webPageLd({
+  type: pageType, url: canonical, name: fullTitle, description, inLanguage: htmlLang[locale], siteUrl: site.href,
+  websiteUrl: new URL(localizePath('/', locale), site).href,
+  breadcrumb: ids.some((i) => i === `${canonical}#breadcrumb`),
+  mainEntity: ids.find((i) => i.endsWith('#product') || i.endsWith('#article') || i.endsWith('#list')),
+  dateModified: modified,
+})];
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
@@ -40,4 +51,4 @@ const alt = ogImageAlt ?? title;
 <meta name="twitter:image" content={og} />
 <meta name="twitter:image:alt" content={alt} />
 <link rel="alternate" type="application/rss+xml" title="GoodBiz Agri" href={localizePath('/rss.xml', locale)} />
-{jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}
+{[...page, ...jsonLd].map((d) => <script type="application/ld+json" set:html={JSON.stringify(d).replace(/</g, '\\u003c')} />)}

@@ -21,7 +21,7 @@ const products = await getLocalizedProducts(locale);
 const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
 const ld = [
   websiteLd({ siteUrl: Astro.site!.href, url: abs('/'), name: 'GoodBiz Agri', description: t('meta.homeDescription'), inLanguage: htmlLang[locale] }),
-  itemListLd({ name: t('products.title'), items: products.map((p) => ({ name: p.text.name, url: abs(`/products/${p.slug}`) })) }),
+  itemListLd({ id: `${abs('/')}#list`, name: t('products.title'), items: products.map((p) => ({ name: p.text.name, url: abs(`/products/${p.slug}`) })) }),
   faqLd(homeFaq(locale)),
 ];
 ---
