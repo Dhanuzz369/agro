@@ -13,7 +13,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "lhci": "lhci autorun",
-    "linkcheck": "linkinator ./dist --recurse --skip \"^https?://(?!localhost|127\\.0\\.0\\.1)|/_vercel/\""
+    "linkcheck": "linkinator ./dist --recurse --skip \"^https?://(?!localhost|127\\.0\\.0\\.1)|/_vercel/\"",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",

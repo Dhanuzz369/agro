@@ -3,13 +3,21 @@ import { createT } from '../i18n/t';
 import { localizePath } from '../i18n/paths';
 import { getSite, getLocalizedProducts } from '../lib/catalog';
 import { mailtoHref, isPlaceholder } from '../lib/site';
-import type { Locale } from '../i18n/config';
-interface Props { locale: Locale }
-const { locale } = Astro.props;
+import { htmlLang, locales, gtToCore, type Locale } from '../i18n/config';
+import { nativeName } from '../i18n/languages';
+interface Props { locale: Locale; path: string; available?: readonly Locale[] }
+const { locale, path, available = locales } = Astro.props;
 const t = createT(locale);
 const site = await getSite();
 const mail = mailtoHref(site.email);
 const products = await getLocalizedProducts(locale);
+// This page in every language it exists in, as plain links: the language picker is a dialog of buttons, so without
+// these a crawler starting on one language would only find the others through hreflang tags and the sitemap.
+const gtCode = (l: Locale) => Object.entries(gtToCore).find(([, v]) => v === l)?.[0] ?? l;
+const languages = available.map((l) => {
+  const name = nativeName(gtCode(l));
+  return { locale: l, name: name.charAt(0).toLocaleUpperCase(htmlLang[l]) + name.slice(1), href: localizePath(path, l) };
+});
 ---
 <footer class="ftr" data-tone="dark">
   <div class="container ftr__grid">
@@ -31,6 +39,13 @@ const products = await getLocalizedProducts(locale);
       </ul>
     </nav>
   </div>
+  <nav class="container ftr__langs" aria-label={t('lang.title')}>
+    <ul>
+      {languages.map((l) => (
+        <li><a href={l.href} hreflang={htmlLang[l.locale]} lang={htmlLang[l.locale]} title={l.name} aria-current={l.locale === locale ? 'page' : undefined}>{l.name}</a></li>
+      ))}
+    </ul>
+  </nav>
   <div class="container ftr__base"><p>{t('footer.rights', { year: new Date().getFullYear() })}</p></div>
 </footer>
 <style>
@@ -45,5 +60,8 @@ const products = await getLocalizedProducts(locale);
   address { font-style: normal; margin-block: var(--space-4); opacity: 0.85; }
   .ftr__list { list-style: none; padding: 0; margin: var(--space-4) 0 0; columns: 2 14rem; font-size: var(--step--1); }
   .ftr__list li { break-inside: avoid; }
+  .ftr__langs ul { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-4); font-size: var(--step--1); }
+  .ftr__langs a { display: inline-flex; align-items: center; min-block-size: 44px; }
+  .ftr__langs a[aria-current='page'] { color: var(--gold-soft); text-decoration: none; }
   .ftr__base { margin-block-start: var(--space-7); padding-block-start: var(--space-5); border-block-start: 1px solid rgb(246 241 231 / 0.2); font-size: var(--step--1); opacity: 0.8; }
 </style>

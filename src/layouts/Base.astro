@@ -51,7 +51,7 @@ const onVercel = Boolean(process.env.VERCEL);
     <a class="skip" href="#main" title={t('nav.skip')}>{t('nav.skip')}</a>
     <Header locale={locale} path={seo.path} />
     <main id="main"><slot /></main>
-    <Footer locale={locale} />
+    <Footer locale={locale} path={seo.path} available={seo.available} />
     <WhatsAppButton locale={locale} />
     <LanguageSwitcher locale={locale} path={seo.path} available={seo.available} />
     <LanguageSuggestBanner locale={locale} path={seo.path} available={seo.available} />

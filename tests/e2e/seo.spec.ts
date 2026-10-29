@@ -256,3 +256,20 @@ test('the products page compares every product side by side, in the page languag
   await expect(page.locator('.compare')).toContainText('Séché');
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 });
+
+test('the footer links this page in every language with plain links crawlers can follow', async ({ page }) => {
+  await page.goto('/products/turmeric');
+  const links = page.locator('.ftr__langs a');
+  await expect(links).toHaveCount(9);
+  await expect(page.locator('.ftr__langs a[hreflang="ar"]')).toHaveAttribute('href', '/ar/products/turmeric');
+  await expect(page.locator('.ftr__langs a[aria-current="page"]')).toHaveAttribute('hreflang', 'en');
+  await page.goto('/blog/arecanut-grades-chali-vs-kempu');
+  await expect(page.locator('.ftr__langs a')).toHaveCount(1); // English-only post: no links to pages that don't exist
+});
+
+test('IndexNow key file is served', async ({ request }) => {
+  const key = (await import('node:fs')).readdirSync('public').find((f) => /^[0-9a-f]{32}\.txt$/.test(f))!;
+  const res = await request.get(`/${key}`);
+  expect(res.ok()).toBe(true);
+  expect(await res.text()).toBe(key.replace('.txt', ''));
+});

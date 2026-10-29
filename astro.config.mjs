@@ -14,6 +14,19 @@ const productDates = Object.fromEntries(readdirSync('src/content/products').map(
   f.replace(/\.ya?ml$/, ''),
   readFileSync(`src/content/products/${f}`, 'utf8').match(/^updated:\s*(\S+)/m)?.[1],
 ]));
+// Hub pages change when what they list changes: home and /products with the newest product, /blog with the
+// newest published post. The same dates are the pages' schema dateModified.
+const newest = (dates) => dates.filter(Boolean).sort().at(-1);
+const latestProduct = newest(Object.values(productDates));
+const latestPost = newest(readdirSync('src/content/blog/en')
+  .map((f) => readFileSync(`src/content/blog/en/${f}`, 'utf8'))
+  .filter((src) => !/^draft:\s*true/m.test(src))
+  .map((src) => src.match(/^date:\s*(\S+)/m)?.[1]));
+const hubDate = (path) => {
+  if (/^\/(?:[a-z]{2})?$/.test(path) || /^\/(?:[a-z]{2}\/)?products$/.test(path)) return latestProduct;
+  if (/^\/(?:[a-z]{2}\/)?blog$/.test(path)) return latestPost;
+  return undefined;
+};
 // Product photos go into the sitemap so Google Images can find every variety. The sitemap is written after the
 // pages, so the built page already names its optimised image files.
 const productImages = (url) => {
@@ -50,7 +63,8 @@ export default defineConfig({
     sitemap({
       i18n: { defaultLocale: 'en', locales: Object.fromEntries(locales.map((l) => [l, l === 'zh' ? 'zh-Hans' : l])) },
       serialize(item) {
-        const date = postDates[item.url.match(/\/blog\/([^/]+)$/)?.[1]] ?? productDates[item.url.match(/\/products\/([^/]+)$/)?.[1]];
+        const date = postDates[item.url.match(/\/blog\/([^/]+)$/)?.[1]] ?? productDates[item.url.match(/\/products\/([^/]+)$/)?.[1]]
+          ?? hubDate(new URL(item.url).pathname);
         if (date) item.lastmod = new Date(date).toISOString();
         // Match the x-default the page head declares (the English URL)
         const en = item.links?.find((l) => l.lang === 'en');
