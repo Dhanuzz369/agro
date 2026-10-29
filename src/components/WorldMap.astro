@@ -12,7 +12,7 @@ const [ox, oy] = projectWorld(W, H, origin);
 const hubs = routeHubs.map((h) => ({ ...h, xy: projectWorld(W, H, [h.lon, h.lat]) }));
 ---
 <div class="wm">
-  <img src="/maps/world.svg" alt={label} width={W} height={H} loading="lazy" decoding="async" class="wm__land" />
+  <img src="/maps/world.svg" alt={label} title={label} width={W} height={H} loading="lazy" decoding="async" class="wm__land" />
   <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true" focusable="false" class="wm__routes">
     {arcs.map((d) => <path d={d} class="wm__arc" data-draw />)}
     {hubs.map((h) => <circle cx={h.xy[0]} cy={h.xy[1]} r="3.5" class="wm__hub" />)}

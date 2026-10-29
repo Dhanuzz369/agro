@@ -226,5 +226,16 @@
   "form.err.contact": "Tambahkan email atau nomor WhatsApp",
   "form.err.choose": "Pilih salah satu untuk melanjutkan",
   "form.p.other": "Produk lain",
-  "form.p.otherLabel": "Produk apa? (mis. kacang mete, lada hitam)"
+  "form.p.otherLabel": "Produk apa? (mis. kacang mete, lada hitam)",
+  "link.home": "GoodBiz Agri: eksportir produk pertanian dari India",
+  "link.products": "Produk pertanian yang kami ekspor dari India: beras, rempah, gula jaggery, pinang, kacang tanah, dan kopra",
+  "link.about": "Tentang GoodBiz Agri, eksportir produk pertanian di Bengaluru",
+  "link.blog": "Wawasan ekspor pertanian dan panduan pembeli",
+  "link.contact": "Hubungi GoodBiz Agri untuk pertanyaan ekspor",
+  "link.quote": "Minta penawaran harga ekspor dari GoodBiz Agri",
+  "link.whatsapp": "Chat dengan GoodBiz Agri di WhatsApp",
+  "link.email": "Kirim email ke GoodBiz Agri",
+  "link.phone": "Telepon GoodBiz Agri",
+  "link.spec": "Lembar spesifikasi {name} (PDF)",
+  "link.quoteVariety": "Minta penawaran untuk {name}"
 }

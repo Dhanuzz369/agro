@@ -24,7 +24,7 @@ const regs = await Promise.all(held.map(async (r) => {
         <li data-reg={r.id}>
           <span class="certs__tile">
             {r.logo
-              ? <img src={r.logo} alt={t('alt.registration', { name: r.name })} width={r.width} height="56" loading="lazy" decoding="async" />
+              ? <img src={r.logo} alt={t('alt.registration', { name: r.name })} title={t('alt.registration', { name: r.name })} width={r.width} height="56" loading="lazy" decoding="async" />
               : <strong class="certs__mark">{r.name}</strong>}
           </span>
           <span class="certs__name">{r.name}</span>

@@ -226,5 +226,16 @@
   "form.err.contact": "Añada un correo o un número de WhatsApp",
   "form.err.choose": "Elija una opción para continuar",
   "form.p.other": "Otro producto",
-  "form.p.otherLabel": "¿Qué producto? (p. ej. anacardo, pimienta negra)"
+  "form.p.otherLabel": "¿Qué producto? (p. ej. anacardo, pimienta negra)",
+  "link.home": "GoodBiz Agri: exportador de productos agrícolas de la India",
+  "link.products": "Productos agrícolas que exportamos desde la India: arroz, especias, jaggery, nuez de areca, cacahuetes y copra",
+  "link.about": "Sobre GoodBiz Agri, exportador de productos agrícolas en Bangalore",
+  "link.blog": "Perspectivas y guías de compra para la exportación agrícola",
+  "link.contact": "Contactar a GoodBiz Agri para consultas de exportación",
+  "link.quote": "Solicitar una cotización de exportación a GoodBiz Agri",
+  "link.whatsapp": "Chatear con GoodBiz Agri por WhatsApp",
+  "link.email": "Escribir a GoodBiz Agri",
+  "link.phone": "Llamar a GoodBiz Agri",
+  "link.spec": "Ficha técnica de {name} (PDF)",
+  "link.quoteVariety": "Solicitar cotización de {name}"
 }

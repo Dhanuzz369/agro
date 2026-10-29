@@ -66,7 +66,7 @@ const mailBase = mailtoHref(site.email) ?? '';
           <label class="qf__tile">
             <input type="radio" name="product" value={p.slug} class="qf__radio" aria-describedby="err-product" />
             {/* The image carries the name for assistive tech; the visible caption is hidden from it to avoid "Turmeric Turmeric" */}
-            <Image src={p.data.heroImage.src} alt={p.text.name} widths={[160, 240, 320]} sizes="(max-width: 600px) 30vw, 160px" quality={60} format="webp" loading="lazy" />
+            <Image src={p.data.heroImage.src} alt={p.text.name} title={p.text.name} widths={[160, 240, 320]} sizes="(max-width: 600px) 30vw, 160px" quality={60} format="webp" loading="lazy" />
             <span class="qf__tileName" aria-hidden="true">{p.text.name}</span>
           </label>
         ))}
@@ -147,8 +147,8 @@ const mailBase = mailtoHref(site.email) ?? '';
   <div class="qf__status qf__status--error" role="alert" data-show="error">
     <h3 tabindex="-1" data-status-heading>{t('form.error.title')}</h3><p>{t('form.error.body')}</p>
     <div class="qf__fallbacks">
-      {waBase && <a class="btn btn--secondary" data-fallback="whatsapp" href={waBase} target="_blank" rel="noopener">{t('form.error.whatsapp')}</a>}
-      {mailBase && <a class="btn btn--ghost" data-fallback="email" href={mailBase}>{t('form.error.email')}</a>}
+      {waBase && <a class="btn btn--secondary" data-fallback="whatsapp" href={waBase} title={t('link.whatsapp')} target="_blank" rel="noopener">{t('form.error.whatsapp')}</a>}
+      {mailBase && <a class="btn btn--ghost" data-fallback="email" href={mailBase} title={t('link.email')}>{t('form.error.email')}</a>}
     </div>
   </div>
 </form>

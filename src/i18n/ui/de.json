@@ -226,5 +226,16 @@
   "form.err.contact": "Geben Sie eine E-Mail oder WhatsApp-Nummer an",
   "form.err.choose": "Wählen Sie eine Option, um fortzufahren",
   "form.p.other": "Etwas anderes",
-  "form.p.otherLabel": "Welches Produkt? (z. B. Cashews, schwarzer Pfeffer)"
+  "form.p.otherLabel": "Welches Produkt? (z. B. Cashews, schwarzer Pfeffer)",
+  "link.home": "GoodBiz Agri: Exporteur von Agrarprodukten aus Indien",
+  "link.products": "Agrarprodukte, die wir aus Indien exportieren: Reis, Gewürze, Jaggery, Arekanuss, Erdnüsse und Kopra",
+  "link.about": "Über GoodBiz Agri, Exporteur von Agrarprodukten in Bengaluru",
+  "link.blog": "Einblicke und Einkaufsratgeber für den Agrarexport",
+  "link.contact": "GoodBiz Agri für Exportanfragen kontaktieren",
+  "link.quote": "Exportangebot bei GoodBiz Agri anfordern",
+  "link.whatsapp": "Mit GoodBiz Agri auf WhatsApp chatten",
+  "link.email": "E-Mail an GoodBiz Agri",
+  "link.phone": "GoodBiz Agri anrufen",
+  "link.spec": "Spezifikationsblatt {name} (PDF)",
+  "link.quoteVariety": "Angebot für {name} anfordern"
 }

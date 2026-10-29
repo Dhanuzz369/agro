@@ -226,5 +226,16 @@
   "form.err.contact": "أضف بريداً إلكترونياً أو رقم واتساب",
   "form.err.choose": "اختر خياراً للمتابعة",
   "form.p.other": "منتج آخر",
-  "form.p.otherLabel": "ما المنتج؟ (مثلاً الكاجو أو الفلفل الأسود)"
+  "form.p.otherLabel": "ما المنتج؟ (مثلاً الكاجو أو الفلفل الأسود)",
+  "link.home": "GoodBiz Agri: مُصدّر منتجات زراعية من الهند",
+  "link.products": "المنتجات الزراعية التي نصدّرها من الهند: الأرز والتوابل والجاغري وجوز الأريكا والفول السوداني ولب جوز الهند",
+  "link.about": "عن GoodBiz Agri، مُصدّر المنتجات الزراعية في بنغالورو",
+  "link.blog": "رؤى حول تصدير المنتجات الزراعية وأدلة للمشترين",
+  "link.contact": "تواصل مع GoodBiz Agri لاستفسارات التصدير",
+  "link.quote": "اطلب عرض سعر تصدير من GoodBiz Agri",
+  "link.whatsapp": "تحدث مع GoodBiz Agri عبر واتساب",
+  "link.email": "راسل GoodBiz Agri بالبريد الإلكتروني",
+  "link.phone": "اتصل بـ GoodBiz Agri",
+  "link.spec": "ورقة مواصفات {name} (PDF)",
+  "link.quoteVariety": "اطلب عرض سعر لـ {name}"
 }

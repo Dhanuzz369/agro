@@ -226,5 +226,16 @@
   "form.err.contact": "Укажите e-mail или номер WhatsApp",
   "form.err.choose": "Выберите вариант, чтобы продолжить",
   "form.p.other": "Другой продукт",
-  "form.p.otherLabel": "Какой продукт? (напр. кешью, чёрный перец)"
+  "form.p.otherLabel": "Какой продукт? (напр. кешью, чёрный перец)",
+  "link.home": "GoodBiz Agri: экспортёр агропродукции из Индии",
+  "link.products": "Агропродукция, которую мы экспортируем из Индии: рис, специи, джаггери, орех арека, арахис и копра",
+  "link.about": "О GoodBiz Agri, экспортёре агропродукции из Бангалора",
+  "link.blog": "Аналитика и руководства для покупателей агропродукции",
+  "link.contact": "Связаться с GoodBiz Agri по вопросам экспорта",
+  "link.quote": "Запросить экспортную цену у GoodBiz Agri",
+  "link.whatsapp": "Написать GoodBiz Agri в WhatsApp",
+  "link.email": "Написать письмо GoodBiz Agri",
+  "link.phone": "Позвонить в GoodBiz Agri",
+  "link.spec": "Спецификация: {name} (PDF)",
+  "link.quoteVariety": "Запросить цену: {name}"
 }

@@ -20,14 +20,14 @@ const products = await getLocalizedProducts(locale);
         {!isPlaceholder(site.address.street) && <>{site.address.street}<br /></>}{site.address.city}, {site.address.region}{!isPlaceholder(site.address.postalCode) && ` ${site.address.postalCode}`}<br />India
       </address>
       <p class="ftr__contact">
-        {mail && <a href={mail}>{site.email}</a>}
-        {!isPlaceholder(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr">{site.phone}</a>}
+        {mail && <a href={mail} title={t('link.email')}>{site.email}</a>}
+        {!isPlaceholder(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr" title={t('link.phone')}>{site.phone}</a>}
       </p>
     </div>
     <nav aria-labelledby="ftr-products">
       <h2 id="ftr-products" class="eyebrow">{t('nav.products')}</h2>
       <ul class="ftr__list">
-        {products.map((p) => <li><a href={localizePath(`/products/${p.slug}`, locale)}>{p.text.name}</a></li>)}
+        {products.map((p) => <li><a href={localizePath(`/products/${p.slug}`, locale)} title={p.text.seo.title}>{p.text.name}</a></li>)}
       </ul>
     </nav>
   </div>

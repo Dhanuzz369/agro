@@ -21,10 +21,10 @@ for (let r = 1; r <= ROWS; r++)
 
 // Hero shot of every product first, then their varieties, dealt round-robin so neighbours differ.
 const pool = products.map((p) => [
-  { src: p.data.heroImage.src, alt: t('alt.product', { name: p.text.name, origin: p.text.originLine }), name: p.text.name, slug: p.slug },
+  { src: p.data.heroImage.src, alt: t('alt.product', { name: p.text.name, origin: p.text.originLine }), name: p.text.name, slug: p.slug, title: p.text.seo.title },
   ...p.data.varieties.map((v) => {
     const name = p.text.varieties[v.id]?.name ?? v.id;
-    return { src: v.image.src, alt: t('alt.variety', { variety: name, name: p.text.name }), name, slug: p.slug };
+    return { src: v.image.src, alt: t('alt.variety', { variety: name, name: p.text.name }), name, slug: p.slug, title: p.text.seo.title };
   }),
 ]);
 const photos: (typeof pool)[number] = [];
@@ -39,14 +39,14 @@ const landscape = (i: number) => [3, 6, 11, 17, 21, 22].includes(i);
     <h1 id="hero-title" class="frame__title">{t('hero.title')}</h1>
     <p class="frame__lede">{t('hero.lede')}</p>
     <div class="frame__ctas">
-      <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('hero.quote')}</a>
-      <a class="btn btn--ghost" href={localizePath('/products', locale)}>{t('hero.products')}</a>
+      <a class="btn btn--primary" href={localizePath('/contact', locale)} title={t('link.quote')}>{t('hero.quote')}</a>
+      <a class="btn btn--ghost" href={localizePath('/products', locale)} title={t('link.products')}>{t('hero.products')}</a>
     </div>
   </div>
   {photos.map((p, i) => (
-    <a class:list={['frame__photo', { 'frame__photo--wide': landscape(i) }]} href={localizePath(`/products/${p.slug}`, locale)}
+    <a class:list={['frame__photo', { 'frame__photo--wide': landscape(i) }]} href={localizePath(`/products/${p.slug}`, locale)} title={p.title}
       style={`--r:${ring[i].r};--c:${ring[i].c};--i:${i}`} data-hero-photo>
-      <Image src={p.src} alt={p.alt} widths={[160, 240, 320]} sizes="(min-width: 1024px) 10vw, 25vw" quality={60} format="webp" loading="lazy" decoding="async" />
+      <Image src={p.src} alt={p.alt} title={p.alt} widths={[160, 240, 320]} sizes="(min-width: 1024px) 10vw, 25vw" quality={60} format="webp" loading="lazy" decoding="async" />
       <span class="frame__cap" aria-hidden="true">{p.name}</span>
     </a>
   ))}

@@ -6,21 +6,21 @@ interface Props { locale: Locale; path: string }
 const { locale, path } = Astro.props;
 const t = createT(locale);
 const links = [
-  { href: '/products', label: t('nav.products') },
-  { href: '/about', label: t('nav.about') },
-  { href: '/blog', label: t('nav.blog') },
-  { href: '/contact', label: t('nav.contact') },
+  { href: '/products', label: t('nav.products'), title: t('link.products') },
+  { href: '/about', label: t('nav.about'), title: t('link.about') },
+  { href: '/blog', label: t('nav.blog'), title: t('link.blog') },
+  { href: '/contact', label: t('nav.contact'), title: t('link.contact') },
 ];
 const isActive = (href: string) => path === href || path.startsWith(`${href}/`);
 ---
 <header class="hdr" data-hdr>
   <div class="container hdr__row">
-    <a class="brand" href={localizePath('/', locale)}>GoodBiz <span>Agri</span></a>
+    <a class="brand" href={localizePath('/', locale)} title={t('link.home')}>GoodBiz <span>Agri</span></a>
     <nav aria-label="Main" class="hdr__nav" id="main-nav">
       <ul>
-        {links.map((l) => <li><a href={localizePath(l.href, locale)} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a></li>)}
+        {links.map((l) => <li><a href={localizePath(l.href, locale)} title={l.title} aria-current={isActive(l.href) ? 'page' : undefined}>{l.label}</a></li>)}
       </ul>
-      <a class="btn btn--ghost" href={localizePath('/contact', locale)}>{t('cta.quote')}</a>
+      <a class="btn btn--ghost" href={localizePath('/contact', locale)} title={t('link.quote')}>{t('cta.quote')}</a>
     </nav>
     <button class="hdr__toggle" aria-expanded="false" aria-controls="main-nav" data-open={t('nav.menu')} data-close={t('nav.close')}>{t('nav.menu')}</button>
   </div>

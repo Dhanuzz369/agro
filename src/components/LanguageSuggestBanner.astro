@@ -12,7 +12,7 @@ const strings = Object.fromEntries(available.map((l) => {
 <div class="lsb" data-lang-suggest hidden data-current={locale} data-available={JSON.stringify(available)} data-strings={JSON.stringify(strings)} role="region" aria-live="polite">
   <p data-text></p>
   {/* real href until the script points it at the suggested language: crawlable, never a dead "#" */}
-  <a class="btn btn--secondary" data-yes href={localizePath(path, locale)}></a>
+  <a class="btn btn--secondary" data-yes href={localizePath(path, locale)} title={createT(locale)('lang.title')}></a>
   <button type="button" class="btn btn--ghost lsb__no" data-dismiss>
     <span data-no-text></span>
     <svg class="lsb__x" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" /></svg>
@@ -33,6 +33,7 @@ const strings = Object.fromEntries(available.map((l) => {
       el.querySelector('[data-text]')!.textContent = s.text;
       const yes = el.querySelector<HTMLAnchorElement>('[data-yes]')!;
       yes.textContent = s.yes;
+      yes.title = s.yes;
       yes.href = localizePath(stripLocale(location.pathname).path, target);
       yes.addEventListener('click', () => safeStorage.set('gb.lang', target));
       const no = el.querySelector<HTMLButtonElement>('[data-dismiss]')!;

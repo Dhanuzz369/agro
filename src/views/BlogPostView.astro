@@ -43,7 +43,7 @@ const keywords = [...new Set(products.flatMap((p) => [p.text.name, ...p.text.seo
         <div class="bp__related">{products.map((p) => <ProductCard locale={locale} product={p} />)}</div>
       </section>
     )}
-    <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('cta.quote')}</a>
+    <a class="btn btn--primary" href={localizePath('/contact', locale)} title={t('link.quote')}>{t('cta.quote')}</a>
   </article>
 </Base>
 <style>

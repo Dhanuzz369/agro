@@ -226,5 +226,16 @@
   "form.err.contact": "请填写邮箱或 WhatsApp 号码",
   "form.err.choose": "请选择一项以继续",
   "form.p.other": "其他产品",
-  "form.p.otherLabel": "哪种产品？（如腰果、黑胡椒）"
+  "form.p.otherLabel": "哪种产品？（如腰果、黑胡椒）",
+  "link.home": "GoodBiz Agri：印度农产品出口商",
+  "link.products": "我们从印度出口的农产品：大米、香料、粗糖、槟榔、花生和椰干",
+  "link.about": "关于 GoodBiz Agri——班加罗尔农产品出口商",
+  "link.blog": "农产品出口资讯与采购指南",
+  "link.contact": "联系 GoodBiz Agri 咨询出口事宜",
+  "link.quote": "向 GoodBiz Agri 获取出口报价",
+  "link.whatsapp": "通过 WhatsApp 联系 GoodBiz Agri",
+  "link.email": "发送邮件给 GoodBiz Agri",
+  "link.phone": "致电 GoodBiz Agri",
+  "link.spec": "{name}规格表（PDF）",
+  "link.quoteVariety": "获取{name}报价"
 }

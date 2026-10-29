@@ -207,3 +207,12 @@ test('icons, manifest and theme colour are served', async ({ page, request }) =>
   const manifest = await (await request.get('/site.webmanifest')).json();
   expect(manifest.name).toBe('GoodBiz Agri');
 });
+
+test('every image and link carries a descriptive title', async ({ page }) => {
+  for (const path of ['/', '/products', '/products/turmeric', '/blog', '/blog/arecanut-grades-chali-vs-kempu', '/about', '/contact', '/ar/products/rice']) {
+    await page.goto(path);
+    const missing = await page.locator('img, a[href]').evaluateAll((els) =>
+      els.filter((e) => !(e.getAttribute('title') ?? '').trim()).map((e) => e.outerHTML.slice(0, 80)));
+    expect(missing, path).toEqual([]);
+  }
+});

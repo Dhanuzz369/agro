@@ -29,7 +29,7 @@ const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
     <ul class="bi__list">
       {posts.map((p) => (
         <li data-post data-category={p.entry.data.category}>
-          <a href={localizePath(`/blog/${p.slug}`, p.fallback ? 'en' : locale)}>
+          <a href={localizePath(`/blog/${p.slug}`, p.fallback ? 'en' : locale)} title={p.entry.data.title}>
             <p class="bi__meta"><span>{t(`blog.cat.${p.entry.data.category}` as UiKey)}</span> · <time datetime={p.entry.data.date.toISOString()}>{date.format(p.entry.data.date)}</time> · {t('blog.readingTime', { n: readingTime(p.entry.body ?? '') })}{p.fallback && <> · <span data-fallback>{t('blog.inEnglish')}</span></>}</p>
             <h2 lang={p.fallback ? 'en' : undefined}>{p.entry.data.title}</h2>
             <p lang={p.fallback ? 'en' : undefined}>{p.entry.data.description}</p>

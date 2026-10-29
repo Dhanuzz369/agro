@@ -33,9 +33,9 @@ const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
       </div>
       <aside class="cv__aside">
         <h2>{t('contact.direct')}</h2>
-        {wa && <a class="btn btn--secondary" href={wa} target="_blank" rel="noopener">{t('cta.whatsapp')}</a>}
-        {mail && <a href={mail}>{site.email}</a>}
-        {!isPlaceholder(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr">{site.phone}</a>}
+        {wa && <a class="btn btn--secondary" href={wa} target="_blank" rel="noopener" title={t('link.whatsapp')}>{t('cta.whatsapp')}</a>}
+        {mail && <a href={mail} title={t('link.email')}>{site.email}</a>}
+        {!isPlaceholder(site.phone) && <a href={`tel:${site.phone.replace(/\s/g, '')}`} dir="ltr" title={t('link.phone')}>{site.phone}</a>}
         <h3>{t('contact.office')}</h3>
         <address>{street && <>{street}<br /></>}{addr.city}, {addr.region} {postal}<br />India</address>
       </aside>

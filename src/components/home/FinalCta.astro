@@ -11,7 +11,7 @@ const t = createT(locale);
   <div class="container cta" data-reveal>
     <h2>{t('home.cta.title')}</h2>
     <p>{t('home.cta.body')}</p>
-    <a class="btn btn--primary" href={localizePath('/contact', locale)}>{t('cta.quote')}</a>
+    <a class="btn btn--primary" href={localizePath('/contact', locale)} title={t('link.quote')}>{t('cta.quote')}</a>
   </div>
 </section>
 <style>

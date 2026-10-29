@@ -19,6 +19,18 @@ const productImages = (url) => {
   const srcs = [...html.matchAll(/<img[^>]*?\ssrc="(\/_astro\/[^"]+)"/g)].map((m) => new URL(m[1], url).href);
   return [...new Set(srcs)].map((src) => ({ url: src }));
 };
+// Links and images written in blog posts get a title from their own text or alt, like the rest of the site.
+const textOf = (n) => (n.type === 'text' ? n.value : (n.children ?? []).map(textOf).join(''));
+const rehypeTitles = () => (tree) => {
+  const walk = (n) => {
+    if (n.type === 'element' && !n.properties.title) {
+      if (n.tagName === 'a') n.properties.title = textOf(n).trim() || undefined;
+      if (n.tagName === 'img' && n.properties.alt) n.properties.title = n.properties.alt;
+    }
+    (n.children ?? []).forEach(walk);
+  };
+  walk(tree);
+};
 const inSection = (section) => (item) => (new RegExp(`^/(?:[a-z]{2}/)?${section}(/|$)`).test(new URL(item.url).pathname) ? item : undefined);
 
 export default defineConfig({
@@ -26,6 +38,7 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'directory', inlineStylesheets: 'always' },
+  markdown: { rehypePlugins: [rehypeTitles] },
   integrations: [
     mdx(),
     sitemap({

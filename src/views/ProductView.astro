@@ -59,14 +59,14 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
       <Breadcrumbs locale={locale} items={crumbs} />
       <div class="pv__heroGrid">
         <div class="pv__object">
-          <Image src={p.data.heroImage.src} alt={alt(p.text.seo.h1, p.text.originLine)} {...poster} loading="eager" fetchpriority="high" data-product-hero />
+          <Image src={p.data.heroImage.src} alt={alt(p.text.seo.h1, p.text.originLine)} title={p.text.seo.h1} {...poster} loading="eager" fetchpriority="high" data-product-hero />
         </div>
         <div class="pv__intro">
           <h1>{p.text.seo.h1}</h1>
           <p class="pv__summary">{p.text.summary}</p>
           <div class="pv__ctas">
-            <a class="btn btn--primary" href={quoteHref()}>{t('cta.quote')}</a>
-            {wa && <a class="btn btn--ghost" href={wa} target="_blank" rel="noopener">{t('cta.whatsapp')}</a>}
+            <a class="btn btn--primary" href={quoteHref()} title={t('link.quote')}>{t('cta.quote')}</a>
+            {wa && <a class="btn btn--ghost" href={wa} target="_blank" rel="noopener" title={t('link.whatsapp')}>{t('cta.whatsapp')}</a>}
           </div>
         </div>
       </div>
@@ -89,7 +89,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
           return (
             <article class="var" data-variety={v.id} data-reveal>
               <div class="var__media">
-                <Image src={v.image.src} alt={varietyAlt(vt?.name ?? v.id)} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
+                <Image src={v.image.src} alt={varietyAlt(vt?.name ?? v.id)} title={varietyAlt(vt?.name ?? v.id)} widths={[360, 540, 720]} sizes="(max-width: 700px) 100vw, 33vw" quality={70} format="webp" loading="lazy" />
               </div>
               <div class="var__body">
                 <h3>{vt?.name ?? v.id}</h3>
@@ -98,8 +98,8 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
                 <SpecTable locale={locale} specs={v.specs} caption={`${t('product.specs')} — ${vt?.name ?? v.id}`} />
                 <p class="var__pack"><span>{t('product.packing')}:</span> {v.packing.join(' · ')}</p>
                 <div class="var__ctas">
-                  <a class="btn btn--secondary" href={quoteHref(v.id)}>{t('cta.quoteVariety')}</a>
-                  <a href={`/spec-sheets/${slug}/${v.id}.pdf`} download>{t('cta.specSheet')}</a>
+                  <a class="btn btn--secondary" href={quoteHref(v.id)} title={t('link.quoteVariety', { name: vt?.name ?? v.id })}>{t('cta.quoteVariety')}</a>
+                  <a href={`/spec-sheets/${slug}/${v.id}.pdf`} download title={t('link.spec', { name: vt?.name ?? v.id })}>{t('cta.specSheet')}</a>
                 </div>
               </div>
             </article>
@@ -150,7 +150,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
         <ul class="pv__posts">
           {insights.map((ps) => (
             <li>
-              <a href={localizePath(`/blog/${ps.slug}`, ps.fallback ? 'en' : locale)}>
+              <a href={localizePath(`/blog/${ps.slug}`, ps.fallback ? 'en' : locale)} title={ps.entry.data.title}>
                 <span class="pv__postMeta"><time datetime={ps.entry.data.date.toISOString()}>{postDate.format(ps.entry.data.date)}</time>{ps.fallback && <> · {t('blog.inEnglish')}</>}</span>
                 <span class="pv__postTitle" lang={ps.fallback ? 'en' : undefined}>{ps.entry.data.title}</span>
               </a>
@@ -169,7 +169,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
 
     <section class="container pv__cta">
       <h2>{t('home.cta.title')}</h2>
-      <a class="btn btn--primary" href={quoteHref()}>{t('cta.quote')}</a>
+      <a class="btn btn--primary" href={quoteHref()} title={t('link.quote')}>{t('cta.quote')}</a>
     </section>
   </article>
 </Base>
