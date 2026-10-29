@@ -35,6 +35,8 @@ test('draft market report is not built, syndicated or in the sitemap', async ({ 
   expect((await request.get('/blog/market-report-2026-10')).status()).toBe(404);
   expect((await request.get('/og/blog/market-report-2026-10.png')).status()).toBe(404);
   expect(await (await request.get('/rss.xml')).text()).not.toContain('market-report-2026-10');
-  expect(await (await request.get('/sitemap-0.xml')).text()).not.toContain('market-report-2026-10');
+  const blogMap = await request.get('/sitemap-blog-0.xml');
+  expect(blogMap.ok()).toBe(true);
+  expect(await blogMap.text()).not.toContain('market-report-2026-10');
   expect(await (await request.get('/llms.txt')).text()).not.toContain('market-report-2026-10');
 });

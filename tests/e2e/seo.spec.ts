@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, type APIRequestContext } from '@playwright/test';
 
 test('robots.txt allows AI crawlers and lists the sitemap on the build domain', async ({ request }) => {
   const body = await (await request.get('/robots.txt')).text();
@@ -27,12 +27,31 @@ test('llms.txt lists products without HSN codes', async ({ request }) => {
   expect(body).toContain('/products/turmeric');
 });
 
-test('sitemap includes localized URLs', async ({ request }) => {
+// Every child sitemap listed in sitemap-index.xml, joined into one string
+async function sitemaps(request: APIRequestContext) {
   const idx = await (await request.get('/sitemap-index.xml')).text();
-  const first = idx.match(/<loc>(.*?)<\/loc>/)![1];
-  const map = await (await request.get(new URL(first).pathname)).text();
-  expect(map).toContain('/fr/products/turmeric');
-  expect(map).toContain('hreflang="ar"');
+  const files = [...idx.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
+  const maps = await Promise.all(files.map(async (f) => {
+    const res = await request.get(f);
+    expect(res.ok(), f).toBe(true);
+    return res.text();
+  }));
+  return { files, all: maps.join('\n') };
+}
+
+test('sitemap index splits products, blog and other pages, with localized URLs', async ({ request }) => {
+  const { files, all } = await sitemaps(request);
+  expect(files).toEqual(['/sitemap-products-0.xml', '/sitemap-blog-0.xml', '/sitemap-pages-0.xml']);
+  expect(all).toContain('/fr/products/turmeric');
+  expect(all).toContain('hreflang="ar"');
+});
+
+test('product sitemap lists each product page photos for Google Images', async ({ request }) => {
+  const map = await (await request.get('/sitemap-products-0.xml')).text();
+  const turmeric = map.match(/<url><loc>[^<]*\/products\/turmeric<\/loc>.*?<\/url>/)![0];
+  const imgs = [...turmeric.matchAll(/<image:loc>(.*?)<\/image:loc>/g)].map((m) => m[1]);
+  expect(imgs.length).toBeGreaterThan(1);
+  for (const i of imgs) expect((await request.get(new URL(i).pathname)).headers()['content-type'], i).toContain('image/');
 });
 
 test('og image and spec sheet are served', async ({ request }) => {
@@ -53,8 +72,8 @@ test('every page has exactly one h1, a description and a canonical', async ({ pa
 });
 
 test('sitemap <loc> values equal each page canonical (no trailing slash)', async ({ page, request }) => {
-  const map = await (await request.get('/sitemap-0.xml')).text();
-  const locs = [...map.matchAll(/<loc>(.*?)<\/loc>/g)].map((m) => m[1]);
+  const { all } = await sitemaps(request);
+  const locs = [...all.matchAll(/<url><loc>(.*?)<\/loc>/g)].map((m) => m[1]);
   for (const l of locs) if (new URL(l).pathname !== '/') expect(l.endsWith('/'), l).toBe(false);
   const wanted = ['/', '/ar', '/zh', '/fr', '/products', '/products/turmeric', '/zh/products/turmeric', '/products/rice', '/blog', '/about', '/contact', '/de/contact'];
   const sample = wanted.map((p) => locs.find((l) => new URL(l).pathname === p));
@@ -88,7 +107,7 @@ test('HSN reference pages and the HSN blog post are gone', async ({ request }) =
   for (const path of ['/hsn/1701', '/ar/hsn/1701', '/blog/turmeric-hsn-codes-explained', '/og/hsn/1701.png']) expect((await request.get(path)).status(), path).toBe(404);
   const llms = await (await request.get('/llms.txt')).text();
   expect(llms).not.toMatch(/HSN|\/hsn\//);
-  expect(await (await request.get('/sitemap-0.xml')).text()).not.toMatch(/\/hsn\/|hsn-codes/);
+  expect((await sitemaps(request)).all).not.toMatch(/\/hsn\/|hsn-codes/);
 });
 
 const productSlugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric'];
