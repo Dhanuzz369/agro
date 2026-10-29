@@ -167,13 +167,13 @@ test('JSON-LD types match the page type and never carry placeholders or HSN', as
   const want: [string, string[]][] = [
     ['/', ['WebPage', 'Organization', 'WebSite', 'ItemList', 'FAQPage']],
     ['/ar', ['WebPage', 'Organization', 'WebSite', 'ItemList', 'FAQPage']],
-    ['/products', ['CollectionPage', 'Organization', 'ItemList', 'BreadcrumbList']],
-    ['/products/turmeric', ['WebPage', 'Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
-    ['/de/products/coconut-copra', ['WebPage', 'Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
-    ['/about', ['AboutPage', 'Organization', 'BreadcrumbList']],
-    ['/contact', ['ContactPage', 'Organization', 'BreadcrumbList']],
-    ['/blog', ['CollectionPage', 'Organization', 'BreadcrumbList']],
-    ['/blog/arecanut-grades-chali-vs-kempu', ['WebPage', 'Organization', 'Article', 'BreadcrumbList']],
+    ['/products', ['WebSite', 'CollectionPage', 'Organization', 'ItemList', 'BreadcrumbList']],
+    ['/products/turmeric', ['WebSite', 'WebPage', 'Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
+    ['/de/products/coconut-copra', ['WebSite', 'WebPage', 'Organization', 'Product', 'FAQPage', 'BreadcrumbList']],
+    ['/about', ['WebSite', 'AboutPage', 'Organization', 'BreadcrumbList']],
+    ['/contact', ['WebSite', 'ContactPage', 'Organization', 'BreadcrumbList']],
+    ['/blog', ['WebSite', 'CollectionPage', 'Organization', 'BreadcrumbList']],
+    ['/blog/arecanut-grades-chali-vs-kempu', ['WebSite', 'WebPage', 'Organization', 'Article', 'BreadcrumbList']],
   ];
   for (const [path, types] of want) {
     await page.goto(path);
@@ -197,6 +197,21 @@ test('JSON-LD types match the page type and never carry placeholders or HSN', as
   const webPage = JSON.parse((await page.locator('script[type="application/ld+json"]').allTextContents()).find((b) => b.includes('"WebPage"'))!);
   expect(webPage.mainEntity['@id']).toBe(product['@id']);
   expect(webPage.isPartOf['@id']).toMatch(/\/#website$/);
+  expect(webPage.author['@id']).toMatch(/\/#organization$/);
+});
+
+test('AI discovery files describe the business from the same data as the pages', async ({ request }) => {
+  const summary = await (await request.get('/ai/summary.json')).json();
+  expect(summary.name).toBe('GoodBiz Agri');
+  expect(summary.products).toHaveLength(9);
+  const faq = await (await request.get('/ai/faq.json')).json();
+  expect(faq.faqs.length).toBeGreaterThan(9);
+  for (const f of faq.faqs) expect(f.question.length >= 10 && f.answer.length >= 20, f.question).toBe(true);
+  const service = await (await request.get('/ai/service.json')).json();
+  expect(service.capabilities).toHaveLength(9);
+  const aiTxt = await (await request.get('/.well-known/ai.txt')).text();
+  expect(aiTxt).toMatch(/^Attribution: GoodBiz Agri/m);
+  expect(JSON.stringify([summary, faq, service]) + aiTxt).not.toMatch(/REPLACE:/);
 });
 
 test('product pages open with a direct answer naming the exporter', async ({ page }) => {

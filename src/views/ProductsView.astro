@@ -14,10 +14,12 @@ const { locale } = Astro.props;
 const t = createT(locale);
 const td = createTd(locale);
 const products = await getLocalizedProducts(locale);
+// The table and cards show product data, so the page changed when the newest product page did.
+const lastUpdated = new Date(Math.max(...products.map((p) => p.data.updated.getTime())));
 const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }];
 const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
 ---
-<Base locale={locale} title={t('meta.productsTitle')} description={t('meta.productsDescription')} keywords={t('meta.productsKeywords')} path="/products" ogImage="/og/products.png"
+<Base locale={locale} title={t('meta.productsTitle')} description={t('meta.productsDescription')} keywords={t('meta.productsKeywords')} path="/products" ogImage="/og/products.png" modified={lastUpdated}
   jsonLd={[
     itemListLd({ id: `${abs('/products')}#list`, name: t('products.title'), items: products.map((p) => ({ name: p.text.name, url: abs(`/products/${p.slug}`) })) }),
     breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),

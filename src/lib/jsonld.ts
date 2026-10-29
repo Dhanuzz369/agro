@@ -169,6 +169,8 @@ export function webPageLd(a: {
     description: a.description,
     inLanguage: a.inLanguage,
     isPartOf: { '@id': `${a.websiteUrl}#website` },
+    // The company writes every page; naming it as author answers Google's "who created this" question.
+    author: { '@id': orgId(a.siteUrl) },
     publisher: { '@id': orgId(a.siteUrl) },
     breadcrumb: a.breadcrumb ? { '@id': `${a.url}#breadcrumb` } : undefined,
     mainEntity: a.mainEntity ? { '@id': a.mainEntity } : undefined,

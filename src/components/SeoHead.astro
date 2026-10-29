@@ -1,7 +1,8 @@
 ---
 import { alternates, localizePath } from '../i18n/paths';
 import { ogLocale, htmlLang, type Locale, locales } from '../i18n/config';
-import { webPageLd } from '../lib/jsonld';
+import { webPageLd, websiteLd } from '../lib/jsonld';
+import { createT } from '../i18n/t';
 
 interface Props {
   locale: Locale; title: string; description: string; path: string;
@@ -19,9 +20,12 @@ const alt = ogImageAlt ?? title;
 // Every indexable page describes itself as a WebPage that links to the other blocks on it by @id.
 const ids = jsonLd.map((d) => (d as { '@id'?: string })['@id'] ?? '');
 const pageType = path === '/about' ? 'AboutPage' : path === '/contact' ? 'ContactPage' : path === '/products' || path === '/blog' ? 'CollectionPage' : 'WebPage';
-const page = noindex ? [] : [webPageLd({
+const homeUrl = new URL(localizePath('/', locale), site).href;
+// The site node rides on every page, so each page's WebPage.isPartOf resolves on the page itself.
+const siteNode = websiteLd({ siteUrl: site.href, url: homeUrl, name: 'GoodBiz Agri', description: createT(locale)('meta.homeDescription'), inLanguage: htmlLang[locale] });
+const page = noindex ? [] : [siteNode, webPageLd({
   type: pageType, url: canonical, name: fullTitle, description, inLanguage: htmlLang[locale], siteUrl: site.href,
-  websiteUrl: new URL(localizePath('/', locale), site).href,
+  websiteUrl: homeUrl,
   breadcrumb: ids.some((i) => i === `${canonical}#breadcrumb`),
   mainEntity: ids.find((i) => i.endsWith('#product') || i.endsWith('#article') || i.endsWith('#list')),
   dateModified: modified,
@@ -29,6 +33,7 @@ const page = noindex ? [] : [webPageLd({
 ---
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
+<meta name="author" content="GoodBiz Agri" />
 {kw && <meta name="keywords" content={kw} />}
 <meta name="robots" content={noindex ? 'noindex' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'} />
 <link rel="canonical" href={canonical} />
