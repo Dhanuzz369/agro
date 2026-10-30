@@ -56,7 +56,6 @@ Format: file | photographer | source page | licence | exact or generic
 Shown only to indicate GoodBiz Agri's registrations. Sources:
 - apeda.png — https://apeda.gov.in/themes/custom/apedals/assets/images/logo.png
 - spices-board.png — https://www.indianspices.com/sites/default/files/new%20logo.jpg
-- fssai.png — https://www.fssai.gov.in/images/fssai-logo-color.png
-- dgft.png — https://commons.wikimedia.org/wiki/File:Directorate_General_of_Foreign_Trade_Logo.png
+- fssai.png — supplied by GoodBiz Agri (Oct 2026); white background made transparent and trimmed
 - cdb.png — emblem cropped from https://coconutboard.gov.in/img/cdb-logo.png
 - FIEO — not included (official site unavailable); text badge shown until supplied.

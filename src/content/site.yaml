@@ -17,7 +17,6 @@ registrations:
   - { id: spices-board, name: "Spices Board India", number: "REPLACE: CRES no.", logo: /logos/spices-board.png, held: true }
   - { id: fieo, name: "FIEO", number: "REPLACE: FIEO RCMC no.", logo: /logos/fieo.png, held: true }
   - { id: fssai, name: "FSSAI", number: "REPLACE: FSSAI licence no.", logo: /logos/fssai.png, held: true }
-  - { id: iec, name: "DGFT (IEC)", number: "REPLACE: IEC no.", logo: /logos/dgft.png, held: true }
   - { id: cdb, name: "Coconut Development Board", number: "REPLACE: CDB no.", logo: /logos/cdb.png, held: true }
 stats: { countries: 70, products: 9, markets: 18, ports: 4 }
 social: []
