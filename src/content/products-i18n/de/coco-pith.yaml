@@ -1,0 +1,23 @@
+reviewStatus: pending
+name: "Kokospeat (Coco Pith)"
+summary: "GoodBiz Agri exportiert Kokospeat (Coco Pith) — 5-kg-Blöcke, Growbags, Mischungen mit Kokoschips, Briketts und Kokoschips — von Kokosfaser-Lieferanten in Karnataka, Tamil Nadu und Kerala, gepuffert, gewaschen oder roh, im Labor auf EC, pH und Sand geprüft."
+originLine: "Karnataka, Tamil Nadu und Kerala — mehrere Kokosfaser-Lieferanten"
+sourcingStory: "Kokospeat ist das feine, schwammige Material, das beim Gewinnen der Fasern aus Kokosschalen zurückbleibt. Wir kaufen es bei mehreren Kokosfaser-Lieferanten in Karnataka, Tamil Nadu und Kerala und wählen den Lieferanten für jeden Auftrag nach Format, Qualität und EC, die der Anbauer braucht. Jede Partie wird vor dem Verpacken im Labor auf EC, pH und Sand geprüft."
+varieties:
+  block-5kg: { name: "5-kg-Kokospeat-Blöcke", description: "Im Verhältnis 5:1 gepresste Blöcke, die sich auf 65–80 Liter Substrat öffnen, gepuffert, gewaschen oder roh." }
+  grow-bags: { name: "Growbags und Matten", description: "Pflanzfertige Säcke für Beeren, Tomaten und Gurken, oben offen oder mit vorgeschnittenen Pflanzlöchern." }
+  pith-chip-mix: { name: "Mischungen aus Peat und Chips", description: "Kokospeat im Verhältnis 70:30 oder 50:50 mit Kokoschips gemischt, für mehr Luft in Beeren- und Avocadotöpfen." }
+  bricks-discs: { name: "Briketts, Scheiben und Pellets", description: "650-g-Briketts, Scheiben und Pellets für Anzucht und Gartenhandel, unter Ihrer Marke." }
+  husk-chips: { name: "Kokoschips", description: "Sortierte Chips aus Kokosschalen für Orchideen, Tomaten und Paprika sowie für lockere, luftige Mischungen." }
+faq:
+  - { q: "Welche EC-Qualitäten von Kokospeat können Sie liefern?", a: "Gepuffertes Kokospeat unter 0,5 mS/cm, gewaschenes mit 0,5–1,0 mS/cm und rohes ab 1,5 mS/cm. Jede Partie wird im Labor auf EC, pH und Sand geprüft, und der Vertrag nennt die EC-Messmethode (zum Beispiel 1:5 nach EN 13038), weil verschiedene Methoden beim selben Material unterschiedliche Werte ergeben." }
+  - { q: "Was ist der Unterschied zwischen gepuffertem und gewaschenem Kokospeat?", a: "Beim Waschen wird der Großteil der Natrium- und Kaliumsalze ausgespült. Beim Puffern wird das Material zusätzlich mit Calciumnitrat behandelt, sodass Natrium und Kalium an der Faser ersetzt werden und das Substrat kein Calcium und Magnesium bindet, das die Kultur braucht. Gewächshausbetriebe für Beeren, Tomaten und Gurken verlangen meist gepuffertes Material." }
+  - { q: "Wie stark dehnt sich ein 5-kg-Block aus?", a: "Ein 5-kg-Block ist etwa 5:1 gepresst und öffnet sich nach dem Wässern auf 65–80 Liter loses Substrat." }
+  - { q: "Welche Formate und Eigenmarken-Optionen bieten Sie an?", a: "GoodBiz Agri liefert 5-kg-Blöcke, Growbags und Matten, Mischungen aus Peat und Chips im Verhältnis 70:30 und 50:50, 650-g-Briketts, Scheiben, Pellets und Kokoschips. Briketts und Säcke für den Handel können unter Ihrer eigenen Marke verpackt werden." }
+  - { q: "Welche Dokumente begleiten eine Kokospeat-Sendung?", a: "Jede Sendung erhält ein Pflanzengesundheitszeugnis des indischen Pflanzenquarantänedienstes, ein Ursprungszeugnis und die Laboranalyse. Wo das Zielland es verlangt, begast eine zugelassene Firma, und manche Länder stellen eigene Bedingungen, etwa ISPM-15-Paletten." }
+  - { q: "Darf Kokospeat in die EU und nach Großbritannien eingeführt werden?", a: "Ja. Die EU-Verordnung 2019/2072, Anhang VI, nimmt Kultursubstrate, die vollständig aus ungebrauchten Kokosfasern bestehen, von den Beschränkungen für Erde und Kultursubstrate aus, und Großbritannien wendet dieselbe Ausnahme an. Jede Sendung erhält ein Pflanzengesundheitszeugnis." }
+seo:
+  title: "Kokospeat Exporteur Indien: Blöcke, Growbags"
+  h1: "Kokospeat-Blöcke, Growbags und Mischungen"
+  description: "Kokospeat-Exporteur aus Indien: 5-kg-Blöcke, Growbags, Mischungen mit Chips, Briketts und Kokoschips, gepuffert oder gewaschen mit niedrigem EC. Jetzt anfragen."
+  keywords: ["Kokospeat Exporteur Indien", "Kokospeat Blöcke", "Kokos Growbags", "gepuffertes Kokospeat", "Kokossubstrat niedriger EC", "Kokoschips", "coco pith exporter India"]

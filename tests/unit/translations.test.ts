@@ -48,7 +48,7 @@ describe('no HSN codes in visitor-facing text', () => {
   it('product text never mentions HSN or a tariff code', () => {
     for (const l of locales) {
       for (const f of readdirSync(`src/content/products-i18n/${l}`)) {
-        expect(readFileSync(`src/content/products-i18n/${l}/${f}`, 'utf8'), `${l}/${f}`).not.toMatch(/HSN|\b(0910|1006|1701|0802|0801|1202)\d*\b/);
+        expect(readFileSync(`src/content/products-i18n/${l}/${f}`, 'utf8'), `${l}/${f}`).not.toMatch(/HSN|\b(0910|1006|1701|0802|0801|1202|5305)\d*\b/);
       }
     }
   });

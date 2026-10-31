@@ -1,0 +1,23 @@
+reviewStatus: reviewed
+name: Coco Pith
+summary: GoodBiz Agri exports coco pith (cocopeat) — 5 kg blocks, grow bags, pith and chip mixes, bricks and husk chips — from coir suppliers in Karnataka, Tamil Nadu and Kerala, in buffered, washed or raw EC grades, lab-tested for EC, pH and sand.
+originLine: Karnataka, Tamil Nadu and Kerala — several coir suppliers
+sourcingStory: Coco pith is the fine, spongy material left when fibre is pulled from coconut husks. We buy it from several coir suppliers across Karnataka, Tamil Nadu and Kerala and choose the supplier for each order by the format, grade and EC the grower needs. Every lot is lab-tested for EC, pH and sand before it is packed.
+varieties:
+  block-5kg: { name: "5 kg coco pith blocks", description: "Compressed 5:1 blocks that open up to 65–80 litres of substrate, in buffered, washed or raw grades." }
+  grow-bags: { name: "Grow bags and slabs", description: "Ready-to-plant bags for berries, tomatoes and cucumbers, open top or with pre-cut planting holes." }
+  pith-chip-mix: { name: "Pith and chip mixes", description: "Coco pith blended 70:30 or 50:50 with husk chips for air space in berry and avocado pots." }
+  bricks-discs: { name: "Bricks, discs and pellets", description: "650 g retail bricks, discs and pellets for propagation and garden retail, under your label." }
+  husk-chips: { name: "Coco husk chips", description: "Graded chips of coconut husk for orchids, tomatoes and peppers and for open, airy mixes." }
+faq:
+  - { q: "What EC grades of coco pith can you supply?", a: "Buffered coco pith below 0.5 mS/cm, washed at 0.5–1.0 mS/cm and raw at 1.5 mS/cm and above. Every lot is lab-tested for EC, pH and sand, and the contract states the EC test method (for example 1:5 per EN 13038), because different methods give different readings for the same material." }
+  - { q: "What is the difference between buffered and washed coco pith?", a: "Washing rinses out most of the sodium and potassium salts. Buffering goes further: the pith is treated with calcium nitrate so the sodium and potassium held on the fibre are replaced and the substrate does not lock up calcium and magnesium the crop needs. Greenhouse berry, tomato and cucumber growers usually ask for buffered pith." }
+  - { q: "How much does a 5 kg coco pith block expand?", a: "A 5 kg block is compressed at about 5:1 and opens up to 65–80 litres of loose substrate once it is soaked." }
+  - { q: "Which formats and private-label options do you offer?", a: "GoodBiz Agri supplies 5 kg blocks, grow bags and slabs, 70:30 and 50:50 pith and chip mixes, 650 g bricks, discs, pellets and husk chips. Retail bricks and bags can be packed under your own label." }
+  - { q: "What documents come with a coco pith shipment?", a: "Every shipment carries a phytosanitary certificate from India's plant quarantine service, a certificate of origin and the lab analysis. Fumigation is done by an accredited agency where the destination asks for it, and some countries add their own conditions, such as ISPM-15 pallets." }
+  - { q: "Can coco pith be imported into the EU and the UK?", a: "Yes. EU Regulation 2019/2072, Annex VI, exempts growing media made entirely of unused coconut fibre from the restrictions on soil and growing media, and the UK applies the same exemption. A phytosanitary certificate goes with each shipment." }
+seo:
+  title: "Coco Pith Exporter India: Blocks, Grow Bags"
+  h1: "Coco pith blocks, grow bags and mixes"
+  description: "Coco pith exporter India: 5 kg cocopeat blocks, grow bags, pith and chip mixes, bricks and husk chips in buffered or washed low-EC grades. Request a quote."
+  keywords: ["coco pith exporter India", "cocopeat blocks", "coir pith grow bags", "buffered cocopeat", "low EC coco peat", "coco husk chips", "cocopeat 5 kg block supplier"]

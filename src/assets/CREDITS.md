@@ -59,3 +59,9 @@ Shown only to indicate GoodBiz Agri's registrations. Sources:
 - fssai.png — supplied by GoodBiz Agri (Oct 2026); white background made transparent and trimmed
 - cdb.png — emblem cropped from https://coconutboard.gov.in/img/cdb-logo.png
 - FIEO — not included (official site unavailable); text badge shown until supplied.
+- src/assets/products/coco-pith/hero.jpg | Collab Media | https://unsplash.com/photos/L4E74kCcarA | Unsplash License | generic (fine brown fibrous substrate; not verifiably coir pith)
+- src/assets/products/coco-pith/block-5kg.jpg | feey | https://unsplash.com/photos/F9X8s6wdedo | Unsplash License | generic (a block with loose substrate, not a pressed coir block)
+- src/assets/products/coco-pith/grow-bags.jpg | Ashita Mata | https://unsplash.com/photos/-uVeABqcHcM | Unsplash License | generic (strawberries in a greenhouse growing system)
+- src/assets/products/coco-pith/pith-chip-mix.jpg | feey | https://unsplash.com/photos/wUqiaRLZDiY | Unsplash License | generic (loose growing substrate)
+- src/assets/products/coco-pith/bricks-discs.jpg | Laura Ohlman | https://unsplash.com/photos/QwUvxjFrB-w | Unsplash License | generic (seedlings in propagation trays)
+- src/assets/products/coco-pith/husk-chips.jpg | Diomari Madulara | https://unsplash.com/photos/2x46RlDWMGg | Unsplash License | generic (coconut husks, not cut chips)

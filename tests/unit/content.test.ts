@@ -7,11 +7,11 @@ import { productSchema, siteSchema, productTextSchema } from '../../src/lib/sche
 import { placeLabel } from '../../src/data/places';
 
 const dir = 'src/content/products';
-const slugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric'];
+const slugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric', 'coco-pith'];
 const imageStub = () => z.string();
 
 describe('products', () => {
-  it('has exactly the 9 product files', () => {
+  it('has exactly the listed product files', () => {
     expect(readdirSync(dir).map((f) => f.replace('.yaml', '')).sort()).toEqual([...slugs].sort());
   });
   for (const slug of slugs) {
@@ -23,9 +23,9 @@ describe('products', () => {
       for (const img of imgs) expect(existsSync(resolve(dirname(file), img)), img).toBe(true);
     });
   }
-  it('covers the 14 HSN lines exactly once across varieties or products', () => {
+  it('covers each HSN line exactly once across varieties or products', () => {
     const all = slugs.flatMap((s) => productSchema(imageStub).parse(parse(readFileSync(join(dir, `${s}.yaml`), 'utf8'))).hsn.map((h) => h.code));
-    expect(all.sort()).toEqual(['09101110','09101120','09101130','09101190','09103010','09103020','09103030','100640','1006','10063099','120242','1701','80280','8011220'].sort());
+    expect(all.sort()).toEqual(['09101110','09101120','09101130','09101190','09103010','09103020','09103030','100640','1006','10063099','120242','1701','80280','8011220','53050040'].sort());
   });
   it('marks arecanut, groundnut and coconut codes unverified', () => {
     for (const s of ['arecanut', 'groundnuts', 'coconut-copra']) {

@@ -1,0 +1,54 @@
+order: 10
+updated: 2026-10-31
+hsn:
+  - { code: "53050040", verified: false }
+heroImage: { src: ../../assets/products/coco-pith/hero.jpg, isStock: true }
+regions: [karnataka, tamilNadu, kerala]
+markets: []
+shelfLife: "24 months when stored dry"
+packing: ["5 kg blocks on pallets or floor-loaded", "Grow bags and slabs to size", "650 g retail bricks (private label)"]
+containerLoad: { ft20: "On request", ft40: "5 kg blocks 22–24 MT · Grow bags 11–15 MT" }
+related: [coconut-copra, cashew]
+varieties:
+  - id: block-5kg
+    hsn: "53050040"
+    image: { src: ../../assets/products/coco-pith/block-5kg.jpg, isStock: true }
+    specs:
+      - { key: expansion, value: "65–80 L per block (5:1 compression)" }
+      - { key: ec, value: "Buffered < 0.5 · Washed 0.5–1.0 · Raw ≥ 1.5 mS/cm" }
+      - { key: ph, value: "5.5–6.5" }
+      - { key: moisture, value: "≤ 15–20%" }
+      - { key: foreignMatter, value: "Sand ≤ 2%" }
+      - { key: size, value: "5 kg ± 100 g" }
+    packing: ["5 kg blocks on pallets or floor-loaded"]
+  - id: grow-bags
+    hsn: "53050040"
+    image: { src: ../../assets/products/coco-pith/grow-bags.jpg, isStock: true }
+    specs:
+      - { key: size, value: "100 × 15–20 × 10–18 cm, open top or pre-cut holes" }
+      - { key: ec, value: "Buffered < 0.5 mS/cm" }
+      - { key: ph, value: "5.5–6.5" }
+    packing: ["Grow bags and slabs to size"]
+  - id: pith-chip-mix
+    hsn: "53050040"
+    image: { src: ../../assets/products/coco-pith/pith-chip-mix.jpg, isStock: true }
+    specs:
+      - { key: purity, value: "Pith : chip 70:30 or 50:50" }
+      - { key: ec, value: "Buffered < 0.5 mS/cm" }
+      - { key: ph, value: "5.5–6.5" }
+    packing: ["5 kg blocks on pallets or floor-loaded", "Grow bags and slabs to size"]
+  - id: bricks-discs
+    hsn: "53050040"
+    image: { src: ../../assets/products/coco-pith/bricks-discs.jpg, isStock: true }
+    specs:
+      - { key: size, value: "650 g bricks · discs · pellets" }
+      - { key: ec, value: "Washed or buffered to order" }
+    packing: ["650 g retail bricks (private label)"]
+  - id: husk-chips
+    hsn: "53050040"
+    image: { src: ../../assets/products/coco-pith/husk-chips.jpg, isStock: true }
+    specs:
+      - { key: size, value: "Graded chip sizes to order" }
+      - { key: ec, value: "Washed or buffered to order" }
+      - { key: foreignMatter, value: "Sand ≤ 2%" }
+    packing: ["5 kg blocks on pallets or floor-loaded"]

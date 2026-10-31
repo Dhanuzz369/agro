@@ -1,0 +1,23 @@
+reviewStatus: pending
+name: "Fibra de coco (coco pith)"
+summary: "GoodBiz Agri exporta fibra de coco (coco pith, cocopeat) — bloques de 5 kg, sacos de cultivo, mezclas de fibra y chips, ladrillos y chips de coco — de proveedores de Karnataka, Tamil Nadu y Kerala, en grados tamponados, lavados o crudos, analizada para EC, pH y arena."
+originLine: "Karnataka, Tamil Nadu y Kerala — varios proveedores de coco"
+sourcingStory: "La fibra de coco (coco pith) es el material fino y esponjoso que queda al extraer la fibra de la cáscara del coco. La compramos a varios proveedores de Karnataka, Tamil Nadu y Kerala y elegimos el proveedor de cada pedido según el formato, el grado y la EC que necesita el productor. Cada lote se analiza en laboratorio para EC, pH y arena antes de embalarlo."
+varieties:
+  block-5kg: { name: "Bloques de fibra de coco de 5 kg", description: "Bloques comprimidos 5:1 que se abren en 65–80 litros de sustrato, en grados tamponados, lavados o crudos." }
+  grow-bags: { name: "Sacos y tablas de cultivo", description: "Sacos listos para plantar fresas, tomates y pepinos, abiertos o con agujeros de plantación precortados." }
+  pith-chip-mix: { name: "Mezclas de fibra y chips", description: "Fibra de coco mezclada 70:30 o 50:50 con chips de coco para airear macetas de berries y aguacate." }
+  bricks-discs: { name: "Ladrillos, discos y pellets", description: "Ladrillos de 650 g, discos y pellets para propagación y venta minorista de jardinería, con su marca." }
+  husk-chips: { name: "Chips de coco", description: "Chips calibrados de cáscara de coco para orquídeas, tomates y pimientos, y para mezclas aireadas." }
+faq:
+  - { q: "¿Qué grados de EC de fibra de coco pueden suministrar?", a: "Fibra tamponada por debajo de 0,5 mS/cm, lavada entre 0,5 y 1,0 mS/cm y cruda desde 1,5 mS/cm. Cada lote se analiza para EC, pH y arena, y el contrato indica el método de medición de la EC (por ejemplo 1:5 según EN 13038), porque distintos métodos dan lecturas distintas para el mismo material." }
+  - { q: "¿Qué diferencia hay entre fibra de coco tamponada y lavada?", a: "El lavado elimina la mayor parte de las sales de sodio y potasio. El tamponado va más allá: la fibra se trata con nitrato de calcio para sustituir el sodio y el potasio retenidos en la fibra, de modo que el sustrato no bloquee el calcio y el magnesio que necesita el cultivo. Los invernaderos de berries, tomate y pepino suelen pedir fibra tamponada." }
+  - { q: "¿Cuánto se expande un bloque de 5 kg?", a: "Un bloque de 5 kg está comprimido aproximadamente 5:1 y se abre en 65–80 litros de sustrato suelto una vez hidratado." }
+  - { q: "¿Qué formatos y opciones de marca propia ofrecen?", a: "GoodBiz Agri suministra bloques de 5 kg, sacos y tablas de cultivo, mezclas de fibra y chips 70:30 y 50:50, ladrillos de 650 g, discos, pellets y chips de coco. Los ladrillos y sacos minoristas pueden envasarse con su propia marca." }
+  - { q: "¿Qué documentos acompañan un envío de fibra de coco?", a: "Cada envío lleva un certificado fitosanitario del servicio indio de cuarentena vegetal, un certificado de origen y el análisis de laboratorio. La fumigación la realiza una empresa acreditada cuando el destino la exige, y algunos países añaden sus propias condiciones, como palés ISPM-15." }
+  - { q: "¿Se puede importar fibra de coco a la UE y al Reino Unido?", a: "Sí. El Reglamento (UE) 2019/2072, anexo VI, exime de las restricciones sobre tierra y sustratos de cultivo a los medios compuestos totalmente de fibra de coco no utilizada, y el Reino Unido aplica la misma exención. Cada envío lleva un certificado fitosanitario." }
+seo:
+  title: "Exportador fibra de coco India: bloques"
+  h1: "Bloques, sacos de cultivo y mezclas de fibra de coco"
+  description: "Exportador de fibra de coco de la India: bloques de 5 kg, sacos de cultivo, mezclas con chips, ladrillos y chips de coco, tamponados o lavados de baja EC."
+  keywords: ["exportador fibra de coco India", "bloques de fibra de coco", "sacos de cultivo coco", "fibra de coco tamponada", "sustrato de coco baja EC", "chips de coco", "coco pith exporter India"]

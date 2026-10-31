@@ -86,6 +86,7 @@ export const productCategory: Record<string, string> = {
   'coconut-copra': `${food} > Nuts & Seeds`,
   ginger: `${food} > Seasonings & Spices > Herbs & Spices`,
   turmeric: `${food} > Seasonings & Spices > Herbs & Spices`,
+  'coco-pith': 'Home & Garden > Lawn & Garden > Gardening',
 };
 
 export function productLd(a: {

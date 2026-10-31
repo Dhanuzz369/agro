@@ -1,0 +1,23 @@
+reviewStatus: pending
+name: "Fibre de coco (coco pith)"
+summary: "GoodBiz Agri exporte de la fibre de coco (coco pith, cocopeat) — blocs de 5 kg, sacs de culture, mélanges fibre et chips, briques et chips de coco — de fournisseurs du Karnataka, du Tamil Nadu et du Kerala, en grades tamponnés, lavés ou bruts, analysée pour l'EC, le pH et le sable."
+originLine: "Karnataka, Tamil Nadu et Kerala — plusieurs fournisseurs de coco"
+sourcingStory: "La fibre de coco (coco pith) est la matière fine et spongieuse qui reste quand on extrait les fibres des bourres de noix de coco. Nous l'achetons à plusieurs fournisseurs du Karnataka, du Tamil Nadu et du Kerala et choisissons le fournisseur de chaque commande selon le format, le grade et l'EC dont le producteur a besoin. Chaque lot est analysé en laboratoire pour l'EC, le pH et le sable avant l'emballage."
+varieties:
+  block-5kg: { name: "Blocs de fibre de coco de 5 kg", description: "Blocs compressés à 5:1 qui donnent 65 à 80 litres de substrat, en grades tamponnés, lavés ou bruts." }
+  grow-bags: { name: "Sacs et pains de culture", description: "Sacs prêts à planter pour fraises, tomates et concombres, ouverts ou avec trous de plantation prédécoupés." }
+  pith-chip-mix: { name: "Mélanges fibre et chips", description: "Fibre de coco mélangée 70:30 ou 50:50 avec des chips de coco pour aérer les pots de petits fruits et d'avocatiers." }
+  bricks-discs: { name: "Briques, disques et pastilles", description: "Briques de 650 g, disques et pastilles pour la multiplication et la jardinerie, sous votre marque." }
+  husk-chips: { name: "Chips de coco", description: "Chips calibrées de bourre de coco pour orchidées, tomates et poivrons, et pour des mélanges aérés." }
+faq:
+  - { q: "Quels grades d'EC de fibre de coco pouvez-vous fournir ?", a: "Fibre tamponnée sous 0,5 mS/cm, lavée entre 0,5 et 1,0 mS/cm et brute à partir de 1,5 mS/cm. Chaque lot est analysé pour l'EC, le pH et le sable, et le contrat précise la méthode de mesure de l'EC (par exemple 1:5 selon EN 13038), car des méthodes différentes donnent des valeurs différentes pour un même produit." }
+  - { q: "Quelle est la différence entre fibre de coco tamponnée et lavée ?", a: "Le lavage élimine l'essentiel des sels de sodium et de potassium. Le tamponnage va plus loin : la fibre est traitée au nitrate de calcium pour remplacer le sodium et le potassium fixés sur la fibre, afin que le substrat ne bloque pas le calcium et le magnésium dont la culture a besoin. Les serres de fraises, tomates et concombres demandent en général une fibre tamponnée." }
+  - { q: "De combien un bloc de 5 kg augmente-t-il de volume ?", a: "Un bloc de 5 kg est compressé à environ 5:1 et donne 65 à 80 litres de substrat foisonné une fois humidifié." }
+  - { q: "Quels formats et options de marque propre proposez-vous ?", a: "GoodBiz Agri fournit des blocs de 5 kg, des sacs et pains de culture, des mélanges fibre et chips 70:30 et 50:50, des briques de 650 g, des disques, des pastilles et des chips de coco. Les briques et sacs de détail peuvent être conditionnés sous votre propre marque." }
+  - { q: "Quels documents accompagnent une expédition de fibre de coco ?", a: "Chaque expédition comprend un certificat phytosanitaire du service indien de quarantaine végétale, un certificat d'origine et l'analyse de laboratoire. La fumigation est réalisée par une société agréée lorsque le pays de destination l'exige, et certains pays ajoutent leurs propres conditions, comme des palettes ISPM-15." }
+  - { q: "La fibre de coco peut-elle être importée dans l'UE et au Royaume-Uni ?", a: "Oui. Le règlement (UE) 2019/2072, annexe VI, exempte les supports de culture composés entièrement de fibre de coco non utilisée des restrictions visant la terre et les supports de culture, et le Royaume-Uni applique la même exemption. Chaque expédition est accompagnée d'un certificat phytosanitaire." }
+seo:
+  title: "Exportateur fibre de coco Inde : blocs, sacs"
+  h1: "Blocs, sacs de culture et mélanges de fibre de coco"
+  description: "Exportateur de fibre de coco d'Inde : blocs de 5 kg, sacs de culture, mélanges avec chips, briques et chips de coco, tamponnés ou lavés à faible EC. Devis."
+  keywords: ["exportateur fibre de coco Inde", "blocs de fibre de coco", "sacs de culture coco", "fibre de coco tamponnée", "substrat coco faible EC", "chips de coco", "coco pith exporter India"]

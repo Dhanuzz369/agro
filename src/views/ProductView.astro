@@ -53,6 +53,9 @@ const ld = [
   faqLd(faq),
   breadcrumbLd(crumbs.map((c) => ({ name: c.name, url: abs(c.path) }))),
 ];
+// An FSSAI licence covers food; growing media such as coco pith ship without one.
+const isFood = productCategory[slug]?.startsWith('Food');
+const docs = (['doc.coo', 'doc.phyto', 'doc.fumigation', 'doc.fssai', 'doc.rcmc', 'doc.coa'] as const).filter((k) => isFood || k !== 'doc.fssai');
 const alt = (name: string, origin: string) => t('alt.product', { name, origin });
 const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text.name });
 ---
@@ -127,10 +130,10 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
     <section class="section container pv__two">
       <div data-reveal>
         <h2>{t('product.quality')}</h2>
-        <p>{t('product.quality.body')}</p>
+        <p>{t(isFood ? 'product.quality.body' : 'product.quality.bodyMedia')}</p>
         <h3>{t('product.documents')}</h3>
         <ul class="pv__docs">
-          {(['doc.coo', 'doc.phyto', 'doc.fumigation', 'doc.fssai', 'doc.rcmc', 'doc.coa'] as const).map((k) => <li>{t(k)}</li>)}
+          {docs.map((k) => <li>{t(k)}</li>)}
         </ul>
       </div>
       <div data-reveal>

@@ -1,0 +1,23 @@
+reviewStatus: pending
+name: "Pó de coco (coco pith)"
+summary: "A GoodBiz Agri exporta pó de coco (coco pith, cocopeat) — blocos de 5 kg, sacos de cultivo, misturas de pó e chips, tijolos e chips de coco — de fornecedores de Karnataka, Tamil Nadu e Kerala, em graus tamponados, lavados ou brutos, analisado para EC, pH e areia."
+originLine: "Karnataka, Tamil Nadu e Kerala — vários fornecedores de coco"
+sourcingStory: "O pó de coco (coco pith) é o material fino e esponjoso que sobra quando a fibra é retirada da casca do coco. Compramos de vários fornecedores em Karnataka, Tamil Nadu e Kerala e escolhemos o fornecedor de cada pedido pelo formato, grau e EC de que o produtor precisa. Cada lote é analisado em laboratório para EC, pH e areia antes de ser embalado."
+varieties:
+  block-5kg: { name: "Blocos de pó de coco de 5 kg", description: "Blocos prensados 5:1 que se abrem em 65–80 litros de substrato, em graus tamponados, lavados ou brutos." }
+  grow-bags: { name: "Sacos e placas de cultivo", description: "Sacos prontos para plantio de morangos, tomates e pepinos, abertos ou com furos de plantio pré-cortados." }
+  pith-chip-mix: { name: "Misturas de pó e chips", description: "Pó de coco misturado 70:30 ou 50:50 com chips de coco para arejar vasos de berries e abacate." }
+  bricks-discs: { name: "Tijolos, discos e pastilhas", description: "Tijolos de 650 g, discos e pastilhas para propagação e varejo de jardinagem, com a sua marca." }
+  husk-chips: { name: "Chips de coco", description: "Chips classificados de casca de coco para orquídeas, tomates e pimentões e para misturas arejadas." }
+faq:
+  - { q: "Quais graus de EC de pó de coco vocês fornecem?", a: "Pó tamponado abaixo de 0,5 mS/cm, lavado entre 0,5 e 1,0 mS/cm e bruto a partir de 1,5 mS/cm. Cada lote é analisado para EC, pH e areia, e o contrato indica o método de medição da EC (por exemplo 1:5 segundo a EN 13038), porque métodos diferentes dão leituras diferentes para o mesmo material." }
+  - { q: "Qual a diferença entre pó de coco tamponado e lavado?", a: "A lavagem remove a maior parte dos sais de sódio e potássio. O tamponamento vai além: o pó é tratado com nitrato de cálcio para substituir o sódio e o potássio retidos na fibra, de modo que o substrato não prenda o cálcio e o magnésio de que a cultura precisa. Estufas de berries, tomate e pepino costumam pedir pó tamponado." }
+  - { q: "Quanto um bloco de 5 kg se expande?", a: "Um bloco de 5 kg é prensado em cerca de 5:1 e se abre em 65–80 litros de substrato solto depois de hidratado." }
+  - { q: "Quais formatos e opções de marca própria vocês oferecem?", a: "A GoodBiz Agri fornece blocos de 5 kg, sacos e placas de cultivo, misturas de pó e chips 70:30 e 50:50, tijolos de 650 g, discos, pastilhas e chips de coco. Tijolos e sacos de varejo podem ser embalados com a sua própria marca." }
+  - { q: "Quais documentos acompanham um embarque de pó de coco?", a: "Cada embarque leva um certificado fitossanitário do serviço indiano de quarentena vegetal, um certificado de origem e a análise de laboratório. A fumigação é feita por uma empresa credenciada quando o destino exige, e alguns países acrescentam condições próprias, como paletes ISPM-15." }
+  - { q: "O pó de coco pode ser importado na UE e no Reino Unido?", a: "Sim. O Regulamento (UE) 2019/2072, anexo VI, isenta das restrições sobre solo e substratos de cultivo os meios compostos inteiramente de fibra de coco não utilizada, e o Reino Unido aplica a mesma isenção. Cada embarque leva um certificado fitossanitário." }
+seo:
+  title: "Exportador de pó de coco da Índia: blocos"
+  h1: "Blocos, sacos de cultivo e misturas de pó de coco"
+  description: "Exportador de pó de coco da Índia: blocos de 5 kg, sacos de cultivo, misturas com chips, tijolos e chips de coco, tamponados ou lavados com baixa EC. Cote já."
+  keywords: ["exportador pó de coco Índia", "blocos de pó de coco", "sacos de cultivo de coco", "pó de coco tamponado", "substrato de coco baixa EC", "chips de coco", "coco pith exporter India"]

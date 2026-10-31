@@ -1,0 +1,23 @@
+reviewStatus: pending
+name: "Cocopeat (Coco Pith)"
+summary: "GoodBiz Agri mengekspor cocopeat (coco pith) — blok 5 kg, grow bag, campuran cocopeat dan cocochip, bata dan cocochip — dari pemasok sabut kelapa di Karnataka, Tamil Nadu dan Kerala, grade buffered, washed atau mentah, diuji lab untuk EC, pH dan pasir."
+originLine: "Karnataka, Tamil Nadu dan Kerala — beberapa pemasok sabut kelapa"
+sourcingStory: "Cocopeat adalah bahan halus dan seperti spons yang tersisa saat serat diambil dari sabut kelapa. Kami membelinya dari beberapa pemasok di Karnataka, Tamil Nadu dan Kerala dan memilih pemasok untuk setiap pesanan berdasarkan format, grade dan EC yang dibutuhkan petani. Setiap lot diuji di laboratorium untuk EC, pH dan pasir sebelum dikemas."
+varieties:
+  block-5kg: { name: "Blok cocopeat 5 kg", description: "Blok padat 5:1 yang mengembang menjadi 65–80 liter media tanam, grade buffered, washed atau mentah." }
+  grow-bags: { name: "Grow bag dan slab", description: "Kantong siap tanam untuk stroberi, tomat dan mentimun, atas terbuka atau dengan lubang tanam siap pakai." }
+  pith-chip-mix: { name: "Campuran cocopeat dan cocochip", description: "Cocopeat dicampur 70:30 atau 50:50 dengan cocochip agar pot beri dan alpukat lebih berongga." }
+  bricks-discs: { name: "Bata, cakram dan pelet", description: "Bata 650 g, cakram dan pelet untuk pembibitan dan ritel berkebun, dengan merek Anda." }
+  husk-chips: { name: "Cocochip", description: "Potongan sabut kelapa bergradasi untuk anggrek, tomat dan cabai serta campuran yang berongga." }
+faq:
+  - { q: "Grade EC cocopeat apa saja yang bisa Anda pasok?", a: "Cocopeat buffered di bawah 0,5 mS/cm, washed 0,5–1,0 mS/cm dan mentah mulai 1,5 mS/cm. Setiap lot diuji lab untuk EC, pH dan pasir, dan kontrak menyebutkan metode uji EC (misalnya 1:5 menurut EN 13038), karena metode yang berbeda memberi hasil berbeda untuk bahan yang sama." }
+  - { q: "Apa beda cocopeat buffered dan washed?", a: "Pencucian membilas sebagian besar garam natrium dan kalium. Buffering lebih jauh lagi: cocopeat diberi kalsium nitrat agar natrium dan kalium yang terikat pada serat tergantikan, sehingga media tidak mengikat kalsium dan magnesium yang dibutuhkan tanaman. Rumah kaca stroberi, tomat dan mentimun biasanya meminta cocopeat buffered." }
+  - { q: "Seberapa besar blok 5 kg mengembang?", a: "Blok 5 kg dipadatkan sekitar 5:1 dan mengembang menjadi 65–80 liter media lepas setelah direndam." }
+  - { q: "Format dan opsi merek sendiri apa yang Anda tawarkan?", a: "GoodBiz Agri memasok blok 5 kg, grow bag dan slab, campuran cocopeat dan cocochip 70:30 dan 50:50, bata 650 g, cakram, pelet dan cocochip. Bata dan kantong ritel bisa dikemas dengan merek Anda sendiri." }
+  - { q: "Dokumen apa yang menyertai pengiriman cocopeat?", a: "Setiap pengiriman disertai sertifikat fitosanitasi dari badan karantina tumbuhan India, sertifikat asal dan hasil analisis lab. Fumigasi dilakukan oleh perusahaan terakreditasi bila negara tujuan memintanya, dan beberapa negara menambah syarat sendiri, misalnya palet ISPM-15." }
+  - { q: "Apakah cocopeat boleh diimpor ke UE dan Inggris?", a: "Ya. Peraturan UE 2019/2072, Lampiran VI, mengecualikan media tanam yang seluruhnya terbuat dari serat kelapa yang belum dipakai dari pembatasan tanah dan media tanam, dan Inggris menerapkan pengecualian yang sama. Setiap pengiriman disertai sertifikat fitosanitasi." }
+seo:
+  title: "Eksportir Cocopeat India: Blok dan Grow Bag"
+  h1: "Blok cocopeat, grow bag dan campuran"
+  description: "Eksportir cocopeat India: blok 5 kg, grow bag, campuran cocopeat dan cocochip, bata dan cocochip, buffered atau washed dengan EC rendah. Minta penawaran harga."
+  keywords: ["eksportir cocopeat India", "blok cocopeat 5 kg", "grow bag cocopeat", "cocopeat buffered", "cocopeat EC rendah", "cocochip", "coco pith exporter India"]

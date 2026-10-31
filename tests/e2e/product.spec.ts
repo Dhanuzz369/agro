@@ -63,3 +63,12 @@ test('related insights list published posts about the product', async ({ page })
   await page.goto('/products/jaggery');
   await expect(page.locator('[data-related-posts]')).toHaveCount(0);
 });
+
+test('coco pith page: formats, no region line, no FSSAI doc, RTL spec cells', async ({ page }) => {
+  await page.goto('/products/coco-pith');
+  await expect(page.locator('[data-variety]')).toHaveCount(5);
+  await expect(page.locator('.var__where')).toHaveCount(0);
+  await expect(page.locator('.pv__docs')).not.toContainText('FSSAI');
+  await page.goto('/ar/products/coco-pith');
+  await expect(page.locator('.var td[dir="auto"]').first()).toBeVisible();
+});
