@@ -2,7 +2,7 @@ reviewStatus: pending
 name: "Gengibre"
 summary: "A GoodBiz Agri exporta gengibre seco (não branqueado e branqueado), outros gengibres secos inteiros e gengibre fresco de Wayanad, em Kerala, e Kodagu e Hassan, em Karnataka, embarcados do porto indiano mais adequado a cada pedido; o fresco, em contêiner refrigerado."
 originLine: "Wayanad, Kodagu e Hassan — o cinturão do gengibre dos Gates Ocidentais"
-sourcingStory: "O gengibre cultivado nas encostas dos Gates Ocidentais é conhecido pela pungência e pelo teor de óleo. Compramos gengibre fresco de produtores de Wayanad durante a colheita e gengibre seco pelo comércio de especiarias do porto indiano mais adequado a cada pedido, onde a classe «Cochin ginger» é negociada há séculos."
+sourcingStory: "O gengibre cultivado nas encostas dos Gates Ocidentais é conhecido pela pungência e pelo teor de óleo. Compramos gengibre fresco de produtores de Wayanad durante a colheita e gengibre seco pelo comércio de especiarias de Kochi, onde a classe «Cochin ginger» é negociada há séculos."
 varieties:
   fresh: { name: "Gengibre fresco", description: "Rizomas lavados e secos ao ar, embalados em caixas de papelão ou sacos de malha para embarque em contêiner refrigerado." }
   dried-unbleached: { name: "Gengibre seco não branqueado", description: "Gengibre descascado e seco ao sol, com cor natural." }

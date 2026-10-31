@@ -81,3 +81,10 @@ test('cashew page names every grade and fits a phone screen', async ({ page }) =
   for (const g of ['W180', 'W210', 'W240', 'W320', 'W450', 'SW', 'LWP', 'SWP', 'BB']) expect(text, g).toContain(g);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
 });
+
+test('cashew and coco pith pages claim no APEDA or Spices Board registration', async ({ page }) => {
+  for (const slug of ['cashew', 'coco-pith']) {
+    await page.goto(`/products/${slug}`);
+    await expect(page.locator('.pv__docs'), slug).not.toContainText('APEDA');
+  }
+});

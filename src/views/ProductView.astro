@@ -55,7 +55,10 @@ const ld = [
 ];
 // An FSSAI licence covers food; growing media such as coco pith ship without one.
 const isFood = productCategory[slug]?.startsWith('Food');
-const docs = (['doc.coo', 'doc.phyto', 'doc.fumigation', 'doc.fssai', 'doc.rcmc', 'doc.coa'] as const).filter((k) => isFood || k !== 'doc.fssai');
+// APEDA and the Spices Board do not cover cashew (CEPCI) or coir (Coir Board), so those pages leave the registration out.
+const outsideApeda = ['cashew', 'coco-pith'].includes(slug);
+const docs = (['doc.coo', 'doc.phyto', 'doc.fumigation', 'doc.fssai', 'doc.rcmc', 'doc.coa'] as const)
+  .filter((k) => (isFood || k !== 'doc.fssai') && (!outsideApeda || k !== 'doc.rcmc'));
 const alt = (name: string, origin: string) => t('alt.product', { name, origin });
 const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text.name });
 ---

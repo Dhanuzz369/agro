@@ -86,3 +86,19 @@ describe('no loading ports named in visitor text', () => {
     for (const f of files) expect(readFileSync(f, 'utf8'), f).not.toMatch(portNames[l]);
   });
 });
+
+describe('fixes from the branch review', () => {
+  const locales = ['en', 'ar', 'fr', 'es', 'pt', 'ru', 'zh', 'id', 'de'];
+  it('sourcing stories never carry the shipping-port wording', () => {
+    for (const l of locales) for (const f of readdirSync(`src/content/products-i18n/${l}`)) {
+      const story = productTextSchema.parse(parse(readFileSync(`src/content/products-i18n/${l}/${f}`, 'utf8'))).sourcingStory;
+      expect(story, `${l}/${f}`).not.toMatch(/port that suits|passenden indischen Hafen|porto indiano mais adequado|الميناء الهندي الأنسب|port indien adapté|puerto indio que|pelabuhan India yang sesuai|индийского порта|印度港口/);
+    }
+  });
+  it('the home range heading does not state a product count', () => {
+    for (const l of locales) {
+      const t = JSON.parse(readFileSync(`src/i18n/ui/${l}.json`, 'utf8'))['home.range.title'];
+      expect(t, l).not.toMatch(/Nine|Neun|Neuf|Nueve|Nove|Sembilan|Девять|九|تسع/);
+    }
+  });
+});

@@ -27,7 +27,7 @@ export async function llmsText(site: URL, full: boolean): Promise<string> {
     `- Business: exporter and supplier of agro commodities sourced from producing markets (APMC yards), mills, processors and traders in Karnataka, Tamil Nadu, Kerala and Andhra Pradesh.`,
     `- Registrations: ${s.registrations.filter((r) => r.held).map((r) => r.name).join(', ')}.`,
     `- Quality: every lot is cleaned, graded and lab-tested for moisture, aflatoxin and pesticide residue (coco pith for EC, pH and sand); third-party inspection (SGS, Bureau Veritas or the buyer's nominee) on request.`,
-    `- Documents with each shipment: certificate of origin, phytosanitary certificate, fumigation certificate, FSSAI licence, APEDA / Spices Board registration, certificate of analysis.`,
+    `- Documents with each shipment: certificate of origin, phytosanitary certificate, fumigation certificate where the destination requires it, FSSAI licence (food products), APEDA / Spices Board registration (for the products they cover), certificate of analysis.`,
     `- Packing: PP, jute, BOPP, paper or vacuum bags; private label on request.`,
     '',
     '## Products',
