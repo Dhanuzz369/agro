@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Gingembre"
-summary: "GoodBiz Agri exporte du gingembre séché (non blanchi et blanchi), d'autres gingembres séchés entiers et du gingembre frais du Wayanad au Kerala et de Kodagu et Hassan au Karnataka, expédiés depuis Kochi, New Mangalore et Chennai — le frais en conteneur réfrigéré."
+summary: "GoodBiz Agri exporte du gingembre séché (non blanchi et blanchi), d'autres gingembres séchés entiers et du gingembre frais du Wayanad au Kerala et de Kodagu et Hassan au Karnataka, expédiés depuis le port indien adapté à chaque commande — le frais en conteneur réfrigéré."
 originLine: "Wayanad, Kodagu et Hassan — la ceinture du gingembre des Ghâts occidentaux"
 sourcingStory: "Le gingembre cultivé sur les pentes des Ghâts occidentaux est réputé pour son piquant et sa teneur en huile. Nous achetons le gingembre frais auprès des producteurs de Wayanad pendant la récolte, et le gingembre séché via le commerce des épices de Kochi, où la qualité « Cochin ginger » se négocie depuis des siècles."
 varieties:
@@ -10,7 +10,7 @@ varieties:
   whole-other: { name: "Gingembre entier séché (autre)", description: "Gingembre entier, ni broyé ni moulu, selon la qualité de l'acheteur." }
 faq:
   - { q: "Comment le gingembre frais est-il expédié ?", a: "Le gingembre frais voyage en conteneurs réfrigérés de 40 pieds à environ 12–13 °C, soit près de 26 tonnes par conteneur." }
-  - { q: "Depuis quels ports expédiez-vous le gingembre ?", a: "GoodBiz Agri expédie le gingembre séché et frais depuis Kochi, New Mangalore et Chennai aux conditions FOB, CFR ou CIF." }
+  - { q: "Depuis quels ports expédiez-vous le gingembre ?", a: "GoodBiz Agri expédie le gingembre séché et frais depuis le port indien adapté à chaque commande aux conditions FOB, CFR ou CIF." }
 seo:
   title: "Exportateur de gingembre séché d'Inde"
   h1: "Gingembre séché et gingembre frais d'Inde"

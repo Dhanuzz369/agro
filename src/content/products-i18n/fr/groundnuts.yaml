@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Arachides"
-summary: "GoodBiz Agri exporte des arachides décortiquées — bold runner, Java et blanchies, calibres 38/42 à 80/90 — de Chitradurga, Anantapur et Tiruvannamalai, expédiées depuis Chennai et New Mangalore avec analyse des aflatoxines sur demande."
+summary: "GoodBiz Agri exporte des arachides décortiquées — bold runner, Java et blanchies, calibres 38/42 à 80/90 — de Chitradurga, Anantapur et Tiruvannamalai, expédiées depuis le port indien adapté à chaque commande avec analyse des aflatoxines sur demande."
 originLine: "Chitradurga, Anantapur et Tiruvannamalai"
 sourcingStory: "Le plateau sec du Deccan autour d'Anantapur et de Chitradurga est l'une des plus grandes régions d'arachide de l'Inde. Nous achetons les amandes après la récolte, les trions par calibre et les testons pour l'aflatoxine avant l'emballage."
 varieties:
@@ -10,7 +10,7 @@ varieties:
 faq:
   - { q: "Pouvez-vous respecter les limites européennes d'aflatoxine ?", a: "Oui, avec des lots triés et des analyses par un tiers jusqu'à ≤ 4 ppb d'aflatoxines totales sur demande." }
   - { q: "Quels calibres sont disponibles ?", a: "Les arachides sont disponibles en calibres 38/42 à 80/90 graines par once, selon la variété." }
-  - { q: "Depuis quels ports expédiez-vous les arachides ?", a: "GoodBiz Agri expédie les arachides décortiquées depuis Chennai et New Mangalore aux conditions FOB, CFR ou CIF." }
+  - { q: "Depuis quels ports expédiez-vous les arachides ?", a: "GoodBiz Agri expédie les arachides décortiquées depuis le port indien adapté à chaque commande aux conditions FOB, CFR ou CIF." }
 seo:
   title: "Exportateur d'arachides décortiquées d'Inde"
   h1: "Arachides décortiquées : bold, Java et blanchies"

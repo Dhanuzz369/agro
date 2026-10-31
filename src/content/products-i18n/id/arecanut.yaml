@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Pinang"
-summary: "GoodBiz Agri mengekspor pinang (betel nut, supari) — chali putih utuh, belah, kempu merah (grade api dan bette) dan iris — dari Shivamogga dan Dakshina Kannada di Karnataka serta Kasaragod di Kerala, dikirim dari New Mangalore dan Chennai."
+summary: "GoodBiz Agri mengekspor pinang (betel nut, supari) — chali putih utuh, belah, kempu merah (grade api dan bette) dan iris — dari Shivamogga dan Dakshina Kannada di Karnataka serta Kasaragod di Kerala, dikirim dari pelabuhan India yang sesuai untuk setiap pesanan."
 originLine: "Shivamogga, Dakshina Kannada, dan Kasaragod"
 sourcingStory: "Karnataka menghasilkan sebagian besar pinang India. Dakshina Kannada dan Kasaragod di pesisir dikenal dengan chali putih yang dijemur, diperdagangkan melalui pasar koperasi Puttur, sedangkan kawasan Malnad di Shivamogga mengkhususkan diri pada mutu merah yang direbus."
 varieties:
@@ -10,7 +10,7 @@ varieties:
   sliced: { name: "Pinang iris", description: "Irisan seragam untuk pasar konsumsi langsung." }
 faq:
   - { q: "Apa perbedaan antara chali dan kempu?", a: "Chali adalah pinang tua yang dijemur bersama sabutnya di pesisir Karnataka sehingga tetap putih; kempu adalah pinang muda yang dikupas, direbus lalu dikeringkan sehingga berwarna merah." }
-  - { q: "Dari pelabuhan mana pinang dikirim?", a: "GoodBiz Agri mengirim pinang dari New Mangalore dan Chennai dengan syarat FOB, CFR atau CIF." }
+  - { q: "Dari pelabuhan mana pinang dikirim?", a: "GoodBiz Agri mengirim pinang dari pelabuhan India yang sesuai untuk setiap pesanan dengan syarat FOB, CFR atau CIF." }
 seo:
   title: "Eksportir Pinang India: Biji Pinang (Betel)"
   h1: "Pinang (betel nut): chali, kempu dan iris"

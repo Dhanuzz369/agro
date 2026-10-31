@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Groundnuts
-summary: GoodBiz Agri exports shelled groundnuts (peanut kernels) — bold runner, Java and blanched in counts from 38/42 to 80/90 — from Chitradurga, Anantapur and Tiruvannamalai, shipped from Chennai and New Mangalore with aflatoxin testing on request.
+summary: GoodBiz Agri exports shelled groundnuts (peanut kernels) — bold runner, Java and blanched in counts from 38/42 to 80/90 — from Chitradurga, Anantapur and Tiruvannamalai, shipped from the Indian port that suits each order, with aflatoxin testing on request.
 originLine: Chitradurga, Anantapur and Tiruvannamalai
 sourcingStory: The dry Deccan plateau around Anantapur and Chitradurga is one of India's largest groundnut regions. We buy kernels after harvest, sort them by count and test for aflatoxin before packing.
 varieties:
@@ -10,7 +10,7 @@ varieties:
 faq:
   - { q: "Can you meet EU aflatoxin limits?", a: "Yes, with sorted lots and third-party testing to ≤ 4 ppb total aflatoxin on request." }
   - { q: "What counts are available?", a: "Groundnut kernels are available from 38/42 to 80/90 counts (kernels per ounce), depending on variety." }
-  - { q: "Which ports do you ship groundnuts from?", a: "GoodBiz Agri ships groundnut kernels from Chennai and New Mangalore on FOB, CFR or CIF terms." }
+  - { q: "Which ports do you ship groundnuts from?", a: "GoodBiz Agri ships groundnut kernels from the Indian port that suits each order on FOB, CFR or CIF terms." }
 seo:
   title: "Groundnut Kernels Exporter: Peanuts India"
   h1: "Groundnut kernels: bold, Java and blanched peanuts"

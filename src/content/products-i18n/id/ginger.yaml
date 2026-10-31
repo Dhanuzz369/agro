@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Jahe"
-summary: "GoodBiz Agri mengekspor jahe kering (tanpa pemutih dan diputihkan), jahe kering utuh lainnya dan jahe segar dari Wayanad di Kerala serta Kodagu dan Hassan di Karnataka, dikirim dari Kochi, New Mangalore dan Chennai — jahe segar dengan kontainer reefer."
+summary: "GoodBiz Agri mengekspor jahe kering (tanpa pemutih dan diputihkan), jahe kering utuh lainnya dan jahe segar dari Wayanad di Kerala serta Kodagu dan Hassan di Karnataka, dikirim dari pelabuhan India yang sesuai untuk setiap pesanan — jahe segar dengan kontainer reefer."
 originLine: "Wayanad, Kodagu, dan Hassan — sabuk jahe Ghats Barat"
 sourcingStory: "Jahe yang tumbuh di lereng Ghats Barat dikenal karena rasa pedas dan kandungan minyaknya. Kami membeli jahe segar dari petani Wayanad pada musim panen dan jahe kering melalui perdagangan rempah Kochi, tempat mutu \"Cochin ginger\" telah diperdagangkan selama berabad-abad."
 varieties:
@@ -10,7 +10,7 @@ varieties:
   whole-other: { name: "Jahe kering utuh (lainnya)", description: "Jahe utuh yang tidak dihancurkan maupun digiling, sesuai mutu pembeli." }
 faq:
   - { q: "Bagaimana jahe segar dikirim?", a: "Jahe segar dikirim dalam kontainer reefer 40 kaki pada suhu sekitar 12–13 °C, sekitar 26 ton per kontainer." }
-  - { q: "Dari pelabuhan mana jahe dikirim?", a: "GoodBiz Agri mengirim jahe kering dan segar dari Kochi, New Mangalore dan Chennai dengan syarat FOB, CFR atau CIF." }
+  - { q: "Dari pelabuhan mana jahe dikirim?", a: "GoodBiz Agri mengirim jahe kering dan segar dari pelabuhan India yang sesuai untuk setiap pesanan dengan syarat FOB, CFR atau CIF." }
 seo:
   title: "Eksportir Jahe Kering India: Jahe Segar"
   h1: "Jahe kering dan jahe segar dari India"

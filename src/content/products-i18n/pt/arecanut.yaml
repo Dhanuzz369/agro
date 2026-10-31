@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Noz de areca"
-summary: "A GoodBiz Agri exporta noz de areca (noz de bétel, supari) — chali branca inteira, partida, kempu vermelha (graus api e bette) e fatiada — de Shivamogga e Dakshina Kannada, em Karnataka, e Kasaragod, em Kerala, embarcada de New Mangalore e Chennai."
+summary: "A GoodBiz Agri exporta noz de areca (noz de bétel, supari) — chali branca inteira, partida, kempu vermelha (graus api e bette) e fatiada — de Shivamogga e Dakshina Kannada, em Karnataka, e Kasaragod, em Kerala, embarcada do porto indiano mais adequado a cada pedido."
 originLine: "Shivamogga, Dakshina Kannada e Kasaragod"
 sourcingStory: "Karnataka produz a maior parte da noz de areca da Índia. A litorânea Dakshina Kannada e Kasaragod são conhecidas pela chali branca seca ao sol, negociada no mercado cooperativo de Puttur, enquanto a região de Malnad, em Shivamogga, se especializa em classes vermelhas cozidas."
 varieties:
@@ -10,7 +10,7 @@ varieties:
   sliced: { name: "Noz de areca fatiada", description: "Fatias uniformes para mercados de consumo direto." }
 faq:
   - { q: "Qual é a diferença entre chali e kempu?", a: "A chali é noz de areca madura seca ao sol na casca na costa de Karnataka e continua branca; a kempu é noz tenra descascada, fervida e seca, o que a deixa vermelha." }
-  - { q: "De quais portos vocês embarcam a noz de areca?", a: "A GoodBiz Agri embarca noz de areca (bétel) de New Mangalore e Chennai, em termos FOB, CFR ou CIF." }
+  - { q: "De quais portos vocês embarcam a noz de areca?", a: "A GoodBiz Agri embarca noz de areca (bétel) do porto indiano mais adequado a cada pedido, em termos FOB, CFR ou CIF." }
 seo:
   title: "Exportador de noz de areca (bétel) da Índia"
   h1: "Noz de areca (bétel): chali, kempu e fatiada"

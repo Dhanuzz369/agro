@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Beras Patah"
-summary: "GoodBiz Agri mengekspor beras patah 100% — putih, parboiled dan sortex — dari pabrik di delta Godavari, Nellore dan Raichur, dikirim dari Chennai dan Tuticorin ke importir pangan di Afrika Barat dan Asia serta pabrik bir dan pakan."
+summary: "GoodBiz Agri mengekspor beras patah 100% — putih, parboiled dan sortex — dari pabrik di delta Godavari, Nellore dan Raichur, dikirim dari pelabuhan India yang sesuai untuk setiap pesanan ke importir pangan di Afrika Barat dan Asia serta pabrik bir dan pakan."
 originLine: "Penggilingan di delta Godavari, Nellore, dan Raichur"
 sourcingStory: "Beras patah adalah makanan pokok di Senegal, Gambia, dan sebagian besar Afrika Barat, serta bahan penting untuk pembuatan bir dan pakan. Kami membelinya dari penggilingan yang sama dengan pemasok beras utuh kami, sehingga kadar air dan kebersihannya memenuhi standar yang sama."
 varieties:
@@ -9,7 +9,7 @@ varieties:
   sortexed: { name: "Patah hasil sortex", description: "Disortir warna agar tampilan seragam dan butir rusak lebih sedikit." }
 faq:
   - { q: "Siapa yang membeli beras patah?", a: "Beras patah terutama dibeli oleh importir pangan di Afrika Barat dan Asia, pabrik bir dan produsen pakan ternak." }
-  - { q: "Dari pelabuhan mana beras patah dikirim?", a: "GoodBiz Agri mengirim beras patah 100% dari Chennai dan Tuticorin dengan syarat FOB, CFR atau CIF dalam kontainer 20 atau 40 kaki." }
+  - { q: "Dari pelabuhan mana beras patah dikirim?", a: "GoodBiz Agri mengirim beras patah 100% dari pelabuhan India yang sesuai untuk setiap pesanan dengan syarat FOB, CFR atau CIF dalam kontainer 20 atau 40 kaki." }
 seo:
   title: "Pemasok Beras Patah 100% dari India"
   h1: "Beras patah 100%: putih, parboiled dan sortex"

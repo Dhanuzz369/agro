@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "南印度大米"
-summary: "GoodBiz Agri 出口南印度大米——索纳马索里（生米和蒸谷米）、Ponni、喀拉拉 Matta、Seeraga Samba 及 idli 米——在赖久尔、曼迪亚、坦贾武尔和帕拉卡德碾制，从金奈、图蒂戈林和科钦发往 70 多个国家。"
+summary: "GoodBiz Agri 出口南印度大米——索纳马索里（生米和蒸谷米）、Ponni、喀拉拉 Matta、Seeraga Samba 及 idli 米——在赖久尔、曼迪亚、坦贾武尔和帕拉卡德碾制，从最适合订单的印度港口发往 70 多个国家。"
 originLine: "赖丘尔、曼迪亚、坦贾武尔和帕拉卡德的碾米厂"
 sourcingStory: "南印度大米比多数买家熟悉的长粒米更轻盈、品种更丰富。我们从赖丘尔周边的通加巴德拉河（Tungabhadra）灌区采购 Sona Masoori，从坦贾武尔的高韦里河三角洲碾米厂采购 Ponni 和 Seeraga Samba，从帕拉卡德采购 Matta，并按每批货的用途菜式和目标市场进行匹配。"
 varieties:
@@ -13,7 +13,7 @@ varieties:
 faq:
   - { q: "生米与蒸谷米版 Sona Masoori 有何区别？", a: "蒸谷米在碾磨前经过轻度蒸制，煮熟后米粒更紧实，储存期更长。" }
   - { q: "可以供应贴牌零售包装吗？", a: "可以，提供5公斤、10公斤和25公斤的 BOPP 袋或黄麻袋，印制您的品牌。" }
-  - { q: "南印度大米从哪些港口发货？", a: "GoodBiz Agri 从金奈、图蒂戈林和科钦按 FOB、CFR 或 CIF 条件发运索纳马索里、Ponni、Matta 等南印度大米。" }
+  - { q: "南印度大米从哪些港口发货？", a: "GoodBiz Agri 从最适合订单的印度港口按 FOB、CFR 或 CIF 条件发运索纳马索里、Ponni、Matta 等南印度大米。" }
 seo:
   title: "印度索纳马索里大米出口商 · 南印度大米"
   h1: "索纳马索里、Ponni 等南印度大米"

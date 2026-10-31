@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Maní"
-summary: "GoodBiz Agri exporta maní pelado (cacahuate) — bold runner, Java y blanqueado de 38/42 a 80/90 granos por onza — de Chitradurga, Anantapur y Tiruvannamalai, enviado desde Chennai y New Mangalore con análisis de aflatoxinas a pedido."
+summary: "GoodBiz Agri exporta maní pelado (cacahuate) — bold runner, Java y blanqueado de 38/42 a 80/90 granos por onza — de Chitradurga, Anantapur y Tiruvannamalai, enviado desde el puerto indio que mejor convenga a cada pedido con análisis de aflatoxinas a pedido."
 originLine: "Chitradurga, Anantapur y Tiruvannamalai"
 sourcingStory: "La árida meseta del Decán, alrededor de Anantapur y Chitradurga, es una de las mayores regiones productoras de maní de la India. Compramos los granos después de la cosecha, los clasificamos por calibre y los analizamos para aflatoxina antes de envasarlos."
 varieties:
@@ -10,7 +10,7 @@ varieties:
 faq:
   - { q: "¿Pueden cumplir los límites de aflatoxina de la UE?", a: "Sí, con lotes seleccionados y análisis de terceros hasta ≤ 4 ppb de aflatoxina total, a solicitud." }
   - { q: "¿Qué calibres hay disponibles?", a: "El maní se ofrece de 38/42 a 80/90 granos por onza, según la variedad." }
-  - { q: "¿Desde qué puertos envían el maní?", a: "GoodBiz Agri envía maní pelado desde Chennai y New Mangalore en condiciones FOB, CFR o CIF." }
+  - { q: "¿Desde qué puertos envían el maní?", a: "GoodBiz Agri envía maní pelado desde el puerto indio que mejor convenga a cada pedido en condiciones FOB, CFR o CIF." }
 seo:
   title: "Exportador de maní (cacahuate) de la India"
   h1: "Maní pelado: bold, Java y blanqueado"

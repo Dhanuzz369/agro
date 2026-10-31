@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Kacang Tanah"
-summary: "GoodBiz Agri mengekspor kacang tanah kupas — bold runner, Java dan blansir ukuran 38/42 hingga 80/90 — dari Chitradurga, Anantapur dan Tiruvannamalai, dikirim dari Chennai dan New Mangalore dengan uji aflatoksin atas permintaan."
+summary: "GoodBiz Agri mengekspor kacang tanah kupas — bold runner, Java dan blansir ukuran 38/42 hingga 80/90 — dari Chitradurga, Anantapur dan Tiruvannamalai, dikirim dari pelabuhan India yang sesuai untuk setiap pesanan dengan uji aflatoksin atas permintaan."
 originLine: "Chitradurga, Anantapur, dan Tiruvannamalai"
 sourcingStory: "Dataran tinggi Deccan yang kering di sekitar Anantapur dan Chitradurga adalah salah satu wilayah kacang tanah terbesar di India. Kami membeli biji setelah panen, menyortirnya menurut ukuran, dan menguji aflatoksin sebelum dikemas."
 varieties:
@@ -10,7 +10,7 @@ varieties:
 faq:
   - { q: "Apakah Anda dapat memenuhi batas aflatoksin Uni Eropa?", a: "Ya, dengan lot yang disortir dan pengujian pihak ketiga hingga total aflatoksin ≤ 4 ppb atas permintaan." }
   - { q: "Ukuran apa saja yang tersedia?", a: "Kacang tanah tersedia dalam ukuran 38/42 hingga 80/90 biji per ons, tergantung varietas." }
-  - { q: "Dari pelabuhan mana kacang tanah dikirim?", a: "GoodBiz Agri mengirim kacang tanah kupas dari Chennai dan New Mangalore dengan syarat FOB, CFR atau CIF." }
+  - { q: "Dari pelabuhan mana kacang tanah dikirim?", a: "GoodBiz Agri mengirim kacang tanah kupas dari pelabuhan India yang sesuai untuk setiap pesanan dengan syarat FOB, CFR atau CIF." }
 seo:
   title: "Eksportir Kacang Tanah Kupas dari India"
   h1: "Kacang tanah kupas: bold, Java dan blansir"

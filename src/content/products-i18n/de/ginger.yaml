@@ -1,8 +1,8 @@
 reviewStatus: pending
 name: "Ingwer"
-summary: "GoodBiz Agri exportiert getrockneten Ingwer (ungebleicht und gebleicht), weiteren ganzen Trockeningwer und frischen Ingwer aus Wayanad in Kerala sowie Kodagu und Hassan in Karnataka, verschifft ab Kochi, New Mangalore und Chennai — frischen Ingwer im Kühlcontainer."
+summary: "GoodBiz Agri exportiert getrockneten Ingwer (ungebleicht und gebleicht), weiteren ganzen Trockeningwer und frischen Ingwer aus Wayanad in Kerala sowie Kodagu und Hassan in Karnataka, verschifft ab dem passenden indischen Hafen — frischen Ingwer im Kühlcontainer."
 originLine: "Wayanad, Kodagu und Hassan — der Ingwergürtel der Westghats"
-sourcingStory: "Ingwer von den Hängen der Westghats ist für seine Schärfe und seinen Ölgehalt bekannt. Frischen Ingwer kaufen wir zur Erntezeit bei Anbauern in Wayanad, getrockneten Ingwer über den Gewürzhandel in Kochi, wo die Güte \"Cochin ginger\" seit Jahrhunderten gehandelt wird."
+sourcingStory: "Ingwer von den Hängen der Westghats ist für seine Schärfe und seinen Ölgehalt bekannt. Frischen Ingwer kaufen wir zur Erntezeit bei Anbauern in Wayanad, getrockneten Ingwer über den Gewürzhandel im passenden indischen Hafen, wo die Güte \"Cochin ginger\" seit Jahrhunderten gehandelt wird."
 varieties:
   fresh: { name: "Frischer Ingwer", description: "Gewaschene, an der Luft getrocknete Rhizome, für den Reefer-Versand in Kartons oder Netzsäcken verpackt." }
   dried-unbleached: { name: "Getrockneter ungebleichter Ingwer", description: "Geschälter, sonnengetrockneter Ingwer in Naturfarbe." }
@@ -10,7 +10,7 @@ varieties:
   whole-other: { name: "Ganzer getrockneter Ingwer (sonstige)", description: "Ganzer Ingwer, weder zerkleinert noch gemahlen, nach Käufergüte." }
 faq:
   - { q: "Wie wird frischer Ingwer verschifft?", a: "Frischer Ingwer reist in 40-Fuß-Kühlcontainern bei etwa 12–13 °C, rund 26 Tonnen pro Container." }
-  - { q: "Ab welchen Häfen verschiffen Sie Ingwer?", a: "GoodBiz Agri verschifft getrockneten und frischen Ingwer ab Kochi, New Mangalore und Chennai zu FOB-, CFR- oder CIF-Bedingungen." }
+  - { q: "Ab welchen Häfen verschiffen Sie Ingwer?", a: "GoodBiz Agri verschifft getrockneten und frischen Ingwer ab dem passenden indischen Hafen zu FOB-, CFR- oder CIF-Bedingungen." }
 seo:
   title: "Getrockneter Ingwer Exporteur Indien"
   h1: "Getrockneter und frischer Ingwer aus Indien"

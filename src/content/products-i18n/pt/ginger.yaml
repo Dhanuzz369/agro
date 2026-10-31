@@ -1,8 +1,8 @@
 reviewStatus: pending
 name: "Gengibre"
-summary: "A GoodBiz Agri exporta gengibre seco (não branqueado e branqueado), outros gengibres secos inteiros e gengibre fresco de Wayanad, em Kerala, e Kodagu e Hassan, em Karnataka, embarcados de Kochi, New Mangalore e Chennai; o fresco, em contêiner refrigerado."
+summary: "A GoodBiz Agri exporta gengibre seco (não branqueado e branqueado), outros gengibres secos inteiros e gengibre fresco de Wayanad, em Kerala, e Kodagu e Hassan, em Karnataka, embarcados do porto indiano mais adequado a cada pedido; o fresco, em contêiner refrigerado."
 originLine: "Wayanad, Kodagu e Hassan — o cinturão do gengibre dos Gates Ocidentais"
-sourcingStory: "O gengibre cultivado nas encostas dos Gates Ocidentais é conhecido pela pungência e pelo teor de óleo. Compramos gengibre fresco de produtores de Wayanad durante a colheita e gengibre seco pelo comércio de especiarias de Kochi, onde a classe «Cochin ginger» é negociada há séculos."
+sourcingStory: "O gengibre cultivado nas encostas dos Gates Ocidentais é conhecido pela pungência e pelo teor de óleo. Compramos gengibre fresco de produtores de Wayanad durante a colheita e gengibre seco pelo comércio de especiarias do porto indiano mais adequado a cada pedido, onde a classe «Cochin ginger» é negociada há séculos."
 varieties:
   fresh: { name: "Gengibre fresco", description: "Rizomas lavados e secos ao ar, embalados em caixas de papelão ou sacos de malha para embarque em contêiner refrigerado." }
   dried-unbleached: { name: "Gengibre seco não branqueado", description: "Gengibre descascado e seco ao sol, com cor natural." }
@@ -10,7 +10,7 @@ varieties:
   whole-other: { name: "Gengibre seco inteiro (outros)", description: "Gengibre inteiro, nem triturado nem moído, conforme a classe do comprador." }
 faq:
   - { q: "Como o gengibre fresco é embarcado?", a: "O gengibre fresco viaja em contêineres refrigerados de 40 pés a cerca de 12–13 °C, com cerca de 26 toneladas por contêiner." }
-  - { q: "De quais portos vocês embarcam o gengibre?", a: "A GoodBiz Agri embarca gengibre seco e fresco de Kochi, New Mangalore e Chennai, em termos FOB, CFR ou CIF." }
+  - { q: "De quais portos vocês embarcam o gengibre?", a: "A GoodBiz Agri embarca gengibre seco e fresco do porto indiano mais adequado a cada pedido, em termos FOB, CFR ou CIF." }
 seo:
   title: "Exportador de gengibre seco e fresco da Índia"
   h1: "Gengibre seco e gengibre fresco da Índia"

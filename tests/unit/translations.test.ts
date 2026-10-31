@@ -72,3 +72,17 @@ describe('product data dictionaries', async () => {
     });
   }
 });
+
+describe('no loading ports named in visitor text', () => {
+  // Kochi stays allowed as a sourcing place (ginger's spice trade), so English matches it only in port phrases.
+  const portNames: Record<string, RegExp> = {
+    en: /Chennai|Tuticorin|Mangalore|Kochi Port|Cochin Port|ports? (?:of|at) Kochi/i,
+    ar: /تشيناي|توتيكورين|مانغالور|مانجالور|مانغلور/, fr: /Chennai|Tuticorin|Mangalore/i, es: /Chennai|Tuticor[ií]n|Mangalore/i,
+    pt: /Chennai|Tuticorin|Mangalore/i, ru: /Ченна|Тутикорин|Мангалор/, zh: /金奈|图蒂科林|杜蒂戈林|门格洛尔|芒格洛尔/,
+    id: /Chennai|Tuticorin|Mangalore/i, de: /Chennai|Tuticorin|Mangalore/i,
+  };
+  it.each(Object.keys(portNames))('%s text names no loading port', (l) => {
+    const files = [`src/i18n/ui/${l}.json`, ...readdirSync(`src/content/products-i18n/${l}`).map((f) => `src/content/products-i18n/${l}/${f}`)];
+    for (const f of files) expect(readFileSync(f, 'utf8'), f).not.toMatch(portNames[l]);
+  });
+});

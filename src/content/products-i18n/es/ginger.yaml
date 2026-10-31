@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Jengibre"
-summary: "GoodBiz Agri exporta jengibre seco (sin blanquear y blanqueado), otros jengibres secos enteros y jengibre fresco de Wayanad en Kerala y Kodagu y Hassan en Karnataka, enviados desde Kochi, New Mangalore y Chennai; el fresco, en contenedor refrigerado."
+summary: "GoodBiz Agri exporta jengibre seco (sin blanquear y blanqueado), otros jengibres secos enteros y jengibre fresco de Wayanad en Kerala y Kodagu y Hassan en Karnataka, enviados desde el puerto indio que mejor convenga a cada pedido; el fresco, en contenedor refrigerado."
 originLine: "Wayanad, Kodagu y Hassan — el cinturón del jengibre de los Ghats Occidentales"
 sourcingStory: "El jengibre cultivado en las laderas de los Ghats Occidentales es conocido por su pungencia y su contenido de aceite. Compramos jengibre fresco a los productores de Wayanad durante la cosecha y jengibre seco a través del comercio de especias de Kochi, donde la calidad «Cochin ginger» se comercializa desde hace siglos."
 varieties:
@@ -10,7 +10,7 @@ varieties:
   whole-other: { name: "Jengibre seco entero (otro)", description: "Jengibre entero, ni triturado ni molido, según la calidad del comprador." }
 faq:
   - { q: "¿Cómo se envía el jengibre fresco?", a: "El jengibre fresco viaja en contenedores refrigerados de 40 pies a unos 12–13 °C, con unas 26 toneladas por contenedor." }
-  - { q: "¿Desde qué puertos envían el jengibre?", a: "GoodBiz Agri envía jengibre seco y fresco desde Kochi, New Mangalore y Chennai en condiciones FOB, CFR o CIF." }
+  - { q: "¿Desde qué puertos envían el jengibre?", a: "GoodBiz Agri envía jengibre seco y fresco desde el puerto indio que mejor convenga a cada pedido en condiciones FOB, CFR o CIF." }
 seo:
   title: "Exportador de jengibre seco de la India"
   h1: "Jengibre seco y jengibre fresco de la India"

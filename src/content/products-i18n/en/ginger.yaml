@@ -1,6 +1,6 @@
 reviewStatus: reviewed
 name: Ginger
-summary: GoodBiz Agri exports dry ginger (unbleached and bleached), other whole dried ginger and fresh ginger from Wayanad in Kerala and Kodagu and Hassan in Karnataka, shipped from Kochi, New Mangalore and Chennai — fresh ginger by reefer.
+summary: GoodBiz Agri exports dry ginger (unbleached and bleached), other whole dried ginger and fresh ginger from Wayanad in Kerala and Kodagu and Hassan in Karnataka, shipped from the Indian port that suits each order — fresh ginger by reefer.
 originLine: Wayanad, Kodagu and Hassan — the Western Ghats ginger belt
 sourcingStory: Ginger grown on the slopes of the Western Ghats is known for its pungency and oil content. We buy fresh ginger from Wayanad growers during harvest and dried ginger through Kochi's spice trade, where the "Cochin ginger" grade has been traded for centuries.
 varieties:
@@ -10,7 +10,7 @@ varieties:
   whole-other: { name: "Whole dried ginger (other)", description: "Whole ginger neither crushed nor ground, to buyer grade." }
 faq:
   - { q: "How is fresh ginger shipped?", a: "Fresh ginger travels in 40 ft reefer containers at about 12–13 °C, around 26 tonnes per container." }
-  - { q: "Which ports do you ship ginger from?", a: "GoodBiz Agri ships dry and fresh ginger from Kochi, New Mangalore and Chennai on FOB, CFR or CIF terms." }
+  - { q: "Which ports do you ship ginger from?", a: "GoodBiz Agri ships dry and fresh ginger from the Indian port that suits each order on FOB, CFR or CIF terms." }
 seo:
   title: "Dry Ginger Exporter India: Fresh & Dried"
   h1: "Dry ginger and fresh ginger from India"

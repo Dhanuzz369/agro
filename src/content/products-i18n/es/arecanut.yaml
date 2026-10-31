@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Nuez de areca"
-summary: "GoodBiz Agri exporta nuez de areca (nuez de betel, supari) — chali blanca entera, partida, kempu roja (grados api y bette) y en rodajas — de Shivamogga y Dakshina Kannada en Karnataka y Kasaragod en Kerala, enviada desde New Mangalore y Chennai."
+summary: "GoodBiz Agri exporta nuez de areca (nuez de betel, supari) — chali blanca entera, partida, kempu roja (grados api y bette) y en rodajas — de Shivamogga y Dakshina Kannada en Karnataka y Kasaragod en Kerala, enviada desde el puerto indio que mejor convenga a cada pedido."
 originLine: "Shivamogga, Dakshina Kannada y Kasaragod"
 sourcingStory: "Karnataka produce la mayor parte de la nuez de areca de la India. La costera Dakshina Kannada y Kasaragod son conocidas por la chali blanca secada al sol, comercializada en el mercado cooperativo de Puttur, mientras que la región de Malnad, en Shivamogga, se especializa en calidades rojas hervidas."
 varieties:
@@ -10,7 +10,7 @@ varieties:
   sliced: { name: "Nuez de areca en rodajas", description: "Rodajas uniformes para mercados de consumo directo." }
 faq:
   - { q: "¿Cuál es la diferencia entre chali y kempu?", a: "La chali es nuez de areca madura secada al sol con su cáscara en la costa de Karnataka y queda blanca; la kempu es nuez tierna pelada, hervida y secada, lo que le da color rojo." }
-  - { q: "¿Desde qué puertos envían la nuez de areca?", a: "GoodBiz Agri envía nuez de areca (betel) desde New Mangalore y Chennai en condiciones FOB, CFR o CIF." }
+  - { q: "¿Desde qué puertos envían la nuez de areca?", a: "GoodBiz Agri envía nuez de areca (betel) desde el puerto indio que mejor convenga a cada pedido en condiciones FOB, CFR o CIF." }
 seo:
   title: "Exportador de nuez de areca (betel), India"
   h1: "Nuez de areca (betel): chali, kempu y en rodajas"

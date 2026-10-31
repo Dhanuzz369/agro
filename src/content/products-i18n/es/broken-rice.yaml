@@ -1,6 +1,6 @@
 reviewStatus: pending
 name: "Arroz partido"
-summary: "GoodBiz Agri exporta arroz quebrado 100 % — blanco, sancochado y seleccionado — de molinos del delta del Godavari, Nellore y Raichur, enviado desde Chennai y Tuticorin a importadores de África Occidental y Asia, cervecerías y fábricas de piensos."
+summary: "GoodBiz Agri exporta arroz quebrado 100 % — blanco, sancochado y seleccionado — de molinos del delta del Godavari, Nellore y Raichur, enviado desde el puerto indio que mejor convenga a cada pedido a importadores de África Occidental y Asia, cervecerías y fábricas de piensos."
 originLine: "Molinos del delta del Godavari, Nellore y Raichur"
 sourcingStory: "El arroz partido es un alimento básico en Senegal, Gambia y gran parte de África Occidental, y un insumo clave para la cervecería y el alimento balanceado. Lo compramos a los mismos molinos que nos suministran el arroz de grano entero, por lo que la humedad y la limpieza cumplen el mismo estándar."
 varieties:
@@ -9,7 +9,7 @@ varieties:
   sortexed: { name: "Partido sortexed", description: "Seleccionado por color para un aspecto uniforme y menos granos dañados." }
 faq:
   - { q: "¿Quién compra arroz partido?", a: "El arroz quebrado lo compran sobre todo importadores de alimentos de África Occidental y Asia, cervecerías y fabricantes de piensos." }
-  - { q: "¿Desde qué puertos envían el arroz quebrado?", a: "GoodBiz Agri envía arroz quebrado 100 % desde Chennai y Tuticorin en condiciones FOB, CFR o CIF, en contenedores de 20 o 40 pies." }
+  - { q: "¿Desde qué puertos envían el arroz quebrado?", a: "GoodBiz Agri envía arroz quebrado 100 % desde el puerto indio que mejor convenga a cada pedido en condiciones FOB, CFR o CIF, en contenedores de 20 o 40 pies." }
 seo:
   title: "Proveedor de arroz quebrado 100 % de la India"
   h1: "Arroz quebrado 100 %: blanco, sancochado y seleccionado"
