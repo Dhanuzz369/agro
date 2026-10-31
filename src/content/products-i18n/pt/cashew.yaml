@@ -1,0 +1,21 @@
+reviewStatus: pending
+name: "Castanha de caju"
+summary: "A GoodBiz Agri exporta castanha de caju processada — inteiras W180, W210, W240, W320 e W450, inteiras tostadas, bandas, quebradas e pedaços (LWP, SWP, BB) — de processadores de Kerala, Karnataka e Tamil Nadu, embalada a vácuo e analisada para umidade e aflatoxina."
+originLine: "Kerala, Karnataka e Tamil Nadu — vários processadores"
+sourcingStory: "A castanha de caju chega até nós já descascada, despeliculada e classificada. Compramos de vários processadores em Kerala, Karnataka e Tamil Nadu e escolhemos o processador de cada pedido pelo grau, cor e volume de que o comprador precisa. Cada lote é analisado para umidade e aflatoxina e embalado a vácuo em latas ou sacos flexíveis."
+varieties:
+  white-wholes: { name: "Castanhas inteiras brancas (W180–W450)", description: "Castanhas inteiras brancas classificadas por unidades por libra, da grande W180 à pequena W450; a W320 é o grau mais negociado." }
+  scorched-wholes: { name: "Inteiras tostadas (SW)", description: "Castanhas inteiras com leve tom marrom de uma torra mais longa na casca, mais baratas que as inteiras brancas." }
+  splits-butts: { name: "Bandas e quebradas (S, B)", description: "Castanhas partidas no comprimento (S) ou quebradas na transversal (B), para confeitaria e panificação." }
+  pieces: { name: "Pedaços de caju (LWP, SWP, BB)", description: "Pedaços brancos grandes, pedaços brancos pequenos e xerém para snacks, doces e ingredientes." }
+faq:
+  - { q: "O que significam os graus de caju W180, W240 e W320?", a: "W indica castanhas inteiras brancas, e o número é a quantidade de castanhas por libra. A W180 tem 170–180 por libra, portanto são grandes; a W320 tem 300–320; a W450 tem 400–450, o menor grau inteiro. A W320 é o grau mais negociado." }
+  - { q: "Qual a diferença entre inteiras, bandas e pedaços?", a: "As inteiras não são quebradas. As bandas (S) se separam naturalmente no comprimento, as quebradas (B) partem-se na transversal, e os pedaços são classificados em pedaços brancos grandes (LWP), pequenos (SWP) e xerém (BB). Bandas e pedaços custam menos e servem para panificação, doces e mixes de snacks." }
+  - { q: "Qual a umidade e a validade da sua castanha de caju?", a: "As castanhas são secas a 5% de umidade ou menos e embaladas em latas a vácuo ou com nitrogênio, que as conservam por cerca de 12 meses em local fresco e seco." }
+  - { q: "Como a castanha de caju é embalada?", a: "A embalagem padrão de exportação são duas latas a vácuo de 25 lb (22,68 kg) por caixa, 50 lb por caixa; um contêiner de 20 pés leva cerca de 700 caixas. Sacos flexíveis a vácuo de 10 kg e marca própria sob consulta." }
+  - { q: "A castanha de caju é analisada para aflatoxina?", a: "Sim. Cada lote é analisado para umidade e aflatoxina antes do embarque, conforme o limite do mercado de destino, e uma inspeção de terceiros pode ser organizada sob consulta." }
+seo:
+  title: "Exportador de castanha de caju: W180 a W450"
+  h1: "Castanha de caju: W180 a W450, bandas e pedaços"
+  description: "Exportador de castanha de caju da Índia: inteiras W180, W210, W240, W320 e W450, tostadas, bandas, quebradas e pedaços, a vácuo e testadas para aflatoxina."
+  keywords: ["exportador castanha de caju Índia", "fornecedor caju W320", "caju W240", "pedaços de caju", "castanha de caju a granel", "caju indiano", "cashew kernels exporter India"]

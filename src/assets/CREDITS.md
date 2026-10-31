@@ -65,3 +65,8 @@ Shown only to indicate GoodBiz Agri's registrations. Sources:
 - src/assets/products/coco-pith/pith-chip-mix.jpg | feey | https://unsplash.com/photos/wUqiaRLZDiY | Unsplash License | generic (loose growing substrate)
 - src/assets/products/coco-pith/bricks-discs.jpg | Laura Ohlman | https://unsplash.com/photos/QwUvxjFrB-w | Unsplash License | generic (seedlings in propagation trays)
 - src/assets/products/coco-pith/husk-chips.jpg | Diomari Madulara | https://unsplash.com/photos/2x46RlDWMGg | Unsplash License | generic (coconut husks, not cut chips)
+- src/assets/products/cashew/hero.jpg | Maja Vujic | https://unsplash.com/photos/FG29J5efMYQ | Unsplash License | exact
+- src/assets/products/cashew/white-wholes.jpg | Vasanth Kedige | https://unsplash.com/photos/dQZtRyfKM_Q | Unsplash License | exact
+- src/assets/products/cashew/scorched-wholes.jpg | Kischmisch | https://unsplash.com/photos/Su__nb7MsEo | Unsplash License | generic (golden whole kernels; not verifiably scorched wholes)
+- src/assets/products/cashew/splits-butts.jpg | Emma Miller | https://unsplash.com/photos/juOaQQKFFKo | Unsplash License | generic (whole kernels, not splits)
+- src/assets/products/cashew/pieces.jpg | Amit Kumar Jain | https://unsplash.com/photos/O2GgNMUlqHU | Unsplash License | generic (whole kernels, not pieces)

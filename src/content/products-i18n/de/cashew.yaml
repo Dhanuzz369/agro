@@ -1,0 +1,21 @@
+reviewStatus: pending
+name: "Cashewkerne"
+summary: "GoodBiz Agri exportiert verarbeitete Cashewkerne — ganze W180, W210, W240, W320 und W450, Scorched Wholes, Splits, Butts und Bruch (LWP, SWP, BB) — von Verarbeitern in Kerala, Karnataka und Tamil Nadu, vakuumverpackt und im Labor auf Feuchte und Aflatoxin geprüft."
+originLine: "Kerala, Karnataka und Tamil Nadu — mehrere Verarbeiter"
+sourcingStory: "Cashewkerne erreichen uns bereits geschält, gehäutet und sortiert. Wir kaufen bei mehreren Verarbeitern in Kerala, Karnataka und Tamil Nadu und wählen den Verarbeiter für jeden Auftrag nach Sorte, Farbe und Menge, die der Käufer braucht. Jede Partie wird im Labor auf Feuchte und Aflatoxin geprüft und dann in Dosen oder Flexibeuteln vakuumverpackt."
+varieties:
+  white-wholes: { name: "Weiße ganze Kerne (W180–W450)", description: "Ganze weiße Kerne, sortiert nach Stückzahl pro Pfund, vom großen W180 bis zum kleinen W450; W320 ist die meistgehandelte Sorte." }
+  scorched-wholes: { name: "Scorched Wholes (SW)", description: "Ganze Kerne mit leicht bräunlicher Tönung durch längeres Rösten in der Schale, günstiger als weiße ganze Kerne." }
+  splits-butts: { name: "Splits und Butts (S, B)", description: "Längs halbierte (S) oder quer gebrochene Kerne (B) für Süßwaren und Backwaren." }
+  pieces: { name: "Cashewbruch (LWP, SWP, BB)", description: "Große weiße Stücke, kleine weiße Stücke und Baby Bits für Snacks, Süßwaren und Zutaten." }
+faq:
+  - { q: "Was bedeuten die Cashew-Sorten W180, W240 und W320?", a: "W steht für weiße ganze Kerne, die Zahl für die Anzahl Kerne pro Pfund. W180 hat 170–180 Kerne pro Pfund, die Kerne sind also groß; W320 hat 300–320; W450 hat 400–450 und ist die kleinste ganze Sorte. W320 ist die meistgehandelte Sorte." }
+  - { q: "Was ist der Unterschied zwischen ganzen Kernen, Splits und Bruch?", a: "Ganze Kerne sind unzerbrochen. Splits (S) sind der Länge nach natürlich gespaltene Kerne, Butts (B) quer gebrochene, und Bruch wird nach Größe sortiert in große weiße Stücke (LWP), kleine weiße Stücke (SWP) und Baby Bits (BB). Splits und Bruch sind günstiger und eignen sich für Backwaren, Süßwaren und Snackmischungen." }
+  - { q: "Welche Feuchte und Haltbarkeit haben Ihre Cashewkerne?", a: "Die Kerne werden auf höchstens 5 % Feuchte getrocknet und in Vakuum- oder Stickstoffdosen verpackt, die sie bei kühler, trockener Lagerung etwa 12 Monate halten." }
+  - { q: "Wie werden Cashewkerne verpackt?", a: "Die übliche Exportverpackung sind zwei 25-lb-Vakuumdosen (22,68 kg) pro Karton, also 50 lb pro Karton; ein 20-Fuß-Container fasst etwa 700 Kartons. 10-kg-Vakuum-Flexibeutel und Eigenmarken-Verpackung auf Anfrage." }
+  - { q: "Werden Cashewkerne auf Aflatoxin geprüft?", a: "Ja. Jede Partie wird vor dem Versand im Labor auf Feuchte und Aflatoxin nach dem Grenzwert des Zielmarkts geprüft, und eine Inspektion durch Dritte kann auf Anfrage organisiert werden." }
+seo:
+  title: "Cashewkerne Exporteur Indien: W180 bis W450"
+  h1: "Cashewkerne: W180 bis W450, Splits und Bruch"
+  description: "Cashewkerne-Exporteur aus Indien: ganze W180, W210, W240, W320 und W450, Scorched Wholes, Splits, Butts und Bruch, vakuumverpackt und auf Aflatoxin geprüft."
+  keywords: ["Cashewkerne Exporteur Indien", "W320 Cashew Lieferant", "W240 Cashew", "Cashew Bruch", "Cashewkerne lose Ware", "indische Cashewnüsse", "cashew kernels exporter India"]

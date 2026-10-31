@@ -7,9 +7,9 @@ test('landing has all sections in order', async ({ page }) => {
   expect(ids).toEqual(['range', 'journey', 'why', 'faq', 'world', 'cta']);
 });
 
-test('range lists 9 products linking to product pages', async ({ page }) => {
+test('range lists 11 products linking to product pages', async ({ page }) => {
   await page.goto('/');
-  await expect(page.locator('#range a[href^="/products/"]')).toHaveCount(9);
+  await expect(page.locator('#range a[href^="/products/"]')).toHaveCount(11);
 });
 
 test('faq has FAQPage JSON-LD', async ({ page }) => {

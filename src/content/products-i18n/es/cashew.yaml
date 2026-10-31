@@ -1,0 +1,21 @@
+reviewStatus: pending
+name: "Anacardos"
+summary: "GoodBiz Agri exporta anacardos procesados — enteros W180, W210, W240, W320 y W450, enteros tostados, mitades, partidos y trozos (LWP, SWP, BB) — de procesadores de Kerala, Karnataka y Tamil Nadu, envasados al vacío y analizados para humedad y aflatoxina."
+originLine: "Kerala, Karnataka y Tamil Nadu — varios procesadores"
+sourcingStory: "Los anacardos nos llegan ya descascarados, pelados y calibrados. Compramos a varios procesadores de Kerala, Karnataka y Tamil Nadu y elegimos el procesador de cada pedido según el grado, el color y el volumen que necesita el comprador. Cada lote se analiza para humedad y aflatoxina y se envasa al vacío en latas o bolsas flexibles."
+varieties:
+  white-wholes: { name: "Anacardos enteros blancos (W180–W450)", description: "Anacardos enteros blancos calibrados por unidades por libra, del grande W180 al pequeño W450; el W320 es el grado más comercializado." }
+  scorched-wholes: { name: "Enteros tostados (SW)", description: "Anacardos enteros con un tono marrón claro por un tostado más largo en la cáscara, más baratos que los enteros blancos." }
+  splits-butts: { name: "Mitades y partidos (S, B)", description: "Anacardos partidos a lo largo (S) o rotos de través (B), para confitería y panadería." }
+  pieces: { name: "Trozos de anacardo (LWP, SWP, BB)", description: "Trozos blancos grandes, trozos blancos pequeños y trocitos para aperitivos, dulces e ingredientes." }
+faq:
+  - { q: "¿Qué significan los grados de anacardo W180, W240 y W320?", a: "W indica anacardos enteros blancos y el número es la cantidad de anacardos por libra. El W180 tiene 170–180 por libra, así que son grandes; el W320 tiene 300–320; el W450 tiene 400–450, el grado entero más pequeño. El W320 es el grado más comercializado." }
+  - { q: "¿Qué diferencia hay entre enteros, mitades y trozos?", a: "Los enteros no están rotos. Las mitades (S) se separan de forma natural a lo largo, los partidos (B) están rotos de través y los trozos se calibran en trozos blancos grandes (LWP), pequeños (SWP) y trocitos (BB). Mitades y trozos cuestan menos y sirven para panadería, dulces y mezclas de aperitivo." }
+  - { q: "¿Qué humedad y vida útil tienen sus anacardos?", a: "Los anacardos se secan al 5 % de humedad o menos y se envasan en latas al vacío o con nitrógeno, que los conservan unos 12 meses en un lugar fresco y seco." }
+  - { q: "¿Cómo se envasan los anacardos?", a: "El envase de exportación estándar son dos latas al vacío de 25 lb (22,68 kg) por caja, 50 lb por caja; un contenedor de 20 pies carga unas 700 cajas. Bolsas flexibles al vacío de 10 kg y marca propia a solicitud." }
+  - { q: "¿Se analizan los anacardos para aflatoxina?", a: "Sí. Cada lote se analiza para humedad y aflatoxina antes del envío, según el límite del mercado de destino, y se puede organizar una inspección de terceros a solicitud." }
+seo:
+  title: "Exportador de anacardos India: W180 a W450"
+  h1: "Anacardos: W180 a W450, mitades y trozos"
+  description: "Exportador de anacardos de la India: enteros W180, W210, W240, W320 y W450, tostados, mitades, partidos y trozos, envasados al vacío y analizados de aflatoxina."
+  keywords: ["exportador de anacardos India", "proveedor anacardo W320", "anacardo W240", "trozos de anacardo", "anacardos a granel", "anacardo indio", "cashew kernels exporter India"]

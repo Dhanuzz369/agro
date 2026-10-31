@@ -66,6 +66,13 @@ test('"Quote this variety" links skip the product and variety steps', async ({ p
   await expect(active(page)).toHaveAttribute('data-step', 'quantity');
 });
 
+test('a cashew variety link pre-selects the product and the variety', async ({ page }) => {
+  await open(page, '?product=cashew&variety=pieces', false);
+  await expect(page.locator('input[name="product"][value="cashew"]')).toBeChecked();
+  await expect(page.locator('input[name="variety"][value="pieces"]')).toBeChecked();
+  await expect(page.locator('[data-step-count]')).toHaveText('Step 1 of 5');
+});
+
 test('hostile query params are ignored', async ({ page }) => {
   await open(page, '?product=%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E', false);
   await expect(page.locator('[data-step-count]')).toHaveText('Step 1 of 7');

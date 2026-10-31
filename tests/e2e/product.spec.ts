@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const slugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric'];
+const slugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric', 'coco-pith', 'cashew'];
 
 for (const slug of slugs) {
   test(`product page renders: ${slug}`, async ({ page }) => {
@@ -30,9 +30,9 @@ test('product pages show no HSN codes or harvest season', async ({ page }) => {
   await expect(page).toHaveTitle(/^印度/);
 });
 
-test('products index lists 9 products and no HSN table', async ({ page }) => {
+test('products index lists 11 products and no HSN table', async ({ page }) => {
   await page.goto('/products');
-  await expect(page.locator('main article')).toHaveCount(9);
+  await expect(page.locator('main article')).toHaveCount(11);
   expect(await page.content()).not.toMatch(/HSN/);
 });
 
@@ -71,4 +71,13 @@ test('coco pith page: formats, no region line, no FSSAI doc, RTL spec cells', as
   await expect(page.locator('.pv__docs')).not.toContainText('FSSAI');
   await page.goto('/ar/products/coco-pith');
   await expect(page.locator('.var td[dir="auto"]').first()).toBeVisible();
+});
+
+test('cashew page names every grade and fits a phone screen', async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 });
+  await page.goto('/products/cashew');
+  await expect(page.locator('[data-variety]')).toHaveCount(4);
+  const text = await page.locator('main').innerText();
+  for (const g of ['W180', 'W210', 'W240', 'W320', 'W450', 'SW', 'LWP', 'SWP', 'BB']) expect(text, g).toContain(g);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(375);
 });

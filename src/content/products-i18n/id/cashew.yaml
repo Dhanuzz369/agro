@@ -1,0 +1,21 @@
+reviewStatus: pending
+name: "Kacang Mete"
+summary: "GoodBiz Agri mengekspor kacang mete olahan — utuh W180, W210, W240, W320 dan W450, utuh scorched, belahan, patahan dan potongan (LWP, SWP, BB) — dari pengolah di Kerala, Karnataka dan Tamil Nadu, dikemas vakum dan diuji lab untuk kadar air dan aflatoksin."
+originLine: "Kerala, Karnataka dan Tamil Nadu — beberapa pengolah"
+sourcingStory: "Kacang mete sampai kepada kami dalam keadaan sudah dikupas, dibersihkan kulit arinya dan disortir. Kami membeli dari beberapa pengolah di Kerala, Karnataka dan Tamil Nadu dan memilih pengolah untuk setiap pesanan berdasarkan grade, warna dan volume yang dibutuhkan pembeli. Setiap lot diuji lab untuk kadar air dan aflatoksin, lalu dikemas vakum dalam kaleng atau kantong fleksibel."
+varieties:
+  white-wholes: { name: "Mete utuh putih (W180–W450)", description: "Mete utuh putih yang digrade menurut jumlah biji per pon, dari W180 yang besar hingga W450 yang kecil; W320 adalah grade paling banyak diperdagangkan." }
+  scorched-wholes: { name: "Utuh scorched (SW)", description: "Mete utuh dengan warna cokelat muda karena dipanggang lebih lama dalam kulit, lebih murah dari mete utuh putih." }
+  splits-butts: { name: "Belahan dan patahan (S, B)", description: "Mete terbelah memanjang (S) atau patah melintang (B), untuk kembang gula dan roti." }
+  pieces: { name: "Potongan mete (LWP, SWP, BB)", description: "Potongan putih besar, potongan putih kecil dan remah untuk camilan, manisan dan bahan baku." }
+faq:
+  - { q: "Apa arti grade mete W180, W240 dan W320?", a: "W berarti mete utuh putih, dan angkanya adalah jumlah biji per pon. W180 berisi 170–180 biji per pon, jadi bijinya besar; W320 berisi 300–320; W450 berisi 400–450, grade utuh terkecil. W320 adalah grade yang paling banyak diperdagangkan." }
+  - { q: "Apa beda mete utuh, belahan dan potongan?", a: "Mete utuh tidak patah. Belahan (S) terbelah alami memanjang, patahan (B) patah melintang, dan potongan digrade menurut ukuran menjadi potongan putih besar (LWP), kecil (SWP) dan remah (BB). Belahan dan potongan lebih murah dan cocok untuk roti, manisan dan campuran camilan." }
+  - { q: "Berapa kadar air dan masa simpan kacang mete Anda?", a: "Mete dikeringkan hingga kadar air 5% atau kurang dan dikemas dalam kaleng vakum atau berisi nitrogen, yang menjaganya sekitar 12 bulan di tempat sejuk dan kering." }
+  - { q: "Bagaimana kacang mete dikemas?", a: "Kemasan ekspor standar adalah dua kaleng vakum 25 lb (22,68 kg) per karton, 50 lb per karton; kontainer 20 kaki memuat sekitar 700 karton. Kantong fleksibel vakum 10 kg dan merek sendiri tersedia atas permintaan." }
+  - { q: "Apakah kacang mete diuji aflatoksin?", a: "Ya. Setiap lot diuji lab untuk kadar air dan aflatoksin sebelum dikirim, sesuai batas pasar tujuan, dan inspeksi pihak ketiga dapat diatur atas permintaan." }
+seo:
+  title: "Eksportir Kacang Mete India: W180–W450"
+  h1: "Kacang mete: W180 hingga W450, belahan dan potongan"
+  description: "Eksportir kacang mete India: utuh W180, W210, W240, W320 dan W450, scorched, belahan, patahan dan potongan, dikemas vakum dan diuji aflatoksin. Minta penawaran."
+  keywords: ["eksportir kacang mete India", "pemasok mete W320", "mete W240", "potongan mete", "kacang mete curah", "mete India", "cashew kernels exporter India"]

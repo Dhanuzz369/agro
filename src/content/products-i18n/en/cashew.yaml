@@ -1,0 +1,21 @@
+reviewStatus: reviewed
+name: Cashew Kernels
+summary: GoodBiz Agri exports processed cashew kernels — W180, W210, W240, W320 and W450 wholes, scorched wholes, splits, butts and pieces (LWP, SWP, BB) — from processors in Kerala, Karnataka and Tamil Nadu, vacuum-packed and lab-tested for moisture and aflatoxin.
+originLine: Kerala, Karnataka and Tamil Nadu — several processors
+sourcingStory: Cashew kernels reach us already shelled, peeled and graded. We buy from several processors across Kerala, Karnataka and Tamil Nadu and choose the processor for each order by the grade, colour and volume the buyer needs. Every lot is lab-tested for moisture and aflatoxin, then vacuum-packed in tins or flexi bags.
+varieties:
+  white-wholes: { name: "White whole kernels (W180–W450)", description: "Whole white kernels graded by count per pound, from the large W180 to the small W450; W320 is the most traded grade." }
+  scorched-wholes: { name: "Scorched wholes (SW)", description: "Whole kernels with a light brown tint from longer roasting in the shell, at a lower price than white wholes." }
+  splits-butts: { name: "Splits and butts (S, B)", description: "Kernels split lengthwise into halves (S) or broken crosswise (B), for confectionery and bakery." }
+  pieces: { name: "Cashew pieces (LWP, SWP, BB)", description: "Large white pieces, small white pieces and baby bits for snacks, sweets and ingredients." }
+faq:
+  - { q: "What do the cashew grades W180, W240 and W320 mean?", a: "W stands for white whole kernels, and the number is the count of kernels per pound. W180 has 170–180 kernels per pound, so the kernels are large; W320 has 300–320; W450 has 400–450, the smallest whole grade. W320 is the most traded grade." }
+  - { q: "What is the difference between wholes, splits and pieces?", a: "Wholes are unbroken kernels. Splits (S) are kernels split naturally along their length, butts (B) are kernels broken across, and pieces are graded by size into large white pieces (LWP), small white pieces (SWP) and baby bits (BB). Splits and pieces cost less and suit bakery, sweets and snack mixes." }
+  - { q: "What moisture and shelf life do your cashew kernels have?", a: "Kernels are dried to 5% moisture or below and packed in vacuum or nitrogen-flushed tins, which keep them for about 12 months in cool, dry storage." }
+  - { q: "How are cashew kernels packed?", a: "The standard export pack is two 25 lb (22.68 kg) vacuum tins in a carton, 50 lb per carton; a 20 ft container holds about 700 cartons. 10 kg vacuum flexi bags and private-label packing are available on request." }
+  - { q: "Are cashew kernels tested for aflatoxin?", a: "Yes. Every lot is lab-tested for moisture and aflatoxin before shipment, against the limit of the destination market, and third-party inspection can be arranged on request." }
+seo:
+  title: "Cashew Kernels Exporter India: W180 to W450"
+  h1: "Cashew kernels: W180 to W450, splits and pieces"
+  description: "Cashew kernels exporter India: W180, W210, W240, W320 and W450 wholes, scorched wholes, splits, butts and pieces, vacuum-packed and aflatoxin tested. Ask now."
+  keywords: ["cashew kernels exporter India", "W320 cashew supplier", "W240 cashew", "cashew splits and pieces", "LWP cashew", "Indian cashew nuts bulk", "cashew W180 exporter"]

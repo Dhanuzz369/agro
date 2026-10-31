@@ -1,0 +1,21 @@
+reviewStatus: pending
+name: "Noix de cajou"
+summary: "GoodBiz Agri exporte des noix de cajou transformées — entières W180, W210, W240, W320 et W450, entières roussies, demi-noix, brisures et morceaux (LWP, SWP, BB) — de transformateurs du Kerala, du Karnataka et du Tamil Nadu, sous vide et analysées pour l'humidité et l'aflatoxine."
+originLine: "Kerala, Karnataka et Tamil Nadu — plusieurs transformateurs"
+sourcingStory: "Les noix de cajou nous arrivent déjà décortiquées, pelées et calibrées. Nous les achetons à plusieurs transformateurs du Kerala, du Karnataka et du Tamil Nadu et choisissons le transformateur de chaque commande selon le grade, la couleur et le volume dont l'acheteur a besoin. Chaque lot est analysé pour l'humidité et l'aflatoxine, puis emballé sous vide en boîtes ou en sacs souples."
+varieties:
+  white-wholes: { name: "Noix entières blanches (W180–W450)", description: "Noix entières blanches calibrées au nombre par livre, de la grosse W180 à la petite W450 ; la W320 est le grade le plus échangé." }
+  scorched-wholes: { name: "Entières roussies (SW)", description: "Noix entières légèrement brunies par une torréfaction plus longue dans la coque, moins chères que les entières blanches." }
+  splits-butts: { name: "Demi-noix et brisures (S, B)", description: "Noix fendues dans la longueur (S) ou cassées en travers (B), pour la confiserie et la boulangerie." }
+  pieces: { name: "Morceaux de cajou (LWP, SWP, BB)", description: "Gros morceaux blancs, petits morceaux blancs et brisures fines pour snacks, confiseries et ingrédients." }
+faq:
+  - { q: "Que signifient les grades de cajou W180, W240 et W320 ?", a: "W désigne les noix entières blanches, et le chiffre le nombre de noix par livre. La W180 compte 170 à 180 noix par livre, donc de grosses noix ; la W320 en compte 300 à 320 ; la W450 en compte 400 à 450, le plus petit grade entier. La W320 est le grade le plus échangé." }
+  - { q: "Quelle différence entre noix entières, demi-noix et morceaux ?", a: "Les entières ne sont pas cassées. Les demi-noix (S) sont fendues naturellement dans la longueur, les brisures (B) cassées en travers, et les morceaux sont calibrés en gros morceaux blancs (LWP), petits morceaux blancs (SWP) et brisures fines (BB). Demi-noix et morceaux coûtent moins cher et conviennent à la boulangerie, à la confiserie et aux mélanges apéritifs." }
+  - { q: "Quelles humidité et durée de conservation ont vos noix de cajou ?", a: "Les noix sont séchées à 5 % d'humidité au plus et conditionnées en boîtes sous vide ou sous azote, qui les conservent environ 12 mois dans un endroit frais et sec." }
+  - { q: "Comment les noix de cajou sont-elles emballées ?", a: "L'emballage export standard est de deux boîtes sous vide de 25 lb (22,68 kg) par carton, soit 50 lb par carton ; un conteneur de 20 pieds contient environ 700 cartons. Sacs souples sous vide de 10 kg et marque propre sur demande." }
+  - { q: "Les noix de cajou sont-elles analysées pour l'aflatoxine ?", a: "Oui. Chaque lot est analysé pour l'humidité et l'aflatoxine avant l'expédition, selon la limite du marché de destination, et une inspection par un tiers peut être organisée sur demande." }
+seo:
+  title: "Exportateur noix de cajou Inde : W180 à W450"
+  h1: "Noix de cajou : W180 à W450, demi-noix et morceaux"
+  description: "Exportateur de noix de cajou d'Inde : entières W180, W210, W240, W320 et W450, roussies, demi-noix, brisures et morceaux, sous vide, testées pour l'aflatoxine."
+  keywords: ["exportateur noix de cajou Inde", "fournisseur cajou W320", "cajou W240", "brisures de cajou", "noix de cajou en vrac", "cajou indien", "cashew kernels exporter India"]

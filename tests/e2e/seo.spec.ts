@@ -112,7 +112,7 @@ test('HSN reference pages and the HSN blog post are gone', async ({ request }) =
   expect((await sitemaps(request)).all).not.toMatch(/\/hsn\/|hsn-codes/);
 });
 
-const productSlugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric'];
+const productSlugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric', 'coco-pith', 'cashew'];
 const len = (s: string) => [...s].length;
 
 test('product pages have unique, keyword-first titles within 60 characters', async ({ page }) => {
@@ -186,7 +186,7 @@ test('JSON-LD types match the page type and never carry placeholders or HSN', as
   expect(org.contactPoint[0].telephone).toBe('+91-8884799369');
   expect(org.contactPoint[0].availableLanguage.length).toBe(9);
   const list = JSON.parse((await page.locator('script[type="application/ld+json"]').allTextContents()).find((b) => b.includes('"ItemList"'))!);
-  expect(list.itemListElement).toHaveLength(9);
+  expect(list.itemListElement).toHaveLength(11);
   await page.goto('/products/rice');
   const product = JSON.parse((await page.locator('script[type="application/ld+json"]').allTextContents()).find((b) => b.includes('"Product"'))!);
   expect(product).toMatchObject({ brand: { name: 'GoodBiz Agri' }, countryOfOrigin: { name: 'India' } });
@@ -203,12 +203,12 @@ test('JSON-LD types match the page type and never carry placeholders or HSN', as
 test('AI discovery files describe the business from the same data as the pages', async ({ request }) => {
   const summary = await (await request.get('/ai/summary.json')).json();
   expect(summary.name).toBe('GoodBiz Agri');
-  expect(summary.products).toHaveLength(9);
+  expect(summary.products).toHaveLength(11);
   const faq = await (await request.get('/ai/faq.json')).json();
   expect(faq.faqs.length).toBeGreaterThan(9);
   for (const f of faq.faqs) expect(f.question.length >= 10 && f.answer.length >= 20, f.question).toBe(true);
   const service = await (await request.get('/ai/service.json')).json();
-  expect(service.capabilities).toHaveLength(9);
+  expect(service.capabilities).toHaveLength(11);
   const aiTxt = await (await request.get('/.well-known/ai.txt')).text();
   expect(aiTxt).toMatch(/^Attribution: GoodBiz Agri/m);
   expect(JSON.stringify([summary, faq, service]) + aiTxt).not.toMatch(/REPLACE:/);
@@ -252,7 +252,7 @@ test('product pages show when their facts last changed; the sitemap and schema a
 test('the products page compares every product side by side, in the page language', async ({ page }) => {
   await page.goto('/fr/products');
   const rows = page.locator('.compare tbody tr');
-  await expect(rows).toHaveCount(9);
+  await expect(rows).toHaveCount(11);
   await expect(page.locator('.compare')).toContainText('Séché');
   expect(await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)).toBeLessThanOrEqual(0);
 });

@@ -1,0 +1,47 @@
+order: 11
+updated: 2026-10-31
+hsn:
+  - { code: "08013210", verified: false }
+  - { code: "08013220", verified: false }
+heroImage: { src: ../../assets/products/cashew/hero.jpg, isStock: true }
+regions: [kerala, karnataka, tamilNadu]
+markets: []
+shelfLife: "12 months in vacuum or nitrogen-flushed tins"
+packing: ["2 × 25 lb (22.68 kg) vacuum tins per carton", "10 kg vacuum flexi bags", "Private label on request"]
+containerLoad: { ft20: "700 cartons of 50 lb (about 15.9 MT)", ft40: "On request" }
+related: [groundnuts, arecanut, coco-pith]
+varieties:
+  - id: white-wholes
+    hsn: "08013210"
+    image: { src: ../../assets/products/cashew/white-wholes.jpg, isStock: true }
+    specs:
+      - { key: count, value: "W180: 170–180 · W210: 200–210 · W240: 220–240 · W320: 300–320 · W450: 400–450 kernels per lb" }
+      - { key: moisture, value: "≤ 5%" }
+      - { key: colour, value: "White, pale ivory or light ash" }
+      - { key: broken, value: "≤ 5% lower grade" }
+      - { key: aflatoxin, value: "Lab-tested to the destination limit" }
+    packing: ["2 × 25 lb (22.68 kg) vacuum tins per carton"]
+  - id: scorched-wholes
+    hsn: "08013210"
+    image: { src: ../../assets/products/cashew/scorched-wholes.jpg, isStock: true }
+    specs:
+      - { key: colour, value: "Light brown from over-scorching (SW, SW240, SW320)" }
+      - { key: moisture, value: "≤ 5%" }
+      - { key: aflatoxin, value: "Lab-tested to the destination limit" }
+    packing: ["2 × 25 lb (22.68 kg) vacuum tins per carton"]
+  - id: splits-butts
+    hsn: "08013220"
+    image: { src: ../../assets/products/cashew/splits-butts.jpg, isStock: true }
+    specs:
+      - { key: size, value: "S: split lengthwise · B: broken crosswise" }
+      - { key: moisture, value: "≤ 5%" }
+      - { key: colour, value: "White or pale ivory" }
+    packing: ["2 × 25 lb (22.68 kg) vacuum tins per carton"]
+  - id: pieces
+    hsn: "08013220"
+    image: { src: ../../assets/products/cashew/pieces.jpg, isStock: true }
+    specs:
+      - { key: size, value: "LWP: large white pieces · SWP: small white pieces · BB: baby bits" }
+      - { key: moisture, value: "≤ 5%" }
+      - { key: aflatoxin, value: "Lab-tested to the destination limit" }
+    packing: ["2 × 25 lb (22.68 kg) vacuum tins per carton", "10 kg vacuum flexi bags"]
