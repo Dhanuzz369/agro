@@ -15,7 +15,7 @@ const { items } = Astro.props;
   details { border-block-end: 1px solid var(--rule); padding-block: var(--space-5); }
   summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: var(--space-4); }
   summary::-webkit-details-marker { display: none; }
-  summary::after { content: '+'; font-family: var(--font-mono); transition: transform var(--dur-1) var(--ease); }
+  summary::after { content: '+'; font-family: var(--font-mono); transition: transform 200ms var(--ease-out); }
   details[open] summary::after { transform: rotate(45deg); }
   summary h3 { font-size: var(--step-1); }
   details p { margin-block-start: var(--space-3); color: var(--ink-2); }

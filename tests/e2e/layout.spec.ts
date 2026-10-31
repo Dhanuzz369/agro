@@ -14,3 +14,19 @@ for (const width of widths) for (const path of paths) {
     await ctx.close();
   });
 }
+
+test('buttons answer a press within 160 ms', async ({ page }) => {
+  await page.goto('/products/cashew');
+  const d = await page.locator('.btn--primary').first().evaluate((el) => getComputedStyle(el).transitionDuration);
+  expect(d.split(', ')[0]).toBe('0.16s');
+});
+
+test('product card photos do not zoom on hover when the visitor asks for reduced motion', async ({ browser }) => {
+  const ctx = await browser.newContext({ reducedMotion: 'reduce' });
+  const page = await ctx.newPage();
+  await page.goto('/products');
+  const card = page.locator('.pc__link').first();
+  await card.hover();
+  expect(await card.locator('img').evaluate((el) => getComputedStyle(el).transform)).toBe('none');
+  await ctx.close();
+});

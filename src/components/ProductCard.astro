@@ -23,8 +23,13 @@ const alt = createT(locale)('alt.product', { name: product.text.name, origin: pr
   .pc { display: grid; gap: var(--space-3); align-content: start; }
   .pc__link { display: grid; gap: var(--space-3); text-decoration: none; }
   .pc__media { position: relative; overflow: hidden; border-radius: var(--radius-media); aspect-ratio: 4 / 3; background: var(--paper-2); }
-  .pc__media :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform var(--dur-2) var(--ease); }
-  .pc__link:hover .pc__media :global(img) { transform: scale(1.04); }
+  .pc__media { transition: transform 160ms var(--ease-out); }
+  .pc__media :global(img) { inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 300ms var(--ease-out); }
+  /* Zoom only for a real pointer (a tap would leave it stuck) and only when motion is welcome */
+  @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .pc__link:hover .pc__media :global(img) { transform: scale(1.03); }
+    .pc__link:active .pc__media { transform: scale(0.98); }
+  }
   .pc__title { font-size: var(--step-2); }
   .pc__origin { color: var(--ink-2); font-size: var(--step--1); }
 </style>
