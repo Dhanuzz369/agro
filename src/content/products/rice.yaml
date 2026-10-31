@@ -6,7 +6,6 @@ heroImage: { src: ../../assets/products/rice/hero.jpg, isStock: true }
 regions: [raichur, mandya, thanjavur, palakkad]
 markets: ["Raichur APMC", "Mandya rice mills", "Thanjavur (Kaveri delta) mills", "Palakkad mills"]
 harvestMonths: [1, 2, 10, 11, 12]
-ports: [chennai, tuticorin, kochi]
 shelfLife: "12–18 months"
 packing: ["5 / 10 / 25 / 50 kg PP or BOPP bags", "Jute bags", "Private label"]
 containerLoad: { ft20: "25–26 MT", ft40: "27 MT" }

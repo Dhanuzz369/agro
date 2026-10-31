@@ -7,7 +7,6 @@ import { getLocalizedProducts } from '../lib/catalog';
 import { breadcrumbLd, itemListLd } from '../lib/jsonld';
 import { localizePath } from '../i18n/paths';
 import { createTd } from '../i18n/data';
-import { places } from '../data/places';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -41,7 +40,6 @@ const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
             <tr>
               <th scope="col">{t('products.compare.product')}</th>
               <th scope="col">{t('fact.states')}</th>
-              <th scope="col">{t('fact.ports')}</th>
               <th scope="col">{t('product.container20')}</th>
               <th scope="col">{t('product.container40')}</th>
             </tr>
@@ -51,7 +49,6 @@ const abs = (p: string) => new URL(localizePath(p, locale), Astro.site).href;
               <tr>
                 <th scope="row"><a href={localizePath(`/products/${p.slug}`, locale)} title={p.text.seo.title}>{p.text.name}</a></th>
                 <td>{p.text.originLine}</td>
-                <td>{p.data.ports.map((id) => places[id].name).join(', ')}</td>
                 <td>{td(p.data.containerLoad.ft20)}</td>
                 <td>{td(p.data.containerLoad.ft40)}</td>
               </tr>

@@ -4,7 +4,7 @@ import { organizationLd, productLd, faqLd, breadcrumbLd, articleLd, websiteLd, i
 const site = {
   name: 'GoodBiz Agri', legalName: 'GoodBiz Agri', foundingCity: 'Bengaluru',
   address: { street: 'X', city: 'Bengaluru', region: 'Karnataka', postalCode: '560001', country: 'IN' as const },
-  email: 'a@b.c', phone: '+91', whatsapp: '91', leadEndpoint: 'k', registrations: [], stats: { countries: 70, products: 9, markets: 18, ports: 4 }, social: [],
+  email: 'a@b.c', phone: '+91', whatsapp: '91', leadEndpoint: 'k', registrations: [], stats: { countries: 70, products: 9, markets: 18 }, social: [],
 };
 
 describe('jsonld', () => {

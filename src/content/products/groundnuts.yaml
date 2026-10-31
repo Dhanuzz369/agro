@@ -6,7 +6,6 @@ heroImage: { src: ../../assets/products/groundnuts/hero.jpg, isStock: true }
 regions: [chitradurga, anantapur, tiruvannamalai]
 markets: ["Chitradurga APMC", "Anantapur groundnut market", "Tiruvannamalai traders"]
 harvestMonths: [10, 11, 12, 3, 4]
-ports: [chennai, mangalore]
 shelfLife: "9–12 months (cool storage)"
 packing: ["25 kg / 50 kg PP or jute bags", "Vacuum bags"]
 containerLoad: { ft20: "18–19 MT", ft40: "26 MT" }

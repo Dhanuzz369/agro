@@ -7,12 +7,22 @@ describe('buildSpecSheet', () => {
     const bytes = await buildSpecSheet({
       productName: 'Turmeric', varietyName: 'Turmeric powder', region: 'Erode, Tamil Nadu', market: 'Erode Regulated Market',
       specs: [{ label: 'Curcumin', value: '2–5%' }, { label: 'Moisture', value: '≤ 10%' }], packing: ['25 kg paper bags'],
-      ports: 'Chennai Port', contact: 'export@example.com', url: 'https://goodbizagro.com/products/turmeric',
+      contact: 'export@example.com', url: 'https://goodbizagro.com/products/turmeric',
     });
     const doc = await PDFDocument.load(bytes);
     expect(doc.getPageCount()).toBe(1);
     expect(doc.getTitle()).toBe('Turmeric powder — GoodBiz Agri spec sheet');
     expect(doc.getSubject()).toBe('Turmeric specification');
+  });
+});
+
+describe('buildSpecSheet without a region', () => {
+  it('omits Region and Market rows when absent', async () => {
+    const bytes = await buildSpecSheet({
+      productName: 'Coco pith', varietyName: '5 kg blocks', specs: [{ label: 'EC', value: '< 0.5 mS/cm' }],
+      packing: ['Pallets'], contact: 'a@b.c', url: 'https://goodbizagro.com/products/coco-pith',
+    });
+    expect((await PDFDocument.load(bytes)).getPageCount()).toBe(1);
   });
 });
 

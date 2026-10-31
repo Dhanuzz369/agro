@@ -5,7 +5,7 @@ import { placeIds } from '../data/places';
 export const specKeys = [
   'moisture', 'admixture', 'broken', 'foreignMatter', 'damaged', 'grainLength', 'chalky',
   'curcumin', 'count', 'size', 'colour', 'purity', 'oil', 'ash', 'sucrose', 'insoluble',
-  'volatileOil', 'fibre', 'aflatoxin', 'mesh', 'sulphur',
+  'volatileOil', 'fibre', 'aflatoxin', 'mesh', 'sulphur', 'ec', 'ph', 'expansion',
 ] as const;
 
 const hsnCode = z.string().refine(isValidHsn, 'HSN must be 4–8 digits, no spaces');
@@ -21,9 +21,9 @@ export const productSchema = (image: ImageFn) =>
       hsn: z.array(z.object({ code: hsnCode, verified: z.boolean() })).min(1),
       heroImage: z.object({ src: image(), isStock: z.boolean() }),
       regions: z.array(z.enum(placeIds)).min(1),
-      markets: z.array(z.string()).min(1),
-      harvestMonths: z.array(month).min(1),
-      ports: z.array(z.enum(['chennai', 'kochi', 'tuticorin', 'mangalore'])).min(1),
+      // Named market towns; empty for products bought from several suppliers across whole states
+      markets: z.array(z.string()),
+      harvestMonths: z.array(month).min(1).optional(),
       shelfLife: z.string(),
       packing: z.array(z.string()).min(1),
       containerLoad: z.object({ ft20: z.string(), ft40: z.string() }),
@@ -34,8 +34,8 @@ export const productSchema = (image: ImageFn) =>
             id: z.string().regex(/^[a-z0-9-]+$/),
             hsn: hsnCode,
             image: z.object({ src: image(), isStock: z.boolean() }),
-            region: z.enum(placeIds),
-            market: z.string(),
+            region: z.enum(placeIds).optional(),
+            market: z.string().optional(),
             specs: z.array(z.object({ key: z.enum(specKeys), value: z.string() })).min(2),
             packing: z.array(z.string()).min(1),
           }),
@@ -92,7 +92,7 @@ export const siteSchema = z.object({
     logo: z.string().startsWith('/logos/').optional(),
     held: z.boolean(),
   })),
-  stats: z.object({ countries: z.number(), products: z.number(), markets: z.number(), ports: z.number() }),
+  stats: z.object({ countries: z.number(), products: z.number(), markets: z.number() }),
   social: z.array(z.string().url()).default([]),
 });
 

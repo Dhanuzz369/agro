@@ -10,7 +10,7 @@ test('robots.txt allows AI crawlers and lists the sitemap on the build domain', 
 
 test('llms.txt and llms-full.txt summarise the business for AI engines', async ({ request }) => {
   const body = await (await request.get('/llms.txt')).text();
-  for (const s of ['GoodBiz Agri', 'Bengaluru', 'Sona Masoori', 'IR64', 'broken rice', 'betel nut', 'Tiptur ball copra', 'turmeric', 'New Mangalore', 'FOB', '## How to order', '## Contact', '+91 88847 99369', '## Languages'])
+  for (const s of ['GoodBiz Agri', 'Bengaluru', 'Sona Masoori', 'IR64', 'broken rice', 'betel nut', 'Tiptur ball copra', 'turmeric', 'FOB', '## How to order', '## Contact', '+91 88847 99369', '## Languages'])
     expect(body, s).toContain(s);
   for (const slug of ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric']) expect(body).toContain(`/products/${slug})`);
   expect(body).not.toMatch(/REPLACE:|HSN|harvest season|harvest months|minimum order/i);

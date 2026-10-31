@@ -27,8 +27,8 @@ export function contactFallback(email: string, site: URL): string {
 }
 
 export async function buildSpecSheet(a: {
-  productName: string; varietyName: string; region: string; market: string;
-  specs: { label: string; value: string }[]; packing: string[]; ports: string; contact: string; url: string;
+  productName: string; varietyName: string; region?: string; market?: string;
+  specs: { label: string; value: string }[]; packing: string[]; contact: string; url: string;
 }): Promise<Uint8Array> {
   const doc = await PDFDocument.create();
   doc.setTitle(`${a.varietyName} — GoodBiz Agri spec sheet`);
@@ -50,7 +50,8 @@ export async function buildSpecSheet(a: {
   page.drawText(safe(a.varietyName), { x, y: (y -= 28), size: 24, font: serif, color: ink });
 
   const lineHeight = 13;
-  const row = (label: string, value: string) => {
+  const row = (label: string, value?: string) => {
+    if (value === undefined) return;
     y -= 22;
     page.drawText(safe(label), { x, y, size: 10, font: sans, color: muted });
     const lines = wrapLines(safe(value), (t) => mono.widthOfTextAtSize(t, 10), 319);
@@ -60,17 +61,18 @@ export async function buildSpecSheet(a: {
     page.drawLine({ start: { x, y: y - 7 }, end: { x: 539, y: y - 7 }, thickness: 0.4, color: rgb(0.85, 0.83, 0.78) });
   };
 
-  y -= 18;
-  page.drawText('Origin', { x, y: (y -= 14), size: 12, font: bold, color: ink });
-  row('Region', a.region);
-  row('Market', a.market);
+  if (a.region || a.market) {
+    y -= 18;
+    page.drawText('Origin', { x, y: (y -= 14), size: 12, font: bold, color: ink });
+    row('Region', a.region);
+    row('Market', a.market);
+  }
   y -= 14;
   page.drawText('Specifications', { x, y: (y -= 14), size: 12, font: bold, color: ink });
   for (const s of a.specs) row(s.label, s.value);
   y -= 14;
   page.drawText('Commercial', { x, y: (y -= 14), size: 12, font: bold, color: ink });
   row('Packing', a.packing.join(', '));
-  row('Loading ports', a.ports);
   row('Incoterms', 'FOB, CFR, CIF');
 
   page.drawText('Specifications are typical values; final specification is agreed per contract.', { x, y: 90, size: 8, font: sans, color: muted });

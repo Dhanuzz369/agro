@@ -8,7 +8,6 @@ heroImage: { src: ../../assets/products/turmeric/hero.jpg, isStock: true }
 regions: [erode, salem, alleppey]
 markets: ["Erode Regulated Market", "Salem Turmeric Market", "Alappuzha spice traders"]
 harvestMonths: [1, 2, 3, 4]
-ports: [chennai, tuticorin, kochi]
 shelfLife: "Dried: 24 months · Powder: 18 months · Fresh: 3–4 weeks (reefer)"
 packing: ["25 kg / 50 kg PP or jute bags", "Paper bags with liner (powder)", "Private label on request"]
 containerLoad: { ft20: "Dried 18–19 MT · Powder 20 MT", ft40: "Dried 26 MT" }

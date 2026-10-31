@@ -4,6 +4,7 @@ import { join, dirname, resolve } from 'node:path';
 import { parse } from 'yaml';
 import { z } from 'astro/zod';
 import { productSchema, siteSchema, productTextSchema } from '../../src/lib/schemas';
+import { placeLabel } from '../../src/data/places';
 
 const dir = 'src/content/products';
 const slugs = ['rice', 'non-basmati-rice', 'broken-rice', 'jaggery', 'arecanut', 'groundnuts', 'coconut-copra', 'ginger', 'turmeric'];
@@ -31,6 +32,18 @@ describe('products', () => {
       const d = productSchema(imageStub).parse(parse(readFileSync(join(dir, `${s}.yaml`), 'utf8')));
       expect(d.hsn.every((h) => h.verified === false)).toBe(true);
     }
+  });
+  it('no product declares loading ports', () => {
+    for (const f of readdirSync(dir)) expect(parse(readFileSync(join(dir, f), 'utf8')).ports, f).toBeUndefined();
+  });
+  it('accepts a variety with no region or market', () => {
+    const raw = parse(readFileSync(join(dir, 'turmeric.yaml'), 'utf8'));
+    delete raw.varieties[0].region; delete raw.varieties[0].market; raw.markets = [];
+    expect(() => productSchema(imageStub).parse(raw)).not.toThrow();
+  });
+  it('labels states by name and districts with their state', () => {
+    expect(placeLabel('kerala')).toBe('Kerala');
+    expect(placeLabel('erode')).toBe('Erode, Tamil Nadu');
   });
   it('rejects a malformed HSN code', () => {
     const raw = parse(readFileSync(join(dir, 'rice.yaml'), 'utf8'));

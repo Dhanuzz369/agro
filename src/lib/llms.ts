@@ -1,20 +1,17 @@
 // Plain-text summaries for AI answer engines (/llms.txt and /llms-full.txt). English, facts only, no tariff codes.
 import { getLocalizedProducts, getSite } from './catalog';
-import { places } from '../data/places';
+import { placeLabel } from '../data/places';
 import { publishedPosts } from './blog';
 import { postLocale, postSlug } from './blog-pure';
 import { isPlaceholder } from './site';
 import { createT, type UiKey } from '../i18n/t';
 import { localeLabels, locales } from '../i18n/config';
 
-const portName = (id: keyof typeof places) => places[id].name;
-
 export async function llmsText(site: URL, full: boolean): Promise<string> {
   const s = await getSite();
   const products = await getLocalizedProducts('en');
   const t = createT('en');
   const u = (p: string) => new URL(p, site).href;
-  const ports = [...new Set(products.flatMap((p) => p.data.ports))].map(portName);
   const phone = isPlaceholder(s.phone) ? null : s.phone;
   const email = isPlaceholder(s.email) ? null : s.email;
   const wa = isPlaceholder(s.whatsapp) ? null : `https://wa.me/${s.whatsapp.replace(/\D/g, '')}`;
@@ -22,7 +19,7 @@ export async function llmsText(site: URL, full: boolean): Promise<string> {
   const out: string[] = [
     '# GoodBiz Agri',
     '',
-    `> GoodBiz Agri is a B2B agro products exporter based in ${s.address.city}, ${s.address.region}, India. It exports South Indian rice (Sona Masoori, Ponni, Kerala Matta, Seeraga Samba, idli rice), non-basmati rice (IR64, Swarna, IR36), 100% broken rice, jaggery (including palm jaggery / karupatti), arecanut (betel nut, supari), groundnut kernels (peanuts), coconut and copra (Tiptur ball copra, milling copra), dry and fresh ginger, and turmeric (fingers, bulbs, powder) to importers in ${s.stats.countries}+ countries, shipping from ${ports.join('; ')}. Prices are quoted FOB, CFR or CIF.`,
+    `> GoodBiz Agri is a B2B agro products exporter based in ${s.address.city}, ${s.address.region}, India. It exports South Indian rice (Sona Masoori, Ponni, Kerala Matta, Seeraga Samba, idli rice), non-basmati rice (IR64, Swarna, IR36), 100% broken rice, jaggery (including palm jaggery / karupatti), arecanut (betel nut, supari), groundnut kernels (peanuts), coconut and copra (Tiptur ball copra, milling copra), dry and fresh ginger, and turmeric (fingers, bulbs, powder) to importers in ${s.stats.countries}+ countries. Prices are quoted FOB, CFR or CIF from the Indian port that suits the order.`,
     '',
     '## Company',
     `- Name: ${s.name}`,
@@ -38,9 +35,6 @@ export async function llmsText(site: URL, full: boolean): Promise<string> {
       const vs = p.data.varieties.map((v) => p.text.varieties[v.id]?.name ?? v.id).join(', ');
       return `- [${p.text.name}](${u(`/products/${p.slug}`)}): ${p.text.summary} Varieties: ${vs}.`;
     }),
-    '',
-    '## Loading ports',
-    ...ports.map((p) => `- ${p}`),
     '',
     '## How to order',
     `1. Send the product, variety, quantity (metric tonnes or 20/40 ft containers), destination port and Incoterm through the [quote form](${u('/contact')})${wa ? `, on [WhatsApp](${wa})` : ''}${email ? ` or by email to ${email}` : ''}.`,
@@ -68,9 +62,8 @@ export async function llmsText(site: URL, full: boolean): Promise<string> {
       out.push('', `## ${p.text.name}`, '', p.text.summary, '', p.text.sourcingStory, '');
       out.push(`- Page: ${u(`/products/${p.slug}`)}`);
       out.push(`- Also searched as: ${p.text.seo.keywords.join('; ')}`);
-      out.push(`- Sourced from: ${p.data.regions.map((r) => `${places[r].name} (${places[r].state})`).join(', ')}`);
-      out.push(`- Markets we buy in: ${p.data.markets.join(', ')}`);
-      out.push(`- Loading ports: ${p.data.ports.map(portName).join(', ')}`);
+      out.push(`- Sourced from: ${p.data.regions.map(placeLabel).join('; ')}`);
+      if (p.data.markets.length) out.push(`- Markets we buy in: ${p.data.markets.join(', ')}`);
       out.push(`- Shelf life: ${p.data.shelfLife}`);
       out.push(`- Packing: ${p.data.packing.join('; ')}`);
       out.push(`- Container load: 20 ft ${p.data.containerLoad.ft20}; 40 ft ${p.data.containerLoad.ft40}`);
@@ -78,7 +71,7 @@ export async function llmsText(site: URL, full: boolean): Promise<string> {
       for (const v of p.data.varieties) {
         const vt = p.text.varieties[v.id];
         const specs = v.specs.map((sp) => `${t(`spec.${sp.key}` as UiKey)} ${sp.value}`).join('; ');
-        out.push(`- ${vt?.name ?? v.id}: ${vt?.description ?? ''} Origin ${places[v.region].name}, ${places[v.region].state}. Specs: ${specs}. Packing: ${v.packing.join('; ')}.`);
+        out.push(`- ${vt?.name ?? v.id}: ${vt?.description ?? ''} ${v.region ? `Origin ${placeLabel(v.region)}. ` : ''}Specs: ${specs}. Packing: ${v.packing.join('; ')}.`);
       }
       out.push('', '### FAQ');
       for (const f of p.text.faq) out.push(`- Q: ${f.q}`, `  A: ${f.a}`);

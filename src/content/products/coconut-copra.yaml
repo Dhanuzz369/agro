@@ -6,7 +6,6 @@ heroImage: { src: ../../assets/products/coconut-copra/hero.jpg, isStock: true }
 regions: [tiptur, tumakuru, pollachi]
 markets: ["Tiptur APMC (ball copra)", "Tumakuru traders", "Pollachi coconut market"]
 harvestMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-ports: [mangalore, kochi, chennai]
 shelfLife: "Coconut: 6–8 weeks · Copra: 6–12 months"
 packing: ["25–30 nut mesh bags (semi-husked)", "50 kg PP / jute bags (copra)"]
 containerLoad: { ft20: "Copra 13–14 MT", ft40: "Semi-husked ~28,000–30,000 nuts" }

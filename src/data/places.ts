@@ -1,9 +1,9 @@
 export const places = {
   bengaluru: { name: 'Bengaluru', state: 'Karnataka', lon: 77.59, lat: 12.97, kind: 'hq' },
-  chennai: { name: 'Chennai Port', state: 'Tamil Nadu', lon: 80.29, lat: 13.08, kind: 'port' },
-  kochi: { name: 'Kochi Port', state: 'Kerala', lon: 76.27, lat: 9.97, kind: 'port' },
-  tuticorin: { name: 'V.O. Chidambaranar Port, Tuticorin', state: 'Tamil Nadu', lon: 78.13, lat: 8.76, kind: 'port' },
-  mangalore: { name: 'New Mangalore Port', state: 'Karnataka', lon: 74.81, lat: 12.92, kind: 'port' },
+  // Whole states, for products bought from several suppliers across a state rather than one market town
+  karnataka: { name: 'Karnataka', state: 'Karnataka', lon: 76.17, lat: 14.52, kind: 'state' },
+  tamilNadu: { name: 'Tamil Nadu', state: 'Tamil Nadu', lon: 78.66, lat: 11.13, kind: 'state' },
+  kerala: { name: 'Kerala', state: 'Kerala', lon: 76.27, lat: 10.35, kind: 'state' },
   raichur: { name: 'Raichur', state: 'Karnataka', lon: 77.36, lat: 16.2, kind: 'district' },
   mandya: { name: 'Mandya', state: 'Karnataka', lon: 76.9, lat: 12.52, kind: 'district' },
   thanjavur: { name: 'Thanjavur', state: 'Tamil Nadu', lon: 79.14, lat: 10.79, kind: 'district' },
@@ -27,7 +27,13 @@ export const places = {
   erode: { name: 'Erode', state: 'Tamil Nadu', lon: 77.72, lat: 11.34, kind: 'district' },
   salem: { name: 'Salem', state: 'Tamil Nadu', lon: 78.15, lat: 11.66, kind: 'district' },
   alleppey: { name: 'Alappuzha (Alleppey)', state: 'Kerala', lon: 76.33, lat: 9.49, kind: 'district' },
-} as const satisfies Record<string, { name: string; state: string; lon: number; lat: number; kind: 'district' | 'port' | 'hq' }>;
+} as const satisfies Record<string, { name: string; state: string; lon: number; lat: number; kind: 'district' | 'state' | 'hq' }>;
 
 export type PlaceId = keyof typeof places;
 export const placeIds = Object.keys(places) as [PlaceId, ...PlaceId[]];
+
+/** "Kerala" for a state, "Erode, Tamil Nadu" for a district or town. */
+export const placeLabel = (id: PlaceId) => {
+  const p: { name: string; state: string; kind: string } = places[id];
+  return p.kind === 'state' ? p.name : `${p.name}, ${p.state}`;
+};

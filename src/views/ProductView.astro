@@ -13,7 +13,7 @@ import { getLocalizedProduct, getLocalizedProducts, getSite } from '../lib/catal
 import { productLd, faqLd, breadcrumbLd, productCategory } from '../lib/jsonld';
 import { homeFaq } from '../i18n/home-faq';
 import { whatsappHref } from '../lib/site';
-import { places } from '../data/places';
+import { places, placeLabel } from '../data/places';
 import { postsFor } from '../lib/blog';
 import { aboutProduct } from '../lib/blog-pure';
 interface Props { locale: Locale; slug: string }
@@ -31,7 +31,6 @@ const postDate = new Intl.DateTimeFormat(htmlLang[locale], { dateStyle: 'medium'
 const path = `/products/${slug}`;
 const abs = (x: string) => new URL(localizePath(x, locale), Astro.site).href;
 const states = [...new Set(p.data.regions.map((r) => places[r].state))].join(', ');
-const portNames = p.data.ports.map((id) => places[id].name).join(', ');
 const crumbs = [{ name: t('nav.home'), path: '/' }, { name: t('nav.products'), path: '/products' }, { name: p.text.name, path }];
 const hero = await getImage({ src: p.data.heroImage.src, width: 1200, format: 'jpg' });
 // The visible poster and its preload must share one option set so the browser reuses the preloaded file.
@@ -83,7 +82,6 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
       <h2 id="facts" class="sr-only">{t('product.quickFacts')}</h2>
       <dl>
         <div><dt>{t('fact.states')}</dt><dd>{states}</dd></div>
-        <div><dt>{t('fact.ports')}</dt><dd>{portNames}</dd></div>
         <div><dt>{t('fact.shelfLife')}</dt><dd>{td(p.data.shelfLife)}</dd></div>
       </dl>
     </section>
@@ -101,7 +99,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
               <div class="var__body">
                 <h3>{vt?.name ?? v.id}</h3>
                 <p>{vt?.description}</p>
-                <p class="var__where"><span>{t('product.region')}:</span> {places[v.region].name}, {places[v.region].state} · <span>{t('product.market')}:</span> {v.market}</p>
+                {v.region && <p class="var__where"><span>{t('product.region')}:</span> {placeLabel(v.region)}{v.market && <> · <span>{t('product.market')}:</span> {v.market}</>}</p>}
                 <SpecTable locale={locale} specs={v.specs} caption={`${t('product.specs')} — ${vt?.name ?? v.id}`} />
                 <p class="var__pack"><span>{t('product.packing')}:</span> {v.packing.map(td).join(' · ')}</p>
                 <div class="var__ctas">
@@ -121,7 +119,7 @@ const varietyAlt = (variety: string) => t('alt.variety', { variety, name: p.text
           <h2 id="where">{t('product.where')}</h2>
           <p class="pv__origin">{p.text.originLine}</p>
           <p>{p.text.sourcingStory}</p>
-          <ul class="pv__markets">{p.data.markets.map((m) => <li>{m}</li>)}</ul>
+          {p.data.markets.length > 0 && <ul class="pv__markets">{p.data.markets.map((m) => <li>{m}</li>)}</ul>}
         </div>
       </div>
     </section>
