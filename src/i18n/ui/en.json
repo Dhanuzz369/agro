@@ -242,5 +242,10 @@
   "link.quoteVariety": "Request a quote for {name}",
   "product.updated": "Last updated {date}",
   "products.compare": "Compare our products at a glance",
-  "products.compare.product": "Product"
+  "products.compare.product": "Product",
+  "consent.label": "Cookie choice",
+  "consent.text": "We use Google Analytics cookies to see which pages buyers find useful. No ads, no selling of data. Allow them?",
+  "consent.allow": "Allow",
+  "consent.decline": "Decline",
+  "consent.settings": "Cookie settings"
 }

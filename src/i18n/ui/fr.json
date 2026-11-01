@@ -242,5 +242,10 @@
   "link.quoteVariety": "Demander un devis pour {name}",
   "product.updated": "Dernière mise à jour : {date}",
   "products.compare": "Nos produits en un coup d'œil",
-  "products.compare.product": "Produit"
+  "products.compare.product": "Produit",
+  "consent.label": "Choix des cookies",
+  "consent.text": "Nous utilisons les cookies Google Analytics pour savoir quelles pages sont utiles aux acheteurs. Pas de publicité, aucune revente de données. Les accepter ?",
+  "consent.allow": "Accepter",
+  "consent.decline": "Refuser",
+  "consent.settings": "Paramètres des cookies"
 }

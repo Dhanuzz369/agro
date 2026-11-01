@@ -2,6 +2,7 @@ import {
   STEPS, parsePrefill, validateStep, validateQuote, sendLead, leadPayload, summarizeQuote,
   type Step, type QuoteInput, type StepErrors, type Labels,
 } from '../lib/quote';
+import { track } from '../lib/analytics';
 
 type CatalogItem = { slug: string; name: string; varieties: { id: string; name: string }[] };
 
@@ -166,7 +167,11 @@ for (const form of document.querySelectorAll<HTMLFormElement>('[data-quote-form]
     busy = false;
     next.textContent = msgs.submit;
     next.removeAttribute('aria-busy');
-    if (status === 'ok') { setState('success'); return; }
+    if (status === 'ok') {
+      track('generate_lead', { lead_source: 'quote_form', product: input.product, variety: input.variety });
+      setState('success');
+      return;
+    }
     const labels = labelsFor(input);
     const text = summarizeQuote(input, labels);
     const wa = form.querySelector<HTMLAnchorElement>('[data-fallback="whatsapp"]');

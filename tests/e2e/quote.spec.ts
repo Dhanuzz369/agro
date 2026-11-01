@@ -102,6 +102,19 @@ test('the full flow updates one lead row and ends on success', async ({ page }) 
   const final = bodies.find((b) => b.stage === 'submitted');
   expect(final).toMatchObject({ product: 'Turmeric', variety: 'Turmeric powder', quantity: '2–5 containers', incoterm: 'CIF', message: '25 kg bags' });
   expect(new Set(bodies.map((b) => b.leadId)).size).toBe(1);
+  const events = await page.evaluate(() => (window as any).dataLayer.map((a: IArguments) => Array.from(a)).filter((a: any[]) => a[0] === 'event'));
+  expect(events).toContainEqual(['event', 'generate_lead', { lead_source: 'quote_form', product: 'turmeric', variety: 'powder' }]);
+});
+
+test('a failed send records no lead', async ({ page }) => {
+  await page.route(ENDPOINT, (r) => r.fulfill({ status: 500, body: 'err' }));
+  await open(page, '?product=turmeric&variety=powder');
+  await contact(page);
+  await finish(page);
+  await next(page);
+  await expect(page.locator('[data-form-state="error"]')).toBeVisible({ timeout: 8000 });
+  const leads = await page.evaluate(() => (window as any).dataLayer.filter((a: IArguments) => a[1] === 'generate_lead').length);
+  expect(leads).toBe(0);
 });
 
 test('double click on send posts the final request once', async ({ page }) => {

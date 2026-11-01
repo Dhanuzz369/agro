@@ -242,5 +242,10 @@
   "link.quoteVariety": "Запросить цену: {name}",
   "product.updated": "Обновлено {date}",
   "products.compare": "Сравнение нашей продукции",
-  "products.compare.product": "Продукт"
+  "products.compare.product": "Продукт",
+  "consent.label": "Выбор cookie",
+  "consent.text": "Мы используем cookie Google Analytics, чтобы понять, какие страницы полезны покупателям. Без рекламы и продажи данных. Разрешить?",
+  "consent.allow": "Разрешить",
+  "consent.decline": "Отклонить",
+  "consent.settings": "Настройки cookie"
 }

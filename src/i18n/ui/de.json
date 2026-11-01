@@ -242,5 +242,10 @@
   "link.quoteVariety": "Angebot für {name} anfordern",
   "product.updated": "Zuletzt aktualisiert: {date}",
   "products.compare": "Unsere Produkte im Überblick",
-  "products.compare.product": "Produkt"
+  "products.compare.product": "Produkt",
+  "consent.label": "Cookie-Auswahl",
+  "consent.text": "Wir nutzen Cookies von Google Analytics, um zu sehen, welche Seiten Einkäufern helfen. Keine Werbung, kein Datenverkauf. Zulassen?",
+  "consent.allow": "Zulassen",
+  "consent.decline": "Ablehnen",
+  "consent.settings": "Cookie-Einstellungen"
 }

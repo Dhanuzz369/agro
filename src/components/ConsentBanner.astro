@@ -1,0 +1,53 @@
+---
+import { createT } from '../i18n/t';
+import type { Locale } from '../i18n/config';
+interface Props { locale: Locale }
+const t = createT(Astro.props.locale);
+---
+<div class="cc" data-consent hidden role="region" aria-label={t('consent.label')}>
+  <p>{t('consent.text')}</p>
+  <div class="cc__actions">
+    <button type="button" class="btn btn--ghost" data-consent-decline>{t('consent.decline')}</button>
+    <button type="button" class="btn btn--primary" data-consent-allow>{t('consent.allow')}</button>
+  </div>
+</div>
+<script>
+  import { CONSENT_KEY, showsConsentBanner } from '../lib/analytics';
+  import { safeStorage } from '../lib/lang-switch';
+  const el = document.querySelector<HTMLElement>('[data-consent]');
+  if (el) {
+    const answer = (value: 'granted' | 'denied') => {
+      safeStorage.set(CONSENT_KEY, value);
+      (window as unknown as { gtag: (...a: unknown[]) => void }).gtag('consent', 'update', { analytics_storage: value });
+      el.hidden = true;
+    };
+    el.querySelector('[data-consent-allow]')!.addEventListener('click', () => answer('granted'));
+    el.querySelector('[data-consent-decline]')!.addEventListener('click', () => answer('denied'));
+    // The footer link lets anyone change their mind, wherever they are.
+    document.querySelectorAll('[data-consent-open]').forEach((b) => b.addEventListener('click', () => {
+      el.hidden = false;
+      el.querySelector<HTMLElement>('[data-consent-allow]')!.focus();
+    }));
+    if (!safeStorage.get(CONSENT_KEY) && showsConsentBanner(Intl.DateTimeFormat().resolvedOptions().timeZone)) el.hidden = false;
+  }
+</script>
+<style>
+  /* Same slot as the language suggestion, which waits until this question is answered */
+  .cc { position: fixed; inset-block-end: calc(var(--space-4) + 4.5rem); inset-inline: var(--space-4); z-index: 50; margin-inline: auto; max-inline-size: 36rem;
+    display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); padding: var(--space-4); background: var(--paper); color: var(--ink);
+    box-shadow: var(--shadow-2); border-radius: var(--radius-card);
+    transition: opacity 200ms var(--ease-out), transform 200ms var(--ease-out); }
+  @starting-style { .cc { opacity: 0; transform: translateY(8px); } }
+  @media (prefers-reduced-motion: reduce) { .cc { transition: opacity 150ms ease; } @starting-style { .cc { transform: none; } } }
+  .cc[hidden] { display: none; }
+  .cc p { flex: 1 1 16rem; margin: 0; font-size: var(--step--1); line-height: 1.45; }
+  .cc__actions { display: flex; gap: var(--space-2); }
+  :global(body:has(.cc:not([hidden])) .lsb) { display: none; }
+  @media (max-width: 480px) {
+    .cc { inset-block-end: 0; inset-inline: 0; max-inline-size: none; padding: var(--space-4) var(--space-4) calc(var(--space-4) + env(safe-area-inset-bottom));
+      border-radius: var(--radius-card) var(--radius-card) 0 0; }
+    .cc__actions { inline-size: 100%; }
+    .cc__actions .btn { flex: 1; min-block-size: 44px; }
+    :global(body:has(.cc:not([hidden])) .wa), :global(body:has(.cc:not([hidden])) .ls__pill) { display: none; }
+  }
+</style>

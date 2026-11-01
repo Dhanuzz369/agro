@@ -46,7 +46,10 @@ const languages = available.map((l) => {
       ))}
     </ul>
   </nav>
-  <div class="container ftr__base"><p>{t('footer.rights', { year: new Date().getFullYear() })}</p></div>
+  <div class="container ftr__base">
+    <p>{t('footer.rights', { year: new Date().getFullYear() })}</p>
+    <button type="button" class="ftr__cookies" data-consent-open>{t('consent.settings')}</button>
+  </div>
 </footer>
 <style>
   .ftr { background: var(--forest); color: var(--paper); padding-block: var(--space-8) var(--space-6); }
@@ -63,5 +66,8 @@ const languages = available.map((l) => {
   .ftr__langs ul { list-style: none; padding: 0; margin: var(--space-6) 0 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-4); font-size: var(--step--1); }
   .ftr__langs a { display: inline-flex; align-items: center; min-block-size: 44px; }
   .ftr__langs a[aria-current='page'] { color: var(--gold-soft); text-decoration: none; }
-  .ftr__base { margin-block-start: var(--space-7); padding-block-start: var(--space-5); border-block-start: 1px solid rgb(246 241 231 / 0.2); font-size: var(--step--1); opacity: 0.8; }
+  .ftr__base { margin-block-start: var(--space-7); padding-block-start: var(--space-5); border-block-start: 1px solid rgb(246 241 231 / 0.2); font-size: var(--step--1); opacity: 0.8;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5); }
+  .ftr__base p { margin: 0; }
+  .ftr__cookies { min-block-size: 44px; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-underline-offset: 0.2em; cursor: pointer; }
 </style>

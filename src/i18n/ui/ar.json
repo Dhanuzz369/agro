@@ -242,5 +242,10 @@
   "link.quoteVariety": "اطلب عرض سعر لـ {name}",
   "product.updated": "آخر تحديث {date}",
   "products.compare": "قارن منتجاتنا بنظرة سريعة",
-  "products.compare.product": "المنتج"
+  "products.compare.product": "المنتج",
+  "consent.label": "اختيار ملفات تعريف الارتباط",
+  "consent.text": "نستخدم ملفات تعريف الارتباط من Google Analytics لمعرفة الصفحات المفيدة للمشترين. لا إعلانات ولا بيع للبيانات. هل توافق؟",
+  "consent.allow": "موافق",
+  "consent.decline": "رفض",
+  "consent.settings": "إعدادات ملفات تعريف الارتباط"
 }

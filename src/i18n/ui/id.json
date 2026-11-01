@@ -242,5 +242,10 @@
   "link.quoteVariety": "Minta penawaran untuk {name}",
   "product.updated": "Terakhir diperbarui {date}",
   "products.compare": "Bandingkan produk kami sekilas",
-  "products.compare.product": "Produk"
+  "products.compare.product": "Produk",
+  "consent.label": "Pilihan cookie",
+  "consent.text": "Kami memakai cookie Google Analytics untuk melihat halaman mana yang berguna bagi pembeli. Tanpa iklan, tanpa menjual data. Izinkan?",
+  "consent.allow": "Izinkan",
+  "consent.decline": "Tolak",
+  "consent.settings": "Pengaturan cookie"
 }

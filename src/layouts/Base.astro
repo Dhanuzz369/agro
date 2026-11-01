@@ -8,6 +8,8 @@ import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import LanguageSwitcher from '../components/LanguageSwitcher.astro';
 import LanguageSuggestBanner from '../components/LanguageSuggestBanner.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import { GA_ID, CONSENT_REGIONS, CONSENT_KEY } from '../lib/analytics';
 import { htmlLang, isRtl, type Locale } from '../i18n/config';
 import { createT } from '../i18n/t';
 import { organizationLd } from '../lib/jsonld';
@@ -25,6 +27,8 @@ const site = await getSite();
 const ld = [organizationLd(site, Astro.site!.href, t('meta.homeDescription')), ...jsonLd];
 // Vercel serves /_vercel/* only on its own deployments; locally those paths 404 and log console errors.
 const onVercel = Boolean(process.env.VERCEL);
+// gtag.js loads on the live site only, so preview deploys and test runs never land in the GA4 reports.
+const gaLive = process.env.VERCEL_ENV === 'production';
 ---
 <!doctype html>
 <html lang={htmlLang[locale]} dir={isRtl(locale) ? 'rtl' : 'ltr'}>
@@ -44,6 +48,18 @@ const onVercel = Boolean(process.env.VERCEL);
     {locale === 'zh' && <noscript><link rel="stylesheet" href="/fonts/sc/400.css" /></noscript>}
     <SeoHead locale={locale} jsonLd={ld} {...seo} />
     <slot name="head" />
+    {/* Consent defaults must be queued before gtag.js runs; a saved choice is applied straight after them. */}
+    <script is:inline define:vars={{ gaId: GA_ID, regions: CONSENT_REGIONS, key: CONSENT_KEY }}>
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { dataLayer.push(arguments); };
+      const off = { ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' };
+      gtag('consent', 'default', { ...off, analytics_storage: 'denied', region: regions, wait_for_update: 500 });
+      gtag('consent', 'default', { ...off, analytics_storage: 'granted' });
+      try { const saved = localStorage.getItem(key); if (saved) gtag('consent', 'update', { analytics_storage: saved }); } catch {}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+    {gaLive && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>}
     {onVercel && <script is:inline defer src="/_vercel/insights/script.js"></script>}
     {onVercel && <script is:inline defer src="/_vercel/speed-insights/script.js"></script>}
   </head>
@@ -55,6 +71,8 @@ const onVercel = Boolean(process.env.VERCEL);
     <WhatsAppButton locale={locale} />
     <LanguageSwitcher locale={locale} path={seo.path} available={seo.available} />
     <LanguageSuggestBanner locale={locale} path={seo.path} available={seo.available} />
+    <ConsentBanner locale={locale} />
     <script>import '../scripts/motion';</script>
+    <script>import '../scripts/analytics';</script>
   </body>
 </html>

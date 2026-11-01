@@ -242,5 +242,10 @@
   "link.quoteVariety": "Solicitar cotação de {name}",
   "product.updated": "Última atualização: {date}",
   "products.compare": "Compare nossos produtos num relance",
-  "products.compare.product": "Produto"
+  "products.compare.product": "Produto",
+  "consent.label": "Escolha de cookies",
+  "consent.text": "Usamos cookies do Google Analytics para ver quais páginas são úteis aos compradores. Sem anúncios e sem venda de dados. Aceita?",
+  "consent.allow": "Aceitar",
+  "consent.decline": "Recusar",
+  "consent.settings": "Definições de cookies"
 }

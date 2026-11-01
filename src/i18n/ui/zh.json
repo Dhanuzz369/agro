@@ -242,5 +242,10 @@
   "link.quoteVariety": "获取{name}报价",
   "product.updated": "最后更新：{date}",
   "products.compare": "产品一览对比",
-  "products.compare.product": "产品"
+  "products.compare.product": "产品",
+  "consent.label": "Cookie 选择",
+  "consent.text": "我们使用 Google Analytics Cookie 了解哪些页面对采购商有用。不投放广告，不出售数据。是否允许？",
+  "consent.allow": "允许",
+  "consent.decline": "拒绝",
+  "consent.settings": "Cookie 设置"
 }
