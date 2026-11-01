@@ -16,6 +16,8 @@ const productDates = Object.fromEntries(readdirSync('src/content/products').map(
 ]));
 // Hub pages change when what they list changes: home and /products with the newest product, /blog with the
 // newest published post. The same dates are the pages' schema dateModified.
+// The privacy policy carries its own `updated` date, the same in every language.
+const privacyDate = readFileSync('src/content/legal/en/privacy.md', 'utf8').match(/^updated:\s*(\S+)/m)?.[1];
 const newest = (dates) => dates.filter(Boolean).sort().at(-1);
 const latestProduct = newest(Object.values(productDates));
 const latestPost = newest(readdirSync('src/content/blog/en')
@@ -25,6 +27,7 @@ const latestPost = newest(readdirSync('src/content/blog/en')
 const hubDate = (path) => {
   if (/^\/(?:[a-z]{2})?$/.test(path) || /^\/(?:[a-z]{2}\/)?products$/.test(path)) return latestProduct;
   if (/^\/(?:[a-z]{2}\/)?blog$/.test(path)) return latestPost;
+  if (/^\/(?:[a-z]{2}\/)?privacy$/.test(path)) return privacyDate;
   return undefined;
 };
 // Product photos go into the sitemap so Google Images can find every variety. The sitemap is written after the

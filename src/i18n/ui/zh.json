@@ -247,5 +247,6 @@
   "consent.text": "我们使用 Google Analytics Cookie 了解哪些页面对采购商有用。不投放广告，不出售数据。是否允许？",
   "consent.allow": "允许",
   "consent.decline": "拒绝",
-  "consent.settings": "Cookie 设置"
+  "consent.settings": "Cookie 设置",
+  "footer.privacy": "隐私政策"
 }

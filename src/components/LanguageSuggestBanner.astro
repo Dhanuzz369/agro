@@ -22,7 +22,9 @@ const strings = Object.fromEntries(available.map((l) => {
   import { suggestLocale, safeStorage } from '../lib/lang-switch';
   import { localizePath, stripLocale } from '../i18n/paths';
   import type { Locale } from '../i18n/config';
+  import { reserveSpaceUnder } from '../scripts/dock';
   const el = document.querySelector<HTMLElement>('[data-lang-suggest]');
+  if (el) reserveSpaceUnder(el, 'lang');
   if (el && !safeStorage.get('gb.suggest.dismissed') && !safeStorage.get('gb.lang')) {
     const available: Locale[] = JSON.parse(el.dataset.available!);
     const target = suggestLocale(navigator.languages ?? [navigator.language], el.dataset.current as Locale, available);

@@ -247,5 +247,6 @@
   "consent.text": "Wir nutzen Cookies von Google Analytics, um zu sehen, welche Seiten Einkäufern helfen. Keine Werbung, kein Datenverkauf. Zulassen?",
   "consent.allow": "Zulassen",
   "consent.decline": "Ablehnen",
-  "consent.settings": "Cookie-Einstellungen"
+  "consent.settings": "Cookie-Einstellungen",
+  "footer.privacy": "Datenschutzerklärung"
 }

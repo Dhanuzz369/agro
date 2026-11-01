@@ -1,11 +1,12 @@
 ---
 import { createT } from '../i18n/t';
+import { localizePath } from '../i18n/paths';
 import type { Locale } from '../i18n/config';
 interface Props { locale: Locale }
 const t = createT(Astro.props.locale);
 ---
 <div class="cc" data-consent hidden role="region" aria-label={t('consent.label')}>
-  <p>{t('consent.text')}</p>
+  <p>{t('consent.text')} <a href={localizePath('/privacy', Astro.props.locale)} title={t('footer.privacy')}>{t('footer.privacy')}</a></p>
   <div class="cc__actions">
     <button type="button" class="btn btn--ghost" data-consent-decline>{t('consent.decline')}</button>
     <button type="button" class="btn btn--primary" data-consent-allow>{t('consent.allow')}</button>
@@ -14,8 +15,10 @@ const t = createT(Astro.props.locale);
 <script>
   import { CONSENT_KEY, showsConsentBanner } from '../lib/analytics';
   import { safeStorage } from '../lib/lang-switch';
+  import { reserveSpaceUnder } from '../scripts/dock';
   const el = document.querySelector<HTMLElement>('[data-consent]');
   if (el) {
+    reserveSpaceUnder(el, 'consent');
     const answer = (value: 'granted' | 'denied') => {
       safeStorage.set(CONSENT_KEY, value);
       (window as unknown as { gtag: (...a: unknown[]) => void }).gtag('consent', 'update', { analytics_storage: value });

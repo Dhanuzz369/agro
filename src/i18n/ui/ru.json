@@ -247,5 +247,6 @@
   "consent.text": "Мы используем cookie Google Analytics, чтобы понять, какие страницы полезны покупателям. Без рекламы и продажи данных. Разрешить?",
   "consent.allow": "Разрешить",
   "consent.decline": "Отклонить",
-  "consent.settings": "Настройки cookie"
+  "consent.settings": "Настройки cookie",
+  "footer.privacy": "Политика конфиденциальности"
 }

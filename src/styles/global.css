@@ -5,6 +5,8 @@ body {
   margin: 0; background: var(--paper); color: var(--ink);
   font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6;
   overflow-x: clip;
+  /* room under the footer for a bar docked to the bottom of a phone screen (set by scripts/dock.ts) */
+  padding-block-end: max(var(--dock-consent, 0px), var(--dock-lang, 0px));
 }
 img, svg, video, canvas { display: block; max-width: 100%; height: auto; }
 h1, h2 { font-family: var(--font-display); font-weight: 300; line-height: 1.08; letter-spacing: -0.01em; margin: 0; text-wrap: balance; }

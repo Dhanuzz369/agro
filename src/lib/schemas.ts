@@ -63,6 +63,12 @@ export const productTextSchema = z.object({
   seo: z.object({ title: z.string().max(45), h1: z.string(), description: z.string(), keywords: z.array(z.string()).min(4).max(10) }),
 });
 
+export const legalSchema = z.object({
+  title: z.string(),
+  description: z.string().max(160),
+  updated: z.coerce.date(),
+});
+
 export const blogSchema = (image: ImageFn) =>
   z.object({
     title: z.string(),
